@@ -112,17 +112,15 @@ function getTitleString(country) {
 function buildCountryLocationsMarkerPositions(locations) {
     const markerPositions = [];
 
-    {
-        locations.map((location) => {
-            markerPositions.push({
-                latitude: location.latitude,
-                longitude: location.longitude,
-                title: location.title,
-                text: location.text,
-                url: buildLocationUrl(location)
-            })
+    locations.map((location) => {
+        markerPositions.push({
+            latitude: location.latitude,
+            longitude: location.longitude,
+            title: location.title,
+            text: location.text,
+            url: buildLocationUrl(location)
         })
-    }
+    })
 
     return markerPositions;
 }

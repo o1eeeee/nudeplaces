@@ -7,10 +7,10 @@ export default function Home({ countries }) {
   const Map = dynamic(
     () => import('../components/Map'),
     {
-        loading: () => <p>Map is loading...</p>,
-        ssr: false
+      loading: () => <p>Map is loading...</p>,
+      ssr: false
     }
-);
+  );
 
   return (
     <div>
@@ -24,7 +24,7 @@ export default function Home({ countries }) {
         <h1>
           Nude Places
         </h1>
-        <Map mapPosition={[51.165691,10.451526]} markerPositions={buildCountryMarkerPositions(countries)} zoom={3}></Map>
+        <Map mapPosition={[51.165691, 10.451526]} markerPositions={buildCountryMarkerPositions(countries)} zoom={3}></Map>
         <ul>
           {countries.map((country) => (
             <li key={country.isoCode}>
@@ -64,16 +64,14 @@ export async function getStaticProps() {
 function buildCountryMarkerPositions(countries) {
   const markerPositions = [];
 
-  {
-      countries.map((country) => {
-          markerPositions.push({
-              latitude: country.latitude,
-              longitude: country.longitude,
-              title: country.name,
-              url: buildCountryUrl(country)
-          })
-      })
-  }
+  countries.map((country) => {
+    markerPositions.push({
+      latitude: country.latitude,
+      longitude: country.longitude,
+      title: country.name,
+      url: buildCountryUrl(country)
+    })
+  })
 
   return markerPositions;
 }
