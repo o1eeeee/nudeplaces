@@ -22,7 +22,7 @@ export default function LocationsIndex({ country, regions, locationsByRegion, al
                 <h1>
                     {country.name}
                 </h1>
-                <Map mapPosition={[country.latitude, country.longitude]} markerPositions={buildCountryMarkerPositions(allLocations)} zoom={6}></Map>
+                <Map mapPosition={[country.latitude, country.longitude]} markerPositions={buildCountryLocationsMarkerPositions(allLocations)} zoom={6}></Map>
                 {regions.map((region) => (
                     <>
                         <h2>{region}</h2>
@@ -109,7 +109,7 @@ function getTitleString(country) {
 }
 
 
-function buildCountryMarkerPositions(locations) {
+function buildCountryLocationsMarkerPositions(locations) {
     const markerPositions = [];
 
     {
