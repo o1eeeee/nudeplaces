@@ -173,7 +173,6 @@ function buildLocationInfo(location) {
 }
 
 
-
 function buildLocationStreetAndHouseNr(location) {
     const streetAndHouseNr = [];
     location.street && streetAndHouseNr.push(location.street);
