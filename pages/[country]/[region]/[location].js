@@ -1,10 +1,19 @@
 import Head from 'next/head'
+import dynamic from 'next/dynamic';
 import initFirebase from '../../../lib/firebase';
 
 export default function LocationsDetail({ location }) {
     const locationInfo = buildLocationInfo(location);
     const locationStreetAndHouseNr = buildLocationStreetAndHouseNr(location);
     const locationPostcodeAndMunicipality = buildLocationPostcodeAndMunicipality(location);
+
+    const Map = dynamic(
+        () => import('../../../components/Map'),
+        {
+            loading: () => <p>Map is loading...</p>,
+            ssr: false
+        }
+    );
 
     return (
         <div>
@@ -32,6 +41,7 @@ export default function LocationsDetail({ location }) {
                     <dt>Last updated</dt>
                     <dd>{buildLocationLastUpdatedDate(location)}</dd>
                 </dl>
+                <Map mapPosition={[location.latitude, location.longitude]} zoom={15}></Map>
             </main>
         </div>
     )

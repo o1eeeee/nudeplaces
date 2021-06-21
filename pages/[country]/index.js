@@ -1,7 +1,16 @@
 import Head from 'next/head'
+import dynamic from 'next/dynamic';
 import initFirebase from '../../lib/firebase';
 
 export default function LocationsIndex({ country, locations }) {
+    const Map = dynamic(
+        () => import('../../components/Map'),
+        {
+            loading: () => <p>Map is loading...</p>,
+            ssr: false
+        }
+    );
+
     return (
         <div>
             <Head>
@@ -14,6 +23,7 @@ export default function LocationsIndex({ country, locations }) {
                 <h1>
                     {country.name}
                 </h1>
+                <Map mapPosition={[country.latitude, country.longitude]} markerPositions={buildCountryMarkerPositions(locations)} zoom={6}></Map>
                 {/*countries.map((country) => {
                     let countryLocations = locations[country.isoCode]['locations'];
                     return (
@@ -64,8 +74,6 @@ export async function getStaticProps({ params }) {
 
     const locations = await locationsData
 
-    console.log(locations)
-
     /*let countriesData = db.collection('countries').orderBy('name').limit(5).get().then((snapshot) => {
         return snapshot.docs.map(doc => doc.data())
     })
@@ -112,4 +120,22 @@ export async function getStaticPaths() {
         ],
         fallback: false,
     }
+}
+
+
+
+function buildCountryMarkerPositions(locations) {
+    const markerPositions = [];
+
+    {locations.map((location) => {
+        markerPositions.push({
+            latitude: location.latitude,
+            longitude: location.longitude,
+            title: location.title,
+            text: location.text,
+            url: `/${location.country}/${location.region}/${location.seoName}`
+        })
+    })}
+
+    return markerPositions;
 }

@@ -16,7 +16,7 @@ export default function Home({ countries }) {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
         {countries.map((country) => (
-          <span key={country.id}>{country.isoCode}</span>
+          <span key={country.isoCode}>{country.isoCode}</span>
         ))}
       </main>
     </div>
