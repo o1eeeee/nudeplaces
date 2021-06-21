@@ -32,7 +32,8 @@ export default function LocationsDetail({ location }) {
                 </Link>
                 <h1>
                     {location.title}
-                </h1>
+                </h1>                
+                <Map mapPosition={[location.latitude, location.longitude]} zoom={zoom}></Map>
                 <p>{location.text}</p>
                 <dl>
                     <dt>Location Info</dt>
@@ -60,7 +61,6 @@ export default function LocationsDetail({ location }) {
                     <dt>Last updated</dt>
                     <dd>{buildLocationLastUpdatedDate(location)}</dd>
                 </dl>
-                <Map mapPosition={[location.latitude, location.longitude]} zoom={zoom}></Map>
             </main>
         </div>
     )
