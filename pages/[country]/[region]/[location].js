@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import initFirebase from '../../../lib/firebase';
 
 export default function LocationsDetail({ location }) {
+    const zoom = 15;
     const locationInfo = buildLocationInfo(location);
     const locationStreetAndHouseNr = buildLocationStreetAndHouseNr(location);
     const locationPostcodeAndMunicipality = buildLocationPostcodeAndMunicipality(location);
@@ -31,7 +32,7 @@ export default function LocationsDetail({ location }) {
                 </h1>
                 <p>{location.text}</p>
                 <dl>
-                    <dt>Location info</dt>
+                    <dt>Location Info</dt>
                     <dd>
                         {locationInfo}
                         {locationInfo && locationStreetAndHouseNr && <br />}
@@ -39,12 +40,24 @@ export default function LocationsDetail({ location }) {
                         {(locationInfo || locationStreetAndHouseNr) && location.postcode && <br />}
                         {location.postcode && locationPostcodeAndMunicipality}
                     </dd>
-                    <dt>Position</dt>
-                    <dd>{location.latitude}<br />{location.longitude}</dd>
+                    <dt>Show on Map</dt>
+                    <dd>
+                        <ul>
+                            <li key="map0">
+                                <a target="_blank" href={`https://maps.google.com?q=${location.latitude},${location.longitude}`} rel="noopener noreferrer nofollow">Google Maps</a>
+                            </li>
+                            <li key="map1">
+                                <a target="_blank" href={`https://www.openstreetmap.org/index.html?mlat=${location.latitude}&mlon=${location.longitude}&zoom=${zoom}`} rel="noopener noreferrer nofollow">OpenStreetMap</a>
+                            </li>
+                            <li key="map2">
+                                <a target="_blank" href={`https://www.komoot.de/plan/@${location.latitude},${location.longitude},${zoom}z`} rel="noopener noreferrer nofollow">Komoot</a>
+                            </li>
+                        </ul>
+                    </dd>
                     <dt>Last updated</dt>
                     <dd>{buildLocationLastUpdatedDate(location)}</dd>
                 </dl>
-                <Map mapPosition={[location.latitude, location.longitude]} zoom={15}></Map>
+                <Map mapPosition={[location.latitude, location.longitude]} zoom={zoom}></Map>
             </main>
         </div>
     )
@@ -140,9 +153,9 @@ function buildLocationPostcodeAndMunicipality(location) {
 
 function buildLocationLastUpdatedDate(location) {
     const date = new Date(location.modifyDate);
-    return date.toLocaleDateString('de-DE', { 
-        year: "numeric", 
-        month: "2-digit", 
-        day: "2-digit" 
+    return date.toLocaleDateString('de-DE', {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
     });
 }
