@@ -1,0 +1,26 @@
+.locationDescription {
+    padding: 0 1rem;
+    font-style: italic;
+}
+
+.locationInfoList {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0;
+}
+
+.locationInfoList dt, .locationInfoList dd {
+    margin: 0;
+    padding: 0;
+}
+
+.locationInfoList dt {
+    padding: 0.5rem 1rem;
+    background-color: whitesmoke;
+    font-weight: 600;
+}
+
+.locationInfoList dd p {
+    padding: 0 1rem;
+}

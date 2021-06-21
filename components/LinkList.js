@@ -7,9 +7,13 @@ const LinkList = ({ listItems }) => {
         <ul className={styles.linkList}>
             {listItems.map((item, index) => (
                 <li key={index}>
-                    <Link href={item.href}>
-                        <a>{item.text}</a>
-                    </Link>
+                    {item.external ? (
+                        <a target="_blank" href={item.href} rel="noopener noreferrer nofollow">&#8618; {item.text ?? item.href}</a>
+                    ) : (
+                        <Link href={item.href}>
+                            <a>{item.text ?? item.href}</a>
+                        </Link>
+                    )}
                 </li>
             ))}
         </ul>
