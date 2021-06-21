@@ -18,7 +18,7 @@ const Map = ({ mapPosition, markerPositions, zoom }) => {
                     <Marker key={index} position={[markerPosition.latitude, markerPosition.longitude]}>
                         <Popup>
                             <h2>{markerPosition.title}</h2>
-                            <p>{markerPosition.text}</p>
+                            {markerPosition.text && <p>{markerPosition.text}</p>}
                             <Link href={markerPosition.url}>
                                 <a>Read more...</a>
                             </Link>
