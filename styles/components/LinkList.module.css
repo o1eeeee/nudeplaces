@@ -1,0 +1,14 @@
+.linkList {
+    margin: 0;
+    padding: 0;
+}
+
+.linkList li a {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.linkList li a:hover {
+    background-color: whitesmoke;
+    font-weight: 600;
+}

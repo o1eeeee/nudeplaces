@@ -23,7 +23,7 @@ export default function LocationsDetail({ location, country }) {
     return (
         <>
             <Head>
-                <title>{getTitleString(location)}</title>
+                <title>{getTitleString(location, country)}</title>
             </Head>
             <Layout mapData={mapData}>
                 <Link href={`/${encodeURIComponent(country.urlName)}`}>
@@ -121,11 +121,11 @@ export async function getStaticPaths() {
 }
 
 
-function getTitleString(location) {
+function getTitleString(location, country) {
     const titleString = [];
     titleString.push(location.title);
     titleString.push(buildLocationInfo(location) + ", " + buildLocationRegionAndCountry(location))
-    titleString.push("Nudist, Naturist, Clothing Optional Places and Beaches");
+    titleString.push(`Nudist, Naturist, Clothing Optional Places and Beaches in ${country.name}`);
     titleString.push("nudeplaces");
     return titleString.join(" – ")
 }

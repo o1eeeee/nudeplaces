@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import Link from 'next/link'
+import Link from 'next/link';
+import LinkList from '../../components/LinkList';
 import initFirebase from '../../lib/firebase';
 import Layout from '../../components/Layout';
 
@@ -29,15 +30,7 @@ export default function LocationsIndex({ country, regions, locationsByRegion, al
                 {regions.map((region) => (
                     <div key={region}>
                         <h2>{region}</h2>
-                        <ul>
-                            {locationsByRegion[region].map((location) => (
-                                <li key={location.UUID}>
-                                    <Link href={buildLocationUrl(location, country)}>
-                                        <a>{location.title}</a>
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
+                        <LinkList listItems={getLocationListItems(locationsByRegion[region], country)} />
                     </div>
                 ))}
             </Layout>
@@ -144,3 +137,17 @@ function buildCountryLocationsMarkerPositions(locations, country) {
 function buildLocationUrl(location, country) {
     return `/${encodeURIComponent(country.urlName)}/${encodeURIComponent(location.region)}/${encodeURIComponent(location.seoName)}`;
 }
+
+
+function getLocationListItems(locations, country) {
+    const listItems = [];
+  
+    locations.map((location) => {
+      listItems.push({
+        href: buildLocationUrl(location, country),
+        text: location.title,
+      })
+    })
+  
+    return listItems;
+  }
