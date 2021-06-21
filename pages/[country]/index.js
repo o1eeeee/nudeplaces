@@ -7,7 +7,7 @@ export default function LocationsIndex({ country, regions, locationsByRegion, al
 
     const mapData = {
         mapPosition: [
-            country.latitude, 
+            country.latitude,
             country.longitude
         ],
         markerPositions: buildCountryLocationsMarkerPositions(allLocations),
@@ -20,13 +20,13 @@ export default function LocationsIndex({ country, regions, locationsByRegion, al
                 <title>{getTitleString(country)}</title>
             </Head>
             <Layout mapData={mapData}>
-            <h1>
+                <h1>
                     {country.name}
                 </h1>
                 {regions.map((region) => (
-                    <>
+                    <div key={region}>
                         <h2>{region}</h2>
-                        <ul key={region}>
+                        <ul>
                             {locationsByRegion[region].map((location) => (
                                 <li key={location.UUID}>
                                     <Link href={buildLocationUrl(location)}>
@@ -35,7 +35,7 @@ export default function LocationsIndex({ country, regions, locationsByRegion, al
                                 </li>
                             ))}
                         </ul>
-                    </>
+                    </div>
                 ))}
             </Layout>
         </>
