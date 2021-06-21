@@ -1,5 +1,6 @@
 .locationDescription {
-    padding: 0 1rem;
+    padding: 0.5rem 1rem;
+    margin: 0;
     font-style: italic;
 }
 
@@ -22,5 +23,17 @@
 }
 
 .locationInfoList dd p {
-    padding: 0 1rem;
+    padding: 0.5rem 1rem;
+    margin: 0;
+}
+
+.reportAsInappropriateButton {
+    display: block;
+    padding: 1rem;
+    font-size: 120%;
+    border-radius: 0;
+    border: 0;
+    cursor: pointer;
+    background-color: whitesmoke;
+    text-align: center;
 }

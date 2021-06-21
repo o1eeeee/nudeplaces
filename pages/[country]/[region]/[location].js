@@ -85,6 +85,7 @@ export default function LocationsDetail({ location, country }) {
                     <dt>Last updated</dt>
                     <dd><p>{buildLocationLastUpdatedDate(location)}</p></dd>
                 </dl>
+                <button className={styles.reportAsInappropriateButton}>Report As Inappropriate</button>
             </Layout>
         </>
     )
