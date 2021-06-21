@@ -45,6 +45,7 @@ export async function getStaticProps({ params }) {
 
     let db = await initFirebase()
 
+    // Fetch country
     let countryData = db.collection('countries').where('urlName', '==', params.country).limit(1).get().then((snapshot) => {
         return snapshot.docs.map(doc => doc.data())
     }).catch((error) => {
@@ -52,6 +53,7 @@ export async function getStaticProps({ params }) {
     });
     const country = await countryData
 
+    // Fetch locations for country sorted by region and title
     let locationsData = db.collection('locations')
         .where('country', '==', country[0].isoCode)
         .where('region', '!=', null)
@@ -69,8 +71,12 @@ export async function getStaticProps({ params }) {
     const regions = [];
     const locationsByRegion = {};
 
-    locations.map((location) => {
-        if (!locationsByRegion[location.region]) {
+    // Filter out locations that don't have a seoName
+    const filteredLocations = locations.filter(location => location.seoName != null)
+
+    // Distribute locations to region arrays
+    filteredLocations.map((location) => {
+        if (location.region && !locationsByRegion[location.region]) {
             regions.push(location.region);
             locationsByRegion[location.region] = [];
         }
@@ -83,7 +89,7 @@ export async function getStaticProps({ params }) {
             country: country ? country[0] : {},
             regions: regions ?? [],
             locationsByRegion: locationsByRegion ?? {},
-            allLocations: locations ?? {}
+            allLocations: filteredLocations ?? {}
         }
     }
 }
