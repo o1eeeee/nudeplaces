@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import initFirebase from '../../../lib/firebase';
 import Layout from '../../../components/Layout';
 
@@ -15,6 +14,11 @@ export default function LocationsDetail({ location, country }) {
         zoom: zoom,
     }
 
+    const backButtonData = {
+        href: `/${encodeURIComponent(country.urlName)}`,
+        text: country.name,
+    }
+
     const locationInfo = buildLocationInfo(location);
     const locationStreetAndHouseNr = buildLocationStreetAndHouseNr(location);
     const locationPostcodeAndMunicipality = buildLocationPostcodeAndMunicipality(location);
@@ -25,10 +29,7 @@ export default function LocationsDetail({ location, country }) {
             <Head>
                 <title>{getTitleString(location, country)}</title>
             </Head>
-            <Layout mapData={mapData}>
-                <Link href={`/${encodeURIComponent(country.urlName)}`}>
-                    <a>&larr; {country.name}</a>
-                </Link>
+            <Layout mapData={mapData} backButtonData={backButtonData}>
                 <h1>
                     {location.title}
                 </h1>

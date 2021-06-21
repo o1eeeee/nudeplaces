@@ -3,7 +3,52 @@
 }
 
 .content {
+    display: flex;
+    flex-direction: column;
     width: 25%;
+    min-width: 375px;
     height: 100vh;
+    overflow-y: hidden;
+}
+
+.content>ul {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     overflow-y: auto;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.content h1, .content h2 {
+    padding: 0rem 1rem;
+}
+
+.content h1 {
+    margin: 1rem 0;
+}
+
+.content h2 {
+    margin: 0.5rem 0;
+}
+
+.addButton, .backButton {
+    display: block;
+    padding: 1rem;
+    font-size: 120%;
+    border-radius: 0;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.addButton {
+    background-color: #1de9b6;
+    text-align: center;
+}
+
+.backButton {
+    background-color: #2979ff;
+    color: white;
 }

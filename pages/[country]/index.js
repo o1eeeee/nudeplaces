@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import LinkList from '../../components/LinkList';
 import initFirebase from '../../lib/firebase';
 import Layout from '../../components/Layout';
@@ -15,24 +14,28 @@ export default function LocationsIndex({ country, regions, locationsByRegion, al
         zoom: 6,
     }
 
+    const backButtonData = {
+        href: '/',
+        text: "Show all nude places",
+    }
+
     return (
         <>
             <Head>
                 <title>{getTitleString(country)}</title>
             </Head>
-            <Layout mapData={mapData}>
-                <Link href={'/'}>
-                    <a>&larr; Show all nude places</a>
-                </Link>
+            <Layout mapData={mapData} backButtonData={backButtonData}>
                 <h1>
                     {country.name}
                 </h1>
-                {regions.map((region) => (
-                    <div key={region}>
-                        <h2>{region}</h2>
-                        <LinkList listItems={getLocationListItems(locationsByRegion[region], country)} />
-                    </div>
-                ))}
+                <ul>
+                    {regions.map((region) => (
+                        <li key={region}>
+                            <h2>{region}</h2>
+                            <LinkList listItems={getLocationListItems(locationsByRegion[region], country)} />
+                        </li>
+                    ))}
+                </ul>
             </Layout>
         </>
     )
@@ -141,13 +144,13 @@ function buildLocationUrl(location, country) {
 
 function getLocationListItems(locations, country) {
     const listItems = [];
-  
+
     locations.map((location) => {
-      listItems.push({
-        href: buildLocationUrl(location, country),
-        text: location.title,
-      })
+        listItems.push({
+            href: buildLocationUrl(location, country),
+            text: location.title,
+        })
     })
-  
+
     return listItems;
-  }
+}
