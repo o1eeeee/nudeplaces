@@ -94,10 +94,22 @@ export async function getStaticProps({ params }) {
 
 
 export async function getStaticPaths() {
+    let db = await initFirebase()
+    let data = db.collection('countries').get().then((snapshot) => {
+        return snapshot.docs.map(doc => doc.data())
+    })
+        .catch((error) => {
+            console.log("Error getting documents: ", error);
+        });
+
+    const countries = await data
+
+    const paths = countries.map((country) => ({
+        params: { country: country.urlName }
+    }))
+
     return {
-        paths: [
-            { params: { country: 'germany' } },
-        ],
+        paths,
         fallback: false,
     }
 }
