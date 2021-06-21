@@ -1,8 +1,9 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import Link from 'next/link'
 import dynamic from 'next/dynamic';
 import initFirebase from '../../lib/firebase';
 
-export default function LocationsIndex({ country, locations }) {
+export default function LocationsIndex({ country, regions, locationsByRegion, allLocations }) {
     const Map = dynamic(
         () => import('../../components/Map'),
         {
@@ -21,26 +22,21 @@ export default function LocationsIndex({ country, locations }) {
                 <h1>
                     {country.name}
                 </h1>
-                <Map mapPosition={[country.latitude, country.longitude]} markerPositions={buildCountryMarkerPositions(locations)} zoom={6}></Map>
-                {/*countries.map((country) => {
-                    let countryLocations = locations[country.isoCode]['locations'];
-                    return (
-                        <>
-                            <h2 key={country.isoCode}>{country.name}</h2>
-                            <ul>
-                                {countryLocations && countryLocations.map((location) => (
-                                    <li key={location.UUID}>{location.title}</li>
-                                ))}
-                            </ul>
-                        </>
-                    )
-                }
-            )*/}
-            <ul>
-                {locations.map((location) => (
-                    <li key={location.UUID}>{location.title}</li>
+                <Map mapPosition={[country.latitude, country.longitude]} markerPositions={buildCountryMarkerPositions(allLocations)} zoom={6}></Map>
+                {regions.map((region) => (
+                    <>
+                        <h2>{region}</h2>
+                        <ul key={region}>
+                            {locationsByRegion[region].map((location) => (
+                                <li key={location.UUID}>
+                                    <Link href={buildLocationUrl(location)}>
+                                        <a>{location.title}</a>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </>
                 ))}
-            </ul>
             </main>
         </div>
     )
@@ -64,48 +60,31 @@ export async function getStaticProps({ params }) {
         .orderBy('title')
         .limit(20)
         .get().then((snapshot) => {
-        return snapshot.docs.map(doc => doc.data())
-    })
+            return snapshot.docs.map(doc => doc.data())
+        })
         .catch((error) => {
             console.log("Error getting location data: ", error);
         });
 
     const locations = await locationsData
+    const regions = [];
+    const locationsByRegion = {};
 
-    /*let countriesData = db.collection('countries').orderBy('name').limit(5).get().then((snapshot) => {
-        return snapshot.docs.map(doc => doc.data())
-    })
-        .catch((error) => {
-            console.log("Error getting country data: ", error);
-        });
-
-    const countries = await countriesData
-    const countriesByIsoCode = {};
-    countries.map((country) => {
-        countriesByIsoCode[country.isoCode] = country
-    })
-
-    let locationsData = db.collection('locations').orderBy('country').orderBy('title').limit(10).get().then((snapshot) => {
-        return snapshot.docs.map(doc => doc.data())
-    })
-        .catch((error) => {
-            console.log("Error getting location data: ", error);
-        });
-
-    const unsortedLocations = await locationsData
-    unsortedLocations.map((location) => {
-        if (!countriesByIsoCode[location.country]["locations"]) {
-            countriesByIsoCode[location.country]["locations"] = []
+    locations.map((location) => {
+        if (!locationsByRegion[location.region]) {
+            regions.push(location.region);
+            locationsByRegion[location.region] = [];
         }
-        countriesByIsoCode[location.country]["locations"].push(location)
-    })
 
-    const locations = countriesByIsoCode;*/
+        locationsByRegion[location.region].push(location);
+    })
 
     return {
         props: {
             country: country ? country[0] : {},
-            locations: locations ?? {}
+            regions: regions ?? [],
+            locationsByRegion: locationsByRegion ?? {},
+            allLocations: locations ?? {}
         }
     }
 }
@@ -133,15 +112,22 @@ function getTitleString(country) {
 function buildCountryMarkerPositions(locations) {
     const markerPositions = [];
 
-    {locations.map((location) => {
-        markerPositions.push({
-            latitude: location.latitude,
-            longitude: location.longitude,
-            title: location.title,
-            text: location.text,
-            url: `/${location.country}/${location.region}/${location.seoName}`
+    {
+        locations.map((location) => {
+            markerPositions.push({
+                latitude: location.latitude,
+                longitude: location.longitude,
+                title: location.title,
+                text: location.text,
+                url: buildLocationUrl(location)
+            })
         })
-    })}
+    }
 
     return markerPositions;
+}
+
+
+function buildLocationUrl(location) {
+    return `/${location.country}/${location.region}/${location.seoName}`;
 }

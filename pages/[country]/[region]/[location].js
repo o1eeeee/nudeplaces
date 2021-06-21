@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import initFirebase from '../../../lib/firebase';
 
@@ -22,6 +23,9 @@ export default function LocationsDetail({ location }) {
             </Head>
 
             <main>
+                <Link href={`/${location.country}`}>
+                    <a>&larr; Show all nude places in {location.country}</a>
+                </Link>
                 <h1>
                     {location.title}
                 </h1>
