@@ -131,16 +131,49 @@ export async function getStaticProps({ params }) {
 
 
 export async function getStaticPaths() {
+    let db = await initFirebase()
+
+    // Fetch countries
+    let countriesData = db.collection('countries').get().then((snapshot) => {
+        return snapshot.docs.map(doc => doc.data())
+    }).catch((error) => {
+        console.log("Error getting country data: ", error);
+    });
+    const countries = await countriesData
+
+    // Countries by isoCode
+    const countriesByIsoCode = [];
+    countries.map((country) => {
+        countriesByIsoCode[country.isoCode] = country;
+    })
+
+    console.log(countriesByIsoCode['AG']['name']);
+
+    // Fetch locations
+    let locationsData = db.collection('locations')
+        .where('region', '!=', null)
+        .get().then((snapshot) => {
+            return snapshot.docs.map(doc => doc.data())
+        })
+        .catch((error) => {
+            console.log("Error getting location data: ", error);
+        });
+
+    const locations = await locationsData
+
+    // Filter out locations that don't have a seoName
+    const filteredLocations = locations.filter(location => location.seoName != null)
+
+    const paths = filteredLocations.map((location) => ({
+        params: { 
+            country: countriesByIsoCode[location.country]['name'],
+            region: location.region,
+            location: location.title,
+        }
+    }))
+
     return {
-        paths: [
-            {
-                params: {
-                    country: 'germany',
-                    region: 'BB',
-                    location: 'felixsee__bohsdorf-felixsee'
-                }
-            },
-        ],
+        paths,
         fallback: false,
     }
 }
