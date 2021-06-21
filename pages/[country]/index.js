@@ -1,28 +1,28 @@
 import Head from 'next/head';
 import Link from 'next/link'
-import dynamic from 'next/dynamic';
 import initFirebase from '../../lib/firebase';
+import Layout from '../../components/Layout';
 
 export default function LocationsIndex({ country, regions, locationsByRegion, allLocations }) {
-    const Map = dynamic(
-        () => import('../../components/Map'),
-        {
-            loading: () => <p>Map is loading...</p>,
-            ssr: false
-        }
-    );
+
+    const mapData = {
+        mapPosition: [
+            country.latitude, 
+            country.longitude
+        ],
+        markerPositions: buildCountryLocationsMarkerPositions(allLocations),
+        zoom: 6,
+    }
 
     return (
-        <div>
+        <>
             <Head>
                 <title>{getTitleString(country)}</title>
             </Head>
-
-            <main>
-                <h1>
+            <Layout mapData={mapData}>
+            <h1>
                     {country.name}
                 </h1>
-                <Map mapPosition={[country.latitude, country.longitude]} markerPositions={buildCountryLocationsMarkerPositions(allLocations)} zoom={6}></Map>
                 {regions.map((region) => (
                     <>
                         <h2>{region}</h2>
@@ -37,8 +37,8 @@ export default function LocationsIndex({ country, regions, locationsByRegion, al
                         </ul>
                     </>
                 ))}
-            </main>
-        </div>
+            </Layout>
+        </>
     )
 }
 

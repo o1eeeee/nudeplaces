@@ -1,39 +1,36 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import initFirebase from '../../../lib/firebase';
+import Layout from '../../../components/Layout';
 
 export default function LocationsDetail({ location }) {
     const zoom = 15;
     const lat = encodeURIComponent(location.latitude);
     const lng = encodeURIComponent(location.longitude);
+    const mapData = {
+        mapPosition: [
+            location.latitude,
+            location.longitude
+        ],
+        zoom: zoom,
+    }
 
     const locationInfo = buildLocationInfo(location);
     const locationStreetAndHouseNr = buildLocationStreetAndHouseNr(location);
     const locationPostcodeAndMunicipality = buildLocationPostcodeAndMunicipality(location);
 
-    const Map = dynamic(
-        () => import('../../../components/Map'),
-        {
-            loading: () => <p>Map is loading...</p>,
-            ssr: false
-        }
-    );
-
     return (
-        <div>
+        <>
             <Head>
                 <title>{getTitleString(location)}</title>
             </Head>
-
-            <main>
+            <Layout mapData={mapData}>
                 <Link href={`/${encodeURIComponent(location.country)}`}>
                     <a>&larr; Show all nude places in {location.country}</a>
                 </Link>
                 <h1>
                     {location.title}
-                </h1>                
-                <Map mapPosition={[location.latitude, location.longitude]} zoom={zoom}></Map>
+                </h1>
                 <p>{location.text}</p>
                 <dl>
                     <dt>Location Info</dt>
@@ -61,8 +58,8 @@ export default function LocationsDetail({ location }) {
                     <dt>Last updated</dt>
                     <dd>{buildLocationLastUpdatedDate(location)}</dd>
                 </dl>
-            </main>
-        </div>
+            </Layout>
+        </>
     )
 }
 
