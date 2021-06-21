@@ -129,5 +129,5 @@ function buildCountryLocationsMarkerPositions(locations) {
 
 
 function buildLocationUrl(location) {
-    return `/${location.country}/${location.region}/${location.seoName}`;
+    return `/${encodeURIComponent(location.country)}/${encodeURIComponent(location.region)}/${encodeURIComponent(location.seoName)}`;
 }

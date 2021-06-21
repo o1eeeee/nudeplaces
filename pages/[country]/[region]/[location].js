@@ -5,6 +5,9 @@ import initFirebase from '../../../lib/firebase';
 
 export default function LocationsDetail({ location }) {
     const zoom = 15;
+    const lat = encodeURIComponent(location.latitude);
+    const lng = encodeURIComponent(location.longitude);
+
     const locationInfo = buildLocationInfo(location);
     const locationStreetAndHouseNr = buildLocationStreetAndHouseNr(location);
     const locationPostcodeAndMunicipality = buildLocationPostcodeAndMunicipality(location);
@@ -24,7 +27,7 @@ export default function LocationsDetail({ location }) {
             </Head>
 
             <main>
-                <Link href={`/${location.country}`}>
+                <Link href={`/${encodeURIComponent(location.country)}`}>
                     <a>&larr; Show all nude places in {location.country}</a>
                 </Link>
                 <h1>
@@ -44,13 +47,13 @@ export default function LocationsDetail({ location }) {
                     <dd>
                         <ul>
                             <li key="map0">
-                                <a target="_blank" href={`https://maps.google.com?q=${location.latitude},${location.longitude}`} rel="noopener noreferrer nofollow">Google Maps</a>
+                                <a target="_blank" href={`https://maps.google.com?q=${lat},${lng}`} rel="noopener noreferrer nofollow">Google Maps</a>
                             </li>
                             <li key="map1">
-                                <a target="_blank" href={`https://www.openstreetmap.org/index.html?mlat=${location.latitude}&mlon=${location.longitude}&zoom=${zoom}`} rel="noopener noreferrer nofollow">OpenStreetMap</a>
+                                <a target="_blank" href={`https://www.openstreetmap.org/index.html?mlat=${lat}&mlon=${lng}&zoom=${zoom}`} rel="noopener noreferrer nofollow">OpenStreetMap</a>
                             </li>
                             <li key="map2">
-                                <a target="_blank" href={`https://www.komoot.de/plan/@${location.latitude},${location.longitude},${zoom}z`} rel="noopener noreferrer nofollow">Komoot</a>
+                                <a target="_blank" href={`https://www.komoot.de/plan/@${lat},${lng},${zoom}z`} rel="noopener noreferrer nofollow">Komoot</a>
                             </li>
                         </ul>
                     </dd>
