@@ -116,6 +116,7 @@ function buildLocationInfo(location) {
     location.neighbourhood && locationInfo.push(location.neighbourhood);
     location.municipality && locationInfo.push(location.municipality);
     location.subregion && locationInfo.push(location.subregion);
+    location.region && locationInfo.push(location.region);
     return locationInfo.join(", ");
 }
 
