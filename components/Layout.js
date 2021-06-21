@@ -1,8 +1,5 @@
-import Head from 'next/head'
 import dynamic from 'next/dynamic';
 import styles from '../styles/components/Layout.module.css';
-/*import Header from './Header';
-import Footer from './Footer';*/
 
 const Layout = ({ children, mapData }) => {    
     
