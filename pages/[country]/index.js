@@ -10,7 +10,7 @@ export default function LocationsIndex({ country, regions, locationsByRegion, al
             country.latitude,
             country.longitude
         ],
-        markerPositions: buildCountryLocationsMarkerPositions(allLocations),
+        markerPositions: buildCountryLocationsMarkerPositions(allLocations, country),
         zoom: 6,
     }
 
@@ -32,7 +32,7 @@ export default function LocationsIndex({ country, regions, locationsByRegion, al
                         <ul>
                             {locationsByRegion[region].map((location) => (
                                 <li key={location.UUID}>
-                                    <Link href={buildLocationUrl(location)}>
+                                    <Link href={buildLocationUrl(location, country)}>
                                         <a>{location.title}</a>
                                     </Link>
                                 </li>
@@ -49,7 +49,7 @@ export async function getStaticProps({ params }) {
 
     let db = await initFirebase()
 
-    let countryData = db.collection('countries').where('isoCode', '==', params.country).limit(1).get().then((snapshot) => {
+    let countryData = db.collection('countries').where('urlName', '==', params.country).limit(1).get().then((snapshot) => {
         return snapshot.docs.map(doc => doc.data())
     }).catch((error) => {
         console.log("Error getting country data: ", error);
@@ -57,7 +57,7 @@ export async function getStaticProps({ params }) {
     const country = await countryData
 
     let locationsData = db.collection('locations')
-        .where('country', '==', params.country)
+        .where('country', '==', country[0].isoCode)
         .where('region', '!=', null)
         .orderBy('region')
         .orderBy('title')
@@ -96,7 +96,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
     return {
         paths: [
-            { params: { country: 'DE' } },
+            { params: { country: 'germany' } },
         ],
         fallback: false,
     }
@@ -112,7 +112,7 @@ function getTitleString(country) {
 }
 
 
-function buildCountryLocationsMarkerPositions(locations) {
+function buildCountryLocationsMarkerPositions(locations, country) {
     const markerPositions = [];
 
     locations.map((location) => {
@@ -121,7 +121,7 @@ function buildCountryLocationsMarkerPositions(locations) {
             longitude: location.longitude,
             title: location.title,
             text: location.text,
-            url: buildLocationUrl(location)
+            url: buildLocationUrl(location, country)
         })
     })
 
@@ -129,6 +129,6 @@ function buildCountryLocationsMarkerPositions(locations) {
 }
 
 
-function buildLocationUrl(location) {
-    return `/${encodeURIComponent(location.country)}/${encodeURIComponent(location.region)}/${encodeURIComponent(location.seoName)}`;
+function buildLocationUrl(location, country) {
+    return `/${encodeURIComponent(country.urlName)}/${encodeURIComponent(location.region)}/${encodeURIComponent(location.seoName)}`;
 }

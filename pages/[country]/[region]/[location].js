@@ -3,7 +3,7 @@ import Link from 'next/link';
 import initFirebase from '../../../lib/firebase';
 import Layout from '../../../components/Layout';
 
-export default function LocationsDetail({ location }) {
+export default function LocationsDetail({ location, country }) {
     const zoom = 15;
     const lat = encodeURIComponent(location.latitude);
     const lng = encodeURIComponent(location.longitude);
@@ -18,6 +18,7 @@ export default function LocationsDetail({ location }) {
     const locationInfo = buildLocationInfo(location);
     const locationStreetAndHouseNr = buildLocationStreetAndHouseNr(location);
     const locationPostcodeAndMunicipality = buildLocationPostcodeAndMunicipality(location);
+    const locationRegionAndCountry = buildLocationRegionAndCountry(location, country);
 
     return (
         <>
@@ -25,8 +26,8 @@ export default function LocationsDetail({ location }) {
                 <title>{getTitleString(location)}</title>
             </Head>
             <Layout mapData={mapData}>
-                <Link href={`/${encodeURIComponent(location.country)}`}>
-                    <a>&larr; Show all nude places in {location.country}</a>
+                <Link href={`/${encodeURIComponent(country.urlName)}`}>
+                    <a>&larr; {country.name}</a>
                 </Link>
                 <h1>
                     {location.title}
@@ -40,6 +41,8 @@ export default function LocationsDetail({ location }) {
                         {locationStreetAndHouseNr}
                         {(locationInfo || locationStreetAndHouseNr) && location.postcode && <br />}
                         {location.postcode && locationPostcodeAndMunicipality}
+                        {(locationInfo || locationStreetAndHouseNr || location.postcode) && <br />}
+                        {locationRegionAndCountry}
                     </dd>
                     <dt>Show on Map</dt>
                     <dd>
@@ -81,9 +84,22 @@ export async function getStaticProps({ params }) {
 
     const location = await locationData
 
+    let countryData = db.collection('countries')
+    .where('isoCode', '==', location[0].country)
+    .limit(1)
+    .get().then((snapshot) => {
+        return snapshot.docs.map(doc => doc.data())
+    })
+    .catch((error) => {
+        console.log("Error getting country data: ", error)
+    })
+
+    const country = await countryData
+
     return {
         props: {
-            location: location ? location[0] : {}
+            location: location ? location[0] : {},
+            country: country ? country[0] : {}
         }
     }
 }
@@ -94,7 +110,7 @@ export async function getStaticPaths() {
         paths: [
             {
                 params: {
-                    country: 'DE',
+                    country: 'germany',
                     region: 'BB',
                     location: 'felixsee__bohsdorf-felixsee'
                 }
@@ -116,10 +132,10 @@ function getTitleString(location) {
 
 
 
-function buildLocationRegionAndCountry(location) {
+function buildLocationRegionAndCountry(location, country) {
     const regionAndCountry = [];
     location.region && regionAndCountry.push(location.region);
-    location.country && regionAndCountry.push(location.country);
+    country && regionAndCountry.push(country.name);
     return regionAndCountry.join(", ");
 }
 
@@ -129,7 +145,6 @@ function buildLocationInfo(location) {
     location.neighbourhood && locationInfo.push(location.neighbourhood);
     location.municipality && locationInfo.push(location.municipality);
     location.subregion && locationInfo.push(location.subregion);
-    location.region && locationInfo.push(location.region);
     return locationInfo.join(", ");
 }
 

@@ -75,5 +75,5 @@ function buildCountryMarkerPositions(countries) {
 
 
 function buildCountryUrl(country) {
-  return `/${encodeURIComponent(country.isoCode)}`;
+  return `/${encodeURIComponent(country.urlName)}`;
 }
