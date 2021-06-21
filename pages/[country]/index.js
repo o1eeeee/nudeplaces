@@ -59,7 +59,6 @@ export async function getStaticProps({ params }) {
         .where('region', '!=', null)
         .orderBy('region')
         .orderBy('title')
-        .limit(20)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
         })
