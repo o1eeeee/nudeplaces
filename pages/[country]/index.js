@@ -20,6 +20,9 @@ export default function LocationsIndex({ country, regions, locationsByRegion, al
                 <title>{getTitleString(country)}</title>
             </Head>
             <Layout mapData={mapData}>
+                <Link href={'/'}>
+                    <a>&larr; Show all nude places</a>
+                </Link>
                 <h1>
                     {country.name}
                 </h1>
