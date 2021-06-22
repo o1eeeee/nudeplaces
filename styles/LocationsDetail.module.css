@@ -1,7 +1,9 @@
 .locationDescription {
+    max-height: 120px;
+    overflow: auto;
     padding: 0.5rem 1rem;
     margin: 0;
-    font-style: italic;
+    font-style: italic;    
 }
 
 .locationInfoList {
@@ -9,6 +11,7 @@
     flex-direction: column;
     flex: 1;
     margin: 0;
+    overflow: auto;
 }
 
 .locationInfoList dt, .locationInfoList dd {
