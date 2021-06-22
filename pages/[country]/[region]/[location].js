@@ -178,7 +178,7 @@ export async function getStaticPaths() {
 
     const paths = filteredLocations.map((location) => ({
         params: {
-            country: countriesByIsoCode[location.country]['seoName'] ?? "unknown",
+            country: countriesByIsoCode[location.country] ? (countriesByIsoCode[location.country]['seoName'] ?? "unknown") : "unknown",
             region: location.region,
             location: location.title,
         }
