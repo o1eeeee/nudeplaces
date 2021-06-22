@@ -118,7 +118,7 @@ export async function getStaticProps({ params }) {
     const location = await locationData
 
     let countryData = db.collection('countries')
-        .where('isoCode', '==', location[0].country)
+        .where('urlName', '==', params.country)
         .limit(1)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
