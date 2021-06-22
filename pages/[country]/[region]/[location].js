@@ -79,6 +79,7 @@ export default function LocationsDetail({ location, country }) {
             </dl>
         )
     }
+    LocationInfoList.displayName = 'LocationInfoList';
 
     return (
         <>

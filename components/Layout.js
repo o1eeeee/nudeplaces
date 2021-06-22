@@ -13,6 +13,7 @@ export default function Layout({ children, mapData, backButtonData }) {
             ssr: false
         }
     );
+    Map.displayName = 'Map';
 
     const ButtonBar = () => {
         return (
@@ -31,6 +32,7 @@ export default function Layout({ children, mapData, backButtonData }) {
             </div>
         )
     };
+    ButtonBar.displayName = 'ButtonBar';
 
     return (
         <>
