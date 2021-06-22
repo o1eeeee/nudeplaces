@@ -1,0 +1,9 @@
+.aboutLink {
+    align-self: center;
+    margin-top: 1.5rem;
+}
+
+.aboutLink:hover,
+.aboutLink:focus {
+    font-weight: 500;
+}

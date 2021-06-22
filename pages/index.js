@@ -1,7 +1,9 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import LinkList from '../components/LinkList';
 import Layout from '../components/Layout';
 import initFirebase from '../lib/firebase';
+import styles from '../styles/Home.module.css';
 
 export default function Home({ countries }) {
   const mapData = {
@@ -28,6 +30,9 @@ export default function Home({ countries }) {
           Countries
         </h1>
         <LinkList listItems={getCountryListItems(countries)} />
+        <Link href={'/about'}>
+          <a className={styles.aboutLink}>About and Privacy</a>
+        </Link>
       </Layout>
     </div>
   )
