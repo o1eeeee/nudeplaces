@@ -9,6 +9,7 @@ export default function Layout({ children, mapData, backButtonData }) {
     const Map = dynamic(
         () => import('./Map'),
         {
+            // eslint-disable-next-line react/display-name
             loading: () => <p>Map is loading...</p>,
             ssr: false
         }
