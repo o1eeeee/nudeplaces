@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import styles from '../styles/components/LinkList.module.css';
 
-const LinkList = ({ listItems }) => {
-
+export default function LinkList({ listItems }) {
     return (
         <ul className={styles.linkList}>
             {listItems.map((item, index) => (
@@ -19,5 +18,3 @@ const LinkList = ({ listItems }) => {
         </ul>
     )
 }
-
-export default LinkList;

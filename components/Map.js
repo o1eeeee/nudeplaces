@@ -5,7 +5,7 @@ import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import 'leaflet-defaulticon-compatibility';
 import Link from 'next/link';
 
-const Map = ({ mapPosition, markerPositions, zoom }) => {
+export default function Map ({ mapPosition, markerPositions, zoom }) {
     return (
         <MapContainer center={mapPosition} zoom={zoom} scrollWheelZoom={false} style={{ height: "100vh", width: "100%" }}>
             <TileLayer
@@ -28,5 +28,3 @@ const Map = ({ mapPosition, markerPositions, zoom }) => {
         </MapContainer>
     )
 }
-
-export default Map

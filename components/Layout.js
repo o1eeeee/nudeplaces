@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import styles from '../styles/components/Layout.module.css';
 import { useState } from 'react';
 
-const Layout = ({ children, mapData, backButtonData }) => {
+export default function Layout({ children, mapData, backButtonData }) {
     const [showMap, setShowMap] = useState(false);
 
     const Map = dynamic(
@@ -53,5 +53,3 @@ const Layout = ({ children, mapData, backButtonData }) => {
         </>
     )
 }
-
-export default Layout;
