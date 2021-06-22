@@ -15,23 +15,21 @@ export default function Layout({ children, mapData, backButtonData }) {
     );
     Map.displayName = 'Map';
 
-    const ButtonBar = () => {
-        return (
-            <div className={styles.buttonBar}>
-                {backButtonData && (
-                    <Link href={backButtonData.href ?? '/'}>
-                        <a className={styles.backButton}>
-                            {backButtonData.href && (<>&larr; </>)}
-                            {backButtonData.text}
-                        </a>
-                    </Link>
-                )}
-                <button onClick={() => setShowMap(true)} className={styles.mapButton}>
-                    <span className="icon-map"></span>
-                </button>
-            </div>
-        )
-    };
+    const ButtonBar = () => (
+        <div className={styles.buttonBar}>
+            {backButtonData && (
+                <Link href={backButtonData.href ?? '/'}>
+                    <a className={styles.backButton}>
+                        {backButtonData.href && (<>&larr; </>)}
+                        {backButtonData.text}
+                    </a>
+                </Link>
+            )}
+            <button onClick={() => setShowMap(true)} className={styles.mapButton}>
+                <span className="icon-map"></span>
+            </button>
+        </div>
+    );
     ButtonBar.displayName = 'ButtonBar';
 
     return (

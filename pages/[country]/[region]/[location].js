@@ -52,33 +52,31 @@ export default function LocationsDetail({ location, country }) {
     const locationPostcodeAndMunicipality = buildLocationPostcodeAndMunicipality(location);
     const locationRegionAndCountry = buildLocationRegionAndCountry(location, country);
 
-    const LocationInfoList = () => {
-        return (
-            <dl className={styles.locationInfoList}>
-                <dt>Location Info</dt>
-                <dd>
-                    <div>
-                        {locationInfo && <p>{locationInfo}</p>}
-                        {locationStreetAndHouseNr && <p>{locationStreetAndHouseNr}</p>}
-                        {location.postcode && <p>{locationPostcodeAndMunicipality}</p>}
-                        <p>{locationRegionAndCountry}</p>
-                    </div>
-                </dd>
-                <dt>Show on Map</dt>
-                <dd>
-                    <LinkList listItems={mapLinks} />
-                </dd>
-                {(websiteLinks.length > 0) && (
-                    <>
-                        <dt>Website</dt>
-                        <dd><LinkList listItems={websiteLinks} /></dd>
-                    </>
-                )}
-                <dt>Last updated</dt>
-                <dd><p>{buildLocationLastUpdatedDate(location)}</p></dd>
-            </dl>
-        )
-    }
+    const LocationInfoList = () => (
+        <dl className={styles.locationInfoList}>
+            <dt>Location Info</dt>
+            <dd>
+                <div>
+                    {locationInfo && <p>{locationInfo}</p>}
+                    {locationStreetAndHouseNr && <p>{locationStreetAndHouseNr}</p>}
+                    {location.postcode && <p>{locationPostcodeAndMunicipality}</p>}
+                    <p>{locationRegionAndCountry}</p>
+                </div>
+            </dd>
+            <dt>Show on Map</dt>
+            <dd>
+                <LinkList listItems={mapLinks} />
+            </dd>
+            {(websiteLinks.length > 0) && (
+                <>
+                    <dt>Website</dt>
+                    <dd><LinkList listItems={websiteLinks} /></dd>
+                </>
+            )}
+            <dt>Last updated</dt>
+            <dd><p>{buildLocationLastUpdatedDate(location)}</p></dd>
+        </dl>
+    )
     LocationInfoList.displayName = 'LocationInfoList';
 
     return (
