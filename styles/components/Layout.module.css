@@ -26,16 +26,6 @@
     }
 }
 
-.content>ul {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    overflow-y: auto;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-}
-
 .content h1, .content h2 {
     padding: 0rem 1rem;
 }
@@ -50,6 +40,10 @@
 
 .buttonBar {
     display: flex;
+}
+
+.backButton, .mapButton {
+    height: 58px;
 }
 
 .addButton, .backButton, .mapButton, .infoButton {
@@ -102,7 +96,6 @@
 
 .mapButton {
     width: 58px;
-    height: 100%;
     border: 0;
     font-size: 120%;
 }
