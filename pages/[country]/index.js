@@ -16,7 +16,7 @@ export default function LocationsIndex({ country, regions, locationsByRegion, al
 
     const backButtonData = {
         href: '/',
-        text: "Nude Places",
+        text: "Countries",
     }
 
     return (
