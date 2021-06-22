@@ -174,11 +174,11 @@ export async function getStaticPaths() {
     const locations = await locationsData
 
     // Filter out locations that don't have a seoName
-    const filteredLocations = locations.filter(location => location.seoName != null).filter(location => countriesByIsoCode[location.country] != undefined)
+    const filteredLocations = locations.filter(location => location.seoName != null)
 
     const paths = filteredLocations.map((location) => ({
         params: {
-            country: countriesByIsoCode[location.country]['seoName'],
+            country: countriesByIsoCode[location.country]['seoName'] ?? "unknown",
             region: location.region,
             location: location.title,
         }
