@@ -107,7 +107,6 @@ export async function getStaticProps({ params }) {
 
     let locationData = db.collection('locations')
         .where('seoName', '==', params.location)
-        .where('region', '==', params.region)
         .limit(1)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
@@ -163,7 +162,7 @@ export async function getStaticPaths() {
 
     // Fetch locations
     let locationsData = db.collection('locations')
-        .where('region', '!=', null)
+        .where('seoName', '!=', null)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
         })
@@ -179,7 +178,7 @@ export async function getStaticPaths() {
     const paths = filteredLocations.map((location) => ({
         params: {
             country: countriesByIsoCode[location.country] ? (countriesByIsoCode[location.country]['urlName'] ?? "unknown") : "unknown",
-            region: location.region,
+            region: location.region ?? 'unassigned',
             location: location.seoName,
         }
     }))

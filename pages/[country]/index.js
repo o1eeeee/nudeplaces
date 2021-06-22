@@ -60,7 +60,6 @@ export async function getStaticProps({ params }) {
     // Fetch locations for country sorted by region and title
     let locationsData = db.collection('locations')
         .where('country', '==', country[0].isoCode)
-        .where('region', '!=', null)
         .orderBy('region')
         .orderBy('title')
         .get().then((snapshot) => {
@@ -78,13 +77,14 @@ export async function getStaticProps({ params }) {
     const filteredLocations = locations.filter(location => location.seoName != null)
 
     // Distribute locations to region arrays
+    let assignToRegion = 'unassigned';
     filteredLocations.map((location) => {
-        if (location.region && !locationsByRegion[location.region]) {
-            regions.push(location.region);
-            locationsByRegion[location.region] = [];
+        assignToRegion = location.region ?? 'unassigned';
+        if (!locationsByRegion[assignToRegion]) {
+            regions.push(assignToRegion);
+            locationsByRegion[assignToRegion] = [];
         }
-
-        locationsByRegion[location.region].push(location);
+        locationsByRegion[assignToRegion].push(location);
     })
 
     return {
