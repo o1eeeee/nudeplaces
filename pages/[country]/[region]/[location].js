@@ -52,6 +52,34 @@ export default function LocationsDetail({ location, country }) {
     const locationPostcodeAndMunicipality = buildLocationPostcodeAndMunicipality(location);
     const locationRegionAndCountry = buildLocationRegionAndCountry(location, country);
 
+    const LocationInfoList = () => {
+        return (
+            <dl className={styles.locationInfoList}>
+                <dt>Location Info</dt>
+                <dd>
+                    <div>
+                        {locationInfo && <p>{locationInfo}</p>}
+                        {locationStreetAndHouseNr && <p>{locationStreetAndHouseNr}</p>}
+                        {location.postcode && <p>{locationPostcodeAndMunicipality}</p>}
+                        <p>{locationRegionAndCountry}</p>
+                    </div>
+                </dd>
+                <dt>Show on Map</dt>
+                <dd>
+                    <LinkList listItems={mapLinks} />
+                </dd>
+                {(websiteLinks.length > 0) && (
+                    <>
+                        <dt>Website</dt>
+                        <dd><LinkList listItems={websiteLinks} /></dd>
+                    </>
+                )}
+                <dt>Last updated</dt>
+                <dd><p>{buildLocationLastUpdatedDate(location)}</p></dd>
+            </dl>
+        )
+    }
+
     return (
         <>
             <Head>
@@ -62,29 +90,7 @@ export default function LocationsDetail({ location, country }) {
                     {location.title}
                 </h1>
                 <p className={styles.locationDescription}>{location.text}</p>
-                <dl className={styles.locationInfoList}>
-                    <dt>Location Info</dt>
-                    <dd>
-                        <div>
-                            {locationInfo && <p>{locationInfo}</p>}
-                            {locationStreetAndHouseNr && <p>{locationStreetAndHouseNr}</p>}
-                            {location.postcode && <p>{locationPostcodeAndMunicipality}</p>}
-                            <p>{locationRegionAndCountry}</p>
-                        </div>
-                    </dd>
-                    <dt>Show on Map</dt>
-                    <dd>
-                        <LinkList listItems={mapLinks} />
-                    </dd>
-                    {(websiteLinks.length > 0) && (
-                        <>
-                            <dt>Website</dt>
-                            <dd><LinkList listItems={websiteLinks} /></dd>
-                        </>
-                    )}
-                    <dt>Last updated</dt>
-                    <dd><p>{buildLocationLastUpdatedDate(location)}</p></dd>
-                </dl>
+                <LocationInfoList />
                 <button className={styles.reportAsInappropriateButton}>Report As Inappropriate</button>
             </Layout>
         </>
@@ -94,7 +100,7 @@ export default function LocationsDetail({ location, country }) {
 
 export async function getStaticProps({ params }) {
     if (process.env.NODE_ENV === 'development') {
-        const props = require ('../../../dev/locations/staticProps.json');
+        const props = require('../../../dev/locations/staticProps.json');
         return props;
     }
 
@@ -136,7 +142,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
     if (process.env.NODE_ENV === 'development') {
-        const paths = require ('../../../dev/locations/staticPaths.json');
+        const paths = require('../../../dev/locations/staticPaths.json');
         return paths;
     }
 
