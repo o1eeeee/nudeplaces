@@ -40,7 +40,9 @@ export async function getStaticProps() {
   }
 
   let db = await initFirebase()
-  let data = db.collection('countries').get().then((snapshot) => {
+  let data = db.collection('countries')
+  .orderBy('name')
+  .get().then((snapshot) => {
     return snapshot.docs.map(doc => doc.data())
   })
     .catch((error) => {
