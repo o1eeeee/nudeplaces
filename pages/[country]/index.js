@@ -42,6 +42,10 @@ export default function LocationsIndex({ country, regions, locationsByRegion, al
 }
 
 export async function getStaticProps({ params }) {
+    if (process.env.NODE_ENV === 'development') {
+        const props = require('../../dev/countries/staticProps.json');
+        return props;
+    }
 
     let db = await initFirebase()
 
@@ -95,6 +99,11 @@ export async function getStaticProps({ params }) {
 
 
 export async function getStaticPaths() {
+    if (process.env.NODE_ENV === 'development') {
+        const paths = require('../../dev/countries/staticPaths.json');
+        return paths;
+    }
+
     let db = await initFirebase()
     let data = db.collection('countries').get().then((snapshot) => {
         return snapshot.docs.map(doc => doc.data())

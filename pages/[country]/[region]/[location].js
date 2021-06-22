@@ -78,8 +78,8 @@ export default function LocationsDetail({ location, country }) {
                     </dd>
                     {(websiteLinks.length > 0) && (
                         <>
-                        <dt>Website</dt>
-                        <dd><LinkList listItems={websiteLinks} /></dd>
+                            <dt>Website</dt>
+                            <dd><LinkList listItems={websiteLinks} /></dd>
                         </>
                     )}
                     <dt>Last updated</dt>
@@ -93,6 +93,10 @@ export default function LocationsDetail({ location, country }) {
 
 
 export async function getStaticProps({ params }) {
+    if (process.env.NODE_ENV === 'development') {
+        const props = require ('../../../dev/locations/staticProps.json');
+        return props;
+    }
 
     let db = await initFirebase()
 
@@ -131,6 +135,11 @@ export async function getStaticProps({ params }) {
 
 
 export async function getStaticPaths() {
+    if (process.env.NODE_ENV === 'development') {
+        const paths = require ('../../../dev/locations/staticPaths.json');
+        return paths;
+    }
+
     let db = await initFirebase()
 
     // Fetch countries
@@ -147,8 +156,6 @@ export async function getStaticPaths() {
         countriesByIsoCode[country.isoCode] = country;
     })
 
-    console.log(countriesByIsoCode['AG']['name']);
-
     // Fetch locations
     let locationsData = db.collection('locations')
         .where('region', '!=', null)
@@ -162,11 +169,11 @@ export async function getStaticPaths() {
     const locations = await locationsData
 
     // Filter out locations that don't have a seoName
-    const filteredLocations = locations.filter(location => location.seoName != null)
+    const filteredLocations = locations.filter(location => location.seoName != null).filter(location => countriesByIsoCode[location.country] != undefined)
 
     const paths = filteredLocations.map((location) => ({
-        params: { 
-            country: countriesByIsoCode[location.country]['name'],
+        params: {
+            country: countriesByIsoCode[location.country]['seoName'],
             region: location.region,
             location: location.title,
         }

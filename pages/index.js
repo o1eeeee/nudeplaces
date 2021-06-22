@@ -31,6 +31,10 @@ export default function Home({ countries }) {
 }
 
 export async function getStaticProps() {
+  if (process.env.NODE_ENV === 'development') {
+    const props = require('../dev/index/staticProps.json');
+    return props;
+  }
 
   let db = await initFirebase()
   let data = db.collection('countries').get().then((snapshot) => {
