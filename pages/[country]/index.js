@@ -105,9 +105,11 @@ export async function getStaticPaths() {
     }
 
     let db = await initFirebase()
-    let data = db.collection('countries').get().then((snapshot) => {
-        return snapshot.docs.map(doc => doc.data())
-    })
+    let data = db.collection('countries')
+        .where("isoCode", "!=", "XX")
+        .get().then((snapshot) => {
+            return snapshot.docs.map(doc => doc.data())
+        })
         .catch((error) => {
             console.log("Error getting documents: ", error);
         });
