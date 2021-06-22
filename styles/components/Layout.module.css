@@ -6,6 +6,14 @@
     overflow-y: hidden;
 }
 
+.scrollableContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: auto;
+    padding-bottom: 1.5rem;
+}
+
 @media (min-width: 420px) {
     .main {
         display: flex;
@@ -13,6 +21,8 @@
     .content {
         width: 25%;
         min-width: 375px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
     }
 }
 
@@ -49,16 +59,22 @@
 }
 
 .addButton, .backButton {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 1rem;
     font-size: 120%;
     border-radius: 0;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .addButton {
     background-color: #1de9b6;
+    justify-content: center;
     text-align: center;
+}
+
+.addButton span {
+    margin-right: 0.25rem;
 }
 
 .backButton, .mapButton, .infoButton {
@@ -88,16 +104,21 @@
     width: 58px;
     height: 100%;
     border: 0;
+    font-size: 120%;
 }
 
 .infoButton {
     position: fixed;
     top: 0;
     right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
     margin: 1rem;
+    font-size: 120%;
     /* to show above map, z-index needs to be > 400 */
     z-index: 1000;
     box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)

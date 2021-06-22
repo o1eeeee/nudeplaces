@@ -90,7 +90,7 @@ export default function LocationsDetail({ location, country }) {
                 </h1>
                 <p className={styles.locationDescription}>{location.text}</p>
                 <LocationInfoList />
-                <button className={styles.reportAsInappropriateButton}>Report As Inappropriate</button>
+                <button className={styles.reportAsInappropriateButton}><span className="icon-report"></span> Report As Inappropriate</button>
             </Layout>
         </>
     )

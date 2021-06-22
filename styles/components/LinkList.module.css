@@ -1,9 +1,3 @@
-.linkList {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
 .linkList li a {
     display: block;
     padding: 0.5rem 1rem;
@@ -14,5 +8,5 @@
 .linkList li a:hover,
 .linkList li a:focus {
     background-color: whitesmoke;
-    font-weight: 600;
+    font-weight: 500;
 }

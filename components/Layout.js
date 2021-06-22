@@ -39,7 +39,9 @@ export default function Layout({ children, mapData, backButtonData }) {
                 {!showMap ? (
                     <div className={styles.content}>
                         <ButtonBar />
-                        {children}
+                        <div className={styles.scrollableContainer}>
+                            {children}
+                        </div>
                         <Link href={'/'}>
                             <a className={styles.addButton}><span className="icon-location"></span> Add Location</a>
                         </Link>
