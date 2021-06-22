@@ -106,7 +106,6 @@ export async function getStaticPaths() {
 
     let db = await initFirebase()
     let data = db.collection('countries')
-        .where("isoCode", "!=", "XX")
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
         })
