@@ -9,7 +9,8 @@
     padding: 0.5rem 1rem;
 }
 
-.linkList li a:hover {
+.linkList li a:hover,
+.linkList li a:focus {
     background-color: whitesmoke;
     font-weight: 600;
 }

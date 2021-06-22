@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import styles from '../styles/components/Layout.module.css';
+import { useState } from 'react';
 
 const Layout = ({ children, mapData, backButtonData }) => {
+    const [showMap, setShowMap] = useState(false);
 
     const Map = dynamic(
         () => import('./Map'),
@@ -11,20 +13,41 @@ const Layout = ({ children, mapData, backButtonData }) => {
             ssr: false
         }
     );
+
+    const ButtonBar = () => {
+        return (
+            <div className={styles.buttonBar}>
+                {backButtonData && (
+                    <Link href={backButtonData.href ?? '/'}>
+                        <a className={styles.backButton}>
+                            {backButtonData.href && (<>&larr; </>)}
+                            {backButtonData.text}
+                        </a>
+                    </Link>
+                )}
+                <button onClick={() => setShowMap(true)} className={styles.mapButton}>
+                    <span className="icon-map"></span>
+                </button>
+            </div>
+        )
+    };
+
     return (
         <>
             <main className={styles.main}>
-                <div className={styles.content}>
-                    {backButtonData && (
-                        <Link href={backButtonData.href}>
-                            <a className={styles.backButton}>&larr; {backButtonData.text}</a>
+                {!showMap ? (
+                    <div className={styles.content}>
+                        <ButtonBar />
+                        {children}
+                        <Link href={'/'}>
+                            <a className={styles.addButton}><span className="icon-location"></span> Add Location</a>
                         </Link>
-                    )}
-                    {children}
-                    <Link href={'/'}>
-                        <a className={styles.addButton}>+ Add Location</a>
-                    </Link>
-                </div>
+                    </div>
+                ) : (
+                    <button onClick={() => setShowMap(false)} className={styles.infoButton}>
+                        <span className="icon-info"></span>
+                    </button>
+                )}
                 <Map mapPosition={mapData.mapPosition} markerPositions={mapData.markerPositions} zoom={mapData.zoom}></Map>
             </main>
         </>

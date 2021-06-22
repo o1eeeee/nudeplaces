@@ -6,14 +6,14 @@
     overflow-y: hidden;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 420px) {
     .main {
         display: flex;
     }
     .content {
         width: 25%;
         min-width: 375px;
-    }    
+    }
 }
 
 .content>ul {
@@ -38,14 +38,22 @@
     margin: 0.5rem 0;
 }
 
+.buttonBar {
+    display: flex;
+}
+
+.addButton, .backButton, .mapButton, .infoButton {
+    border: 0;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    cursor: pointer;
+}
+
 .addButton, .backButton {
     display: block;
     padding: 1rem;
     font-size: 120%;
     border-radius: 0;
-    border: 0;
     font-weight: bold;
-    cursor: pointer;
 }
 
 .addButton {
@@ -53,7 +61,43 @@
     text-align: center;
 }
 
-.backButton {
+.backButton, .mapButton, .infoButton {
     background-color: #2979ff;
     color: white;
+}
+
+.addButton:hover,
+.addButton:focus {
+    background-color: #4aedc4;
+}
+
+.backButton:hover,
+.backButton:focus, 
+.mapButton:hover,
+.mapButton:focus, 
+.infoButton:hover,
+.infoButton:focus {
+    background-color: #1c54b2;
+}
+
+.backButton {
+    flex: 1;
+}
+
+.mapButton {
+    width: 58px;
+    border: 0;
+}
+
+.infoButton {
+    position: fixed;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    margin: 1rem;
+    /* to show above map, z-index needs to be > 400 */
+    z-index: 1000;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)
 }
