@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import initFirebase from '../lib/firebase';
 import Layout from '../components/Layout';
 import styles from '../styles/About.module.css';
 
