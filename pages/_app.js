@@ -7,17 +7,19 @@ class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
     let about = {};
-    // Make any initial calls we need to fetch data required for SSR
+
     if (process.env.NODE_ENV === 'development') {
-      console.log(process.env.NODE_ENV)
-      about = [
-        require('../dev/about.json')
-      ];
+      about = {
+        "name": "Max Mustermann",
+        "street": "Musterstr. 1",
+        "city": "D-12345 Musterstadt",
+        "email": "max@mustermann.de",
+        "websiteUrl": "https://mustermann.de"
+      }
     } else {
       about = await fetchAboutData();
     }
 
-    // Load the page getInitiaProps
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps({ about, ...ctx });
     }
