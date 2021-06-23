@@ -4,6 +4,7 @@
     width: 100%;
     height: 100vh;
     overflow-y: hidden;
+    position: relative;
 }
 
 .scrollableContainer {
@@ -19,8 +20,8 @@
         display: flex;
     }
     .content {
-        width: 25%;
-        min-width: 375px;
+        width: 400px;
+        max-width: 100%;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         z-index: 1000;
     }
@@ -62,6 +63,11 @@
 }
 
 .addButton {
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    width: 400px;
+    max-width: 100%;
     background-color: #1de9b6;
     justify-content: center;
     text-align: center;
@@ -76,17 +82,11 @@
     color: white;
 }
 
-.addButton:hover,
-.addButton:focus {
+.addButton:hover, .addButton:focus {
     background-color: #4aedc4;
 }
 
-.backButton:hover,
-.backButton:focus, 
-.mapButton:hover,
-.mapButton:focus, 
-.infoButton:hover,
-.infoButton:focus {
+.backButton:hover, .backButton:focus, .mapButton:hover, .mapButton:focus, .infoButton:hover, .infoButton:focus {
     background-color: #1c54b2;
 }
 

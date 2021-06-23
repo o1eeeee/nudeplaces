@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function Map ({ mapPosition, markerPositions, zoom }) {
     return (
-        <MapContainer center={mapPosition} zoom={zoom} scrollWheelZoom={false} style={{ height: "100vh", width: "100%" }}>
+        <MapContainer center={mapPosition} zoom={zoom} scrollWheelZoom={false} style={{ height: "100vh", flex: "1 1 0%" }}>
             <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
