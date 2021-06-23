@@ -153,7 +153,7 @@ function buildCountryLocationsMarkerPositions(locations, country) {
 
 
 function buildLocationUrl(location, country) {
-    return `/${encodeURIComponent(country.urlName)}/${encodeURIComponent(location.region)}/${encodeURIComponent(location.seoName)}`;
+    return `/${encodeURIComponent(country.urlName)}/${encodeURIComponent(location.region ?? 'unassigned')}/${encodeURIComponent(location.seoName)}`;
 }
 
 
