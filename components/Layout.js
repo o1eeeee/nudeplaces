@@ -41,6 +41,7 @@ export default function Layout({ children, mapData, backButtonData }) {
                         <ButtonBar />
                         <div className={styles.scrollableContainer}>
                             {children}
+                            <div className="safari_only"></div>
                         </div>
                         <Link href={'/'}>
                             <a className={styles.addButton}><span className="icon-location"></span> Add Location</a>

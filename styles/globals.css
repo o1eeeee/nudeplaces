@@ -6,7 +6,7 @@ html, body {
   overflow: hidden;
   position: relative;
   height: 100%;
-  color: rgb(68,64,66);
+  color: rgb(68, 64, 66);
 }
 
 a {
@@ -47,4 +47,13 @@ h4, h5, h6 {
 h1, h2, h3, h4, h5, h6 {
   color: black;
   font-weight: 500;
+}
+
+.safari_only {
+  display: none;
+}
+
+_::-webkit-full-page-media, _:future, :root .safari_only {
+  display: block;
+  padding-bottom: 8rem;
 }
