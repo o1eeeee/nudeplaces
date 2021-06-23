@@ -9,6 +9,7 @@ class MyApp extends App {
     let about = {};
     // Make any initial calls we need to fetch data required for SSR
     if (process.env.NODE_ENV === 'development') {
+      console.log(process.env.NODE_ENV)
       about = [
         require('../dev/about.json')
       ];
