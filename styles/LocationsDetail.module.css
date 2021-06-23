@@ -26,29 +26,3 @@
     padding: 0.5rem 1rem;
     margin: 0;
 }
-
-.reportAsInappropriateButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 1rem;
-    border-radius: 1.5rem;
-    border: 2px solid whitesmoke;
-    cursor: pointer;
-    background-color: white;
-    border-color: whitesmoke;
-    transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    text-align: center;
-    align-self: center;
-    font-weight: 500;
-}
-
-.reportAsInappropriateButton:hover,
-.reportAsInappropriateButton:focus {
-    border-color: #ff7474;
-    color: #ff7474;
-}
-
-.reportAsInappropriateButton span {
-    margin-right: 0.5rem;
-}

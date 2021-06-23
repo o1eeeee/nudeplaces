@@ -2,9 +2,10 @@ import Head from 'next/head';
 import initFirebase from '../../../lib/firebase';
 import Layout from '../../../components/Layout';
 import LinkList from '../../../components/LinkList';
+import ReportLocationButton from '../../../components/ReportLocationButton';
 import styles from '../../../styles/LocationsDetail.module.css';
 
-export default function LocationsDetail({ location, country }) {
+export default function LocationsDetail({ location, country, about }) {
     const zoom = 15;
     const lat = encodeURIComponent(location.latitude);
     const lng = encodeURIComponent(location.longitude);
@@ -90,7 +91,7 @@ export default function LocationsDetail({ location, country }) {
                 </h1>
                 <p className={styles.locationDescription}>{location.text}</p>
                 <LocationInfoList />
-                <button className={styles.reportAsInappropriateButton}><span className="icon-report"></span> Report As Inappropriate</button>
+                <ReportLocationButton locationData={getReportLocationData(location, country, about.websiteUrl)} email={about.email} />
             </Layout>
         </>
     )
@@ -129,10 +130,21 @@ export async function getStaticProps({ params }) {
 
     const country = await countryData
 
+    let aboutData = db.collection('about').limit(1)
+        .get().then((snapshot) => {
+            return snapshot.docs.map(doc => doc.data())
+        })
+        .catch((error) => {
+            console.log("Error getting documents: ", error);
+        });
+
+    const about = await aboutData
+
     return {
         props: {
             location: location ? location[0] : {},
-            country: country ? country[0] : {}
+            country: country ? country[0] : {},
+            about: about ? about[0] : {}
         }
     }
 }
@@ -235,10 +247,20 @@ function buildLocationPostcodeAndMunicipality(location) {
 
 
 function buildLocationLastUpdatedDate(location) {
-    const date = new Date(location.modifyDate);
+    const date = new Date(location.modifyDate.split(" ")[0]);
     return date.toLocaleDateString('de-DE', {
         year: "numeric",
         month: "2-digit",
         day: "2-digit"
     });
+}
+
+
+function getReportLocationData(location, country, websiteUrl) {
+    const url = `${websiteUrl}/${encodeURIComponent(country.urlName)}/${encodeURIComponent(location.region ?? 'unassigned')}/${encodeURIComponent(location.seoName)}`
+    return {
+        title: location.title,
+        country: country.name,
+        url: url
+    }
 }
