@@ -9,7 +9,11 @@ class MyApp extends App {
     let about = {};
     // Make any initial calls we need to fetch data required for SSR
     if (process.env.NODE_ENV === 'development') {
-      about = require('../dev/about.json');
+      try {
+        about = require('../dev/about.json');
+      } catch (e) {
+        console.log(e)
+      }
     } else {
       about = await fetchAboutData();
     }
