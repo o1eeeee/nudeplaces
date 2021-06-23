@@ -3,8 +3,8 @@ import LinkList from '../../components/LinkList';
 import initFirebase from '../../lib/firebase';
 import Layout from '../../components/Layout';
 
-export default function LocationsIndex({ country, regions, locationsByRegion, allLocations }) {
-
+export default function LocationsIndex(props) {
+    let { country, regions, locationsByRegion, allLocations } = props;
     const mapData = {
         mapPosition: [
             country.latitude,

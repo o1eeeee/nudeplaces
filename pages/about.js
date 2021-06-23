@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import initFirebase from '../lib/firebase';
 import Layout from '../components/Layout';
 import styles from '../styles/About.module.css';
 
@@ -66,31 +65,6 @@ export default function About({ about }) {
             </Layout>
         </>
     )
-}
-
-
-export async function getStaticProps() {
-    if (process.env.NODE_ENV === 'development') {
-        const props = require('../dev/about/staticProps.json');
-        return props;
-    }
-
-    let db = await initFirebase()
-    let data = db.collection('about').limit(1)
-        .get().then((snapshot) => {
-            return snapshot.docs.map(doc => doc.data())
-        })
-        .catch((error) => {
-            console.log("Error getting documents: ", error);
-        });
-
-    const about = await data
-
-    return {
-        props: {
-            about: about[0] ?? {}
-        }
-    }
 }
 
 

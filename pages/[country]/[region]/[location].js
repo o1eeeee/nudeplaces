@@ -130,21 +130,10 @@ export async function getStaticProps({ params }) {
 
     const country = await countryData
 
-    let aboutData = db.collection('about').limit(1)
-        .get().then((snapshot) => {
-            return snapshot.docs.map(doc => doc.data())
-        })
-        .catch((error) => {
-            console.log("Error getting documents: ", error);
-        });
-
-    const about = await aboutData
-
     return {
         props: {
             location: location ? location[0] : {},
-            country: country ? country[0] : {},
-            about: about ? about[0] : {}
+            country: country ? country[0] : {}
         }
     }
 }
