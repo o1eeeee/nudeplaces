@@ -1,0 +1,713 @@
+[
+    {
+      "latitude": 17.060816,
+      "currency": "XCD",
+      "nativeName": "Antigua and Barbuda",
+      "urlName": "antigua-and-barbuda",
+      "name": "Antigua and Barbuda",
+      "longitude": -61.796428,
+      "isoCode": "AG"
+    },
+    {
+      "nativeName": "Argentina",
+      "latitude": -38.416097,
+      "longitude": -63.616672,
+      "currency": "ARS",
+      "urlName": "argentina",
+      "isoCode": "AR",
+      "name": "Argentina"
+    },
+    {
+      "currency": "AUD",
+      "name": "Australia",
+      "isoCode": "AU",
+      "latitude": -25.274398,
+      "longitude": 133.775136,
+      "nativeName": "Australia",
+      "urlName": "australia"
+    },
+    {
+      "currency": "EUR",
+      "isoCode": "AT",
+      "latitude": 47.516231,
+      "nativeName": "Österreich",
+      "name": "Austria",
+      "longitude": 14.550072,
+      "urlName": "austria"
+    },
+    {
+      "isoCode": "BE",
+      "currency": "EUR",
+      "urlName": "belgium",
+      "longitude": 4.469936,
+      "nativeName": "Belgie",
+      "name": "Belgium",
+      "latitude": 50.503887
+    },
+    {
+      "isoCode": "BR",
+      "currency": "BRL",
+      "latitude": -14.235004,
+      "nativeName": "Brasil",
+      "urlName": "brazil",
+      "longitude": -51.92528,
+      "name": "Brazil"
+    },
+    {
+      "currency": "BGN",
+      "latitude": 42.733883,
+      "urlName": "bulgaria",
+      "name": "Bulgaria",
+      "nativeName": "Bulgaria",
+      "longitude": 25.48583,
+      "isoCode": "BG"
+    },
+    {
+      "longitude": -106.346771,
+      "nativeName": "Canada",
+      "currency": "CAD",
+      "urlName": "canada",
+      "name": "Canada",
+      "isoCode": "CA",
+      "latitude": 56.130366
+    },
+    {
+      "isoCode": "CV",
+      "latitude": 15.916667,
+      "currency": "CVE",
+      "nativeName": "Cabo Verde",
+      "longitude": -24.083333,
+      "urlName": "cape-verde",
+      "name": "Cape Verde"
+    },
+    {
+      "name": "Cayman Islands",
+      "nativeName": "Cayman Islands",
+      "currency": "KYD",
+      "latitude": 19.513469,
+      "isoCode": "KY",
+      "longitude": -80.566956,
+      "urlName": "cayman-islands"
+    },
+    {
+      "urlName": "chile",
+      "isoCode": "CL",
+      "currency": "CLP",
+      "longitude": -71.542969,
+      "nativeName": "Chile",
+      "name": "Chile",
+      "latitude": -35.675147
+    },
+    {
+      "latitude": 35.86166,
+      "longitude": 104.195397,
+      "urlName": "china",
+      "name": "China",
+      "nativeName": "Zhong Guo",
+      "isoCode": "CN",
+      "currency": "CNY"
+    },
+    {
+      "longitude": -74.29733299999998,
+      "urlName": "colombia",
+      "latitude": 4.570868,
+      "name": "Colombia",
+      "nativeName": "Colombia",
+      "isoCode": "CO",
+      "currency": "COP"
+    },
+    {
+      "longitude": -83.75342799999999,
+      "isoCode": "CR",
+      "name": "Costa Rica",
+      "urlName": "costa-rica",
+      "nativeName": "Costa Rica",
+      "latitude": 9.748916999999999,
+      "currency": "CRC"
+    },
+    {
+      "currency": "HRK",
+      "urlName": "croatia",
+      "latitude": 45.1,
+      "nativeName": "Hrvatska",
+      "isoCode": "HR",
+      "name": "Croatia",
+      "longitude": 15.2
+    },
+    {
+      "nativeName": "Cuba",
+      "urlName": "cuba",
+      "longitude": -78.68,
+      "latitude": 21.94,
+      "currency": "CUP",
+      "name": "Cuba",
+      "isoCode": "CU"
+    },
+    {
+      "latitude": 12.186111,
+      "name": "Curaçao",
+      "isoCode": "CW",
+      "currency": "ANG",
+      "longitude": -68.989444,
+      "nativeName": "null",
+      "urlName": "curacao"
+    },
+    {
+      "isoCode": "CY",
+      "longitude": 33.429858999999965,
+      "currency": "EUR",
+      "nativeName": "Cyprus",
+      "latitude": 35.126413,
+      "name": "Cyprus",
+      "urlName": "cyprus"
+    },
+    {
+      "isoCode": "CZ",
+      "urlName": "czech-republic",
+      "longitude": 15.472962,
+      "latitude": 49.817492,
+      "currency": "CZK",
+      "name": "Czech Republic",
+      "nativeName": "Ceska Republika"
+    },
+    {
+      "currency": "DKK",
+      "name": "Denmark",
+      "isoCode": "DK",
+      "urlName": "denmark",
+      "latitude": 56.26392,
+      "longitude": 9.501785,
+      "nativeName": "Danmark"
+    },
+    {
+      "urlName": "dominican-republic",
+      "nativeName": "Republica Dominicana",
+      "latitude": 18.735693,
+      "isoCode": "DO",
+      "name": "Dominican Republic",
+      "longitude": -70.162651,
+      "currency": "DOP"
+    },
+    {
+      "longitude": 30.802,
+      "isoCode": "EG",
+      "nativeName": "Misr",
+      "latitude": 26.820553,
+      "urlName": "egypt",
+      "currency": "EGP",
+      "name": "Egypt"
+    },
+    {
+      "nativeName": "Eesti",
+      "currency": "EUR",
+      "urlName": "estonia",
+      "name": "Estonia",
+      "isoCode": "EE",
+      "longitude": 25.013607,
+      "latitude": 58.595272
+    },
+    {
+      "nativeName": "Fiji",
+      "name": "Fiji",
+      "latitude": -17.669351,
+      "currency": "FJD",
+      "longitude": 177.942692,
+      "isoCode": "FJ",
+      "urlName": "fiji"
+    },
+    {
+      "currency": "EUR",
+      "urlName": "finland",
+      "longitude": 25.748151,
+      "isoCode": "FI",
+      "nativeName": "Suomi",
+      "name": "Finland",
+      "latitude": 61.92411
+    },
+    {
+      "longitude": 2.213749,
+      "latitude": 46.227638,
+      "isoCode": "FR",
+      "name": "France",
+      "currency": "EUR",
+      "nativeName": "France",
+      "urlName": "france"
+    },
+    {
+      "latitude": -15,
+      "currency": "XPF",
+      "longitude": -140,
+      "name": "French Polynesia",
+      "isoCode": "PF",
+      "nativeName": "Polynesie Francaise",
+      "urlName": "french-polynesia"
+    },
+    {
+      "longitude": 10.451526,
+      "nativeName": "Deutschland",
+      "urlName": "germany",
+      "isoCode": "DE",
+      "latitude": 51.165691,
+      "currency": "EUR",
+      "name": "Germany"
+    },
+    {
+      "longitude": 21.824312,
+      "currency": "EUR",
+      "urlName": "greece",
+      "latitude": 39.074208,
+      "isoCode": "GR",
+      "nativeName": "Ellas",
+      "name": "Greece"
+    },
+    {
+      "isoCode": "GP",
+      "urlName": "guadeloupe",
+      "latitude": 16.194,
+      "currency": "EUR",
+      "longitude": -61.688,
+      "name": "Guadeloupe",
+      "nativeName": "Guadeloupe"
+    },
+    {
+      "currency": "HUF",
+      "isoCode": "HU",
+      "name": "Hungary",
+      "urlName": "hungary",
+      "nativeName": "Magyarorszag",
+      "latitude": 47.162494,
+      "longitude": 19.503304100000037
+    },
+    {
+      "nativeName": "Island",
+      "longitude": -19.020835,
+      "currency": "ISK",
+      "isoCode": "IS",
+      "urlName": "iceland",
+      "name": "Iceland",
+      "latitude": 64.963051
+    },
+    {
+      "isoCode": "IN",
+      "latitude": 20.593684,
+      "nativeName": "India",
+      "longitude": "78.96288000000004",
+      "name": "India",
+      "urlName": "india",
+      "currency": "INR"
+    },
+    {
+      "isoCode": "ID",
+      "latitude": -0.789275,
+      "nativeName": "Indonesia",
+      "longitude": 113.921327,
+      "currency": "IDR",
+      "name": "Indonesia",
+      "urlName": "indonesia"
+    },
+    {
+      "isoCode": "IE",
+      "nativeName": "Ireland",
+      "longitude": -8.24389,
+      "name": "Ireland",
+      "urlName": "ireland",
+      "currency": "EUR",
+      "latitude": 53.41291
+    },
+    {
+      "latitude": 31.046051,
+      "currency": "ILS",
+      "longitude": 34.851612,
+      "urlName": "israel",
+      "isoCode": "IL",
+      "name": "Israel",
+      "nativeName": "Yisra'el"
+    },
+    {
+      "longitude": 12.180883,
+      "urlName": "italy",
+      "latitude": 42.771449,
+      "nativeName": "Italia",
+      "currency": "EUR",
+      "name": "Italy",
+      "isoCode": "IT"
+    },
+    {
+      "urlName": "jamaica",
+      "isoCode": "JM",
+      "nativeName": "Jamaica",
+      "name": "Jamaica",
+      "latitude": 18.109581,
+      "currency": "JMD",
+      "longitude": -77.297508
+    },
+    {
+      "urlName": "japan",
+      "longitude": 138.252924,
+      "currency": "JPY",
+      "name": "Japan",
+      "latitude": 36.204824,
+      "isoCode": "JP",
+      "nativeName": "Japan"
+    },
+    {
+      "name": "Latvia",
+      "urlName": "latvia",
+      "longitude": 22.36,
+      "isoCode": "LV",
+      "latitude": 56.86,
+      "nativeName": "Latvija",
+      "currency": "EUR"
+    },
+    {
+      "latitude": 47.166,
+      "longitude": 9.555373000000031,
+      "isoCode": "LI",
+      "nativeName": "Liechtenstein",
+      "name": "Liechtenstein",
+      "urlName": "liechtenstein",
+      "currency": "CHF"
+    },
+    {
+      "latitude": 55.169438,
+      "currency": "EUR",
+      "nativeName": "Lietuva",
+      "urlName": "lithuania",
+      "name": "Lithuania",
+      "isoCode": "LT",
+      "longitude": 23.881275
+    },
+    {
+      "longitude": 6.129583,
+      "latitude": 49.815273,
+      "isoCode": "LU",
+      "nativeName": "Luxembourg",
+      "urlName": "luxembourg",
+      "currency": "EUR",
+      "name": "Luxembourg"
+    },
+    {
+      "isoCode": "MT",
+      "nativeName": "Malta",
+      "name": "Malta",
+      "longitude": 14.432,
+      "currency": "EUR",
+      "latitude": 35.8941,
+      "urlName": "malta"
+    },
+    {
+      "longitude": -61.011199951111,
+      "latitude": 14.640724985,
+      "name": "Martinique",
+      "nativeName": "Martinique",
+      "urlName": "martinique",
+      "currency": "EUR",
+      "isoCode": "MQ"
+    },
+    {
+      "longitude": -102.552784,
+      "isoCode": "MX",
+      "name": "Mexico",
+      "latitude": 23.634501,
+      "currency": "MXN",
+      "nativeName": "Mexico",
+      "urlName": "mexico"
+    },
+    {
+      "currency": "EUR",
+      "urlName": "montenegro",
+      "name": "Montenegro",
+      "nativeName": "null",
+      "latitude": 42.708678,
+      "isoCode": "ME",
+      "longitude": 19.37439
+    },
+    {
+      "longitude": 5.291266,
+      "nativeName": "Nederland",
+      "name": "Netherlands",
+      "latitude": 52.132633,
+      "isoCode": "NL",
+      "urlName": "netherlands",
+      "currency": "EUR"
+    },
+    {
+      "urlName": "new-zealand",
+      "isoCode": "NZ",
+      "latitude": -40.900557,
+      "longitude": 174.885971,
+      "currency": "NZD",
+      "name": "New Zealand",
+      "nativeName": "New Zealand"
+    },
+    {
+      "isoCode": "NO",
+      "nativeName": "Norge",
+      "longitude": 8.468946,
+      "currency": "NOK",
+      "latitude": 60.472024,
+      "name": "Norway",
+      "urlName": "norway"
+    },
+    {
+      "latitude": 8.537981,
+      "isoCode": "PA",
+      "longitude": -80.782127,
+      "urlName": "panama",
+      "name": "Panama",
+      "nativeName": "Panama",
+      "currency": "PAB"
+    },
+    {
+      "isoCode": "PE",
+      "latitude": -9.189967,
+      "urlName": "peru",
+      "name": "Peru",
+      "longitude": -75.015152,
+      "nativeName": "Peru",
+      "currency": "PEN"
+    },
+    {
+      "urlName": "philippines",
+      "latitude": 14.6032,
+      "name": "Philippines",
+      "longitude": 120.9784,
+      "isoCode": "PH",
+      "currency": "PHP",
+      "nativeName": "Pilipinas"
+    },
+    {
+      "urlName": "poland",
+      "isoCode": "PL",
+      "latitude": 51.919438,
+      "nativeName": "Polska",
+      "currency": "PLN",
+      "name": "Poland",
+      "longitude": 19.145136
+    },
+    {
+      "nativeName": "Portugal",
+      "urlName": "portugal",
+      "longitude": -8.224454,
+      "isoCode": "PT",
+      "currency": "EUR",
+      "latitude": 39.399872,
+      "name": "Portugal"
+    },
+    {
+      "isoCode": "PR",
+      "name": "Puerto Rico",
+      "latitude": 18.220833,
+      "longitude": -66.590149,
+      "urlName": "puerto-rico",
+      "currency": "USD",
+      "nativeName": "Puerto Rico"
+    },
+    {
+      "latitude": 45.943161,
+      "name": "Romania",
+      "longitude": 24.96676,
+      "urlName": "romania",
+      "isoCode": "RO",
+      "currency": "RON",
+      "nativeName": "Romania"
+    },
+    {
+      "nativeName": "Rossiya",
+      "urlName": "russian-federation",
+      "currency": "RUB",
+      "latitude": 61.52401,
+      "name": "Russian Federation",
+      "longitude": 105.318756,
+      "isoCode": "RU"
+    },
+    {
+      "nativeName": "null",
+      "latitude": 17.9,
+      "name": "Saint-Barthélemy",
+      "currency": "EUR",
+      "urlName": "saint-barthelemy",
+      "isoCode": "BL",
+      "longitude": -62.83333300000004
+    },
+    {
+      "urlName": "serbia",
+      "longitude": 20.92,
+      "isoCode": "RS",
+      "latitude": 43.87,
+      "currency": "RSD",
+      "nativeName": "null",
+      "name": "Serbia"
+    },
+    {
+      "isoCode": "SK",
+      "latitude": 48.7667082,
+      "longitude": 18.6413705,
+      "nativeName": "Slovensko",
+      "name": "Slovakia",
+      "urlName": "slovakia",
+      "currency": "EUR"
+    },
+    {
+      "urlName": "slovenia",
+      "longitude": 14.995463,
+      "latitude": 46.151241,
+      "currency": "EUR",
+      "isoCode": "SI",
+      "name": "Slovenia",
+      "nativeName": "Slovenija"
+    },
+    {
+      "longitude": 22.937506,
+      "currency": "ZAR",
+      "name": "South Africa",
+      "latitude": -30.559482,
+      "isoCode": "ZA",
+      "urlName": "south-africa",
+      "nativeName": "South Africa"
+    },
+    {
+      "urlName": "spain",
+      "latitude": 40.463667,
+      "isoCode": "ES",
+      "currency": "EUR",
+      "longitude": -3.74922,
+      "nativeName": "Espana",
+      "name": "Spain"
+    },
+    {
+      "nativeName": "null",
+      "urlName": "st-martin",
+      "longitude": -63.05008090000001,
+      "name": "St. Martin",
+      "latitude": 18.0708298,
+      "currency": "EUR",
+      "isoCode": "MF"
+    },
+    {
+      "urlName": "suriname",
+      "longitude": -56.027783,
+      "name": "Suriname",
+      "nativeName": "Suriname",
+      "latitude": 3.919305,
+      "isoCode": "SR",
+      "currency": "SRD"
+    },
+    {
+      "longitude": 14.888922,
+      "isoCode": "SE",
+      "name": "Sweden",
+      "nativeName": "Sverige",
+      "urlName": "sweden",
+      "latitude": 59.467438,
+      "currency": "SEK"
+    },
+    {
+      "urlName": "switzerland",
+      "latitude": 46.818188,
+      "name": "Switzerland",
+      "currency": "CHF",
+      "longitude": 8.227512,
+      "isoCode": "CH",
+      "nativeName": "Schweiz"
+    },
+    {
+      "name": "Tanzania",
+      "longitude": 34.888822,
+      "isoCode": "TZ",
+      "urlName": "tanzania",
+      "latitude": -6.369028,
+      "nativeName": "Tanzania, United Republic of",
+      "currency": "TZS"
+    },
+    {
+      "longitude": 100.992541,
+      "latitude": 15.870032,
+      "urlName": "thailand",
+      "currency": "THB",
+      "nativeName": "Thailand",
+      "name": "Thailand",
+      "isoCode": "TH"
+    },
+    {
+      "isoCode": "TR",
+      "urlName": "turkey",
+      "currency": "TRY",
+      "name": "Turkey",
+      "longitude": 35.243322,
+      "latitude": 38.963745,
+      "nativeName": "Turkiye"
+    },
+    {
+      "nativeName": "Ukraine",
+      "longitude": 31.16558,
+      "urlName": "ukraine",
+      "latitude": 48.379433,
+      "currency": "UAH",
+      "name": "Ukraine",
+      "isoCode": "UA"
+    },
+    {
+      "isoCode": "GB",
+      "urlName": "united-kingdom",
+      "latitude": 55.378051,
+      "nativeName": "United Kingdom",
+      "currency": "GBP",
+      "name": "United Kingdom",
+      "longitude": -3.435973
+    },
+    {
+      "isoCode": "US",
+      "latitude": 37.09024,
+      "longitude": -95.712891,
+      "urlName": "united-states",
+      "name": "United States",
+      "currency": "USD",
+      "nativeName": "United States"
+    },
+    {
+      "latitude": 0,
+      "isoCode": "XX",
+      "longitude": 0,
+      "urlName": "unknown",
+      "currency": "XXX",
+      "name": "Unknown",
+      "nativeName": "Unknown"
+    },
+    {
+      "name": "Uruguay",
+      "urlName": "uruguay",
+      "isoCode": "UY",
+      "latitude": -32.522779,
+      "currency": "UYU",
+      "longitude": -55.765835,
+      "nativeName": "Uruguay"
+    },
+    {
+      "urlName": "venezuela",
+      "nativeName": "Venezuela",
+      "latitude": 8.58,
+      "currency": "VEF",
+      "name": "Venezuela",
+      "longitude": -65.63,
+      "isoCode": "VE"
+    },
+    {
+      "currency": "VND",
+      "name": "Vietnam",
+      "nativeName": "Viet Nam",
+      "latitude": 11.907235,
+      "urlName": "vietnam",
+      "isoCode": "VN",
+      "longitude": 107.949621
+    },
+    {
+      "isoCode": "VI",
+      "currency": "USD",
+      "nativeName": "Virgin Islands (U.S.)",
+      "name": "Virgin Islands (U.S.)",
+      "latitude": 18.336,
+      "longitude": -64.889,
+      "urlName": "virgin-islands-us"
+    }
+  ]
