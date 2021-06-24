@@ -1,18 +1,22 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
 import LinkList from '../../components/LinkList';
 import initFirebase from '../../lib/firebase';
 import Layout from '../../components/Layout';
+import { useMapContext } from '../../context/MapProvider';
 
 export default function LocationsIndex(props) {
+    const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
     let { country, regions, locationsByRegion, allLocations } = props;
-    const mapData = {
-        mapPosition: [
+
+    useEffect(() => {
+        setMapPosition([
             country.latitude,
             country.longitude
-        ],
-        markerPositions: buildCountryLocationsMarkerPositions(allLocations, country),
-        zoom: 6,
-    }
+        ]);
+        setMarkerPositions(buildCountryLocationsMarkerPositions(allLocations, country));
+        setZoom(6);
+    }, [country, allLocations]);
 
     const backButtonData = {
         href: '/',
@@ -24,7 +28,7 @@ export default function LocationsIndex(props) {
             <Head>
                 <title>{getTitleString(country)}</title>
             </Head>
-            <Layout mapData={mapData} backButtonData={backButtonData}>
+            <Layout backButtonData={backButtonData}>
                 <h1>
                     {country.name}
                 </h1>

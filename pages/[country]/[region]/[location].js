@@ -1,21 +1,28 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
 import initFirebase from '../../../lib/firebase';
 import Layout from '../../../components/Layout';
 import LinkList from '../../../components/LinkList';
 import ReportLocationButton from '../../../components/ReportLocationButton';
 import styles from '../../../styles/LocationsDetail.module.css';
+import { useMapContext } from '../../../context/MapProvider';
 
 export default function LocationsDetail({ location, country, about }) {
+    const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
     const zoom = 15;
     const lat = encodeURIComponent(location.latitude);
     const lng = encodeURIComponent(location.longitude);
-    const mapData = {
-        mapPosition: [
-            location.latitude,
-            location.longitude
-        ],
-        zoom: zoom,
-    }
+
+    useEffect(() => {
+        let markerPositions = [];
+        markerPositions.push({
+            latitude: location.latitude,
+            longitude: location.longitude
+        });
+        setMapPosition([location.latitude, location.longitude]);
+        setMarkerPositions(markerPositions);
+        setZoom(zoom);
+    }, [location]);
 
     const backButtonData = {
         href: `/${encodeURIComponent(country.urlName)}`,
@@ -85,7 +92,7 @@ export default function LocationsDetail({ location, country, about }) {
             <Head>
                 <title>{getTitleString(location, country)}</title>
             </Head>
-            <Layout mapData={mapData} backButtonData={backButtonData}>
+            <Layout backButtonData={backButtonData}>
                 <h1>
                     {location.title}
                 </h1>

@@ -4,8 +4,11 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
 import 'leaflet-defaulticon-compatibility';
 import Link from 'next/link';
+import { useMapContext } from '../context/MapProvider';
 
-export default function Map ({ mapPosition, markerPositions, zoom }) {
+export default function Map() {
+    const { mapPosition, markerPositions, zoom } = useMapContext();
+
     return (
         <MapContainer center={mapPosition} zoom={zoom} scrollWheelZoom={false} style={{ height: "100vh", flex: "1 1 0%" }}>
             <TileLayer
@@ -16,13 +19,18 @@ export default function Map ({ mapPosition, markerPositions, zoom }) {
                 <Marker position={mapPosition}></Marker> :
                 markerPositions.map((markerPosition, index) => (
                     <Marker key={index} position={[markerPosition.latitude, markerPosition.longitude]}>
-                        <Popup>
-                            <h3>{markerPosition.title}</h3>
-                            {markerPosition.text && <p>{markerPosition.text}</p>}
-                            <Link href={markerPosition.url}>
-                                <a>Read more...</a>
-                            </Link>
-                        </Popup>
+                        {markerPosition.title && (
+                            <Popup>
+                                <h3>{markerPosition.title}</h3>
+                                {markerPosition.text && <p>{markerPosition.text}</p>}
+                                {markerPosition.url && (
+                                    <Link href={markerPosition.url}>
+                                        <a>Read more...</a>
+                                    </Link>
+                                )}
+                            </Popup>
+                        )
+                        }
                     </Marker>
                 ))}
         </MapContainer>

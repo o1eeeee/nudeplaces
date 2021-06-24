@@ -1,4 +1,5 @@
 import Router from 'next/router';
+import { MapProvider } from '../context/MapProvider';
 import '../styles/globals.css'
 import '../styles/fonts/nudeplaces/style.css'
 import NProgress from 'nprogress';
@@ -22,7 +23,11 @@ Router.onRouteChangeError = () => {
 
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <MapProvider>
+      <Component {...pageProps} />
+    </MapProvider>
+  )
 }
 
 export default MyApp

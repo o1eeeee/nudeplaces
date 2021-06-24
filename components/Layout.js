@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import styles from '../styles/components/Layout.module.css';
 import { useState } from 'react';
 
-export default function Layout({ children, mapData, backButtonData }) {
+export default function Layout({ children, backButtonData }) {
     const [showMap, setShowMap] = useState(false);
 
     const Map = dynamic(
@@ -52,7 +52,7 @@ export default function Layout({ children, mapData, backButtonData }) {
                         <span className="icon-info"></span>
                     </button>
                 )}
-                <Map mapPosition={mapData.mapPosition} markerPositions={mapData.markerPositions} zoom={mapData.zoom}></Map>
+                <Map />
             </main>
         </>
     )
