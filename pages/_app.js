@@ -6,18 +6,21 @@ import NProgress from 'nprogress';
 
 NProgress.configure({ showSpinner: true });
 
-Router.onRouteChangeStart = () => {
-  //console.log('onRouteChangeStart triggered');
-  NProgress.start();
+Router.onRouteChangeStart = (url) => {
+  if (url !== window.location.pathname) {
+    window.routeTimeout = setTimeout(() =>
+      window.location = url, 300);
+      NProgress.start()
+  }
 };
 
 Router.onRouteChangeComplete = () => {
-  //console.log('onRouteChangeComplete triggered');
+  clearTimeout(window.routeTimeout);
   NProgress.done();
 };
 
 Router.onRouteChangeError = () => {
-  //console.log('onRouteChangeError triggered');
+  clearTimeout(window.routeTimeout);
   NProgress.done();
 };
 
