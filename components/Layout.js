@@ -1,9 +1,11 @@
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
-import styles from '../styles/components/Layout.module.css';
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import CountrySelect from './CountrySelect';
+import styles from '../styles/components/Layout.module.css';
 
-export default function Layout({ children, backButtonData }) {
+
+export default function Layout({ children, countries, backButtonData }) {
     const [showMap, setShowMap] = useState(false);
 
     const Map = dynamic(
@@ -18,14 +20,14 @@ export default function Layout({ children, backButtonData }) {
 
     const ButtonBar = () => (
         <div className={styles.buttonBar}>
-            {backButtonData && (
+            {/*backButtonData && (
                 <Link href={backButtonData.href ?? '/'}>
                     <a className={styles.backButton}>
                         {backButtonData.href && (<>&larr; </>)}
                         {backButtonData.text}
                     </a>
                 </Link>
-            )}
+            )*/}
             <button onClick={() => setShowMap(true)} className={styles.mapButton}>
                 <span className="icon-map"></span>
             </button>
@@ -36,6 +38,14 @@ export default function Layout({ children, backButtonData }) {
     return (
         <>
             <main className={styles.main}>
+                <div className={styles.filterBar}>
+                    <Link href={'/'}>
+                        <a className={styles.backButton}>
+                            &larr;
+                        </a>                        
+                    </Link>
+                    <CountrySelect countries={countries} />
+                </div>
                 {!showMap ? (
                     <div className={styles.content}>
                         <ButtonBar />

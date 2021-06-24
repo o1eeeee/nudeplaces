@@ -1,23 +1,35 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import LinkList from '../../components/LinkList';
+import LocationTypeFilter from '../../components/LocationTypeFilter';
 import initFirebase from '../../lib/firebase';
 import getCountries from '../../lib/countries';
 import Layout from '../../components/Layout';
 import { useMapContext } from '../../context/MapProvider';
 
-export default function LocationsIndex(props) {
+export default function LocationsIndex({ countries, initialCountry, locations }) {
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
-    let { countries, initialCountry, regions, locationsByRegion, allLocations } = props;
+    const [filteredLocations, setFilteredLocations] = useState(locations);
+    const [locationTypeFilter, setLocationTypeFilter] = useState([]);
+    let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations);    
 
     useEffect(() => {
         setMapPosition([
             initialCountry.latitude,
             initialCountry.longitude
         ]);
-        setMarkerPositions(buildCountryLocationsMarkerPositions(allLocations, initialCountry));
+        setMarkerPositions(buildCountryLocationsMarkerPositions(filteredLocations, initialCountry));
         setZoom(6);
-    }, [initialCountry, allLocations]);
+    }, [initialCountry, filteredLocations]);
+
+    useEffect(() => {
+        if (locationTypeFilter.length > 0) {
+            const typeFilteredLocations = locations.filter((location) => locationTypeFilter.includes(location.type))
+            setFilteredLocations(typeFilteredLocations);
+        } else {
+            setFilteredLocations(locations);
+        }
+    }, [JSON.stringify(locationTypeFilter)])
 
     const backButtonData = {
         href: '/',
@@ -29,11 +41,12 @@ export default function LocationsIndex(props) {
             <Head>
                 <title>{getTitleString(initialCountry)}</title>
             </Head>
-            <Layout backButtonData={backButtonData}>
+            <Layout countries={countries} backButtonData={backButtonData}>
                 <h1>
                     {initialCountry.name}
                 </h1>
-                {/*<button onClick={() => { filterLocations(filteredLocations, setFilteredLocations)}} >Filter</button>*/}
+                <LocationTypeFilter filter={locationTypeFilter} setFilter={setLocationTypeFilter} value="swimming" />
+                <LocationTypeFilter filter={locationTypeFilter} setFilter={setLocationTypeFilter} value="beach" />
                 <ul>
                     {regions.map((region) => (
                         <li key={region}>
@@ -86,30 +99,15 @@ export async function getStaticProps({ params }) {
         });
 
     const locations = await locationsData
-    const regions = [];
-    const locationsByRegion = {};
 
     // Filter out locations that don't have a seoName
     const filteredLocations = locations.filter(location => location.seoName != null)
-
-    // Distribute locations to region arrays
-    let assignToRegion = 'unassigned';
-    filteredLocations.map((location) => {
-        assignToRegion = location.region ?? 'unassigned';
-        if (!locationsByRegion[assignToRegion]) {
-            regions.push(assignToRegion);
-            locationsByRegion[assignToRegion] = [];
-        }
-        locationsByRegion[assignToRegion].push(location);
-    })
 
     return {
         props: {
             countries: countries,
             initialCountry: initialCountry[0],
-            regions: regions ?? [],
-            locationsByRegion: locationsByRegion ?? {},
-            allLocations: filteredLocations ?? {}
+            locations: filteredLocations ?? {}
         }
     }
 }
@@ -174,7 +172,25 @@ function getLocationListItems(locations, country) {
 }
 
 
-function filterLocations(locations, setFilteredLocations) {
+function getLocationsByRegion(locations) {
+    // Distribute locations to region arrays
+    const regions = [];
+    const locationsByRegion = {};
+    let assignToRegion = 'unassigned';
+    locations.map((location) => {
+        assignToRegion = location.region ?? 'unassigned';
+        if (!locationsByRegion[assignToRegion]) {
+            regions.push(assignToRegion);
+            locationsByRegion[assignToRegion] = [];
+        }
+        locationsByRegion[assignToRegion].push(location);
+    })
+
+    return { regions, locationsByRegion };
+}
+
+
+function filterLocations(locations) {
     const filteredLocations = locations.filter(location => location.type === "beach")
-    setFilteredLocations(filteredLocations);
-  }
+    return filteredLocations;
+}

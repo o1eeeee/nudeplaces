@@ -43,7 +43,7 @@
     display: flex;
 }
 
-.backButton, .mapButton {
+.mapButton {
     height: 58px;
 }
 
@@ -53,7 +53,7 @@
     cursor: pointer;
 }
 
-.addButton, .backButton {
+.addButton {
     display: flex;
     align-items: center;
     padding: 1rem;
@@ -77,21 +77,8 @@
     margin-right: 0.25rem;
 }
 
-.backButton, .mapButton, .infoButton {
-    background-color: #2979ff;
-    color: white;
-}
-
 .addButton:hover, .addButton:focus {
     background-color: #4aedc4;
-}
-
-.backButton:hover, .backButton:focus, .mapButton:hover, .mapButton:focus, .infoButton:hover, .infoButton:focus {
-    background-color: #1c54b2;
-}
-
-.backButton {
-    flex: 1;
 }
 
 .mapButton {
@@ -115,4 +102,37 @@
     /* to show above map, z-index needs to be > 400 */
     z-index: 1000;
     box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)
+}
+
+.filterBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    z-index: 1001;
+    background-color: rgba(0,0,0,0.1);
+    padding: 0.5rem 1rem;
+}
+
+.backButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 120%;
+    /* to show above map, z-index needs to be > 400 */
+    z-index: 1002;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)
+}
+
+.backButton, .mapButton, .infoButton {
+    background-color: #2979ff;
+    color: white;
+}
+
+.backButton:hover, .backButton:focus, .mapButton:hover, .mapButton:focus, .infoButton:hover, .infoButton:focus {
+    background-color: #1c54b2;
 }
