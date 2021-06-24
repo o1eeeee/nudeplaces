@@ -7,10 +7,15 @@ export default function LinkList({ listItems }) {
             {listItems.map((item, index) => (
                 <li key={index}>
                     {item.external ? (
-                        <a target="_blank" href={item.href} rel="noopener noreferrer nofollow">&#8618; {item.text ?? item.href}</a>
+                        <a target="_blank" href={item.href} rel="noopener noreferrer nofollow">
+                            {item.icon && <span className={`icon-${item.icon}`}></span>}
+                            <span>{item.text ?? item.href}</span>
+                        </a>
                     ) : (
                         <Link href={item.href}>
-                            <a>{item.text ?? item.href}</a>
+                            <a>
+                                {item.icon && <span className={`icon-${item.icon}`}></span>}
+                                <span>{item.text ?? item.href}</span></a>
                         </Link>
                     )}
                 </li>

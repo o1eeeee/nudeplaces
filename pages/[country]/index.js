@@ -184,6 +184,7 @@ function getLocationListItems(locations, country) {
         listItems.push({
             href: buildLocationUrl(location, country),
             text: location.title,
+            icon: location.type
         })
     })
 
