@@ -4,6 +4,7 @@ import LinkList from '../../components/LinkList';
 import LocationTypeFilter from '../../components/LocationTypeFilter';
 import initFirebase from '../../lib/firebase';
 import getCountries from '../../lib/countries';
+import getLocationTypes from '../../lib/locationTypes';
 import Layout from '../../components/Layout';
 import { useMapContext } from '../../context/MapProvider';
 
@@ -11,7 +12,8 @@ export default function LocationsIndex({ countries, initialCountry, locations })
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
     const [filteredLocations, setFilteredLocations] = useState(locations);
     const [locationTypeFilter, setLocationTypeFilter] = useState([]);
-    let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations);    
+    let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations);
+    const locationTypes = getLocationTypes();    
 
     useEffect(() => {
         setMapPosition([
@@ -45,8 +47,9 @@ export default function LocationsIndex({ countries, initialCountry, locations })
                 <h1>
                     {initialCountry.name}
                 </h1>
-                <LocationTypeFilter filter={locationTypeFilter} setFilter={setLocationTypeFilter} value="swimming" />
-                <LocationTypeFilter filter={locationTypeFilter} setFilter={setLocationTypeFilter} value="beach" />
+                {locationTypes.map((type) => (
+                    <LocationTypeFilter filter={locationTypeFilter} setFilter={setLocationTypeFilter} type={type} />
+                ))}
                 <ul>
                     {regions.map((region) => (
                         <li key={region}>
