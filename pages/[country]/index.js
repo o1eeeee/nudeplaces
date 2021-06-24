@@ -2,21 +2,22 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import LinkList from '../../components/LinkList';
 import initFirebase from '../../lib/firebase';
+import getCountries from '../../lib/countries';
 import Layout from '../../components/Layout';
 import { useMapContext } from '../../context/MapProvider';
 
 export default function LocationsIndex(props) {
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
-    let { country, regions, locationsByRegion, allLocations } = props;
+    let { countries, initialCountry, regions, locationsByRegion, allLocations } = props;
 
     useEffect(() => {
         setMapPosition([
-            country.latitude,
-            country.longitude
+            initialCountry.latitude,
+            initialCountry.longitude
         ]);
-        setMarkerPositions(buildCountryLocationsMarkerPositions(allLocations, country));
+        setMarkerPositions(buildCountryLocationsMarkerPositions(allLocations, initialCountry));
         setZoom(6);
-    }, [country, allLocations]);
+    }, [initialCountry, allLocations]);
 
     const backButtonData = {
         href: '/',
@@ -26,17 +27,18 @@ export default function LocationsIndex(props) {
     return (
         <>
             <Head>
-                <title>{getTitleString(country)}</title>
+                <title>{getTitleString(initialCountry)}</title>
             </Head>
             <Layout backButtonData={backButtonData}>
                 <h1>
-                    {country.name}
+                    {initialCountry.name}
                 </h1>
+                {/*<button onClick={() => { filterLocations(filteredLocations, setFilteredLocations)}} >Filter</button>*/}
                 <ul>
                     {regions.map((region) => (
                         <li key={region}>
                             <h2>{region}</h2>
-                            <LinkList listItems={getLocationListItems(locationsByRegion[region], country)} />
+                            <LinkList listItems={getLocationListItems(locationsByRegion[region], initialCountry)} />
                         </li>
                     ))}
                 </ul>
@@ -48,30 +50,34 @@ export default function LocationsIndex(props) {
 export async function getStaticProps({ params }) {
     if (process.env.NODE_ENV === 'development') {
         const props = require('../../dev/countries/staticProps.json');
+        const countries = getCountries();
+        const initialCountry = countries.filter(country => country.urlName === params.country);
+
+        if (!initialCountry[0]) {
+            return { notFound: true }
+        }
+
+        props["props"]["countries"] = countries
+        props["props"]["initialCountry"] = initialCountry[0]
+
         return props;
     }
 
     let db = await initFirebase()
 
-    // Fetch country
-    let countryData = db.collection('countries').where('urlName', '==', params.country).limit(1).get().then((snapshot) => {
-        return snapshot.docs.map(doc => doc.data())
-    }).catch((error) => {
-        console.log("Error getting country data: ", error);
-        return { notFound: true }
-    });
-    const country = await countryData
+    // Fetch countries
+    const countries = getCountries();
+    const initialCountry = countries.filter(country => country.urlName === params.country);
 
-    if (!country[0]) {
+    if (!initialCountry[0]) {
         return { notFound: true }
     }
 
     // Fetch locations for country sorted by region and title
     let locationsData = db.collection('locations')
-        .where('country', '==', country[0].isoCode)
+        .where('country', '==', initialCountry[0].isoCode)
         .orderBy('region')
         .orderBy('title')
-        .limit(50)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
         })
@@ -99,7 +105,8 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
-            country: country[0],
+            countries: countries,
+            initialCountry: initialCountry[0],
             regions: regions ?? [],
             locationsByRegion: locationsByRegion ?? {},
             allLocations: filteredLocations ?? {}
@@ -109,21 +116,7 @@ export async function getStaticProps({ params }) {
 
 
 export async function getStaticPaths() {
-    if (process.env.NODE_ENV === 'development') {
-        const paths = require('../../dev/countries/staticPaths.json');
-        return paths;
-    }
-
-    let db = await initFirebase()
-    let data = db.collection('countries')
-        .get().then((snapshot) => {
-            return snapshot.docs.map(doc => doc.data())
-        })
-        .catch((error) => {
-            console.log("Error getting documents: ", error);
-        });
-
-    const countries = await data
+    const countries = getCountries();
 
     const paths = countries.map((country) => ({
         params: { country: country.urlName }
@@ -179,3 +172,9 @@ function getLocationListItems(locations, country) {
 
     return listItems;
 }
+
+
+function filterLocations(locations, setFilteredLocations) {
+    const filteredLocations = locations.filter(location => location.type === "beach")
+    setFilteredLocations(filteredLocations);
+  }
