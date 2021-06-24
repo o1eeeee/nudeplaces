@@ -1,22 +1,11 @@
-import { useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import LinkList from '../components/LinkList';
 import Layout from '../components/Layout';
-import initFirebase from '../lib/firebase';
+import getCountries from '../lib/countries';
 import styles from '../styles/Home.module.css';
-import { useMapContext } from '../context/MapProvider';
 
 export default function Home({ countries }) {
-  const { setMapPosition, setMarkerPositions, setZoom } = useMapContext()
-
-  useEffect(() => {
-    setMapPosition([
-      51.165691, 10.451526
-    ]);
-    setMarkerPositions([]);
-    setZoom(3);
-  }, []);
 
   const backButtonData = {
     text: "Nude Places",
@@ -37,28 +26,14 @@ export default function Home({ countries }) {
         <Link href={'/about'}>
           <a className={styles.aboutLink}>About and Privacy</a>
         </Link>
+        
       </Layout>
     </>
   )
 }
 
 export async function getStaticProps() {
-  if (process.env.NODE_ENV === 'development') {
-    const props = require('../dev/index/staticProps.json');
-    return props;
-  }
-
-  let db = await initFirebase()
-  let data = db.collection('countries')
-    .orderBy('name')
-    .get().then((snapshot) => {
-      return snapshot.docs.map(doc => doc.data())
-    })
-    .catch((error) => {
-      console.log("Error getting documents: ", error);
-    });
-
-  const countries = await data
+  const countries = getCountries();
 
   return {
     props: {
@@ -74,23 +49,6 @@ function getTitleString() {
   titleString.push(`Nudist, Naturist, Clothing Optional Places and Beaches worldwide`);
   titleString.push("nudeplaces");
   return titleString.join(" – ")
-}
-
-
-
-function buildCountryMarkerPositions(countries) {
-  const markerPositions = [];
-
-  countries.map((country) => {
-    markerPositions.push({
-      latitude: country.latitude,
-      longitude: country.longitude,
-      title: country.name,
-      url: buildCountryUrl(country)
-    })
-  })
-
-  return markerPositions;
 }
 
 
