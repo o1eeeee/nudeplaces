@@ -114,9 +114,14 @@ export async function getStaticProps({ params }) {
         })
         .catch((error) => {
             console.log("Error getting location data: ", error);
+            return { notFound: true }
         });
 
     const location = await locationData
+
+    if (!location[0]) {
+        return { notFound: true }
+    }
 
     let countryData = db.collection('countries')
         .where('urlName', '==', params.country)
@@ -126,9 +131,14 @@ export async function getStaticProps({ params }) {
         })
         .catch((error) => {
             console.log("Error getting country data: ", error)
+            return { notFound: true }
         })
 
     const country = await countryData
+
+    if (!country[0]) {
+        return { notFound: true }
+    }
 
     let aboutData = db.collection('about').limit(1)
         .get().then((snapshot) => {
@@ -141,10 +151,11 @@ export async function getStaticProps({ params }) {
     const about = await aboutData
 
     return {
+        revalidate: 86400,
         props: {
-            location: location ? location[0] : {},
-            country: country ? country[0] : {},
-            about: about ? about[0] : {}
+            location: location[0],
+            country: country[0],
+            about: about[0] ?? {}
         }
     }
 }
@@ -158,23 +169,9 @@ export async function getStaticPaths() {
 
     let db = await initFirebase()
 
-    // Fetch countries
-    let countriesData = db.collection('countries').get().then((snapshot) => {
-        return snapshot.docs.map(doc => doc.data())
-    }).catch((error) => {
-        console.log("Error getting country data: ", error);
-    });
-    const countries = await countriesData
-
-    // Countries by isoCode
-    const countriesByIsoCode = [];
-    countries.map((country) => {
-        countriesByIsoCode[country.isoCode] = country;
-    })
-
-    // Fetch locations
+    // Fetch locations for Germany to be statically generated
     let locationsData = db.collection('locations')
-        .where('seoName', '!=', null)
+        .where('country', "==", "DE")
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
         })
@@ -189,7 +186,7 @@ export async function getStaticPaths() {
 
     const paths = filteredLocations.map((location) => ({
         params: {
-            country: countriesByIsoCode[location.country] ? (countriesByIsoCode[location.country]['urlName'] ?? "unknown") : "unknown",
+            country: "germany",
             region: location.region ?? 'unassigned',
             location: location.seoName,
         }
@@ -197,7 +194,8 @@ export async function getStaticPaths() {
 
     return {
         paths,
-        fallback: false,
+        // enable SSR for locations that haven't been generated
+        fallback: 'blocking',
     }
 }
 
