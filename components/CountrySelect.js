@@ -40,7 +40,7 @@ export default function CountrySelect() {
 
     return (
         <div ref={countrySelectRef} className={styles.countrySelect}>
-            <input type="text" value={value} onChange={handleChange} onFocus={handleFocus} />
+            <input className={styles.countryInput} placeholder="Show nude places in..." type="text" value={value} onChange={handleChange} onFocus={handleFocus} />
             <ul className={styles.countriesList} style={showCountriesList ? { display: "flex" } : { display: "none" }}>
                 {filteredCountries.map((country) => (
                     <li key={country.isoCode}>

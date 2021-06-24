@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import styles from '../styles/components/LocationTypeFilter.module.css';
 
 export default function LocationTypeFilter({ type, filter, setFilter }) {
     const [isActive, setIsActive] = useState(false)
@@ -11,15 +12,19 @@ export default function LocationTypeFilter({ type, filter, setFilter }) {
         }
         if ((index === -1) && isActive) {
             newFilter.push(type.value);
-        }        
+        }
         setFilter(newFilter)
     }, [isActive])
 
     const handleClick = () => {
-        setIsActive(!isActive);        
+        setIsActive(!isActive);
     }
 
     return (
-        <button type="button" onClick={handleClick}>{isActive && "X"} <span className={`icon-${type.value}`}></span> {type.label}</button>
+        <button className={styles.locationTypeFilterButton} type="button" onClick={handleClick}>
+            <span className={`icon-${type.value}`}></span>
+            {type.label}
+            {isActive && <span className="icon-check-circle"></span>}
+        </button>
     )
 }

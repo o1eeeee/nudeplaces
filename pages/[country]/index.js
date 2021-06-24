@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import LinkList from '../../components/LinkList';
 import LocationTypeFilter from '../../components/LocationTypeFilter';
 import initFirebase from '../../lib/firebase';
 import getCountries from '../../lib/countries';
 import getLocationTypes from '../../lib/locationTypes';
 import Layout from '../../components/Layout';
+import CountrySelect from '../../components/CountrySelect';
 import { useMapContext } from '../../context/MapProvider';
+import styles from '../../styles/Country.module.css';
 
-export default function LocationsIndex({ countries, initialCountry, locations }) {
+export default function Country({ countries, initialCountry, locations }) {
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
     const [filteredLocations, setFilteredLocations] = useState(locations);
     const [locationTypeFilter, setLocationTypeFilter] = useState([]);
     let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations);
-    const locationTypes = getLocationTypes();    
+    const locationTypes = getLocationTypes();
 
     useEffect(() => {
         setMapPosition([
@@ -33,31 +36,44 @@ export default function LocationsIndex({ countries, initialCountry, locations })
         }
     }, [JSON.stringify(locationTypeFilter)])
 
-    const backButtonData = {
-        href: '/',
-        text: "Countries",
-    }
-
     return (
         <>
             <Head>
                 <title>{getTitleString(initialCountry)}</title>
             </Head>
-            <Layout countries={countries} backButtonData={backButtonData}>
-                <h1>
-                    {initialCountry.name}
-                </h1>
-                {locationTypes.map((type) => (
-                    <LocationTypeFilter filter={locationTypeFilter} setFilter={setLocationTypeFilter} type={type} />
-                ))}
-                <ul>
-                    {regions.map((region) => (
-                        <li key={region}>
-                            <h2>{region}</h2>
-                            <LinkList listItems={getLocationListItems(locationsByRegion[region], initialCountry)} />
-                        </li>
-                    ))}
-                </ul>
+            <Layout>
+                <div className={styles.filterBar}>
+                    <div className={styles.navigation}>
+                        <Link href={'/'}>
+                            <a className={styles.backButton}>
+                                &larr;
+                            </a>
+                        </Link>
+                        <CountrySelect countries={countries} />
+                    </div>
+                    <ul className={styles.locationTypeFilters}>
+                        {locationTypes.map((type, index) => (
+                            <li key={index}>
+                                <LocationTypeFilter filter={locationTypeFilter} setFilter={setLocationTypeFilter} type={type} />
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div className={styles.contentWrapper}>
+                    <div className={styles.content}>
+                        <h1>
+                            {initialCountry.name}
+                        </h1>
+                        <ul>
+                            {regions.map((region) => (
+                                <li key={region}>
+                                    <h2>{region}</h2>
+                                    <LinkList listItems={getLocationListItems(locationsByRegion[region], initialCountry)} />
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
             </Layout>
         </>
     )

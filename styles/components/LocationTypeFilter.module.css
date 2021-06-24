@@ -1,0 +1,31 @@
+.locationTypeFilterButton {
+    border: 0;
+    background-color: white;
+    font-size: 100%;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    white-space: nowrap;
+    margin-right: 1rem;
+    border-radius: 18px;
+    padding: 0 1rem;
+    min-width: 100px;
+    box-shadow: 0 1px 6px rgba(60, 64, 67, .28);
+}
+
+.locationTypeFilterButton:hover {
+    cursor: pointer;
+    background-color: whitesmoke;
+    box-shadow: 0 4px 10px rgba(60, 64, 67, .28);
+}
+
+.locationTypeFilterButton span:first-child {
+    margin-right: .5rem;
+}
+
+.locationTypeFilterButton span:nth-child(2) {
+    margin-left: .5rem;
+    color: #2979ff;
+}
