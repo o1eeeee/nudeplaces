@@ -1,0 +1,14 @@
+.countrySelect {
+    position: relative;
+}
+
+.countriesList {
+    display: none;
+    position: absolute;
+    top: 1.5rem;
+    left: 0;
+    background-color: white;
+    flex-direction: column;
+    max-height: 300px;
+    overflow: auto;
+}
