@@ -9,7 +9,7 @@ export function MapProvider({ children }) {
     const [zoom, setZoom] = useState(3);
 
     return (
-        <MapContext.Provider value ={{mapPosition, setMapPosition, markerPositions, setMarkerPositions, zoom, setZoom}}>
+        <MapContext.Provider value={{mapPosition, setMapPosition, markerPositions, setMarkerPositions, zoom, setZoom}}>
             {children}
         </MapContext.Provider>
     );
