@@ -54,14 +54,20 @@ export async function getStaticProps({ params }) {
         return snapshot.docs.map(doc => doc.data())
     }).catch((error) => {
         console.log("Error getting country data: ", error);
+        return { notFound: true }
     });
     const country = await countryData
+
+    if (!country[0]) {
+        return { notFound: true }
+    }
 
     // Fetch locations for country sorted by region and title
     let locationsData = db.collection('locations')
         .where('country', '==', country[0].isoCode)
         .orderBy('region')
         .orderBy('title')
+        .limit(50)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
         })
@@ -89,7 +95,7 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
-            country: country ? country[0] : {},
+            country: country[0],
             regions: regions ?? [],
             locationsByRegion: locationsByRegion ?? {},
             allLocations: filteredLocations ?? {}
