@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import LinkList from './LinkList';
 import getCountries from '../lib/countries';
 import styles from '../styles/components/CountrySelect.module.css';
 
@@ -11,10 +12,10 @@ export default function CountrySelect() {
     const countrySelectRef = useRef(null);
 
     useEffect(() => {
-        const filteredCountries = countries
+        const nameFilteredCountries = countries
             .filter((country) => (!value || country.name.toLowerCase().includes(value.toLowerCase()) || country.nativeName.toLowerCase().includes(value.toLowerCase())));
 
-        setFilteredCountries(filteredCountries);
+        setFilteredCountries(nameFilteredCountries);
     }, [value])
 
     useEffect(() => {
@@ -39,13 +40,17 @@ export default function CountrySelect() {
     }
 
     return (
-        <div ref={countrySelectRef} className={styles.countrySelect}>
+        <div ref={countrySelectRef} className={`${styles.countrySelect} ${showCountriesList && styles.countrySelectOpen}`}>
             <div className={styles.countryInputGroup}>
                 <label htmlFor="CountryInput">Country</label>
                 <input id="CountryInput" className={styles.countryInput} placeholder="Show nude places in..." type="text" value={value} onChange={handleChange} onFocus={handleFocus} />
                 <span className="icon-search"></span>
             </div>
-            <ul className={styles.countriesList} style={showCountriesList ? { display: "flex" } : { display: "none" }}>
+            <div className={styles.countriesList} style={showCountriesList ? { display: "flex" } : { display: "none" }}>
+                {/** make full width and backdrop */}
+                <LinkList listItems={getCountryListItems(filteredCountries)} />
+            </div>
+            {/*<ul >
                 {filteredCountries.map((country) => (
                     <li key={country.isoCode}>
                         <Link href={`/${country.urlName}`}>
@@ -53,8 +58,27 @@ export default function CountrySelect() {
                         </Link>
                     </li>
                 ))}
-            </ul>
+                </ul>*/}
         </div>
 
     )
+}
+
+
+function getCountryListItems(countries) {
+    const listItems = [];
+
+    countries.map((country) => {
+        listItems.push({
+            href: buildCountryUrl(country),
+            text: country.name,
+        })
+    })
+
+    return listItems;
+}
+
+
+function buildCountryUrl(country) {
+    return `/${encodeURIComponent(country.urlName)}`;
 }
