@@ -24,7 +24,7 @@ export default function LocationTypeFilter({ type, filter, setFilter }) {
         <button className={styles.locationTypeFilterButton} type="button" onClick={handleClick}>
             <span className={`icon-${type.value}`}></span>
             {type.label}
-            {isActive && <span className="icon-check-circle"></span>}
+            <span className="icon-check-circle" style={{color: `${isActive ? '#2979ff' : '#ddd'}` }}></span>
         </button>
     )
 }

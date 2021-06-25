@@ -13,9 +13,10 @@ export default function LinkList({ listItems }) {
                         </a>
                     ) : (
                         <Link href={item.href}>
-                            <a>
+                            <a onClick={() => item.handleClick && item.handleClick(false)}>
                                 {item.icon && <span className={`icon-${item.icon}`}></span>}
-                                <span>{item.text ?? item.href}</span></a>
+                                <span>{item.text ?? item.href}</span>
+                            </a>
                         </Link>
                     )}
                 </li>

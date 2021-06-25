@@ -132,3 +132,13 @@ _::-webkit-full-page-media, _:future, :root .safari_only {
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.swiper-container {
+  flex: 1;
+  margin: 0rem 1rem!important;
+  padding: 1rem 0!important;
+}
+
+.swiper-slide {
+  width: auto!important;
+}

@@ -8,8 +8,10 @@ import getCountries from '../../lib/countries';
 import getLocationTypes from '../../lib/locationTypes';
 import Layout from '../../components/Layout';
 import CountrySelect from '../../components/CountrySelect';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { useMapContext } from '../../context/MapProvider';
 import styles from '../../styles/Country.module.css';
+import "swiper/swiper.min.css";
 
 export default function Country({ countries, initialCountry, locations }) {
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
@@ -49,21 +51,29 @@ export default function Country({ countries, initialCountry, locations }) {
                                 &larr;
                             </a>
                         </Link>
-                        <CountrySelect countries={countries} />
+                        <CountrySelect countries={countries} initialCountry={initialCountry} />
                     </div>
-                    <ul className={styles.locationTypeFilters}>
+                    {/*<ul className={styles.locationTypeFilters}>
                         {locationTypes.map((type, index) => (
                             <li key={index}>
                                 <LocationTypeFilter filter={locationTypeFilter} setFilter={setLocationTypeFilter} type={type} />
                             </li>
                         ))}
-                    </ul>
+                        </ul>*/}
+                    <Swiper slidesPerView="auto" spaceBetween={18}>
+                        {locationTypes.map((type, index) => (
+                            <SwiperSlide key={index}>
+                                <LocationTypeFilter filter={locationTypeFilter} setFilter={setLocationTypeFilter} type={type} />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
                 <div className={styles.contentWrapper}>
                     <div className={styles.content}>
                         <h1>
                             {initialCountry.name}
                         </h1>
+                        <p>{filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {initialCountry.name}</p>
                         <ul>
                             {regions.map((region) => (
                                 <li key={region}>

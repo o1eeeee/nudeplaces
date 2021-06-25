@@ -1,15 +1,18 @@
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import LinkList from './LinkList';
 import getCountries from '../lib/countries';
 import styles from '../styles/components/CountrySelect.module.css';
 
-export default function CountrySelect() {
+export default function CountrySelect({ initialCountry }) {
     const countries = getCountries();
     const [value, setValue] = useState("");
     const [filteredCountries, setFilteredCountries] = useState(countries);
     const [showCountriesList, setShowCountriesList] = useState(false);
     const countrySelectRef = useRef(null);
+
+    useEffect(() => {
+        setShowCountriesList(false);
+    }, [initialCountry])
 
     useEffect(() => {
         const nameFilteredCountries = countries
@@ -40,25 +43,17 @@ export default function CountrySelect() {
     }
 
     return (
-        <div ref={countrySelectRef} className={`${styles.countrySelect} ${showCountriesList && styles.countrySelectOpen}`}>
-            <div className={styles.countryInputGroup}>
-                <label htmlFor="CountryInput">Country</label>
-                <input id="CountryInput" className={styles.countryInput} placeholder="Show nude places in..." type="text" value={value} onChange={handleChange} onFocus={handleFocus} />
-                <span className="icon-search"></span>
+        <div className={`${styles.countrySelect} ${showCountriesList && styles.countrySelectOpen}`}>
+            <div ref={countrySelectRef}>
+                <div className={styles.countryInputGroup}>
+                    <label htmlFor="CountryInput">Country</label>
+                    <input id="CountryInput" className={styles.countryInput} placeholder="Show nude places in..." type="text" value={value} onChange={handleChange} onFocus={handleFocus} />
+                    <span className="icon-search"></span>
+                </div>
+                <div className={`${styles.countriesList} ${showCountriesList && styles.countriesListOpen}`}>
+                    <LinkList listItems={getCountryListItems(filteredCountries)} />
+                </div>
             </div>
-            <div className={styles.countriesList} style={showCountriesList ? { display: "flex" } : { display: "none" }}>
-                {/** make full width and backdrop */}
-                <LinkList listItems={getCountryListItems(filteredCountries)} />
-            </div>
-            {/*<ul >
-                {filteredCountries.map((country) => (
-                    <li key={country.isoCode}>
-                        <Link href={`/${country.urlName}`}>
-                            <a onClick={() => setShowCountriesList(false)}>{country.name}</a>
-                        </Link>
-                    </li>
-                ))}
-                </ul>*/}
         </div>
 
     )
@@ -71,7 +66,7 @@ function getCountryListItems(countries) {
     countries.map((country) => {
         listItems.push({
             href: buildCountryUrl(country),
-            text: country.name,
+            text: country.name
         })
     })
 

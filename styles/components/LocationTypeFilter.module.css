@@ -8,7 +8,6 @@
     justify-content: center;
     height: 36px;
     white-space: nowrap;
-    margin-right: 1rem;
     border-radius: 18px;
     padding: 0 1rem;
     min-width: 100px;
@@ -23,9 +22,10 @@
 
 .locationTypeFilterButton span:first-child {
     margin-right: .5rem;
+    width: 16px;
 }
 
 .locationTypeFilterButton span:nth-child(2) {
     margin-left: .5rem;
-    color: #2979ff;
+    width: 16px;
 }
