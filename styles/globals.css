@@ -135,8 +135,7 @@ _::-webkit-full-page-media, _:future, :root .safari_only {
 
 .swiper-container {
   flex: 1;
-  margin: 0rem 1rem!important;
-  padding: 1rem 0!important;
+  padding: 1rem!important;
 }
 
 .swiper-slide {

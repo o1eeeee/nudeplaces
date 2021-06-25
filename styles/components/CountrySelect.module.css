@@ -45,8 +45,9 @@
     top: 4rem;
     left: 1rem;
     right: 1rem;
+    max-height: 80%;
     background-color: white;
-    overflow: auto;
+    overflow: hidden;
     border-radius: 18px;
     padding: 1.5rem 0;
 }
@@ -56,11 +57,36 @@
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
+    overflow: auto;
 }
 
 .countriesList ul li {
-    width: 12.5%;
+    width: 100%;
     text-align: center;
+}
+
+@media(min-width: 420px) {
+    .countriesList ul li {
+        width: 50%;
+    }
+}
+
+@media(min-width: 992px) {
+    .countriesList ul li {
+        width: 25%;
+    }
+}
+
+@media(min-width: 1200px) {
+    .countriesList ul li {
+        width: 20%;
+    }
+}
+
+@media(min-width: 1600px) {
+    .countriesList ul li {
+        width: 12.5%;
+    }
 }
 
 .countriesList ul li a {
