@@ -10,7 +10,7 @@ export default function Map() {
     const { mapPosition, markerPositions, zoom } = useMapContext();
 
     return (
-        <MapContainer zoomControl={false} center={mapPosition} zoom={zoom} scrollWheelZoom={false} style={{ height: "100vh", flex: "1 1 0%" }}>
+        <MapContainer zoomControl={false} center={mapPosition} zoom={zoom} scrollWheelZoom={false} style={{ height: "100%", flex: "1 1 0%" }}>
             <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

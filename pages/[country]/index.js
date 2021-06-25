@@ -53,13 +53,6 @@ export default function Country({ countries, initialCountry, locations }) {
                         </Link>
                         <CountrySelect countries={countries} initialCountry={initialCountry} />
                     </div>
-                    {/*<ul className={styles.locationTypeFilters}>
-                        {locationTypes.map((type, index) => (
-                            <li key={index}>
-                                <LocationTypeFilter filter={locationTypeFilter} setFilter={setLocationTypeFilter} type={type} />
-                            </li>
-                        ))}
-                        </ul>*/}
                     <Swiper slidesPerView="auto" spaceBetween={18}>
                         {locationTypes.map((type, index) => (
                             <SwiperSlide key={index}>
@@ -217,10 +210,4 @@ function getLocationsByRegion(locations) {
     })
 
     return { regions, locationsByRegion };
-}
-
-
-function filterLocations(locations) {
-    const filteredLocations = locations.filter(location => location.type === "beach")
-    return filteredLocations;
 }

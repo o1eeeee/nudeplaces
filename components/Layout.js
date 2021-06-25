@@ -21,7 +21,7 @@ export default function Layout({ children }) {
                 <div className={styles.mapContainer}>
                     <Map />
                     <Link href={'/'}>
-                        <a className={styles.addButton}><span className="icon-location"></span> Add Location</a>
+                        <a className={styles.addButton}><span className="icon-location"></span></a>
                     </Link>
                 </div>
             </main>

@@ -5,21 +5,29 @@
     left: 0;
     z-index: 999;
     width: 100%;
+    margin-top: 80vh;
 }
 
 @media (min-width: 420px) {
     .contentWrapper {
         width: 375px;
+        margin-top: 0;
     }
 }
 
 .content {
     background-color: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .3);
-    height: 100%;
-    padding: 90px 0 1.5rem 0;
-    overflow: hidden;
-    scrollbar-width: thin;
+    padding-top: 1.5rem;
+}
+
+@media (min-width: 420px) {
+    .content {
+        height: 100%;
+        overflow: hidden;
+        scrollbar-width: thin;
+        box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+        padding: 84px 0 1.5rem 0;
+    }
 }
 
 .content:hover {
@@ -35,7 +43,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 1002;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -51,12 +59,13 @@
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 1rem 1.5rem 1rem 1rem;
+    padding: 1rem 1rem 1rem 1rem;
 }
 
 @media (min-width: 420px) {
     .navigation {
         width: 375px;
+        padding: 1rem 1.5rem 1rem 1rem;
     }
 }
 
@@ -65,12 +74,19 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    width: 36px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
     font-size: 120%;
     /* to show above map, z-index needs to be > 400 */
     z-index: 1002;
     box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)
+}
+
+@media (min-width: 420px) {
+    .backButton {
+        width: 36px;
+        height: 36px;
+    }
 }
 
 .backButton {
@@ -82,9 +98,8 @@
     background-color: #1c54b2;
 }
 
-.locationTypeFilters {
-    display: flex;
-    flex: 1;
-    overflow: auto;
-    padding: 1rem 0 1rem 1rem;
+@media (min-width: 420px) {
+    .locationTypeFilters {
+        padding: 1rem 0 1rem 1rem;
+    }
 }

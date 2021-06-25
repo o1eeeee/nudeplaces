@@ -11,6 +11,7 @@ export default function CountrySelect({ initialCountry }) {
     const countrySelectRef = useRef(null);
 
     useEffect(() => {
+        setValue("");
         setShowCountriesList(false);
     }, [initialCountry])
 
