@@ -6,7 +6,8 @@
       "urlName": "antigua-and-barbuda",
       "name": "Antigua and Barbuda",
       "longitude": -61.796428,
-      "isoCode": "AG"
+      "isoCode": "AG",
+      "zoom": 9
     },
     {
       "nativeName": "Argentina",
@@ -15,7 +16,8 @@
       "currency": "ARS",
       "urlName": "argentina",
       "isoCode": "AR",
-      "name": "Argentina"
+      "name": "Argentina",
+      "zoom": 5
     },
     {
       "currency": "AUD",
@@ -24,7 +26,8 @@
       "latitude": -25.274398,
       "longitude": 133.775136,
       "nativeName": "Australia",
-      "urlName": "australia"
+      "urlName": "australia",
+      "zoom": 5
     },
     {
       "currency": "EUR",
@@ -33,7 +36,8 @@
       "nativeName": "Österreich",
       "name": "Austria",
       "longitude": 14.550072,
-      "urlName": "austria"
+      "urlName": "austria",
+      "zoom": 7
     },
     {
       "isoCode": "BE",
@@ -42,7 +46,8 @@
       "longitude": 4.469936,
       "nativeName": "Belgie",
       "name": "Belgium",
-      "latitude": 50.503887
+      "latitude": 50.503887,
+      "zoom": 8
     },
     {
       "isoCode": "BR",
@@ -51,7 +56,8 @@
       "nativeName": "Brasil",
       "urlName": "brazil",
       "longitude": -51.92528,
-      "name": "Brazil"
+      "name": "Brazil",
+      "zoom": 5
     },
     {
       "currency": "BGN",
@@ -60,7 +66,8 @@
       "name": "Bulgaria",
       "nativeName": "Bulgaria",
       "longitude": 25.48583,
-      "isoCode": "BG"
+      "isoCode": "BG",
+      "zoom": 8
     },
     {
       "longitude": -106.346771,
@@ -69,7 +76,8 @@
       "urlName": "canada",
       "name": "Canada",
       "isoCode": "CA",
-      "latitude": 56.130366
+      "latitude": 56.130366,
+      "zoom": 4
     },
     {
       "isoCode": "CV",
@@ -78,7 +86,8 @@
       "nativeName": "Cabo Verde",
       "longitude": -24.083333,
       "urlName": "cape-verde",
-      "name": "Cape Verde"
+      "name": "Cape Verde",
+      "zoom": 8
     },
     {
       "name": "Cayman Islands",
@@ -87,7 +96,8 @@
       "latitude": 19.513469,
       "isoCode": "KY",
       "longitude": -80.566956,
-      "urlName": "cayman-islands"
+      "urlName": "cayman-islands",
+      "zoom": 8
     },
     {
       "urlName": "chile",
@@ -96,7 +106,8 @@
       "longitude": -71.542969,
       "nativeName": "Chile",
       "name": "Chile",
-      "latitude": -35.675147
+      "latitude": -35.675147,
+      "zoom": 5
     },
     {
       "latitude": 35.86166,
@@ -105,7 +116,8 @@
       "name": "China",
       "nativeName": "Zhong Guo",
       "isoCode": "CN",
-      "currency": "CNY"
+      "currency": "CNY",
+      "zoom": 5
     },
     {
       "longitude": -74.29733299999998,
@@ -114,7 +126,8 @@
       "name": "Colombia",
       "nativeName": "Colombia",
       "isoCode": "CO",
-      "currency": "COP"
+      "currency": "COP",
+      "zoom": 6
     },
     {
       "longitude": -83.75342799999999,
@@ -123,7 +136,8 @@
       "urlName": "costa-rica",
       "nativeName": "Costa Rica",
       "latitude": 9.748916999999999,
-      "currency": "CRC"
+      "currency": "CRC",
+      "zoom": 8
     },
     {
       "currency": "HRK",
@@ -132,7 +146,8 @@
       "nativeName": "Hrvatska",
       "isoCode": "HR",
       "name": "Croatia",
-      "longitude": 15.2
+      "longitude": 15.2,
+      "zoom": 8
     },
     {
       "nativeName": "Cuba",
@@ -141,7 +156,8 @@
       "latitude": 21.94,
       "currency": "CUP",
       "name": "Cuba",
-      "isoCode": "CU"
+      "isoCode": "CU",
+      "zoom": 7
     },
     {
       "latitude": 12.186111,
@@ -150,7 +166,8 @@
       "currency": "ANG",
       "longitude": -68.989444,
       "nativeName": "null",
-      "urlName": "curacao"
+      "urlName": "curacao",
+      "zoom": 11
     },
     {
       "isoCode": "CY",
@@ -159,7 +176,8 @@
       "nativeName": "Cyprus",
       "latitude": 35.126413,
       "name": "Cyprus",
-      "urlName": "cyprus"
+      "urlName": "cyprus",
+      "zoom": 9
     },
     {
       "isoCode": "CZ",
@@ -168,7 +186,8 @@
       "latitude": 49.817492,
       "currency": "CZK",
       "name": "Czech Republic",
-      "nativeName": "Ceska Republika"
+      "nativeName": "Ceska Republika",
+      "zoom": 8
     },
     {
       "currency": "DKK",
@@ -177,7 +196,8 @@
       "urlName": "denmark",
       "latitude": 56.26392,
       "longitude": 9.501785,
-      "nativeName": "Danmark"
+      "nativeName": "Danmark",
+      "zoom": 7
     },
     {
       "urlName": "dominican-republic",
@@ -186,7 +206,8 @@
       "isoCode": "DO",
       "name": "Dominican Republic",
       "longitude": -70.162651,
-      "currency": "DOP"
+      "currency": "DOP",
+      "zoom": 7
     },
     {
       "longitude": 30.802,
@@ -195,7 +216,8 @@
       "latitude": 26.820553,
       "urlName": "egypt",
       "currency": "EGP",
-      "name": "Egypt"
+      "name": "Egypt",
+      "zoom": 6
     },
     {
       "nativeName": "Eesti",
@@ -204,7 +226,8 @@
       "name": "Estonia",
       "isoCode": "EE",
       "longitude": 25.013607,
-      "latitude": 58.595272
+      "latitude": 58.595272,
+      "zoom": 8
     },
     {
       "nativeName": "Fiji",
@@ -213,7 +236,8 @@
       "currency": "FJD",
       "longitude": 177.942692,
       "isoCode": "FJ",
-      "urlName": "fiji"
+      "urlName": "fiji",
+      "zoom": 7
     },
     {
       "currency": "EUR",
@@ -222,7 +246,8 @@
       "isoCode": "FI",
       "nativeName": "Suomi",
       "name": "Finland",
-      "latitude": 61.92411
+      "latitude": 61.92411,
+      "zoom": 5
     },
     {
       "longitude": 2.213749,
@@ -231,7 +256,8 @@
       "name": "France",
       "currency": "EUR",
       "nativeName": "France",
-      "urlName": "france"
+      "urlName": "france",
+      "zoom": 6
     },
     {
       "latitude": -15,
@@ -240,7 +266,8 @@
       "name": "French Polynesia",
       "isoCode": "PF",
       "nativeName": "Polynesie Francaise",
-      "urlName": "french-polynesia"
+      "urlName": "french-polynesia",
+      "zoom": 5
     },
     {
       "longitude": 10.451526,
@@ -249,7 +276,8 @@
       "isoCode": "DE",
       "latitude": 51.165691,
       "currency": "EUR",
-      "name": "Germany"
+      "name": "Germany",
+      "zoom": 6
     },
     {
       "longitude": 21.824312,
@@ -258,7 +286,8 @@
       "latitude": 39.074208,
       "isoCode": "GR",
       "nativeName": "Ellas",
-      "name": "Greece"
+      "name": "Greece",
+      "zoom": 7
     },
     {
       "isoCode": "GP",
@@ -267,7 +296,8 @@
       "currency": "EUR",
       "longitude": -61.688,
       "name": "Guadeloupe",
-      "nativeName": "Guadeloupe"
+      "nativeName": "Guadeloupe",
+      "zoom": 10
     },
     {
       "currency": "HUF",
@@ -276,7 +306,8 @@
       "urlName": "hungary",
       "nativeName": "Magyarorszag",
       "latitude": 47.162494,
-      "longitude": 19.503304100000037
+      "longitude": 19.503304100000037,
+      "zoom": 8
     },
     {
       "nativeName": "Island",
@@ -285,7 +316,8 @@
       "isoCode": "IS",
       "urlName": "iceland",
       "name": "Iceland",
-      "latitude": 64.963051
+      "latitude": 64.963051,
+      "zoom": 7
     },
     {
       "isoCode": "IN",
@@ -294,7 +326,8 @@
       "longitude": "78.96288000000004",
       "name": "India",
       "urlName": "india",
-      "currency": "INR"
+      "currency": "INR",
+      "zoom": 5
     },
     {
       "isoCode": "ID",
@@ -303,7 +336,8 @@
       "longitude": 113.921327,
       "currency": "IDR",
       "name": "Indonesia",
-      "urlName": "indonesia"
+      "urlName": "indonesia",
+      "zoom": 5
     },
     {
       "isoCode": "IE",
@@ -312,7 +346,8 @@
       "name": "Ireland",
       "urlName": "ireland",
       "currency": "EUR",
-      "latitude": 53.41291
+      "latitude": 53.41291,
+      "zoom": 7
     },
     {
       "latitude": 31.046051,
@@ -321,7 +356,8 @@
       "urlName": "israel",
       "isoCode": "IL",
       "name": "Israel",
-      "nativeName": "Yisra'el"
+      "nativeName": "Yisra'el",
+      "zoom": 7
     },
     {
       "longitude": 12.180883,
@@ -330,7 +366,8 @@
       "nativeName": "Italia",
       "currency": "EUR",
       "name": "Italy",
-      "isoCode": "IT"
+      "isoCode": "IT",
+      "zoom": 6
     },
     {
       "urlName": "jamaica",
@@ -339,7 +376,8 @@
       "name": "Jamaica",
       "latitude": 18.109581,
       "currency": "JMD",
-      "longitude": -77.297508
+      "longitude": -77.297508,
+      "zoom": 9
     },
     {
       "urlName": "japan",
@@ -348,7 +386,8 @@
       "name": "Japan",
       "latitude": 36.204824,
       "isoCode": "JP",
-      "nativeName": "Japan"
+      "nativeName": "Japan",
+      "zoom": 5
     },
     {
       "name": "Latvia",
@@ -357,7 +396,8 @@
       "isoCode": "LV",
       "latitude": 56.86,
       "nativeName": "Latvija",
-      "currency": "EUR"
+      "currency": "EUR",
+      "zoom": 7
     },
     {
       "latitude": 47.166,
@@ -366,7 +406,8 @@
       "nativeName": "Liechtenstein",
       "name": "Liechtenstein",
       "urlName": "liechtenstein",
-      "currency": "CHF"
+      "currency": "CHF",
+      "zoom": 11
     },
     {
       "latitude": 55.169438,
@@ -375,7 +416,8 @@
       "urlName": "lithuania",
       "name": "Lithuania",
       "isoCode": "LT",
-      "longitude": 23.881275
+      "longitude": 23.881275,
+      "zoom": 7
     },
     {
       "longitude": 6.129583,
@@ -384,7 +426,8 @@
       "nativeName": "Luxembourg",
       "urlName": "luxembourg",
       "currency": "EUR",
-      "name": "Luxembourg"
+      "name": "Luxembourg",
+      "zoom": 10
     },
     {
       "isoCode": "MT",
@@ -393,7 +436,8 @@
       "longitude": 14.432,
       "currency": "EUR",
       "latitude": 35.8941,
-      "urlName": "malta"
+      "urlName": "malta",
+      "zoom": 10
     },
     {
       "longitude": -61.011199951111,
@@ -402,7 +446,8 @@
       "nativeName": "Martinique",
       "urlName": "martinique",
       "currency": "EUR",
-      "isoCode": "MQ"
+      "isoCode": "MQ",
+      "zoom": 10
     },
     {
       "longitude": -102.552784,
@@ -411,7 +456,8 @@
       "latitude": 23.634501,
       "currency": "MXN",
       "nativeName": "Mexico",
-      "urlName": "mexico"
+      "urlName": "mexico",
+      "zoom": 6
     },
     {
       "currency": "EUR",
@@ -420,7 +466,8 @@
       "nativeName": "null",
       "latitude": 42.708678,
       "isoCode": "ME",
-      "longitude": 19.37439
+      "longitude": 19.37439,
+      "zoom": 8
     },
     {
       "longitude": 5.291266,
@@ -429,7 +476,8 @@
       "latitude": 52.132633,
       "isoCode": "NL",
       "urlName": "netherlands",
-      "currency": "EUR"
+      "currency": "EUR",
+      "zoom": 8
     },
     {
       "urlName": "new-zealand",
@@ -438,7 +486,8 @@
       "longitude": 174.885971,
       "currency": "NZD",
       "name": "New Zealand",
-      "nativeName": "New Zealand"
+      "nativeName": "New Zealand",
+      "zoom": 6
     },
     {
       "isoCode": "NO",
@@ -447,7 +496,8 @@
       "currency": "NOK",
       "latitude": 60.472024,
       "name": "Norway",
-      "urlName": "norway"
+      "urlName": "norway",
+      "zoom": 5
     },
     {
       "latitude": 8.537981,
@@ -456,7 +506,8 @@
       "urlName": "panama",
       "name": "Panama",
       "nativeName": "Panama",
-      "currency": "PAB"
+      "currency": "PAB",
+      "zoom": 8
     },
     {
       "isoCode": "PE",
@@ -465,7 +516,8 @@
       "name": "Peru",
       "longitude": -75.015152,
       "nativeName": "Peru",
-      "currency": "PEN"
+      "currency": "PEN",
+      "zoom": 6
     },
     {
       "urlName": "philippines",
@@ -474,7 +526,8 @@
       "longitude": 120.9784,
       "isoCode": "PH",
       "currency": "PHP",
-      "nativeName": "Pilipinas"
+      "nativeName": "Pilipinas",
+      "zoom": 6
     },
     {
       "urlName": "poland",
@@ -483,7 +536,8 @@
       "nativeName": "Polska",
       "currency": "PLN",
       "name": "Poland",
-      "longitude": 19.145136
+      "longitude": 19.145136,
+      "zoom": 6
     },
     {
       "nativeName": "Portugal",
@@ -492,7 +546,8 @@
       "isoCode": "PT",
       "currency": "EUR",
       "latitude": 39.399872,
-      "name": "Portugal"
+      "name": "Portugal",
+      "zoom": 7
     },
     {
       "isoCode": "PR",
@@ -501,7 +556,8 @@
       "longitude": -66.590149,
       "urlName": "puerto-rico",
       "currency": "USD",
-      "nativeName": "Puerto Rico"
+      "nativeName": "Puerto Rico",
+      "zoom": 9
     },
     {
       "latitude": 45.943161,
@@ -510,7 +566,8 @@
       "urlName": "romania",
       "isoCode": "RO",
       "currency": "RON",
-      "nativeName": "Romania"
+      "nativeName": "Romania",
+      "zoom": 7
     },
     {
       "nativeName": "Rossiya",
@@ -519,7 +576,8 @@
       "latitude": 61.52401,
       "name": "Russian Federation",
       "longitude": 105.318756,
-      "isoCode": "RU"
+      "isoCode": "RU",
+      "zoom": 3
     },
     {
       "nativeName": "null",
@@ -528,7 +586,8 @@
       "currency": "EUR",
       "urlName": "saint-barthelemy",
       "isoCode": "BL",
-      "longitude": -62.83333300000004
+      "longitude": -62.83333300000004,
+      "zoom": 13
     },
     {
       "urlName": "serbia",
@@ -537,7 +596,8 @@
       "latitude": 43.87,
       "currency": "RSD",
       "nativeName": "null",
-      "name": "Serbia"
+      "name": "Serbia",
+      "zoom": 7
     },
     {
       "isoCode": "SK",
@@ -546,7 +606,8 @@
       "nativeName": "Slovensko",
       "name": "Slovakia",
       "urlName": "slovakia",
-      "currency": "EUR"
+      "currency": "EUR",
+      "zoom": 8
     },
     {
       "urlName": "slovenia",
@@ -555,7 +616,8 @@
       "currency": "EUR",
       "isoCode": "SI",
       "name": "Slovenia",
-      "nativeName": "Slovenija"
+      "nativeName": "Slovenija",
+      "zoom": 9
     },
     {
       "longitude": 22.937506,
@@ -564,7 +626,8 @@
       "latitude": -30.559482,
       "isoCode": "ZA",
       "urlName": "south-africa",
-      "nativeName": "South Africa"
+      "nativeName": "South Africa",
+      "zoom": 6
     },
     {
       "urlName": "spain",
@@ -573,7 +636,8 @@
       "currency": "EUR",
       "longitude": -3.74922,
       "nativeName": "Espana",
-      "name": "Spain"
+      "name": "Spain",
+      "zoom": 6
     },
     {
       "nativeName": "null",
@@ -582,7 +646,8 @@
       "name": "St. Martin",
       "latitude": 18.0708298,
       "currency": "EUR",
-      "isoCode": "MF"
+      "isoCode": "MF",
+      "zoom": 13
     },
     {
       "urlName": "suriname",
@@ -591,7 +656,8 @@
       "nativeName": "Suriname",
       "latitude": 3.919305,
       "isoCode": "SR",
-      "currency": "SRD"
+      "currency": "SRD",
+      "zoom": 8
     },
     {
       "longitude": 14.888922,
@@ -600,7 +666,8 @@
       "nativeName": "Sverige",
       "urlName": "sweden",
       "latitude": 59.467438,
-      "currency": "SEK"
+      "currency": "SEK",
+      "zoom": 5
     },
     {
       "urlName": "switzerland",
@@ -609,7 +676,8 @@
       "currency": "CHF",
       "longitude": 8.227512,
       "isoCode": "CH",
-      "nativeName": "Schweiz"
+      "nativeName": "Schweiz",
+      "zoom": 8
     },
     {
       "name": "Tanzania",
@@ -618,7 +686,8 @@
       "urlName": "tanzania",
       "latitude": -6.369028,
       "nativeName": "Tanzania, United Republic of",
-      "currency": "TZS"
+      "currency": "TZS",
+      "zoom": 6
     },
     {
       "longitude": 100.992541,
@@ -627,7 +696,8 @@
       "currency": "THB",
       "nativeName": "Thailand",
       "name": "Thailand",
-      "isoCode": "TH"
+      "isoCode": "TH",
+      "zoom": 6
     },
     {
       "isoCode": "TR",
@@ -636,7 +706,8 @@
       "name": "Turkey",
       "longitude": 35.243322,
       "latitude": 38.963745,
-      "nativeName": "Turkiye"
+      "nativeName": "Turkiye",
+      "zoom": 6
     },
     {
       "nativeName": "Ukraine",
@@ -645,7 +716,8 @@
       "latitude": 48.379433,
       "currency": "UAH",
       "name": "Ukraine",
-      "isoCode": "UA"
+      "isoCode": "UA",
+      "zoom": 6
     },
     {
       "isoCode": "GB",
@@ -654,7 +726,8 @@
       "nativeName": "United Kingdom",
       "currency": "GBP",
       "name": "United Kingdom",
-      "longitude": -3.435973
+      "longitude": -3.435973,
+      "zoom": 6
     },
     {
       "isoCode": "US",
@@ -663,7 +736,8 @@
       "urlName": "united-states",
       "name": "United States",
       "currency": "USD",
-      "nativeName": "United States"
+      "nativeName": "United States",
+      "zoom": 5
     },
     {
       "latitude": 0,
@@ -681,7 +755,8 @@
       "latitude": -32.522779,
       "currency": "UYU",
       "longitude": -55.765835,
-      "nativeName": "Uruguay"
+      "nativeName": "Uruguay",
+      "zoom": 7
     },
     {
       "urlName": "venezuela",
@@ -690,7 +765,8 @@
       "currency": "VEF",
       "name": "Venezuela",
       "longitude": -65.63,
-      "isoCode": "VE"
+      "isoCode": "VE",
+      "zoom": 7
     },
     {
       "currency": "VND",
@@ -699,7 +775,8 @@
       "latitude": 11.907235,
       "urlName": "vietnam",
       "isoCode": "VN",
-      "longitude": 107.949621
+      "longitude": 107.949621,
+      "zoom": 6
     },
     {
       "isoCode": "VI",
@@ -708,6 +785,7 @@
       "name": "Virgin Islands (U.S.)",
       "latitude": 18.336,
       "longitude": -64.889,
-      "urlName": "virgin-islands-us"
+      "urlName": "virgin-islands-us",
+      "zoom": 12
     }
   ]

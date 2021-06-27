@@ -22,7 +22,7 @@ export default function Country({ initialCountry, locations }) {
             initialCountry.longitude
         ]);
         setMarkerPositions(buildCountryLocationsMarkerPositions(filteredLocations, initialCountry));
-        setZoom(6);
+        setZoom(initialCountry.zoom ?? 6);
     }, [initialCountry, filteredLocations]);
 
     useEffect(() => {
