@@ -1,9 +1,125 @@
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #1de9b6;
+    position: relative;
+}
+
+.welcome h1 {
+    color: white;
+    font-size: 2.25rem;
+}
+
+.loaderIconWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loaderIconWrapper span[class^='icon-'] {
+    position: absolute;
+    font-size: 5rem;
+    color: white;
+}
+
 .aboutLink {
-    align-self: center;
-    margin-top: 1.5rem;
+    position: absolute;
+    bottom: 2rem;
+    color: white;
 }
 
 .aboutLink:hover,
 .aboutLink:focus {
     font-weight: 500;
+}
+
+/** https://projects.lukehaas.me/css-loaders/ */
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+.loader {
+  margin: 2rem auto;
+  font-size: 20px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-left: 1.1em solid #ffffff;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.belowFold {
+    padding: 1rem 0 2.5rem 0;
+}
+
+.belowFold h2 {
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.belowFold ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    overflow: auto;
+}
+
+.belowFold ul li {
+    width: 100%;
+    text-align: center;
+}
+
+@media(min-width: 420px) {
+    .belowFold ul li {
+        width: 50%;
+    }
+}
+
+@media(min-width: 992px) {
+    .belowFold ul li {
+        width: 25%;
+    }
+}
+
+@media(min-width: 1200px) {
+    .belowFold ul li {
+        width: 20%;
+    }
+}
+
+.belowFold ul li a {
+    justify-content: center;
 }

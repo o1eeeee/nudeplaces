@@ -16,9 +16,9 @@ export default function Home() {
   }
 
   useEffect(() => {
-    const lang = navigator.language.toLowerCase();
+    /*const lang = navigator.language.toLowerCase();
     const country = detectCountryFromLanguage(lang);
-    country && router.push(`/${country}`);
+    country && router.push(`/${country}`);*/
   }, []);
 
 
@@ -29,16 +29,22 @@ export default function Home() {
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout backButtonData={backButtonData}>
+      <div className={styles.welcome}>
+        <div className={styles.loaderIconWrapper}>
+          <div className={styles.loader}></div>
+          <span className="icon-location"></span>
+        </div>
         <h1>
-          Countries
+          Nude Places
         </h1>
-        <LinkList listItems={getCountryListItems(countries)} />
         <Link href={'/about'}>
           <a className={styles.aboutLink}>About and Privacy</a>
         </Link>
-
-      </Layout>
+      </div>
+      <div className={styles.belowFold}>
+        <h2>Countries</h2>
+        <LinkList listItems={getCountryListItems(countries)} />
+      </div>
     </>
   )
 }
