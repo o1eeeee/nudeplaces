@@ -3,9 +3,11 @@ import Head from 'next/head';
 import initFirebase from '../../../lib/firebase';
 import Layout from '../../../components/Layout';
 import LinkList from '../../../components/LinkList';
+import FilterBar from '../../../components/FilterBar';
 import ReportLocationButton from '../../../components/ReportLocationButton';
 import styles from '../../../styles/LocationsDetail.module.css';
 import { useMapContext } from '../../../context/MapProvider';
+import ContentWrapper from '../../../components/ContentWrapper';
 
 export default function LocationsDetail({ location, country, about }) {
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
@@ -24,10 +26,7 @@ export default function LocationsDetail({ location, country, about }) {
         setZoom(zoom);
     }, [location]);
 
-    const backButtonData = {
-        href: `/${encodeURIComponent(country.urlName)}`,
-        text: country.name,
-    }
+    const backButtonHref = `/${encodeURIComponent(country.urlName)}`;
 
     const mapLinks = [
         {
@@ -92,13 +91,16 @@ export default function LocationsDetail({ location, country, about }) {
             <Head>
                 <title>{getTitleString(location, country)}</title>
             </Head>
-            <Layout backButtonData={backButtonData}>
-                <h1>
-                    {location.title}
-                </h1>
-                <p className={styles.locationDescription}>{location.text}</p>
-                <LocationInfoList />
-                <ReportLocationButton locationData={getReportLocationData(location, country, about.websiteUrl)} email={about.email} />
+            <Layout>
+                <FilterBar initialCountry={country} backButtonHref={backButtonHref} />
+                <ContentWrapper>
+                    <h1>
+                        {location.title}
+                    </h1>
+                    <p className={styles.locationDescription}>{location.text}</p>
+                    <LocationInfoList />
+                    <ReportLocationButton locationData={getReportLocationData(location, country, about.websiteUrl)} email={about.email} />
+                </ContentWrapper>
             </Layout>
         </>
     )

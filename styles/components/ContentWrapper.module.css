@@ -1,0 +1,40 @@
+.contentWrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    margin-top: 70vh;
+}
+
+@media (min-width: 420px) {
+    .contentWrapper {
+        width: 375px;
+        margin-top: 0;
+    }
+}
+
+.content {
+    background-color: white;
+    padding-top: 1.5rem;
+}
+
+@media (min-width: 420px) {
+    .content {
+        height: 100%;
+        overflow: hidden;
+        scrollbar-width: thin;
+        box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+        padding: 84px 0 1.5rem 0;
+    }
+}
+
+.content:hover {
+    overflow: auto;
+}
+
+.content h1, .content h2, .content p {
+    margin-top: 0;
+    padding: 0 1rem;
+}

@@ -1,24 +1,18 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import LinkList from '../../components/LinkList';
-import LocationTypeFilter from '../../components/LocationTypeFilter';
+import FilterBar from '../../components/FilterBar';
+import ContentWrapper from '../../components/ContentWrapper';
 import initFirebase from '../../lib/firebase';
 import getCountries from '../../lib/countries';
-import getLocationTypes from '../../lib/locationTypes';
 import Layout from '../../components/Layout';
-import CountrySelect from '../../components/CountrySelect';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { useMapContext } from '../../context/MapProvider';
-import styles from '../../styles/Country.module.css';
-import "swiper/swiper.min.css";
 
-export default function Country({ countries, initialCountry, locations }) {
+export default function Country({ initialCountry, locations }) {
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
     const [filteredLocations, setFilteredLocations] = useState(locations);
     const [locationTypeFilter, setLocationTypeFilter] = useState([]);
     let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations);
-    const locationTypes = getLocationTypes();
 
     useEffect(() => {
         setMapPosition([
@@ -44,39 +38,21 @@ export default function Country({ countries, initialCountry, locations }) {
                 <title>{getTitleString(initialCountry)}</title>
             </Head>
             <Layout>
-                <div className={styles.filterBar}>
-                    <div className={styles.navigation}>
-                        <Link href={'/'}>
-                            <a className={styles.backButton}>
-                                &larr;
-                            </a>
-                        </Link>
-                        <CountrySelect countries={countries} initialCountry={initialCountry} />
-                    </div>
-                    <Swiper slidesPerView="auto" spaceBetween={18}>
-                        {locationTypes.map((type, index) => (
-                            <SwiperSlide key={index}>
-                                <LocationTypeFilter filter={locationTypeFilter} setFilter={setLocationTypeFilter} type={type} />
-                            </SwiperSlide>
+                <FilterBar initialCountry={initialCountry} backButtonHref='/' locationTypeFilter={locationTypeFilter} setLocationTypeFilter={setLocationTypeFilter} />
+                <ContentWrapper>
+                    <h1>
+                        {initialCountry.name}
+                    </h1>
+                    <p>{filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {initialCountry.name}</p>
+                    <ul>
+                        {regions.map((region) => (
+                            <li key={region}>
+                                <h2>{region}</h2>
+                                <LinkList listItems={getLocationListItems(locationsByRegion[region], initialCountry)} />
+                            </li>
                         ))}
-                    </Swiper>
-                </div>
-                <div className={styles.contentWrapper}>
-                    <div className={styles.content}>
-                        <h1>
-                            {initialCountry.name}
-                        </h1>
-                        <p>{filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {initialCountry.name}</p>
-                        <ul>
-                            {regions.map((region) => (
-                                <li key={region}>
-                                    <h2>{region}</h2>
-                                    <LinkList listItems={getLocationListItems(locationsByRegion[region], initialCountry)} />
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
+                    </ul>
+                </ContentWrapper>
             </Layout>
         </>
     )
@@ -127,7 +103,6 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
-            countries: countries,
             initialCountry: initialCountry[0],
             locations: filteredLocations ?? {}
         }

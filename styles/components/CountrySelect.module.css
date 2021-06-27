@@ -43,7 +43,7 @@
 }
 
 .countryInput::placeholder {
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 @media (min-width: 420px) {
