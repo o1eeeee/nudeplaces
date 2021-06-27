@@ -1,9 +1,12 @@
+html {
+  overflow: auto;
+}
+
 html, body {
   padding: 0;
   margin: 0;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 300;
-  overflow: auto;
   position: relative;
   height: 100%;
   color: rgb(68, 64, 66);
