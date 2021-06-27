@@ -7,21 +7,14 @@ import NProgress from 'nprogress';
 NProgress.configure({ showSpinner: false });
 
 Router.onRouteChangeStart = (url) => {
-  /*if (url !== window.location.pathname) {
-    window.routeTimeout = setTimeout(() =>
-      window.location = url, 300);
-    
-  }*/
   NProgress.start()
 };
 
 Router.onRouteChangeComplete = () => {
-  //clearTimeout(window.routeTimeout);
   NProgress.done();
 };
 
 Router.onRouteChangeError = () => {
-  //clearTimeout(window.routeTimeout);
   NProgress.done();
 };
 
