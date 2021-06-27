@@ -1,7 +1,6 @@
 .countrySelect {
     position: relative;
     flex: 1;
-    padding-left: 1rem;
 }
 
 @media (min-width: 420px) {

@@ -13,11 +13,13 @@ export default function FilterBar({ initialCountry, backButtonHref, locationType
     return (
         <div className={styles.filterBar}>
             <div className={styles.navigation}>
-                <Link href={backButtonHref}>
-                    <a className={styles.backButton}>
-                        &larr;
-                    </a>
-                </Link>
+                {backButtonHref && (
+                    <Link href={backButtonHref}>
+                        <a className={styles.backButton}>
+                            &larr;
+                        </a>
+                    </Link>
+                )}
                 <CountrySelect countries={countries} initialCountry={initialCountry} />
             </div>
             {setLocationTypeFilter &&

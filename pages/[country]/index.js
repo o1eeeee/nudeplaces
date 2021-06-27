@@ -38,7 +38,7 @@ export default function Country({ initialCountry, locations }) {
                 <title>{getTitleString(initialCountry)}</title>
             </Head>
             <Layout>
-                <FilterBar initialCountry={initialCountry} backButtonHref='/' locationTypeFilter={locationTypeFilter} setLocationTypeFilter={setLocationTypeFilter} />
+                <FilterBar initialCountry={initialCountry} locationTypeFilter={locationTypeFilter} setLocationTypeFilter={setLocationTypeFilter} />
                 <ContentWrapper>
                     <h1>
                         {initialCountry.name}
