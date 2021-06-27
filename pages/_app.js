@@ -6,7 +6,7 @@ import NProgress from 'nprogress';
 
 NProgress.configure({ showSpinner: false });
 
-Router.onRouteChangeStart = (url) => {
+Router.onRouteChangeStart = () => {
   NProgress.start()
 };
 
