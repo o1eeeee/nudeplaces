@@ -4,6 +4,7 @@ import initFirebase from '../../../lib/firebase';
 import Layout from '../../../components/Layout';
 import LinkList from '../../../components/LinkList';
 import FilterBar from '../../../components/FilterBar';
+import AboutLink from '../../../components/AboutLink';
 import ReportLocationButton from '../../../components/ReportLocationButton';
 import styles from '../../../styles/LocationsDetail.module.css';
 import { useMapContext } from '../../../context/MapProvider';
@@ -100,6 +101,9 @@ export default function LocationsDetail({ location, country, about }) {
                     <p className={styles.locationDescription}>{location.text}</p>
                     <LocationInfoList />
                     <ReportLocationButton locationData={getReportLocationData(location, country, about.websiteUrl)} email={about.email} />
+                    <div className={styles.aboutLinkContainer}>
+                        <AboutLink />
+                    </div>
                 </ContentWrapper>
             </Layout>
         </>

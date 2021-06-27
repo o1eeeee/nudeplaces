@@ -6,7 +6,9 @@ import ContentWrapper from '../../components/ContentWrapper';
 import initFirebase from '../../lib/firebase';
 import { getCountries } from '../../lib/countries';
 import Layout from '../../components/Layout';
+import AboutLink from '../../components/AboutLink';
 import { useMapContext } from '../../context/MapProvider';
+import styles from '../../styles/Country.module.css';
 
 export default function Country({ initialCountry, locations }) {
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
@@ -52,6 +54,9 @@ export default function Country({ initialCountry, locations }) {
                             </li>
                         ))}
                     </ul>
+                    <div className={styles.aboutLinkContainer}>
+                        <AboutLink />
+                    </div>
                 </ContentWrapper>
             </Layout>
         </>

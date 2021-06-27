@@ -1,7 +1,7 @@
 .locationDescription {
     padding: 0 1rem;
     margin: 0;
-    line-height: 1.5rem;    
+    line-height: 1.5rem;
 }
 
 .locationInfoList {
@@ -25,4 +25,10 @@
 .locationInfoList dd p {
     padding: 0.5rem 1rem;
     margin: 0;
+}
+
+.aboutLinkContainer {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 2.5rem 0;
 }

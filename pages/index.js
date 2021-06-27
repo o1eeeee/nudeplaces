@@ -1,19 +1,14 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import Link from 'next/link';
 import LinkList from '../components/LinkList';
-import Layout from '../components/Layout';
 import { getCountries, detectCountryFromLanguage } from '../lib/countries';
 import styles from '../styles/Home.module.css';
+import AboutLink from '../components/AboutLink';
 
 export default function Home() {
   const router = useRouter();
   const countries = getCountries();
-
-  const backButtonData = {
-    text: "Nude Places",
-  }
 
   useEffect(() => {
     const lang = navigator.language.toLowerCase();
@@ -37,9 +32,9 @@ export default function Home() {
         <h1>
           Nude Places
         </h1>
-        <Link href={'/about'}>
-          <a className={styles.aboutLink}>About and Privacy</a>
-        </Link>
+        <div className={styles.aboutLinkContainer}>
+          <AboutLink />
+        </div>
       </div>
       <div className={styles.belowFold}>
         <h2>Countries</h2>

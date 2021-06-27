@@ -148,7 +148,7 @@ _::-webkit-full-page-media, _:future, :root .safari_only {
   padding: 0rem 1rem 1rem 1rem!important;
 }
 
-@media (min-width: 420px) {
+@media (min-width: 768px) {
   .swiper-container {
     flex: 1;
     padding: 1rem 1rem 1rem 1rem!important

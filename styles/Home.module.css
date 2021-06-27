@@ -6,6 +6,7 @@
     height: 100vh;
     background-color: #1de9b6;
     position: relative;
+    color: white;
 }
 
 .welcome h1 {
@@ -26,15 +27,9 @@
     color: white;
 }
 
-.aboutLink {
+.aboutLinkContainer {
     position: absolute;
     bottom: 2rem;
-    color: white;
-}
-
-.aboutLink:hover,
-.aboutLink:focus {
-    font-weight: 500;
 }
 
 /** https://projects.lukehaas.me/css-loaders/ */

@@ -1,0 +1,4 @@
+.aboutLink:hover,
+.aboutLink:focus {
+    font-weight: 500;
+}

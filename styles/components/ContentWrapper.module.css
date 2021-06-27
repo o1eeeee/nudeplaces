@@ -8,7 +8,7 @@
     margin-top: 70vh;
 }
 
-@media (min-width: 420px) {
+@media (min-width: 768px) {
     .contentWrapper {
         width: 375px;
         margin-top: 0;
@@ -17,21 +17,17 @@
 
 .content {
     background-color: white;
-    padding-top: 1.5rem;
+    padding-top: 1.5rem;    
 }
 
-@media (min-width: 420px) {
+@media (min-width: 768px) {
     .content {
         height: 100%;
-        overflow: hidden;
+        overflow: auto;
         scrollbar-width: thin;
         box-shadow: 0 0 20px rgba(0, 0, 0, .3);
         padding: 84px 0 1.5rem 0;
     }
-}
-
-.content:hover {
-    overflow: auto;
 }
 
 .content h1, .content h2, .content p {
