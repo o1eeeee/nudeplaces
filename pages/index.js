@@ -16,9 +16,9 @@ export default function Home() {
   }
 
   useEffect(() => {
-    /*const lang = navigator.language.toLowerCase();
+    const lang = navigator.language.toLowerCase();
     const country = detectCountryFromLanguage(lang);
-    country && router.push(`/${country}`);*/
+    country && router.push(`/${country}`);
   }, []);
 
 
