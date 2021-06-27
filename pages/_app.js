@@ -4,7 +4,7 @@ import '../styles/globals.css'
 import '../styles/fonts/nudeplaces/style.css'
 import NProgress from 'nprogress';
 
-NProgress.configure({ showSpinner: true });
+NProgress.configure({ showSpinner: false });
 
 Router.onRouteChangeStart = (url) => {
   /*if (url !== window.location.pathname) {
