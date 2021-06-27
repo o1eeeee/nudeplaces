@@ -9,12 +9,6 @@ html, body {
   color: rgb(68, 64, 66);
 }
 
-@media (min-width: 420px) {
-  html, body {
-    overflow: hidden;
-  }
-}
-
 a {
   color: inherit;
   text-decoration: none;
