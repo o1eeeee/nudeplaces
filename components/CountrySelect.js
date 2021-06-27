@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import LinkList from './LinkList';
-import getCountries from '../lib/countries';
+import { getCountries } from '../lib/countries';
 import styles from '../styles/components/CountrySelect.module.css';
 
 export default function CountrySelect({ initialCountry }) {

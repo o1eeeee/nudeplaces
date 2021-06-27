@@ -4,7 +4,7 @@ import LinkList from '../../components/LinkList';
 import FilterBar from '../../components/FilterBar';
 import ContentWrapper from '../../components/ContentWrapper';
 import initFirebase from '../../lib/firebase';
-import getCountries from '../../lib/countries';
+import { getCountries } from '../../lib/countries';
 import Layout from '../../components/Layout';
 import { useMapContext } from '../../context/MapProvider';
 

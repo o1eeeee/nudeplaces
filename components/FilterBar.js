@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import LocationTypeFilter from './LocationTypeFilter';
 import CountrySelect from './CountrySelect';
-import getCountries from '../lib/countries';
+import { getCountries } from '../lib/countries';
 import getLocationTypes from '../lib/locationTypes';
 import styles from '../styles/components/FilterBar.module.css';
 import "swiper/swiper.min.css";
