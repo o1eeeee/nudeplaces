@@ -104,13 +104,10 @@ export async function getStaticProps({ params }) {
 
     const locations = await locationsData
 
-    // Filter out locations that don't have a seoName
-    const filteredLocations = locations.filter(location => location.seoName != null)
-
     return {
         props: {
             initialCountry: initialCountry[0],
-            locations: filteredLocations ?? {}
+            locations: locations ?? {}
         }
     }
 }
