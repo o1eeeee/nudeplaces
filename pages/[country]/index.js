@@ -17,22 +17,22 @@ export default function Country({ initialCountry, locations }) {
     let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations);
 
     useEffect(() => {
+        let typeFilteredLocations = []
+        if (locationTypeFilter.length > 0) {
+            typeFilteredLocations = locations.filter((location) => locationTypeFilter.includes(location.type))
+        } else {
+            typeFilteredLocations = locations
+        }
+
+        setFilteredLocations(typeFilteredLocations);
         setMapPosition([
             initialCountry.latitude,
             initialCountry.longitude
         ]);
-        setMarkerPositions(buildCountryLocationsMarkerPositions(filteredLocations, initialCountry));
+        setMarkerPositions(buildCountryLocationsMarkerPositions(typeFilteredLocations, initialCountry));
         setZoom(initialCountry.zoom ?? 6);
-    }, [initialCountry, filteredLocations]);
 
-    useEffect(() => {
-        if (locationTypeFilter.length > 0) {
-            const typeFilteredLocations = locations.filter((location) => locationTypeFilter.includes(location.type))
-            setFilteredLocations(typeFilteredLocations);
-        } else {
-            setFilteredLocations(locations);
-        }
-    }, [JSON.stringify(locationTypeFilter)])
+    }, [initialCountry, locations, JSON.stringify(locationTypeFilter)])
 
     return (
         <>
@@ -46,7 +46,7 @@ export default function Country({ initialCountry, locations }) {
                         {initialCountry.name}
                     </h1>
                     <p>{filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {initialCountry.name}</p>
-                    <ul>
+                    <ul className={styles.regionsList}>
                         {regions.map((region) => (
                             <li key={region}>
                                 <h2>{region}</h2>
@@ -92,8 +92,9 @@ export async function getStaticProps({ params }) {
     // Fetch locations for country sorted by region and title
     let locationsData = db.collection('locations')
         .where('country', '==', initialCountry[0].isoCode)
-        .orderBy('region')
-        .orderBy('title')
+        .where('seoName', '>', '')
+        .orderBy('seoName')
+        .limit(20)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
         })
