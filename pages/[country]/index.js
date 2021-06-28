@@ -94,7 +94,6 @@ export async function getStaticProps({ params }) {
         .where('country', '==', initialCountry[0].isoCode)
         .where('seoName', '>', '')
         .orderBy('seoName')
-        .limit(20)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
         })
