@@ -99,6 +99,12 @@ export default function LocationsDetail({ location, country, about }) {
                         {location.title}
                     </h1>
                     <p className={styles.locationDescription}>{location.text}</p>
+                    <p className={styles.disclaimer}>
+                        <span className="icon-info"></span>
+                        <span className={styles.disclaimerText}>Please note that we cannot guarantee the information to be correct and up-to-date.
+                            Make sure to confirm it before planning your trip.
+                            You can help us by reporting any incorrect or outdated information.</span>
+                    </p>
                     <LocationInfoList />
                     <ReportLocationButton locationData={getReportLocationData(location, country, about.websiteUrl)} email={about.email} />
                     <div className={styles.aboutLinkContainer}>
