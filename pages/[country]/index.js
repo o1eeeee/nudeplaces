@@ -186,5 +186,7 @@ function getLocationsByRegion(locations) {
         locationsByRegion[assignToRegion].push(location);
     })
 
+    regions.sort();
+
     return { regions, locationsByRegion };
 }
