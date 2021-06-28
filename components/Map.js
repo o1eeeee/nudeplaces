@@ -18,22 +18,30 @@ export default function Map() {
             <ZoomControl position="bottomright" />
             {!markerPositions ?
                 <Marker position={mapPosition}></Marker> :
-                markerPositions.map((markerPosition, index) => (
-                    <Marker key={index} position={[markerPosition.latitude, markerPosition.longitude]}>
-                        {markerPosition.title && (
-                            <Popup>
-                                <h3>{markerPosition.title}</h3>
-                                {markerPosition.text && <p>{markerPosition.text}</p>}
-                                {markerPosition.url && (
-                                    <Link href={markerPosition.url}>
-                                        <a>Read more...</a>
-                                    </Link>
-                                )}
-                            </Popup>
-                        )
-                        }
-                    </Marker>
-                ))}
+                markerPositions.map((markerPosition, index) => {
+                    let markerPositionText = markerPosition.text;
+                    let popupText = "";
+                    if (markerPositionText) {
+                        popupText = markerPositionText.length > 200 ? `${markerPositionText.substring(0,200)}...` : markerPositionText;
+                    }                    
+                    return (
+                        <Marker key={index} position={[markerPosition.latitude, markerPosition.longitude]}>
+                            {markerPosition.title && (
+                                <Popup>
+                                    <h3>{markerPosition.title}</h3>
+                                    {popupText && <p>{popupText}</p>}
+                                    {markerPosition.url && (
+                                        <Link href={markerPosition.url}>
+                                            <a>Read more...</a>
+                                        </Link>
+                                    )}
+                                </Popup>
+                            )
+                            }
+                        </Marker>
+                    )
+                }
+                )}
         </MapContainer>
     )
 }
