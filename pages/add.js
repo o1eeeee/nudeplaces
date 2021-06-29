@@ -19,6 +19,9 @@ export default function AddLocation() {
 
     return (
         <>
+            <Head>
+                <title>{getTitleString()}</title>
+            </Head>
             <main>
                 <FilterBar backButtonHref="/" />
                 <ContentWrapper>
@@ -41,7 +44,7 @@ export default function AddLocation() {
 
 function getTitleString() {
     const titleString = [];
-    titleString.push("Add Location");
+    titleString.push("Add Nude Place");
     titleString.push("Nudist, Naturist, Clothing Optional Places and Beaches worldwide");
     titleString.push("nudeplaces");
     return titleString.join(" – ")
