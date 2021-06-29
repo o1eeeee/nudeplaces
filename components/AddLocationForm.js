@@ -31,11 +31,15 @@ export default function AddLocationForm() {
         e.preventDefault();
         setIsSubmitting(true);
         setErrors(validateForm(values));
-        console.log(errors);
     }
 
     function validateForm(values) {
         const errors = {}
+
+        // Position
+        if (!draggableMarkerPosition.lat || !draggableMarkerPosition.lng) {
+            errors.position = "Please drag the marker to the position on the map.";
+        }
 
         // Title
         if (!values.title) {
@@ -86,13 +90,12 @@ export default function AddLocationForm() {
             const title = !!values.title ? values.title : null;
             const text = !!values.description ? values.description : null;
             const type = !!values.type ? values.type : null;
-            const url = !!values.url ? values.url : null;
-            const seoName = values.title;
+            const url = !!values.url ? values.url : null;            
             const country = data.address.country_code ? data.address.country_code.toUpperCase() : "XX";
             const postcode = data.address.postcode ?? null;
             const region = data.address.state ?? null;
-            const subregion = data.address.borough ?? null;
-            const municipality = data.address.city ?? data.address.municipality ?? data.address.village ?? null;
+            const subregion = data.address.borough ?? data.address.state_district ?? null;
+            const municipality = data.address.city ?? data.address.municipality ?? data.address.village ?? data.address.city_district ?? subregion;
             const neighbourhood = data.address.suburb ?? null;
             const street = data.address.road ?? null;
             const housenumber = data.address.house_number ?? null;
@@ -100,6 +103,7 @@ export default function AddLocationForm() {
             const modifyDate = createDate;
             const language = null;
             const locale = null;
+            const seoName = `${title.replace(/\s/g, "-").replace(/[^A-Za-z0-9-]+/g, "")}-${municipality.replace(" ", "-").replace(/[^A-Za-z0-9-]+/g, "")}`.toLowerCase();
 
             let db = await initFirebase()
             db.collection("newLocations").add({
@@ -142,6 +146,7 @@ export default function AddLocationForm() {
                 <span className="icon-info"></span>
                 <span className={styles.dragMarkerOnMapInfoText}>Drag the marker to the nude place on the map. Please try to find the exact position.</span>
             </p>
+            {errors.position && <p>{errors.position}</p>}
             <div className={styles.formGroup}>
                 <label className={styles.required}>
                     <span>Title</span>
