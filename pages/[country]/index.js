@@ -104,6 +104,7 @@ export async function getStaticProps({ params }) {
     const locations = await locationsData
 
     return {
+        revalidate: 86400,
         props: {
             initialCountry: initialCountry[0],
             locations: locations ?? {}
