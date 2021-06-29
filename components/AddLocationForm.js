@@ -127,7 +127,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
                 'language': language,
                 'locale': locale,
             }).then((docRef) => {
-                console.log("Successfully written with ID: ", docRef.id)
+                /*console.log("Successfully written with ID: ", docRef.id)*/
                 setIsSubmitted(true);
             }).catch((error) => {
                 console.log("Error writing document: ", error)
