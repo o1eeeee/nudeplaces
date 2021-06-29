@@ -68,8 +68,8 @@ export default function AddLocationForm() {
         return errors;
     }
 
-    useEffect(async () => {
-        if (Object.keys(errors).length === 0 && isSubmitting) {
+    useEffect(() => {
+        async function performCreate() {
             const dateNow = new Date().toISOString();
             const latitude = draggableMarkerPosition.lat;
             const longitude = draggableMarkerPosition.lng;
@@ -90,12 +90,12 @@ export default function AddLocationForm() {
             const title = !!values.title ? values.title : null;
             const text = !!values.description ? values.description : null;
             const type = !!values.type ? values.type : null;
-            const url = !!values.url ? values.url : null;            
+            const url = !!values.url ? values.url : null;
             const country = data.address.country_code ? data.address.country_code.toUpperCase() : "XX";
             const postcode = data.address.postcode ?? null;
             const region = data.address.state ?? null;
-            const subregion = data.address.borough ?? data.address.state_district ?? null;
-            const municipality = data.address.city ?? data.address.municipality ?? data.address.village ?? data.address.city_district ?? subregion;
+            const subregion = data.address.county ?? data.address.borough ?? data.address.state_district ?? null;
+            const municipality = data.address.city ?? data.address.town ?? data.address.municipality ?? data.address.village ?? data.address.city_district ?? subregion;
             const neighbourhood = data.address.suburb ?? null;
             const street = data.address.road ?? null;
             const housenumber = data.address.house_number ?? null;
@@ -134,6 +134,9 @@ export default function AddLocationForm() {
             }).finally(() => {
                 setIsSubmitting(false)
             })
+        } 
+        if (Object.keys(errors).length === 0 && isSubmitting) {
+            performCreate()
         } else {
             setIsSubmitting(false)
         }
