@@ -4,7 +4,7 @@ import getLocationTypes from '../lib/locationTypes';
 import initFirebase from '../lib/firebase';
 import styles from '../styles/components/AddLocationForm.module.css'
 
-export default function AddLocationForm() {
+export default function AddLocationForm({ setIsSubmitted }) {
     const { draggableMarkerPosition } = useMapContext();
     const [values, setValues] = useState({
         title: "",
@@ -129,12 +129,13 @@ export default function AddLocationForm() {
                 'locale': locale,
             }).then((docRef) => {
                 console.log("Successfully written with ID: ", docRef.id)
+                setIsSubmitted(true);
             }).catch((error) => {
                 console.log("Error writing document: ", error)
             }).finally(() => {
                 setIsSubmitting(false)
             })
-        } 
+        }
         if (Object.keys(errors).length === 0 && isSubmitting) {
             performCreate()
         } else {

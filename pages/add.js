@@ -8,6 +8,7 @@ import styles from '../styles/AddLocation.module.css';
 import AddLocationForm from '../components/AddLocationForm';
 
 export default function AddLocation() {
+    const [isSubmitted, setIsSubmitted] = useState(false);
     const DraggableMap = dynamic(
         () => import('../components/DraggableMap'),
         {
@@ -15,6 +16,13 @@ export default function AddLocation() {
             loading: () => <p>Map is loading...</p>,
             ssr: false
         }
+    );
+
+    const SuccessContainer = () => (
+        <div className={styles.successContainer}>
+            <p>Thank you for submitting a nude place! Your submission will be checked by our moderators before getting published. Please allow 1-2 days for it to show up on the website.</p>
+            <button type="button" onClick={() => setIsSubmitted(false)}>Add Another Nude Place</button>
+        </div>
     );
 
     return (
@@ -28,7 +36,7 @@ export default function AddLocation() {
                     <h1>
                         Add Nude Place
                     </h1>
-                    <AddLocationForm />
+                    {isSubmitted ? <SuccessContainer /> : <AddLocationForm setIsSubmitted={setIsSubmitted} />}                    
                     <div className={styles.aboutLinkContainer}>
                         <AboutLink />
                     </div>
