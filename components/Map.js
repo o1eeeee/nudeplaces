@@ -22,8 +22,8 @@ export default function Map() {
                     let markerPositionText = markerPosition.text;
                     let popupText = "";
                     if (markerPositionText) {
-                        popupText = markerPositionText.length > 200 ? `${markerPositionText.substring(0,200)}...` : markerPositionText;
-                    }                    
+                        popupText = markerPositionText.length > 200 ? `${markerPositionText.substring(0, 200)}...` : markerPositionText;
+                    }
                     return (
                         <Marker key={index} position={[markerPosition.latitude, markerPosition.longitude]}>
                             {markerPosition.title && (
@@ -45,3 +45,4 @@ export default function Map() {
         </MapContainer>
     )
 }
+

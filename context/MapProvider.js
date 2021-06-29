@@ -6,10 +6,17 @@ const MapContext = createContext();
 export function MapProvider({ children }) {
     const [mapPosition, setMapPosition] = useState([51.165691, 10.451526]);
     const [markerPositions, setMarkerPositions] = useState([]);
+    const [draggableMarkerPosition, setDraggableMarkerPosition] = useState({
+        lat: 51.165691, lng: 10.451526});
     const [zoom, setZoom] = useState(3);
 
     return (
-        <MapContext.Provider value={{mapPosition, setMapPosition, markerPositions, setMarkerPositions, zoom, setZoom}}>
+        <MapContext.Provider value={{
+            mapPosition, setMapPosition,
+            markerPositions, setMarkerPositions,
+            draggableMarkerPosition, setDraggableMarkerPosition,
+            zoom, setZoom
+        }}>
             {children}
         </MapContext.Provider>
     );
