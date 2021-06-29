@@ -4,7 +4,7 @@ import getLocationTypes from '../lib/locationTypes';
 import initFirebase from '../lib/firebase';
 import styles from '../styles/components/AddLocationForm.module.css'
 
-export default function AddLocationForm({ setIsSubmitted }) {
+export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSubmitted }) {
     const { draggableMarkerPosition } = useMapContext();
     const [values, setValues] = useState({
         title: "",
@@ -12,8 +12,7 @@ export default function AddLocationForm({ setIsSubmitted }) {
         type: "",
         url: "",
     });
-    const [errors, setErrors] = useState({});
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errors, setErrors] = useState({});    
     const locationTypes = getLocationTypes();
     const regexPatterns = {
         url: "https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}"
@@ -144,8 +143,7 @@ export default function AddLocationForm({ setIsSubmitted }) {
     }, [errors])
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
-            {isSubmitting && <p>Submitting...</p>}
+        <form className={styles.form} onSubmit={handleSubmit}>            
             <p className={styles.dragMarkerOnMapInfo}>
                 <span className="icon-info"></span>
                 <span className={styles.dragMarkerOnMapInfoText}>Drag the marker to the nude place on the map. Please try to find the exact position.</span>

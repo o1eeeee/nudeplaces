@@ -8,6 +8,7 @@ import styles from '../styles/AddLocation.module.css';
 import AddLocationForm from '../components/AddLocationForm';
 
 export default function AddLocation() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const DraggableMap = dynamic(
         () => import('../components/DraggableMap'),
@@ -30,13 +31,14 @@ export default function AddLocation() {
             <Head>
                 <title>{getTitleString()}</title>
             </Head>
-            <main>
+            <main className={styles.main}>
                 <FilterBar backButtonHref="/" />
-                <ContentWrapper>
+                {isSubmitting && <div className={styles.loaderContainer}><div className={styles.loader}></div></div>}
+                <ContentWrapper>                
                     <h1>
                         Add Nude Place
                     </h1>
-                    {isSubmitted ? <SuccessContainer /> : <AddLocationForm setIsSubmitted={setIsSubmitted} />}                    
+                    {isSubmitted ? <SuccessContainer /> : <AddLocationForm isSubmitting={isSubmitting} setIsSubmitting={setIsSubmitting} setIsSubmitted={setIsSubmitted} />}                    
                     <div className={styles.aboutLinkContainer}>
                         <AboutLink />
                     </div>
