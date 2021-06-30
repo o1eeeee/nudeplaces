@@ -24,13 +24,18 @@ export default function Country({ initialCountry, locations }) {
             typeFilteredLocations = locations
         }
 
+        // zoom out one level on small devices
+        const initZoom = initialCountry.zoom;
+        const isSmallDevice = document.documentElement.clientWidth < 768;
+        const zoom = initZoom ? (isSmallDevice ? (initZoom - 1) : initZoom) : 6;
+
         setFilteredLocations(typeFilteredLocations);
         setMapPosition([
             initialCountry.latitude,
             initialCountry.longitude
         ]);
         setMarkerPositions(buildCountryLocationsMarkerPositions(typeFilteredLocations, initialCountry));
-        setZoom(initialCountry.zoom ?? 6);
+        setZoom(zoom);
 
     }, [initialCountry, locations, JSON.stringify(locationTypeFilter)])
 
