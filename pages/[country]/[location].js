@@ -144,7 +144,7 @@ export async function getStaticProps({ params }) {
     }
 
     const countries = getCountries();
-    const country = countries.filter((singleCountry) => singleCountry.urlName == params.country);
+    const country = countries.filter((singleCountry) => singleCountry.urlName === params.country);
 
     if (!country[0]) {
         return { notFound: true }
