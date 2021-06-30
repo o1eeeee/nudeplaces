@@ -3,17 +3,12 @@ import LinkList from './LinkList';
 import { getCountries } from '../lib/countries';
 import styles from '../styles/components/CountrySelect.module.css';
 
-export default function CountrySelect({ initialCountry }) {
+export default function CountrySelect() {
     const countries = getCountries();
     const [value, setValue] = useState("");
     const [filteredCountries, setFilteredCountries] = useState(countries);
     const [showCountriesList, setShowCountriesList] = useState(false);
     const countrySelectRef = useRef(null);
-
-    useEffect(() => {
-        setValue("");
-        setShowCountriesList(false);
-    }, [initialCountry])
 
     useEffect(() => {
         const nameFilteredCountries = countries
@@ -35,12 +30,36 @@ export default function CountrySelect({ initialCountry }) {
         };
     }, [countrySelectRef]);
 
+    const handleClickLink = () => {
+        setValue("");
+        setShowCountriesList(false);
+    }
+
     const handleChange = (e) => {
         setValue(e.target.value);
     }
 
     const handleFocus = (e) => {
         setShowCountriesList(true);
+    }
+
+    function getCountryListItems(countries) {
+        const listItems = [];
+    
+        countries.map((country) => {
+            listItems.push({
+                href: buildCountryUrl(country),
+                text: country.name,
+                handleClick: handleClickLink,
+            })
+        })
+    
+        return listItems;
+    }
+    
+    
+    function buildCountryUrl(country) {
+        return `/${encodeURIComponent(country.urlName)}`;
     }
 
     return (
@@ -58,23 +77,4 @@ export default function CountrySelect({ initialCountry }) {
         </div>
 
     )
-}
-
-
-function getCountryListItems(countries) {
-    const listItems = [];
-
-    countries.map((country) => {
-        listItems.push({
-            href: buildCountryUrl(country),
-            text: country.name
-        })
-    })
-
-    return listItems;
-}
-
-
-function buildCountryUrl(country) {
-    return `/${encodeURIComponent(country.urlName)}`;
 }
