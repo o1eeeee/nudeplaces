@@ -1,0 +1,29 @@
+.addButton {
+    border: 0;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    cursor: pointer;
+}
+
+.addButton {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 1rem;
+    margin: 0 0 35px 1rem;
+    border-radius: 50%;    
+    font-size: 120%;
+    font-weight: 500;
+    text-align: center;
+    background-color: #1de9b6;   
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)
+}
+
+.addButton:hover, .addButton:focus {
+    background-color: #4aedc4;
+}
