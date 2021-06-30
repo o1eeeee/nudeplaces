@@ -42,7 +42,7 @@ export default function LocationInfoList({ location, country }) {
             <dd>
                 <div>
                     {locationInfo && <p>{locationInfo}</p>}
-                    {locationStreetAndHouseNr && <p>{locationStreetAndHouseNr}</p>}
+                    {location.street && <p>{locationStreetAndHouseNr}</p>}
                     {location.postcode && <p>{locationPostcodeAndMunicipality}</p>}
                     <p>{locationRegionAndCountry}</p>
                 </div>
