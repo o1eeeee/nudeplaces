@@ -26,29 +26,6 @@
     line-height: 1.5rem;
 }
 
-.locationInfoList {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem 0;
-}
-
-.locationInfoList dt, .locationInfoList dd {
-    margin: 0;
-    padding: 0;
-}
-
-.locationInfoList dt {
-    padding: 0.5rem 1rem;
-    background-color: whitesmoke;
-    color: black;
-    font-weight: 500;
-}
-
-.locationInfoList dd p {
-    padding: 0.5rem 1rem;
-    margin: 0;
-}
-
 .aboutLinkContainer {
     display: flex;
     justify-content: center;
