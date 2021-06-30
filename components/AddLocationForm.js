@@ -105,7 +105,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
             const seoName = `${title.replace(/\s/g, "-").replace(/[^A-Za-z0-9-]+/g, "")}-${municipality.replace(" ", "-").replace(/[^A-Za-z0-9-]+/g, "")}`.toLowerCase();
 
             let db = await initFirebase()
-            db.collection("newLocations").add({
+            db.collection("locations").add({
                 'UUID': uuid,
                 'title': title,
                 'text': text,
@@ -126,6 +126,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
                 'modifyDate': modifyDate,
                 'language': language,
                 'locale': locale,
+                'isPublished': false,
             }).then((docRef) => {
                 /*console.log("Successfully written with ID: ", docRef.id)*/
                 setIsSubmitted(true);

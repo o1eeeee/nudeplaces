@@ -107,11 +107,13 @@ export async function getStaticProps({ params }) {
 
     const locations = await locationsData
 
+    const publishedLocations = locations.filter((location) => location.isPublished != false);
+
     return {
         revalidate: 86400,
         props: {
             initialCountry: initialCountry[0],
-            locations: locations ?? {}
+            locations: publishedLocations ?? {}
         }
     }
 }
