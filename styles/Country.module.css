@@ -1,3 +1,11 @@
+.regionsList {
+    margin-top: 1.25rem;
+}
+
+.regionsList > li {
+    margin-bottom: 1.25rem;    
+}
+
 .regionsList > li h2 {
-    margin: 1rem 0;
+    margin-bottom: 0.75rem;
 }
