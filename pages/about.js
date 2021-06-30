@@ -2,7 +2,7 @@ import Head from 'next/head';
 import initFirebase from '../lib/firebase';
 import styles from '../styles/About.module.css';
 
-export default function About({ about }) {
+export default function About() {
     return (
         <>
             <Head>
@@ -14,10 +14,10 @@ export default function About({ about }) {
             <section className={styles.aboutSection}>
                 <h2>Angaben gemäß § 5 TMG und verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</h2>
                 <p>
-                    {about.name}<br />
-                    {about.street}<br />
-                    {about.city}<br />
-                    {about.email}
+                    {process.env.WEBSITE_ADDRESS_NAME}<br />
+                    {process.env.WEBSITE_ADDRESS_STREET}<br />
+                    {process.env.WEBSITE_ADDRESS_CITY}<br />
+                    {process.env.WEBSITE_EMAIL}
                 </p>
                 <h2>Haftung für Inhalte</h2>
                 <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
@@ -50,31 +50,6 @@ export default function About({ about }) {
             </section>
         </>
     )
-}
-
-
-export async function getStaticProps() {
-    if (process.env.NODE_ENV === 'development') {
-        const props = require('../dev/about/staticProps.json');
-        return props;
-    }
-
-    let db = await initFirebase()
-    let data = db.collection('about').limit(1)
-        .get().then((snapshot) => {
-            return snapshot.docs.map(doc => doc.data())
-        })
-        .catch((error) => {
-            console.log("Error getting documents: ", error);
-        });
-
-    const about = await data
-
-    return {
-        props: {
-            about: about ? about[0] : {}
-        }
-    }
 }
 
 
