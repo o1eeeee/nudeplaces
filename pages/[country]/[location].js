@@ -4,16 +4,13 @@ import initFirebase from '../../lib/firebase';
 import { zoom, buildLocationInfo, buildLocationRegionAndCountry } from '../../lib/locations';
 import Layout from '../../components/Layout';
 import LocationInfoList from '../../components/LocationInfoList';
-import FilterBar from '../../components/FilterBar';
-import AboutLink from '../../components/AboutLink';
 import ReportLocationButton from '../../components/ReportLocationButton';
 import styles from '../../styles/LocationsDetail.module.css';
 import { useMapContext } from '../../context/MapProvider';
-import ContentWrapper from '../../components/ContentWrapper';
 import { getCountries } from '../../lib/countries';
 
 export default function LocationsDetail({ location, country }) {
-    const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();   
+    const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
 
     useEffect(() => {
         let markerPositions = [];
@@ -24,7 +21,7 @@ export default function LocationsDetail({ location, country }) {
         setMapPosition([location.latitude, location.longitude]);
         setMarkerPositions(markerPositions);
         setZoom(zoom);
-    }, [location]);      
+    }, [location]);
 
     return (
         <>
@@ -32,24 +29,18 @@ export default function LocationsDetail({ location, country }) {
                 <title>{getTitleString(location, country)}</title>
             </Head>
             <Layout>
-                <FilterBar initialCountry={country} backButtonHref={`/${encodeURIComponent(country.urlName)}`} />
-                <ContentWrapper>
-                    <h1>
-                        {location.title}
-                    </h1>
-                    <p className={styles.locationDescription}>{location.text}</p>
-                    <p className={styles.disclaimer}>
-                        <span className="icon-info"></span>
-                        <span className={styles.disclaimerText}>Please note that we cannot guarantee the information to be correct and up-to-date.
-                            Make sure to confirm it before planning your trip.
-                            You can help us by reporting any incorrect or outdated information.</span>
-                    </p>
-                    <LocationInfoList location={location} country={country} />
-                    <ReportLocationButton locationData={getReportLocationData(location, country)} />
-                    <div className={styles.aboutLinkContainer}>
-                        <AboutLink />
-                    </div>
-                </ContentWrapper>
+                <h1>
+                    {location.title}
+                </h1>
+                <p className={styles.locationDescription}>{location.text}</p>
+                <p className={styles.disclaimer}>
+                    <span className="icon-info"></span>
+                    <span className={styles.disclaimerText}>Please note that we cannot guarantee the information to be correct and up-to-date.
+                        Make sure to confirm it before planning your trip.
+                        You can help us by reporting any incorrect or outdated information.</span>
+                </p>
+                <LocationInfoList location={location} country={country} />
+                <ReportLocationButton locationData={getReportLocationData(location, country)} />
             </Layout>
         </>
     )
@@ -112,7 +103,7 @@ export async function getStaticPaths() {
     let db = await initFirebase()
 
     // Fetch locations for Germany to be statically generated
-    let locationsData = db.collection('locations')    
+    let locationsData = db.collection('locations')
         .where('country', "==", "DE")
         .where('seoName', "!=", null)
         .limit(limit)

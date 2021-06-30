@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import styles from '../styles/components/LocationTypeFilter.module.css';
+import styles from '../styles/components/LocationTypeFilterButton.module.css';
 
-export default function LocationTypeFilter({ type, filter, setFilter }) {
+export default function LocationTypeFilterButton({ type, filter, setFilter }) {
     const [isActive, setIsActive] = useState(false)
 
     useEffect(() => {

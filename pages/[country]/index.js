@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import LinkList from '../../components/LinkList';
-import FilterBar from '../../components/FilterBar';
-import ContentWrapper from '../../components/ContentWrapper';
 import initFirebase from '../../lib/firebase';
 import { getCountries } from '../../lib/countries';
 import Layout from '../../components/Layout';
-import AboutLink from '../../components/AboutLink';
+import FilterBar from '../../components/FilterBar';
 import { useMapContext } from '../../context/MapProvider';
 import styles from '../../styles/Country.module.css';
 
@@ -44,9 +42,8 @@ export default function Country({ initialCountry, locations }) {
             <Head>
                 <title>{getTitleString(initialCountry)}</title>
             </Head>
-            <Layout>
-                <FilterBar initialCountry={initialCountry} locationTypeFilter={locationTypeFilter} setLocationTypeFilter={setLocationTypeFilter} />
-                <ContentWrapper>
+            <FilterBar locationTypeFilter={locationTypeFilter} setLocationTypeFilter={setLocationTypeFilter} />
+            <Layout>                    
                     <h1>
                         {initialCountry.name}
                     </h1>
@@ -59,10 +56,6 @@ export default function Country({ initialCountry, locations }) {
                             </li>
                         ))}
                     </ul>
-                    <div className={styles.aboutLinkContainer}>
-                        <AboutLink />
-                    </div>
-                </ContentWrapper>
             </Layout>
         </>
     )

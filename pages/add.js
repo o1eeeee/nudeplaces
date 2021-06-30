@@ -1,11 +1,14 @@
 import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Head from 'next/head';
-import FilterBar from '../components/FilterBar';
+import Navigation from '../components/Navigation';
 import ContentWrapper from '../components/ContentWrapper';
 import AboutLink from '../components/AboutLink';
+import LoaderContainer from '../components/LoaderContainer';
+import Loader from '../components/Loader';
 import styles from '../styles/AddLocation.module.css';
 import AddLocationForm from '../components/AddLocationForm';
+import MapContainer from '../components/MapContainer';
 
 export default function AddLocation() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -14,7 +17,7 @@ export default function AddLocation() {
         () => import('../components/DraggableMap'),
         {
             // eslint-disable-next-line react/display-name
-            loading: () => <p>Map is loading...</p>,
+            loading: () => <LoaderContainer />,
             ssr: false
         }
     );
@@ -32,20 +35,20 @@ export default function AddLocation() {
                 <title>{getTitleString()}</title>
             </Head>
             <main className={styles.main}>
-                <FilterBar backButtonHref="/" />
-                {isSubmitting && <div className={styles.loaderContainer}><div className={styles.loader}></div></div>}
-                <ContentWrapper>                
+                <Navigation />
+                {isSubmitting && <div className={styles.loaderContainer}><Loader /></div>}
+                <ContentWrapper>
                     <h1>
                         Add Nude Place
                     </h1>
-                    {isSubmitted ? <SuccessContainer /> : <AddLocationForm isSubmitting={isSubmitting} setIsSubmitting={setIsSubmitting} setIsSubmitted={setIsSubmitted} />}                    
+                    {isSubmitted ? <SuccessContainer /> : <AddLocationForm isSubmitting={isSubmitting} setIsSubmitting={setIsSubmitting} setIsSubmitted={setIsSubmitted} />}
                     <div className={styles.aboutLinkContainer}>
                         <AboutLink />
                     </div>
                 </ContentWrapper>
-                <div className={styles.mapContainer}>
+                <MapContainer>
                     <DraggableMap />
-                </div>
+                </MapContainer>
             </main>
         </>
     )

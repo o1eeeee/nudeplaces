@@ -1,5 +1,11 @@
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
+import AddLocationButton from './AddLocationButton';
+import LoaderContainer from './LoaderContainer';
+import MapContainer from './MapContainer';
+import FilterBar from './FilterBar';
+import Navigation from './Navigation';
+import ContentWrapper from './ContentWrapper';
+import AboutLink from './AboutLink';
 import styles from '../styles/components/Layout.module.css';
 
 export default function Layout({ children }) {
@@ -8,7 +14,7 @@ export default function Layout({ children }) {
         () => import('./Map'),
         {
             // eslint-disable-next-line react/display-name
-            loading: () => <p>Map is loading...</p>,
+            loading: () => <LoaderContainer />,
             ssr: false
         }
     );
@@ -17,13 +23,17 @@ export default function Layout({ children }) {
     return (
         <>
             <main className={styles.main}>
-                {children}
-                <div className={styles.mapContainer}>
+                <Navigation />
+                <ContentWrapper>
+                    {children}
+                    <div className={styles.aboutLinkContainer}>
+                        <AboutLink />
+                    </div>
+                </ContentWrapper>
+                <MapContainer>
                     <Map />
-                    <Link href={'/add'}>
-                        <a className={styles.addButton}><span className="icon-location"></span></a>
-                    </Link>
-                </div>
+                    <AddLocationButton />
+                </MapContainer>
             </main>
         </>
     )

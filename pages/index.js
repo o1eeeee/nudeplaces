@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import LinkList from '../components/LinkList';
+import Loader from '../components/Loader';
 import { getCountries, detectCountryFromLanguage } from '../lib/countries';
 import styles from '../styles/Home.module.css';
 import AboutLink from '../components/AboutLink';
@@ -26,7 +27,7 @@ export default function Home() {
       </Head>
       <div className={styles.welcome}>
         <div className={styles.loaderIconWrapper}>
-          <div className={styles.loader}></div>
+          <Loader />
           <span className="icon-location"></span>
         </div>
         <h1>
