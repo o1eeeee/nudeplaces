@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic';
 import AddLocationButton from './AddLocationButton';
 import LoaderContainer from './LoaderContainer';
 import MapContainer from './MapContainer';
-import FilterBar from './FilterBar';
 import Navigation from './Navigation';
 import ContentWrapper from './ContentWrapper';
 import AboutLink from './AboutLink';
