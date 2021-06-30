@@ -79,12 +79,17 @@ export async function getStaticProps({ params }) {
         return props;
     }
 
+    let limit = 2000;
+    if (process.env.NODE_ENV === 'development') {
+        // Safety net for testing purposes
+        limit = 20;
+    }
+
     let db = await initFirebase()
 
     // Fetch countries
     const countries = getCountries();
     const initialCountry = countries.filter(country => country.urlName === params.country);
-
     if (!initialCountry[0]) {
         return { notFound: true }
     }
@@ -94,7 +99,7 @@ export async function getStaticProps({ params }) {
         .where('country', '==', initialCountry[0].isoCode)
         .where('seoName', '>', '')
         .orderBy('seoName')
-        .limit(2000)
+        .limit(limit)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
         })
