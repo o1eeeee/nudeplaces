@@ -89,7 +89,7 @@ export async function getStaticProps({ params }) {
         return { notFound: true }
     }
 
-    // Fetch locations for country sorted by region and title
+    // Fetch locations for country
     let locationsData = db.collection('locations')
         .where('country', '==', initialCountry[0].isoCode)
         .where('seoName', '>', '')
