@@ -1,0 +1,12 @@
+.mapContainer {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .mapContainer {
+        height: 100vh;
+        margin-left: 375px;
+    }
+}
