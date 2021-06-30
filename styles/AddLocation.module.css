@@ -1,7 +1,3 @@
-.main {
-    position: relative;
-}
-
 .successContainer {
     display: flex;
     flex-direction: column;
@@ -26,12 +22,6 @@
 
 .successContainer button:hover, .successContainer button:focus {
     background-color: #4aedc4;
-}
-
-.aboutLinkContainer {
-    display: flex;
-    justify-content: center;
-    margin: 2rem 0 2.5rem 0;
 }
 
 .loaderContainer {
