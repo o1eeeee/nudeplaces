@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
-import initFirebase from '../../../lib/firebase';
-import Layout from '../../../components/Layout';
-import LinkList from '../../../components/LinkList';
-import FilterBar from '../../../components/FilterBar';
-import AboutLink from '../../../components/AboutLink';
-import ReportLocationButton from '../../../components/ReportLocationButton';
-import styles from '../../../styles/LocationsDetail.module.css';
-import { useMapContext } from '../../../context/MapProvider';
-import ContentWrapper from '../../../components/ContentWrapper';
+import initFirebase from '../../lib/firebase';
+import Layout from '../../components/Layout';
+import LinkList from '../../components/LinkList';
+import FilterBar from '../../components/FilterBar';
+import AboutLink from '../../components/AboutLink';
+import ReportLocationButton from '../../components/ReportLocationButton';
+import styles from '../../styles/LocationsDetail.module.css';
+import { useMapContext } from '../../context/MapProvider';
+import ContentWrapper from '../../components/ContentWrapper';
+import { getCountries } from '../../lib/countries';
 
 export default function LocationsDetail({ location, country, about }) {
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
@@ -119,7 +120,7 @@ export default function LocationsDetail({ location, country, about }) {
 
 export async function getStaticProps({ params }) {
     if (process.env.NODE_ENV === 'development') {
-        const props = require('../../../dev/locations/staticProps.json');
+        const props = require('../../dev/locations/staticProps.json');
         return props;
     }
 
@@ -142,18 +143,8 @@ export async function getStaticProps({ params }) {
         return { notFound: true }
     }
 
-    let countryData = db.collection('countries')
-        .where('urlName', '==', params.country)
-        .limit(1)
-        .get().then((snapshot) => {
-            return snapshot.docs.map(doc => doc.data())
-        })
-        .catch((error) => {
-            console.log("Error getting country data: ", error)
-            return { notFound: true }
-        })
-
-    const country = await countryData
+    const countries = getCountries();
+    const country = countries.filter((singleCountry) => singleCountry.urlName == params.country);
 
     if (!country[0]) {
         return { notFound: true }
@@ -182,7 +173,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
     if (process.env.NODE_ENV === 'development') {
-        const paths = require('../../../dev/locations/staticPaths.json');
+        const paths = require('../../dev/locations/staticPaths.json');
         return paths;
     }
 
@@ -191,6 +182,7 @@ export async function getStaticPaths() {
     // Fetch locations for Germany to be statically generated
     let locationsData = db.collection('locations')
         .where('country', "==", "DE")
+        .limit(2000)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
         })
@@ -206,7 +198,6 @@ export async function getStaticPaths() {
     const paths = filteredLocations.map((location) => ({
         params: {
             country: "germany",
-            region: location.region ?? 'unassigned',
             location: location.seoName,
         }
     }))

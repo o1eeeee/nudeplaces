@@ -94,6 +94,7 @@ export async function getStaticProps({ params }) {
         .where('country', '==', initialCountry[0].isoCode)
         .where('seoName', '>', '')
         .orderBy('seoName')
+        .limit(2000)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
         })
@@ -154,7 +155,7 @@ function buildCountryLocationsMarkerPositions(locations, country) {
 
 
 function buildLocationUrl(location, country) {
-    return `/${encodeURIComponent(country.urlName)}/${encodeURIComponent(location.region ?? 'unassigned')}/${encodeURIComponent(location.seoName)}`;
+    return `/${encodeURIComponent(country.urlName)}/${encodeURIComponent(location.seoName)}`;
 }
 
 
