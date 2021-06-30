@@ -1,14 +1,11 @@
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import Head from 'next/head';
-import Navigation from '../components/Navigation';
-import ContentWrapper from '../components/ContentWrapper';
-import AboutLink from '../components/AboutLink';
+import Layout from '../components/Layout';
 import LoaderContainer from '../components/LoaderContainer';
 import Loader from '../components/Loader';
 import styles from '../styles/AddLocation.module.css';
 import AddLocationForm from '../components/AddLocationForm';
-import MapContainer from '../components/MapContainer';
 
 export default function AddLocation() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,22 +31,13 @@ export default function AddLocation() {
             <Head>
                 <title>{getTitleString()}</title>
             </Head>
-            <main className={styles.main}>
-                <Navigation />
-                {isSubmitting && <div className={styles.loaderContainer}><Loader /></div>}
-                <ContentWrapper>
-                    <h1>
-                        Add Nude Place
-                    </h1>
-                    {isSubmitted ? <SuccessContainer /> : <AddLocationForm isSubmitting={isSubmitting} setIsSubmitting={setIsSubmitting} setIsSubmitted={setIsSubmitted} />}
-                    <div className={styles.aboutLinkContainer}>
-                        <AboutLink />
-                    </div>
-                </ContentWrapper>
-                <MapContainer>
-                    <DraggableMap />
-                </MapContainer>
-            </main>
+            {isSubmitting && <div className={styles.loaderContainer}><Loader /></div>}
+            <Layout map={(<DraggableMap />)}>
+                <h1>
+                    Add Nude Place
+                </h1>
+                {isSubmitted ? <SuccessContainer /> : <AddLocationForm isSubmitting={isSubmitting} setIsSubmitting={setIsSubmitting} setIsSubmitted={setIsSubmitted} />}
+            </Layout>
         </>
     )
 }

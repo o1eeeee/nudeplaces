@@ -7,7 +7,7 @@ import ContentWrapper from './ContentWrapper';
 import AboutLink from './AboutLink';
 import styles from '../styles/components/Layout.module.css';
 
-export default function Layout({ children }) {
+export default function Layout({ children, map }) {
 
     const Map = dynamic(
         () => import('./Map'),
@@ -30,7 +30,7 @@ export default function Layout({ children }) {
                     </div>
                 </ContentWrapper>
                 <MapContainer>
-                    <Map />
+                    {map ?? <Map />}
                     <AddLocationButton />
                 </MapContainer>
             </main>
