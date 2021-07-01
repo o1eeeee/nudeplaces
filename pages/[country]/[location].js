@@ -58,7 +58,6 @@ export async function getStaticProps({ params }) {
     // Location
     let locationData = db.collection('locations')
         .where('seoName', '==', params.location)
-        .where('isPublished', '!=', false)
         .limit(1)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
@@ -68,7 +67,7 @@ export async function getStaticProps({ params }) {
             return { notFound: true }
         });
     const location = await locationData
-    if (!location[0]) {
+    if (!location[0] || location[0].isPublished === false) {
         return { notFound: true }
     }
 
