@@ -12,6 +12,8 @@ export default function Country({ initialCountry, locations }) {
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
     const [filteredLocations, setFilteredLocations] = useState(locations);
     const [locationTypeFilter, setLocationTypeFilter] = useState([]);
+    const [isMapLimited, setIsMapLimited] = useState(false);
+    const markerLimit = 300;
     let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations);
 
     useEffect(() => {
@@ -32,7 +34,16 @@ export default function Country({ initialCountry, locations }) {
             initialCountry.latitude,
             initialCountry.longitude
         ]);
-        setMarkerPositions(buildCountryLocationsMarkerPositions(typeFilteredLocations, initialCountry));
+
+        const markerPositions = buildCountryLocationsMarkerPositions(typeFilteredLocations, initialCountry);
+        if (markerPositions.length > markerLimit && isSmallDevice) {
+            setMarkerPositions(markerPositions.slice(0, markerLimit));
+            setIsMapLimited(true);
+        } else {
+            setMarkerPositions(markerPositions);
+            setIsMapLimited(false);
+        }
+
         setZoom(zoom);
 
     }, [initialCountry, locations, JSON.stringify(locationTypeFilter)])
@@ -43,19 +54,19 @@ export default function Country({ initialCountry, locations }) {
                 <title>{getTitleString(initialCountry)}</title>
             </Head>
             <FilterBar locationTypeFilter={locationTypeFilter} setLocationTypeFilter={setLocationTypeFilter} />
-            <Layout>                    
-                    <h1>
-                        {initialCountry.name}
-                    </h1>
-                    <p>{filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {initialCountry.name}</p>
-                    <ul className={styles.regionsList}>
-                        {regions.map((region) => (
-                            <li key={region}>
-                                <h2>{region}</h2>
-                                <LinkList listItems={getLocationListItems(locationsByRegion[region], initialCountry)} />
-                            </li>
-                        ))}
-                    </ul>
+            <Layout>
+                <h1>
+                    {initialCountry.name}
+                </h1>
+                <p>{filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {initialCountry.name}. {isMapLimited && <><br/>Max. {markerLimit} places are shown on the map. Please use filters or scroll down to see more.</>}</p>
+                <ul className={styles.regionsList}>
+                    {regions.map((region) => (
+                        <li key={region}>
+                            <h2>{region}</h2>
+                            <LinkList listItems={getLocationListItems(locationsByRegion[region], initialCountry)} />
+                        </li>
+                    ))}
+                </ul>
             </Layout>
         </>
     )
