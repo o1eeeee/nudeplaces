@@ -12,6 +12,12 @@ html, body {
   color: rgb(68, 64, 66);
 }
 
+@media (min-width: 768px) {
+  .appWrapper {
+    display: flex;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;

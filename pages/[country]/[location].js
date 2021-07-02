@@ -1,25 +1,23 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
 import initFirebase from '../../lib/firebase';
+import { getCountries } from '../../lib/countries';
 import { zoom, buildLocationInfo, buildLocationRegionAndCountry } from '../../lib/locations';
 import Layout from '../../components/Layout';
+import { useMapContext } from '../../context/MapProvider';
 import LocationInfoList from '../../components/LocationInfoList';
 import ReportLocationButton from '../../components/ReportLocationButton';
 import styles from '../../styles/LocationsDetail.module.css';
-import { useMapContext } from '../../context/MapProvider';
-import { getCountries } from '../../lib/countries';
 
 export default function LocationsDetail({ location, country }) {
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
 
     useEffect(() => {
-        let markerPositions = [];
-        markerPositions.push({
+        setMapPosition([location.latitude, location.longitude]);
+        setMarkerPositions([{
             latitude: location.latitude,
             longitude: location.longitude
-        });
-        setMapPosition([location.latitude, location.longitude]);
-        setMarkerPositions(markerPositions);
+        }]);
         setZoom(zoom);
     }, [location]);
 
@@ -94,11 +92,7 @@ export async function getStaticPaths() {
         return paths;
     }
 
-    let limit = 2000;
-    if (process.env.NODE_ENV === 'development') {
-        // Safety net for testing purposes
-        limit = 20;
-    }
+    const limit = process.env.NODE_ENV === 'development' ? 20 : 2000;
 
     let db = await initFirebase()
 

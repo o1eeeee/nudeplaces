@@ -1,29 +1,42 @@
 /** https://stackoverflow.com/questions/57704196/leaflet-with-next-js */
+import { useEffect, useState } from 'react';
 import { MapContainer, Marker, Popup, TileLayer, ZoomControl } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
 import 'leaflet-defaulticon-compatibility';
 import Link from 'next/link';
+import DraggableMarker from '../components/DraggableMarker';
+import AddLocationButton from '../components/AddLocationButton';
 import { useMapContext } from '../context/MapProvider';
+import styles from '../styles/components/Map.module.css';
 
 export default function Map() {
     const { mapPosition, markerPositions, zoom } = useMapContext();
+    const [map, setMap] = useState(null);
+
+    useEffect(() => {
+        map && map.flyTo(mapPosition, zoom, {
+            animate: true,
+            duration: 1,
+        })
+    }, [mapPosition, zoom])
 
     return (
-        <MapContainer zoomControl={false} center={mapPosition} zoom={zoom} scrollWheelZoom={true} style={{ height: "100%", flex: "1 1 0%" }}>
-            <TileLayer
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <ZoomControl position="bottomright" />
-            {!markerPositions ?
-                <Marker position={mapPosition}></Marker> :
-                markerPositions.map((markerPosition, index) => {
-                    let markerPositionText = markerPosition.text;
-                    let popupText = "";
-                    if (markerPositionText) {
-                        popupText = markerPositionText.length > 200 ? `${markerPositionText.substring(0, 200)}...` : markerPositionText;
+        <div className={styles.mapWrapper}>
+            <MapContainer whenCreated={(map) => setMap(map)} minZoom={3} zoomControl={false} center={mapPosition} zoom={zoom} scrollWheelZoom={true} style={{ width: "100%", height: "100%" }}>
+                <TileLayer
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <ZoomControl position="bottomright" />
+                {markerPositions.map((markerPosition, index) => {
+                    if (markerPosition.isDraggable === true) {
+                        return (
+                            <DraggableMarker key={index} />
+                        );
                     }
+                    const markerPositionText = markerPosition.text;
+                    const popupText = markerPositionText ? markerPositionText.length > 200 ? `${markerPositionText.substring(0, 200)}...` : markerPositionText : null;
                     return (
                         <Marker key={index} position={[markerPosition.latitude, markerPosition.longitude]}>
                             {markerPosition.title && (
@@ -42,7 +55,9 @@ export default function Map() {
                     )
                 }
                 )}
-        </MapContainer>
+                <AddLocationButton />
+            </MapContainer>
+        </div>
     )
 }
 

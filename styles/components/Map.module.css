@@ -1,0 +1,10 @@
+.mapWrapper {
+    flex: 1 1 0%;
+    height: 70vh;
+}
+
+@media (min-width: 768px) {
+    .mapWrapper {
+        height: 100vh;
+    }
+}

@@ -1,23 +1,24 @@
-import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
-import LoaderContainer from '../components/LoaderContainer';
 import Loader from '../components/Loader';
 import styles from '../styles/AddLocation.module.css';
+import { useMapContext } from '../context/MapProvider';
 import AddLocationForm from '../components/AddLocationForm';
 
 export default function AddLocation() {
+    const { mapPosition, setDraggableMarkerPosition, setMarkerPositions } = useMapContext();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const DraggableMap = dynamic(
-        () => import('../components/DraggableMap'),
-        {
-            // eslint-disable-next-line react/display-name
-            loading: () => <LoaderContainer />,
-            ssr: false
-        }
-    );
+
+    useEffect(() => {
+        setMarkerPositions([{
+            latitude: 0,
+            longitude: 0,
+            isDraggable: true
+        }])
+        setDraggableMarkerPosition(mapPosition)
+    }, [mapPosition])
 
     const SuccessContainer = () => (
         <div className={styles.successContainer}>
@@ -32,7 +33,7 @@ export default function AddLocation() {
                 <title>{getTitleString()}</title>
             </Head>
             {isSubmitting && <div className={styles.loaderContainer}><Loader /></div>}
-            <Layout map={(<DraggableMap />)}>
+            <Layout>
                 <h1>
                     Add Nude Place
                 </h1>

@@ -17,7 +17,6 @@ export default function Home() {
     country && router.push(`/${country}`);
   }, []);
 
-
   return (
     <>
       <Head>
@@ -25,21 +24,23 @@ export default function Home() {
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.welcome}>
-        <div className={styles.loaderIconWrapper}>
-          <Loader />
-          <span className="icon-location"></span>
+      <div className={styles.welcomeWrapper}>
+        <div className={styles.welcome}>
+          <div className={styles.loaderIconWrapper}>
+            <Loader />
+            <span className="icon-location"></span>
+          </div>
+          <h1>
+            Nude Places
+          </h1>
+          <div className={styles.aboutLinkContainer}>
+            <AboutLink />
+          </div>
         </div>
-        <h1>
-          Nude Places
-        </h1>
-        <div className={styles.aboutLinkContainer}>
-          <AboutLink />
+        <div className={styles.belowFold}>
+          <h2>Countries</h2>
+          <LinkList listItems={getCountryListItems(countries)} />
         </div>
-      </div>
-      <div className={styles.belowFold}>
-        <h2>Countries</h2>
-        <LinkList listItems={getCountryListItems(countries)} />
       </div>
     </>
   )
