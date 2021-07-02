@@ -13,7 +13,7 @@ export default function Country({ country, locations }) {
     const [filteredLocations, setFilteredLocations] = useState(locations);
     const [locationTypeFilter, setLocationTypeFilter] = useState([]);
     const [isMapLimited, setIsMapLimited] = useState(false);
-    const markerLimit = 300;
+    const markerLimit = 10;
     let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations);
 
     useEffect(() => {
@@ -22,14 +22,6 @@ export default function Country({ country, locations }) {
             country.longitude
         ]);
 
-        // zoom out one level on small devices
-        const initZoom = country.zoom;
-        const isSmallDevice = document.documentElement.clientWidth < 768;
-        const zoom = initZoom ? (isSmallDevice ? (initZoom - 1) : initZoom) : 6;
-        setZoom(zoom);
-    }, [country])
-
-    useEffect(() => {
         let typeFilteredLocations = []
         if (locationTypeFilter.length > 0) {
             typeFilteredLocations = locations.filter((location) => locationTypeFilter.includes(location.type))
@@ -37,6 +29,12 @@ export default function Country({ country, locations }) {
             typeFilteredLocations = locations
         }
         setFilteredLocations(typeFilteredLocations);
+
+        // zoom out one level on small devices
+        const initZoom = country.zoom;
+        const isSmallDevice = document.documentElement.clientWidth < 768;
+        const zoom = initZoom ? (isSmallDevice ? (initZoom - 1) : initZoom) : 6;
+        setZoom(zoom);
 
         const markerPositions = buildCountryLocationsMarkerPositions(typeFilteredLocations, country);
         if (markerPositions.length > markerLimit && isSmallDevice) {
