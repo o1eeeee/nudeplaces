@@ -7,9 +7,9 @@ import Layout from '../../components/Layout';
 import { useMapContext } from '../../context/MapProvider';
 import LocationInfoList from '../../components/LocationInfoList';
 import ReportLocationButton from '../../components/ReportLocationButton';
-import styles from '../../styles/LocationsDetail.module.css';
+import styles from '../../styles/Location.module.css';
 
-export default function LocationsDetail({ location, country }) {
+export default function Location({ location, country }) {
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
 
     useEffect(() => {
