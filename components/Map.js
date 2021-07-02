@@ -19,7 +19,7 @@ export default function Map() {
             animate: true,
             duration: 1,
         })
-    }, [mapPosition, zoom])
+    }, [map, mapPosition, zoom])
 
     return (
         <div className={styles.mapWrapper}>
