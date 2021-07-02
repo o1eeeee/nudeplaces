@@ -3,6 +3,7 @@ import Head from 'next/head';
 import LinkList from '../../components/LinkList';
 import initFirebase from '../../lib/firebase';
 import { getCountries } from '../../lib/countries';
+import { config } from '../../lib/config';
 import Layout from '../../components/Layout';
 import FilterBar from '../../components/FilterBar';
 import { useMapContext } from '../../context/MapProvider';
@@ -13,19 +14,18 @@ export default function Country({ country, locations }) {
     const [filteredLocations, setFilteredLocations] = useState(locations);
     const [locationTypeFilter, setLocationTypeFilter] = useState([]);
     const [isMapLimited, setIsMapLimited] = useState(false);
-    const markerLimit = process.env.NODE_ENV === 'development' ? 10 : 300;
     let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations);
 
     useEffect(() => {
-        setMapPosition([
-            country.latitude,
-            country.longitude
-        ]);
+        setMapPosition({
+            latitude: country.latitude,
+            longitude: country.longitude
+        });
 
         // zoom out one level on small devices
         const initZoom = country.zoom;
-        const isSmallDevice = document.documentElement.clientWidth < 768;
-        const zoom = initZoom ? (isSmallDevice ? (initZoom - 1) : initZoom) : 6;
+        const isSmallDevice = document.documentElement.clientWidth < config.BREAKPOINT_MD_IN_PX;
+        const zoom = initZoom ? (isSmallDevice ? (initZoom - 1) : initZoom) : config.MAP_DEFAULT_ZOOM_COUNTRY;
         setZoom(zoom);
     }, [country])
 
@@ -39,9 +39,9 @@ export default function Country({ country, locations }) {
         setFilteredLocations(typeFilteredLocations);
 
         const markerPositions = buildCountryLocationsMarkerPositions(typeFilteredLocations, country);
-        const isSmallDevice = document.documentElement.clientWidth < 768;
-        if (markerPositions.length > markerLimit && isSmallDevice) {
-            setMarkerPositions(markerPositions.slice(0, markerLimit));
+        const isSmallDevice = document.documentElement.clientWidth < config.BREAKPOINT_MD_IN_PX;
+        if (markerPositions.length > config.MAP_MARKER_LIMIT_MOBILE && isSmallDevice) {
+            setMarkerPositions(markerPositions.slice(0, config.MAP_MARKER_LIMIT_MOBILE));
             setIsMapLimited(true);
         } else {
             setMarkerPositions(markerPositions);
@@ -74,7 +74,7 @@ export default function Country({ country, locations }) {
 }
 
 export async function getStaticProps({ params }) {
-    if (process.env.NODE_ENV === 'development') {
+    if (config.ENABLE_DEV_MODE && process.env.NODE_ENV === 'development') {
         const props = require('../../dev/countries/staticProps.json');
         const countries = getCountries();
         const country = countries.filter(country => country.urlName === params.country);
@@ -88,8 +88,6 @@ export async function getStaticProps({ params }) {
 
         return props;
     }
-
-    const limit = process.env.NODE_ENV === 'development' ? 20 : 2000;
 
     let db = await initFirebase()
 
@@ -105,7 +103,7 @@ export async function getStaticProps({ params }) {
         .where('country', '==', country[0].isoCode)
         .where('seoName', '>', '')
         .orderBy('seoName')
-        .limit(limit)
+        .limit(config.FETCH_LOCATIONS_LIMIT)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
         })

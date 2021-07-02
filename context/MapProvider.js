@@ -1,14 +1,14 @@
 import { createContext, useContext } from 'react';
 import { useState } from 'react';
+import { config } from '../lib/config';
 
 const MapContext = createContext();
 
 export function MapProvider({ children }) {
-    const [mapPosition, setMapPosition] = useState([51.165691, 10.451526]);
+    const [mapPosition, setMapPosition] = useState(config.MAP_POSITION_GERMANY);
     const [markerPositions, setMarkerPositions] = useState([]);
-    const [draggableMarkerPosition, setDraggableMarkerPosition] = useState({
-        lat: 51.165691, lng: 10.451526});
-    const [zoom, setZoom] = useState(3);
+    const [draggableMarkerPosition, setDraggableMarkerPosition] = useState(config.MAP_POSITION_GERMANY);
+    const [zoom, setZoom] = useState(config.MAP_MIN_ZOOM);
 
     return (
         <MapContext.Provider value={{

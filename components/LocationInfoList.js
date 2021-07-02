@@ -1,4 +1,5 @@
-import { zoom, buildLocationInfo, buildLocationStreetAndHouseNr, buildLocationPostcodeAndMunicipality, buildLocationRegionAndCountry, buildLocationLastUpdatedDate } from '../lib/locations';
+import { config } from '../lib/config';
+import { buildLocationInfo, buildLocationStreetAndHouseNr, buildLocationPostcodeAndMunicipality, buildLocationRegionAndCountry, buildLocationLastUpdatedDate } from '../lib/locations';
 import LinkList from '../components/LinkList';
 import styles from '../styles/components/LocationInfoList.module.css';
 
@@ -17,12 +18,12 @@ export default function LocationInfoList({ location, country }) {
             external: true,
         },
         {
-            href: `https://www.openstreetmap.org/index.html?mlat=${lat}&mlon=${lng}&zoom=${zoom}`,
+            href: `https://www.openstreetmap.org/index.html?mlat=${lat}&mlon=${lng}&zoom=${config.MAP_DEFAULT_ZOOM_LOCATION}`,
             text: "OpenStreetMap",
             external: true,
         },
         {
-            href: `https://www.komoot.de/plan/@${lat},${lng},${zoom}z`,
+            href: `https://www.komoot.de/plan/@${lat},${lng},${config.MAP_DEFAULT_ZOOM_LOCATION}z`,
             text: "Komoot",
             external: true,
         }

@@ -36,7 +36,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
         const errors = {}
 
         // Position
-        if (!draggableMarkerPosition.lat || !draggableMarkerPosition.lng) {
+        if (!draggableMarkerPosition.latitude || !draggableMarkerPosition.longitude) {
             errors.position = "Please drag the marker to the position on the map.";
         }
 
@@ -70,8 +70,8 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
     useEffect(() => {
         async function performCreate() {
             const dateNow = new Date().toISOString();
-            const latitude = draggableMarkerPosition.lat;
-            const longitude = draggableMarkerPosition.lng;
+            const latitude = draggableMarkerPosition.latitude;
+            const longitude = draggableMarkerPosition.longitude;
             let data;
             try {
                 const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}&accept-language=en`)

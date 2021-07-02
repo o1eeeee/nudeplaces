@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import initFirebase from '../../lib/firebase';
 import { getCountries } from '../../lib/countries';
-import { zoom, buildLocationInfo, buildLocationRegionAndCountry } from '../../lib/locations';
+import { config } from '../../lib/config';
+import { buildLocationInfo, buildLocationRegionAndCountry } from '../../lib/locations';
 import Layout from '../../components/Layout';
 import { useMapContext } from '../../context/MapProvider';
 import LocationInfoList from '../../components/LocationInfoList';
@@ -13,12 +14,15 @@ export default function Location({ location, country }) {
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
 
     useEffect(() => {
-        setMapPosition([location.latitude, location.longitude]);
+        setMapPosition({
+            latitude: location.latitude,
+            longitude: location.longitude
+        });
         setMarkerPositions([{
             latitude: location.latitude,
             longitude: location.longitude
         }]);
-        setZoom(zoom);
+        setZoom(config.MAP_DEFAULT_ZOOM_LOCATION);
     }, [location]);
 
     return (
@@ -46,7 +50,7 @@ export default function Location({ location, country }) {
 
 
 export async function getStaticProps({ params }) {
-    if (process.env.NODE_ENV === 'development') {
+    if (config.ENABLE_DEV_MODE && process.env.NODE_ENV === 'development') {
         const props = require('../../dev/locations/staticProps.json');
         return props;
     }
@@ -87,20 +91,18 @@ export async function getStaticProps({ params }) {
 
 
 export async function getStaticPaths() {
-    if (process.env.NODE_ENV === 'development') {
+    if (config.ENABLE_DEV_MODE && process.env.NODE_ENV === 'development') {
         const paths = require('../../dev/locations/staticPaths.json');
         return paths;
     }
-
-    const limit = process.env.NODE_ENV === 'development' ? 20 : 2000;
 
     let db = await initFirebase()
 
     // Fetch locations for Germany to be statically generated
     let locationsData = db.collection('locations')
-        .where('country', "==", "DE")
+        .where('country', "==", config.COUNTRY_CODE_GERMANY)
         .where('seoName', "!=", null)
-        .limit(limit)
+        .limit(config.FETCH_LOCATIONS_LIMIT)
         .get().then((snapshot) => {
             return snapshot.docs.map(doc => doc.data())
         })
@@ -114,7 +116,7 @@ export async function getStaticPaths() {
 
     const paths = publishedLocations.map((location) => ({
         params: {
-            country: "germany",
+            country: config.SEO_NAME_GERMANY,
             location: location.seoName,
         }
     }))

@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
 import 'leaflet-defaulticon-compatibility';
 import Link from 'next/link';
+import { config } from '../lib/config';
 import DraggableMarker from '../components/DraggableMarker';
 import AddLocationButton from '../components/AddLocationButton';
 import { useMapContext } from '../context/MapProvider';
@@ -15,7 +16,8 @@ export default function Map() {
     const [map, setMap] = useState(null);
 
     useEffect(() => {
-        map && map.flyTo(mapPosition, zoom, {
+        console.log(mapPosition)
+        map && map.flyTo([mapPosition.latitude, mapPosition.longitude], zoom, {
             animate: true,
             duration: 1,
         })
@@ -23,7 +25,7 @@ export default function Map() {
 
     return (
         <div className={styles.mapWrapper}>
-            <MapContainer whenCreated={(map) => setMap(map)} minZoom={3} zoomControl={false} center={mapPosition} zoom={zoom} scrollWheelZoom={true} style={{ width: "100%", height: "100%" }}>
+            <MapContainer whenCreated={(map) => setMap(map)} minZoom={config.MAP_MIN_ZOOM} zoomControl={false} center={[mapPosition.latitude, mapPosition.longitude]} zoom={zoom} scrollWheelZoom={true} style={{ width: "100%", height: "100%" }}>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
