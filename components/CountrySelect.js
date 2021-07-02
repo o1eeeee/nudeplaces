@@ -15,7 +15,7 @@ export default function CountrySelect() {
             .filter((country) => (!value || country.name.toLowerCase().includes(value.toLowerCase()) || country.nativeName.toLowerCase().includes(value.toLowerCase())));
 
         setFilteredCountries(nameFilteredCountries);
-    }, [value])
+    }, [countries, value])
 
     useEffect(() => {
         function handleClickOutside(event) {
