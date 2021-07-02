@@ -13,7 +13,7 @@ export default function Country({ country, locations }) {
     const [filteredLocations, setFilteredLocations] = useState(locations);
     const [locationTypeFilter, setLocationTypeFilter] = useState([]);
     const [isMapLimited, setIsMapLimited] = useState(false);
-    const markerLimit = 10;
+    const markerLimit = process.env.NODE_ENV === 'development' ? 10 : 300;
     let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations);
 
     useEffect(() => {
