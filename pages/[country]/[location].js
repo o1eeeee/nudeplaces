@@ -52,9 +52,11 @@ export default function Location({ location, country }) {
 
 
 export async function getStaticProps({ params }) {
-    if (config.ENABLE_DEV_MODE && process.env.NODE_ENV === 'development') {
-        const props = require('../../dev/locations/staticProps.json');
-        return props;
+    if (process.env.NODE_ENV === 'development') {
+        if (config.ENABLE_DEV_MODE) {
+            const props = require('../../dev/locations/staticProps.json');
+            return props;
+        }
     }
 
     let db = await initFirebase()
@@ -93,9 +95,11 @@ export async function getStaticProps({ params }) {
 
 
 export async function getStaticPaths() {
-    if (config.ENABLE_DEV_MODE && process.env.NODE_ENV === 'development') {
-        const paths = require('../../dev/locations/staticPaths.json');
-        return paths;
+    if (process.env.NODE_ENV === 'development') {
+        if (config.ENABLE_DEV_MODE) {
+            const paths = require('../../dev/locations/staticPaths.json');
+            return paths;
+        }
     }
 
     let db = await initFirebase()

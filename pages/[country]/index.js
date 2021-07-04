@@ -76,19 +76,21 @@ export default function Country({ country, locations }) {
 }
 
 export async function getStaticProps({ params }) {
-    if (config.ENABLE_DEV_MODE && process.env.NODE_ENV === 'development') {
-        const props = require('../../dev/countries/staticProps.json');
-        const countries = getCountries();
-        const country = countries.filter(country => country.urlName === params.country);
+    if (process.env.NODE_ENV === 'development') {
+        if (config.ENABLE_DEV_MODE) {
+            const props = require('../../dev/countries/staticProps.json');
+            const countries = getCountries();
+            const country = countries.filter(country => country.urlName === params.country);
 
-        if (!country[0]) {
-            return { notFound: true }
+            if (!country[0]) {
+                return { notFound: true }
+            }
+
+            props["props"]["countries"] = countries
+            props["props"]["country"] = country[0]
+
+            return props;
         }
-
-        props["props"]["countries"] = countries
-        props["props"]["country"] = country[0]
-
-        return props;
     }
 
     let db = await initFirebase()
