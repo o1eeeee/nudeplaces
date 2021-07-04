@@ -53,6 +53,8 @@ export default function Country({ country, locations }) {
         <>
             <Head>
                 <title>{getTitleString(country)}</title>
+                <meta name="description" content={`Find nudist, naturist and clothing optional places, beaches, resorts and camps in ${country.name}.`} />
+                <meta name="og:description" content={`Find nudist, naturist and clothing optional places, beaches, resorts and camps in ${country.name}.`} key="og-description" />
             </Head>
             <FilterBar locationTypeFilter={locationTypeFilter} setLocationTypeFilter={setLocationTypeFilter} />
             <Layout>

@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
 import LinkList from '../components/LinkList';
 import Loader from '../components/Loader';
 import { getCountries, detectCountryFromLanguage } from '../lib/countries';
@@ -18,42 +17,30 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      <Head>
-        <title>{getTitleString()}</title>
-        <meta name="description" content="" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className={styles.welcomeWrapper}>
-        <div className={styles.welcome}>
-          <div className={styles.loaderIconWrapper}>
-            <Loader />
-            <span className="icon-location"></span>
-          </div>
-          <h1>
-            Nude Places
-          </h1>
-          <div className={styles.aboutLinkContainer}>
-            <AboutLink />
-          </div>
+    <div className={styles.welcomeWrapper}>
+      <div className={styles.welcome}>
+        <div className={styles.loaderIconWrapper}>
+          <Loader />
+          <span className="icon-location"></span>
         </div>
-        <div className={styles.belowFold}>
-          <h2>Countries</h2>
-          <LinkList listItems={getCountryListItems(countries)} />
+        <h1>
+          Nude Places
+        </h1>
+        <div className={styles.aboutLinkContainer}>
+          <AboutLink />
         </div>
       </div>
-    </>
+      <div className={styles.belowFold}>
+        <h2>Countries</h2>
+        <LinkList listItems={getCountryListItems(countries)} />
+      </div>
+    </div>
   )
 }
 
 
 
-function getTitleString() {
-  const titleString = [];
-  titleString.push(`Nudist, Naturist, Clothing Optional Places and Beaches worldwide`);
-  titleString.push("nudeplaces");
-  return titleString.join(" – ")
-}
+
 
 
 function buildCountryUrl(country) {
