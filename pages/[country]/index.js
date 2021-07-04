@@ -59,7 +59,7 @@ export default function Country({ country, locations }) {
                 <h1>
                     {country.name}
                 </h1>
-                <p>{filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {country.name}. {isMapLimited && <><br />Max. {markerLimit} places are shown on the map. Please use filters or scroll down to see more.</>}</p>
+                <p>{filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {country.name}. {isMapLimited && <><br />Max. {config.MAP_MARKER_LIMIT_MOBILE} places are shown on the map. Please use filters or scroll down to see more.</>}</p>
                 <ul className={styles.regionsList}>
                     {regions.map((region) => (
                         <li key={region}>
