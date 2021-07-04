@@ -10,8 +10,6 @@ export default function DraggableMarker() {
       () => ({
         dragend() {
           const marker = markerRef.current
-          console.log(marker)
-          console.log(marker.getLatLng().lat)
           if (marker != null) {
             setDraggableMarkerPosition({
               latitude: marker.getLatLng().lat,

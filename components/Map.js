@@ -16,7 +16,6 @@ export default function Map() {
     const [map, setMap] = useState(null);
 
     useEffect(() => {
-        console.log(mapPosition)
         map && map.flyTo([mapPosition.latitude, mapPosition.longitude], zoom, {
             animate: true,
             duration: 1,
