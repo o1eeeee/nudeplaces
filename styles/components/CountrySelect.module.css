@@ -58,9 +58,9 @@
 .countriesList {
     display: none;
     position: absolute;
-    top: 4.75rem;
-    left: 1rem;
-    right: 1rem;
+    top: calc(env(safe-area-inset-top, 0) + 4.75rem);
+    left: calc(env(safe-area-inset-left, 0) + 1rem);
+    right: calc(env(safe-area-inset-right, 0) + 1rem);
     max-height: 75%;
     background-color: white;
     overflow: hidden;
@@ -71,7 +71,7 @@
 
 @media (min-width: 768px) {
     .countriesList {
-        top: 4rem;
+        top: calc(env(safe-area-inset-top, 0) + 4rem);
         border-radius: 18px;
     }
 }
@@ -125,7 +125,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 1rem;
+    padding-top: calc(env(safe-area-inset-top, 0) + 1rem);
+    padding-right: calc(env(safe-area-inset-right, 0) + 1rem);
+    padding-bottom: calc(env(safe-area-inset-bottom, 0) + 1rem);
+    padding-left: calc(env(safe-area-inset-left, 0) + 1rem);
 }
 
 .countriesListOpen {
