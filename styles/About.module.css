@@ -20,5 +20,8 @@
 
 .backToHomepageLink {
     display: inline-block;
-    margin: 1rem;
+    margin-top: calc(env(safe-area-inset-top, 1rem) + 1rem);
+    margin-bottom: calc(env(safe-area-inset-bottom, 1rem) + 1rem);
+    margin-left: calc(env(safe-area-inset-left, 1rem) + 1rem);
+    margin-right: calc(env(safe-area-inset-right, 1rem) + 1rem);
 }

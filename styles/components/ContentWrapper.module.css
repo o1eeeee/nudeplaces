@@ -17,7 +17,10 @@
 
 .content {
     background-color: white;
-    padding-top: 1.5rem;    
+    padding-top: 1.5rem;
+    padding-right: 0;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    padding-left: env(safe-area-inset-left, 0);
 }
 
 @media (min-width: 768px) {
@@ -26,7 +29,8 @@
         overflow: auto;
         scrollbar-width: thin;
         box-shadow: 0 0 20px rgba(0, 0, 0, .3);
-        padding: 84px 0 1.5rem 0;
+        padding-top: 84px;
+        padding-bottom: calc(env(safe-area-inset-bottom) + 1.5rem);
     }
 }
 

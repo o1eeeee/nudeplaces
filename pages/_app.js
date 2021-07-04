@@ -44,6 +44,7 @@ export default function MyApp({ Component, pageProps }) {
         <meta name="theme-color" content="#1de9b6" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
         <link rel="manifest" href="manifest.json" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" href="/icons/icon-72x72.png" type="image/png" sizes="72x72" />

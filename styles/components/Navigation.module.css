@@ -3,6 +3,7 @@
     align-items: center;
     width: 100%;
     padding: 1rem 1rem 1rem 1rem;
+    margin-top: env(safe-area-inset-top);
     position: absolute;
     top: 0;
     left: 0;
