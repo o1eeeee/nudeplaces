@@ -1,2 +1,3 @@
 User-agent: *
 Disallow: /about
+Sitemap: https://nudeplaces.de/sitemap.xml
