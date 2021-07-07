@@ -34,10 +34,12 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
 
     function validateForm(values) {
         const errors = {}
+        const lat = draggableMarkerPosition.latitude;
+        const lng = draggableMarkerPosition.longitude;
 
         // Position
-        if (!draggableMarkerPosition.latitude || !draggableMarkerPosition.longitude) {
-            errors.position = "Please drag the marker to the position on the map.";
+        if (!lat || !lng || (lat.toFixed(6) == "51.165691" && lng.toFixed(6) == "10.451526")) {
+            errors.position = "Please drag the marker to the position of the nude place.";
         }
 
         // Title
