@@ -25,3 +25,8 @@
     margin: 0;
     line-height: 1.5rem;
 }
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: column;
+}

@@ -3,10 +3,11 @@ import Head from 'next/head';
 import initFirebase from '../../lib/firebase';
 import { getCountries } from '../../lib/countries';
 import { config } from '../../lib/config';
-import { buildLocationInfo, buildLocationRegionAndCountry } from '../../lib/locations';
+import { buildLocationUrl, buildLocationInfo, buildLocationRegionAndCountry } from '../../lib/locations';
 import Layout from '../../components/Layout';
 import { useMapContext } from '../../context/MapProvider';
 import LocationInfoList from '../../components/LocationInfoList';
+import CopyToClipboardButton from '../../components/CopyToClipboardButton';
 import ReportLocationButton from '../../components/ReportLocationButton';
 import styles from '../../styles/Location.module.css';
 
@@ -42,9 +43,12 @@ export default function Location({ location, country }) {
                     <span className={styles.disclaimerText}>Please note that we cannot guarantee the information to be correct and up-to-date.
                         Make sure to confirm it before planning your trip.
                         You can help us by reporting any incorrect or outdated information.</span>
-                </p>
+                </p>                
                 <LocationInfoList location={location} country={country} />
-                <ReportLocationButton locationData={getReportLocationData(location, country)} />
+                <div className={styles.buttonsContainer}>
+                    <CopyToClipboardButton value={`${process.env.WEBSITE_URL}${buildLocationUrl(location, country)}`} />
+                    <ReportLocationButton locationData={getReportLocationData(location, country)} />
+                </div>       
             </Layout>
         </>
     )

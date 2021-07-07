@@ -97,6 +97,6 @@
 }
 
 .errorsWarning {
-    border: 2px solid rgb(244, 67, 54);
-    color: rgb(244, 67, 54);
+    border: 2px solid #ff7474;
+    color: #ff7474;
 }

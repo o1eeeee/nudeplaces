@@ -1,0 +1,37 @@
+.copyToClipboardButton, .copyToClipboardButtonClicked {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: auto;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    border: 2px solid;
+    background-color: white;
+    cursor: pointer;    
+    transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    text-align: center;
+    font-weight: 500;
+    font-size: 90%;
+    margin: 0.5rem 1rem;
+}
+
+.copyToClipboardButton {    
+    border-color: whitesmoke;
+}
+
+.copyToClipboardButtonClicked {
+    cursor: initial;
+    pointer-events: none;
+}
+
+.copyToClipboardButton:hover,
+.copyToClipboardButton:focus,
+.copyToClipboardButtonClicked {
+    border-color: #1de9b6;
+    color: #1de9b6;
+}
+
+.copyToClipboardButton span[class^="icon-"],
+.copyToClipboardButtonClicked span[class^="icon-"] {
+    margin-right: 0.5rem;
+}
