@@ -20,8 +20,6 @@ export default function DraggableMarker() {
       }),
       [],
     )
-
-    console.log(draggableMarkerPosition);
   
     return (
       <Marker
