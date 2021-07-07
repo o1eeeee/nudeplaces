@@ -145,6 +145,8 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
         }
     }, [errors])
 
+    console.log(Object.keys(errors))
+
     return (
         <form className={styles.form} onSubmit={handleSubmit}>            
             <p className={styles.dragMarkerOnMapInfo}>
@@ -193,6 +195,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
                 </label>
                 {errors.url && <p>{errors.url}</p>}
             </div>
+            {Object.keys(errors).length > 0 && <p className={styles.errorsWarning}>An error occurred when submitting the form. Please check your input and try again.</p>}
             <input type="submit" value="Submit Nude Place" />
         </form>
     )
