@@ -17,6 +17,10 @@
     font-weight: 500;
 }
 
+.formGroup label p {
+    margin-bottom: 0;
+}
+
 .required span::after {
     content: '(required)';
 }

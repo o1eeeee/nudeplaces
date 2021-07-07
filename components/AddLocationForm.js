@@ -149,7 +149,13 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
                 <span className="icon-info"></span>
                 <span className={styles.dragMarkerOnMapInfoText}>Drag the marker to the nude place on the map. Please try to find the exact position.</span>
             </p>
-            {errors.position && <p>{errors.position}</p>}
+            <div className={styles.formGroup}>
+                <label>
+                    <span>Position</span>
+                    <p>{`${draggableMarkerPosition.latitude.toFixed(6)}, ${draggableMarkerPosition.longitude.toFixed(6)}`}</p>
+                </label>
+                {errors.position && <p>{errors.position}</p>}
+            </div>            
             <div className={styles.formGroup}>
                 <label className={styles.required}>
                     <span>Title</span>
