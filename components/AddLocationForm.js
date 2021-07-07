@@ -149,7 +149,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
         <form className={styles.form} onSubmit={handleSubmit}>            
             <p className={styles.dragMarkerOnMapInfo}>
                 <span className="icon-info"></span>
-                <span className={styles.dragMarkerOnMapInfoText}>Drag the marker to the nude place on the map. Please try to find the exact position.</span>
+                <span>Drag the marker to the nude place on the map. Please try to find the exact position.</span>
             </p>
             <div className={styles.formGroup}>
                 <label>
