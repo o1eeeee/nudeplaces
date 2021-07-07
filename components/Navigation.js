@@ -9,7 +9,7 @@ export default function Navigation() {
     return (
         <div className={styles.navigation}>
             <button type="button" className={styles.backButton} onClick={() => router.back()}>
-                &larr;
+                <span className={"icon-arrow-left"}></span>
             </button>
             <CountrySelect countries={countries} />
         </div>
