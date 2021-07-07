@@ -10,7 +10,7 @@ import { useMapContext } from '../../context/MapProvider';
 import styles from '../../styles/Country.module.css';
 
 export default function Country({ country, locations }) {
-    const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
+    const { bounds, setMapPosition, setMarkerPositions, setZoom } = useMapContext();
     const [filteredLocations, setFilteredLocations] = useState(locations);
     const [locationTypeFilter, setLocationTypeFilter] = useState([]);
     const [isMapLimited, setIsMapLimited] = useState(false);
@@ -30,12 +30,8 @@ export default function Country({ country, locations }) {
     }, [country])
 
     useEffect(() => {
-        let typeFilteredLocations = []
-        if (locationTypeFilter.length > 0) {
-            typeFilteredLocations = locations.filter((location) => locationTypeFilter.includes(location.type))
-        } else {
-            typeFilteredLocations = locations
-        }
+        const locationsInBounds = bounds ? getLocationsInBounds(locations, bounds) : locations;
+        const typeFilteredLocations = (locationTypeFilter.length > 0) ? locationsInBounds.filter((location) => locationTypeFilter.includes(location.type)) : locationsInBounds;
         setFilteredLocations(typeFilteredLocations);
 
         const markerPositions = buildCountryLocationsMarkerPositions(typeFilteredLocations, country);
@@ -47,7 +43,7 @@ export default function Country({ country, locations }) {
             setMarkerPositions(markerPositions);
             setIsMapLimited(false);
         }
-    }, [country, locations, JSON.stringify(locationTypeFilter)])
+    }, [bounds, country, locations, JSON.stringify(locationTypeFilter)])
 
     return (
         <>
@@ -206,4 +202,19 @@ function getLocationsByRegion(locations) {
     regions.sort();
 
     return { regions, locationsByRegion };
+}
+
+
+function getLocationsInBounds(locations, bounds) {
+    if (!bounds) {
+        return locations
+    }
+    const { _northEast, _southWest } = bounds;
+    const locationsInBounds = locations.filter(location => {
+        return location.latitude < _northEast.lat &&
+            location.longitude < _northEast.lng &&
+            location.latitude > _southWest.lat &&
+            location.longitude > _southWest.lng
+    })
+    return locationsInBounds;
 }
