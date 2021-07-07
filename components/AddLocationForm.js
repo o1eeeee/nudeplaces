@@ -145,8 +145,6 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
         }
     }, [errors])
 
-    console.log(Object.keys(errors))
-
     return (
         <form className={styles.form} onSubmit={handleSubmit}>            
             <p className={styles.dragMarkerOnMapInfo}>
