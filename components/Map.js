@@ -24,7 +24,7 @@ export default function Map() {
 
     return (
         <div className={styles.mapWrapper}>
-            <MapContainer whenCreated={(map) => setMap(map)} minZoom={config.MAP_MIN_ZOOM} zoomControl={false} center={[mapPosition.latitude, mapPosition.longitude]} zoom={zoom} scrollWheelZoom={true} style={{ width: "100%", height: "100%" }}>
+            <MapContainer whenCreated={(map) => setMap(map)} minZoom={config.MAP_MIN_ZOOM} zoomControl={false} center={[mapPosition.latitude, mapPosition.longitude]} zoom={zoom} scrollWheelZoom={true} maxBounds={[[-90, -180],[90,180]]} style={{ width: "100%", height: "100%" }}>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
