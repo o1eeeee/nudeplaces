@@ -57,7 +57,11 @@ export default function Country({ country, locations }) {
                 <h1>
                     {country.name}
                 </h1>
-                <p>{filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {country.name}. {isMapLimited && <><br />Max. {config.MAP_MARKER_LIMIT_MOBILE} places are shown on the map. Please use filters or scroll down to see more.</>}</p>
+                {filteredLocations.length > 0 
+                    ? <p>Showing {filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {country.name}. {isMapLimited && <><br />Please use filters or zoom into the map to see more.</>}</p>
+                    : <p>No nude places found in this area. Zoom out of the map or remove filters to see more.</p>
+                }
+                
                 <ul className={styles.regionsList}>
                     {regions.map((region) => (
                         <li key={region}>
