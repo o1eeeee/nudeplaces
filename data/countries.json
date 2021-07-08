@@ -1,791 +1,4718 @@
 [
     {
-      "latitude": 17.060816,
-      "currency": "XCD",
-      "nativeName": "Antigua and Barbuda",
-      "urlName": "antigua-and-barbuda",
-      "name": "Antigua and Barbuda",
-      "longitude": -61.796428,
-      "isoCode": "AG",
-      "zoom": 9
-    },
-    {
-      "nativeName": "Argentina",
-      "latitude": -38.416097,
-      "longitude": -63.616672,
-      "currency": "ARS",
-      "urlName": "argentina",
-      "isoCode": "AR",
-      "name": "Argentina",
-      "zoom": 5
-    },
-    {
-      "currency": "AUD",
-      "name": "Australia",
-      "isoCode": "AU",
-      "latitude": -25.274398,
-      "longitude": 133.775136,
-      "nativeName": "Australia",
-      "urlName": "australia",
-      "zoom": 5
-    },
-    {
-      "currency": "EUR",
-      "isoCode": "AT",
-      "latitude": 47.516231,
-      "nativeName": "Österreich",
-      "name": "Austria",
-      "longitude": 14.550072,
-      "urlName": "austria",
-      "zoom": 7
-    },
-    {
-      "isoCode": "BE",
-      "currency": "EUR",
-      "urlName": "belgium",
-      "longitude": 4.469936,
-      "nativeName": "Belgie",
-      "name": "Belgium",
-      "latitude": 50.503887,
-      "zoom": 8
-    },
-    {
-      "isoCode": "BR",
-      "currency": "BRL",
-      "latitude": -14.235004,
-      "nativeName": "Brasil",
-      "urlName": "brazil",
-      "longitude": -51.92528,
-      "name": "Brazil",
-      "zoom": 5
-    },
-    {
-      "currency": "BGN",
-      "latitude": 42.733883,
-      "urlName": "bulgaria",
-      "name": "Bulgaria",
-      "nativeName": "Bulgaria",
-      "longitude": 25.48583,
-      "isoCode": "BG",
-      "zoom": 8
-    },
-    {
-      "longitude": -106.346771,
-      "nativeName": "Canada",
-      "currency": "CAD",
-      "urlName": "canada",
-      "name": "Canada",
-      "isoCode": "CA",
-      "latitude": 56.130366,
-      "zoom": 4
-    },
-    {
-      "isoCode": "CV",
-      "latitude": 15.916667,
-      "currency": "CVE",
-      "nativeName": "Cabo Verde",
-      "longitude": -24.083333,
-      "urlName": "cape-verde",
-      "name": "Cape Verde",
-      "zoom": 8
-    },
-    {
-      "name": "Cayman Islands",
-      "nativeName": "Cayman Islands",
-      "currency": "KYD",
-      "latitude": 19.513469,
-      "isoCode": "KY",
-      "longitude": -80.566956,
-      "urlName": "cayman-islands",
-      "zoom": 8
-    },
-    {
-      "urlName": "chile",
-      "isoCode": "CL",
-      "currency": "CLP",
-      "longitude": -71.542969,
-      "nativeName": "Chile",
-      "name": "Chile",
-      "latitude": -35.675147,
-      "zoom": 5
-    },
-    {
-      "latitude": 35.86166,
-      "longitude": 104.195397,
-      "urlName": "china",
-      "name": "China",
-      "nativeName": "Zhong Guo",
-      "isoCode": "CN",
-      "currency": "CNY",
-      "zoom": 5
-    },
-    {
-      "longitude": -74.29733299999998,
-      "urlName": "colombia",
-      "latitude": 4.570868,
-      "name": "Colombia",
-      "nativeName": "Colombia",
-      "isoCode": "CO",
-      "currency": "COP",
-      "zoom": 6
-    },
-    {
-      "longitude": -83.75342799999999,
-      "isoCode": "CR",
-      "name": "Costa Rica",
-      "urlName": "costa-rica",
-      "nativeName": "Costa Rica",
-      "latitude": 9.748916999999999,
-      "currency": "CRC",
-      "zoom": 8
-    },
-    {
-      "currency": "HRK",
-      "urlName": "croatia",
-      "latitude": 45.1,
-      "nativeName": "Hrvatska",
-      "isoCode": "HR",
-      "name": "Croatia",
-      "longitude": 15.2,
-      "zoom": 8
-    },
-    {
-      "nativeName": "Cuba",
-      "urlName": "cuba",
-      "longitude": -78.68,
-      "latitude": 21.94,
-      "currency": "CUP",
-      "name": "Cuba",
-      "isoCode": "CU",
-      "zoom": 7
-    },
-    {
-      "latitude": 12.186111,
-      "name": "Curaçao",
-      "isoCode": "CW",
-      "currency": "ANG",
-      "longitude": -68.989444,
-      "nativeName": "null",
-      "urlName": "curacao",
-      "zoom": 11
-    },
-    {
-      "isoCode": "CY",
-      "longitude": 33.429858999999965,
-      "currency": "EUR",
-      "nativeName": "Cyprus",
-      "latitude": 35.126413,
-      "name": "Cyprus",
-      "urlName": "cyprus",
-      "zoom": 9
-    },
-    {
-      "isoCode": "CZ",
-      "urlName": "czech-republic",
-      "longitude": 15.472962,
-      "latitude": 49.817492,
-      "currency": "CZK",
-      "name": "Czech Republic",
-      "nativeName": "Ceska Republika",
-      "zoom": 8
-    },
-    {
-      "currency": "DKK",
-      "name": "Denmark",
-      "isoCode": "DK",
-      "urlName": "denmark",
-      "latitude": 56.26392,
-      "longitude": 9.501785,
-      "nativeName": "Danmark",
-      "zoom": 7
-    },
-    {
-      "urlName": "dominican-republic",
-      "nativeName": "Republica Dominicana",
-      "latitude": 18.735693,
-      "isoCode": "DO",
-      "name": "Dominican Republic",
-      "longitude": -70.162651,
-      "currency": "DOP",
-      "zoom": 7
-    },
-    {
-      "longitude": 30.802,
-      "isoCode": "EG",
-      "nativeName": "Misr",
-      "latitude": 26.820553,
-      "urlName": "egypt",
-      "currency": "EGP",
-      "name": "Egypt",
-      "zoom": 6
-    },
-    {
-      "nativeName": "Eesti",
-      "currency": "EUR",
-      "urlName": "estonia",
-      "name": "Estonia",
-      "isoCode": "EE",
-      "longitude": 25.013607,
-      "latitude": 58.595272,
-      "zoom": 8
-    },
-    {
-      "nativeName": "Fiji",
-      "name": "Fiji",
-      "latitude": -17.669351,
-      "currency": "FJD",
-      "longitude": 177.942692,
-      "isoCode": "FJ",
-      "urlName": "fiji",
-      "zoom": 7
-    },
-    {
-      "currency": "EUR",
-      "urlName": "finland",
-      "longitude": 25.748151,
-      "isoCode": "FI",
-      "nativeName": "Suomi",
-      "name": "Finland",
-      "latitude": 61.92411,
-      "zoom": 5
-    },
-    {
-      "longitude": 2.213749,
-      "latitude": 46.227638,
-      "isoCode": "FR",
-      "name": "France",
-      "currency": "EUR",
-      "nativeName": "France",
-      "urlName": "france",
-      "zoom": 6
-    },
-    {
-      "latitude": -15,
-      "currency": "XPF",
-      "longitude": -140,
-      "name": "French Polynesia",
-      "isoCode": "PF",
-      "nativeName": "Polynesie Francaise",
-      "urlName": "french-polynesia",
-      "zoom": 5
-    },
-    {
-      "longitude": 10.451526,
-      "nativeName": "Deutschland",
-      "urlName": "germany",
-      "isoCode": "DE",
-      "latitude": 51.165691,
-      "currency": "EUR",
-      "name": "Germany",
-      "zoom": 6
-    },
-    {
-      "longitude": 21.824312,
-      "currency": "EUR",
-      "urlName": "greece",
-      "latitude": 39.074208,
-      "isoCode": "GR",
-      "nativeName": "Ellas",
-      "name": "Greece",
-      "zoom": 7
-    },
-    {
-      "isoCode": "GP",
-      "urlName": "guadeloupe",
-      "latitude": 16.194,
-      "currency": "EUR",
-      "longitude": -61.688,
-      "name": "Guadeloupe",
-      "nativeName": "Guadeloupe",
-      "zoom": 10
-    },
-    {
-      "currency": "HUF",
-      "isoCode": "HU",
-      "name": "Hungary",
-      "urlName": "hungary",
-      "nativeName": "Magyarorszag",
-      "latitude": 47.162494,
-      "longitude": 19.503304100000037,
-      "zoom": 8
-    },
-    {
-      "nativeName": "Island",
-      "longitude": -19.020835,
-      "currency": "ISK",
-      "isoCode": "IS",
-      "urlName": "iceland",
-      "name": "Iceland",
-      "latitude": 64.963051,
-      "zoom": 7
-    },
-    {
-      "isoCode": "IN",
-      "latitude": 20.593684,
-      "nativeName": "India",
-      "longitude": "78.96288000000004",
-      "name": "India",
-      "urlName": "india",
-      "currency": "INR",
-      "zoom": 5
-    },
-    {
-      "isoCode": "ID",
-      "latitude": -0.789275,
-      "nativeName": "Indonesia",
-      "longitude": 113.921327,
-      "currency": "IDR",
-      "name": "Indonesia",
-      "urlName": "indonesia",
-      "zoom": 5
-    },
-    {
-      "isoCode": "IE",
-      "nativeName": "Ireland",
-      "longitude": -8.24389,
-      "name": "Ireland",
-      "urlName": "ireland",
-      "currency": "EUR",
-      "latitude": 53.41291,
-      "zoom": 7
-    },
-    {
-      "latitude": 31.046051,
-      "currency": "ILS",
-      "longitude": 34.851612,
-      "urlName": "israel",
-      "isoCode": "IL",
-      "name": "Israel",
-      "nativeName": "Yisra'el",
-      "zoom": 8
-    },
-    {
-      "longitude": 12.180883,
-      "urlName": "italy",
-      "latitude": 42.771449,
-      "nativeName": "Italia",
-      "currency": "EUR",
-      "name": "Italy",
-      "isoCode": "IT",
-      "zoom": 6
-    },
-    {
-      "urlName": "jamaica",
-      "isoCode": "JM",
-      "nativeName": "Jamaica",
-      "name": "Jamaica",
-      "latitude": 18.109581,
-      "currency": "JMD",
-      "longitude": -77.297508,
-      "zoom": 9
-    },
-    {
-      "urlName": "japan",
-      "longitude": 138.252924,
-      "currency": "JPY",
-      "name": "Japan",
-      "latitude": 36.204824,
-      "isoCode": "JP",
-      "nativeName": "Japan",
-      "zoom": 5
-    },
-    {
-      "name": "Latvia",
-      "urlName": "latvia",
-      "longitude": 22.36,
-      "isoCode": "LV",
-      "latitude": 56.86,
-      "nativeName": "Latvija",
-      "currency": "EUR",
-      "zoom": 7
-    },
-    {
-      "latitude": 47.166,
-      "longitude": 9.555373000000031,
-      "isoCode": "LI",
-      "nativeName": "Liechtenstein",
-      "name": "Liechtenstein",
-      "urlName": "liechtenstein",
-      "currency": "CHF",
-      "zoom": 11
-    },
-    {
-      "latitude": 55.169438,
-      "currency": "EUR",
-      "nativeName": "Lietuva",
-      "urlName": "lithuania",
-      "name": "Lithuania",
-      "isoCode": "LT",
-      "longitude": 23.881275,
-      "zoom": 7
-    },
-    {
-      "longitude": 6.129583,
-      "latitude": 49.815273,
-      "isoCode": "LU",
-      "nativeName": "Luxembourg",
-      "urlName": "luxembourg",
-      "currency": "EUR",
-      "name": "Luxembourg",
-      "zoom": 10
-    },
-    {
-      "isoCode": "MT",
-      "nativeName": "Malta",
-      "name": "Malta",
-      "longitude": 14.432,
-      "currency": "EUR",
-      "latitude": 35.8941,
-      "urlName": "malta",
-      "zoom": 10
-    },
-    {
-      "longitude": -61.011199951111,
-      "latitude": 14.640724985,
-      "name": "Martinique",
-      "nativeName": "Martinique",
-      "urlName": "martinique",
-      "currency": "EUR",
-      "isoCode": "MQ",
-      "zoom": 10
-    },
-    {
-      "longitude": -102.552784,
-      "isoCode": "MX",
-      "name": "Mexico",
-      "latitude": 23.634501,
-      "currency": "MXN",
-      "nativeName": "Mexico",
-      "urlName": "mexico",
-      "zoom": 6
-    },
-    {
-      "currency": "EUR",
-      "urlName": "montenegro",
-      "name": "Montenegro",
-      "nativeName": "null",
-      "latitude": 42.708678,
-      "isoCode": "ME",
-      "longitude": 19.37439,
-      "zoom": 8
-    },
-    {
-      "longitude": 5.291266,
-      "nativeName": "Nederland",
-      "name": "Netherlands",
-      "latitude": 52.132633,
-      "isoCode": "NL",
-      "urlName": "netherlands",
-      "currency": "EUR",
-      "zoom": 8
-    },
-    {
-      "urlName": "new-zealand",
-      "isoCode": "NZ",
-      "latitude": -40.900557,
-      "longitude": 174.885971,
-      "currency": "NZD",
-      "name": "New Zealand",
-      "nativeName": "New Zealand",
-      "zoom": 6
-    },
-    {
-      "isoCode": "NO",
-      "nativeName": "Norge",
-      "longitude": 8.468946,
-      "currency": "NOK",
-      "latitude": 60.472024,
-      "name": "Norway",
-      "urlName": "norway",
-      "zoom": 5
-    },
-    {
-      "latitude": 8.537981,
-      "isoCode": "PA",
-      "longitude": -80.782127,
-      "urlName": "panama",
-      "name": "Panama",
-      "nativeName": "Panama",
-      "currency": "PAB",
-      "zoom": 8
-    },
-    {
-      "isoCode": "PE",
-      "latitude": -9.189967,
-      "urlName": "peru",
-      "name": "Peru",
-      "longitude": -75.015152,
-      "nativeName": "Peru",
-      "currency": "PEN",
-      "zoom": 6
-    },
-    {
-      "urlName": "philippines",
-      "latitude": 14.6032,
-      "name": "Philippines",
-      "longitude": 120.9784,
-      "isoCode": "PH",
-      "currency": "PHP",
-      "nativeName": "Pilipinas",
-      "zoom": 6
-    },
-    {
-      "urlName": "poland",
-      "isoCode": "PL",
-      "latitude": 51.919438,
-      "nativeName": "Polska",
-      "currency": "PLN",
-      "name": "Poland",
-      "longitude": 19.145136,
-      "zoom": 6
-    },
-    {
-      "nativeName": "Portugal",
-      "urlName": "portugal",
-      "longitude": -8.224454,
-      "isoCode": "PT",
-      "currency": "EUR",
-      "latitude": 39.399872,
-      "name": "Portugal",
-      "zoom": 7
-    },
-    {
-      "isoCode": "PR",
-      "name": "Puerto Rico",
-      "latitude": 18.220833,
-      "longitude": -66.590149,
-      "urlName": "puerto-rico",
-      "currency": "USD",
-      "nativeName": "Puerto Rico",
-      "zoom": 9
-    },
-    {
-      "latitude": 45.943161,
-      "name": "Romania",
-      "longitude": 24.96676,
-      "urlName": "romania",
-      "isoCode": "RO",
-      "currency": "RON",
-      "nativeName": "Romania",
-      "zoom": 7
-    },
-    {
-      "nativeName": "Rossiya",
-      "urlName": "russian-federation",
-      "currency": "RUB",
-      "latitude": 61.52401,
-      "name": "Russian Federation",
-      "longitude": 105.318756,
-      "isoCode": "RU",
-      "zoom": 3
-    },
-    {
-      "nativeName": "null",
-      "latitude": 17.9,
-      "name": "Saint-Barthélemy",
-      "currency": "EUR",
-      "urlName": "saint-barthelemy",
-      "isoCode": "BL",
-      "longitude": -62.83333300000004,
-      "zoom": 13
-    },
-    {
-      "urlName": "serbia",
-      "longitude": 20.92,
-      "isoCode": "RS",
-      "latitude": 43.87,
-      "currency": "RSD",
-      "nativeName": "null",
-      "name": "Serbia",
-      "zoom": 7
-    },
-    {
-      "isoCode": "SK",
-      "latitude": 48.7667082,
-      "longitude": 18.6413705,
-      "nativeName": "Slovensko",
-      "name": "Slovakia",
-      "urlName": "slovakia",
-      "currency": "EUR",
-      "zoom": 8
-    },
-    {
-      "urlName": "slovenia",
-      "longitude": 14.995463,
-      "latitude": 46.151241,
-      "currency": "EUR",
-      "isoCode": "SI",
-      "name": "Slovenia",
-      "nativeName": "Slovenija",
-      "zoom": 9
-    },
-    {
-      "longitude": 22.937506,
-      "currency": "ZAR",
-      "name": "South Africa",
-      "latitude": -30.559482,
-      "isoCode": "ZA",
-      "urlName": "south-africa",
-      "nativeName": "South Africa",
-      "zoom": 6
-    },
-    {
-      "urlName": "spain",
-      "latitude": 40.463667,
-      "isoCode": "ES",
-      "currency": "EUR",
-      "longitude": -3.74922,
-      "nativeName": "Espana",
-      "name": "Spain",
-      "zoom": 6
-    },
-    {
-      "nativeName": "null",
-      "urlName": "st-martin",
-      "longitude": -63.05008090000001,
-      "name": "St. Martin",
-      "latitude": 18.0708298,
-      "currency": "EUR",
-      "isoCode": "MF",
-      "zoom": 13
-    },
-    {
-      "urlName": "suriname",
-      "longitude": -56.027783,
-      "name": "Suriname",
-      "nativeName": "Suriname",
-      "latitude": 3.919305,
-      "isoCode": "SR",
-      "currency": "SRD",
-      "zoom": 8
-    },
-    {
-      "longitude": 14.888922,
-      "isoCode": "SE",
-      "name": "Sweden",
-      "nativeName": "Sverige",
-      "urlName": "sweden",
-      "latitude": 59.467438,
-      "currency": "SEK",
-      "zoom": 5
-    },
-    {
-      "urlName": "switzerland",
-      "latitude": 46.818188,
-      "name": "Switzerland",
-      "currency": "CHF",
-      "longitude": 8.227512,
-      "isoCode": "CH",
-      "nativeName": "Schweiz",
-      "zoom": 8
-    },
-    {
-      "name": "Tanzania",
-      "longitude": 34.888822,
-      "isoCode": "TZ",
-      "urlName": "tanzania",
-      "latitude": -6.369028,
-      "nativeName": "Tanzania, United Republic of",
-      "currency": "TZS",
-      "zoom": 6
-    },
-    {
-      "longitude": 100.992541,
-      "latitude": 15.870032,
-      "urlName": "thailand",
-      "currency": "THB",
-      "nativeName": "Thailand",
-      "name": "Thailand",
-      "isoCode": "TH",
-      "zoom": 6
-    },
-    {
-      "isoCode": "TR",
-      "urlName": "turkey",
-      "currency": "TRY",
-      "name": "Turkey",
-      "longitude": 35.243322,
-      "latitude": 38.963745,
-      "nativeName": "Turkiye",
-      "zoom": 6
-    },
-    {
-      "nativeName": "Ukraine",
-      "longitude": 31.16558,
-      "urlName": "ukraine",
-      "latitude": 48.379433,
-      "currency": "UAH",
-      "name": "Ukraine",
-      "isoCode": "UA",
-      "zoom": 6
-    },
-    {
-      "isoCode": "GB",
-      "urlName": "united-kingdom",
-      "latitude": 55.378051,
-      "nativeName": "United Kingdom",
-      "currency": "GBP",
-      "name": "United Kingdom",
-      "longitude": -3.435973,
-      "zoom": 6
-    },
-    {
-      "isoCode": "US",
-      "latitude": 37.09024,
-      "longitude": -95.712891,
-      "urlName": "united-states",
-      "name": "United States",
-      "currency": "USD",
-      "nativeName": "United States",
-      "zoom": 5
-    },
-    {
-      "latitude": 0,
-      "isoCode": "XX",
-      "longitude": 0,
-      "urlName": "unknown",
-      "currency": "XXX",
-      "name": "Unknown",
-      "nativeName": "Unknown"
-    },
-    {
-      "name": "Uruguay",
-      "urlName": "uruguay",
-      "isoCode": "UY",
-      "latitude": -32.522779,
-      "currency": "UYU",
-      "longitude": -55.765835,
-      "nativeName": "Uruguay",
-      "zoom": 7
-    },
-    {
-      "urlName": "venezuela",
-      "nativeName": "Venezuela",
-      "latitude": 8.58,
-      "currency": "VEF",
-      "name": "Venezuela",
-      "longitude": -65.63,
-      "isoCode": "VE",
-      "zoom": 7
-    },
-    {
-      "currency": "VND",
-      "name": "Vietnam",
-      "nativeName": "Viet Nam",
-      "latitude": 11.907235,
-      "urlName": "vietnam",
-      "isoCode": "VN",
-      "longitude": 107.949621,
-      "zoom": 6
-    },
-    {
-      "isoCode": "VI",
-      "currency": "USD",
-      "nativeName": "Virgin Islands (U.S.)",
-      "name": "Virgin Islands (U.S.)",
-      "latitude": 18.336,
-      "longitude": -64.889,
-      "urlName": "virgin-islands-us",
-      "zoom": 12
+        "latitude": 17.060816,
+        "currency": "XCD",
+        "nativeName": "Antigua and Barbuda",
+        "urlName": "antigua-and-barbuda",
+        "name": "Antigua and Barbuda",
+        "longitude": -61.796428,
+        "isoCode": "AG",
+        "zoom": 9,
+        "regions": []
+    },
+    {
+        "nativeName": "Argentina",
+        "latitude": -38.416097,
+        "longitude": -63.616672,
+        "currency": "ARS",
+        "urlName": "argentina",
+        "isoCode": "AR",
+        "name": "Argentina",
+        "zoom": 5,
+        "regions": [
+            {
+                "code": null,
+                "name": "Capital Federal"
+            },
+            {
+                "code": "B",
+                "name": "Buenos Aires"
+            },
+            {
+                "code": "X",
+                "name": "Córdoba"
+            },
+            {
+                "code": "Y",
+                "name": "Jujuy"
+            },
+            {
+                "code": "A",
+                "name": "Salta Province"
+            },
+            {
+                "code": "U",
+                "name": "Chubut Province"
+            },
+            {
+                "code": "W",
+                "name": "Corrientes"
+            },
+            {
+                "code": "H",
+                "name": "Chaco Province"
+            },
+            {
+                "code": "P",
+                "name": "Formosa Province"
+            },
+            {
+                "code": "N",
+                "name": "Misiones Province"
+            },
+            {
+                "code": "G",
+                "name": "Santiago del Estero Province"
+            },
+            {
+                "code": "T",
+                "name": "Tucumán"
+            },
+            {
+                "code": "K",
+                "name": "Catamarca Province"
+            },
+            {
+                "code": "S",
+                "name": "Santa Fe Province"
+            },
+            {
+                "code": "F",
+                "name": "La Rioja Province"
+            },
+            {
+                "code": "J",
+                "name": "San Juan Province"
+            },
+            {
+                "code": "E",
+                "name": "Entre Rios"
+            },
+            {
+                "code": "M",
+                "name": "Mendoza Province"
+            },
+            {
+                "code": "D",
+                "name": "San Luis Province"
+            },
+            {
+                "code": "L",
+                "name": "La Pampa"
+            },
+            {
+                "code": "Q",
+                "name": "Neuquen"
+            },
+            {
+                "code": "R",
+                "name": "Río Negro"
+            },
+            {
+                "code": "Z",
+                "name": "Santa Cruz Province"
+            },
+            {
+                "code": "V",
+                "name": "Tierra del Fuego Province"
+            }
+        ]
+    },
+    {
+        "currency": "AUD",
+        "name": "Australia",
+        "isoCode": "AU",
+        "latitude": -25.274398,
+        "longitude": 133.775136,
+        "nativeName": "Australia",
+        "urlName": "australia",
+        "zoom": 5,
+        "regions": [
+            {
+                "code": "WA",
+                "name": "Western Australia"
+            },
+            {
+                "code": "NSW",
+                "name": "New South Wales"
+            },
+            {
+                "code": "QLD",
+                "name": "Queensland"
+            },
+            {
+                "code": "SA",
+                "name": "South Australia"
+            },
+            {
+                "code": "NT",
+                "name": "Northern Territory"
+            },
+            {
+                "code": "TAS",
+                "name": "Tasmania"
+            },
+            {
+                "code": "VIC",
+                "name": "Victoria"
+            },
+            {
+                "code": "ACT",
+                "name": "Australian Capital Territory"
+            }
+        ]
+    },
+    {
+        "currency": "EUR",
+        "isoCode": "AT",
+        "latitude": 47.516231,
+        "nativeName": "Österreich",
+        "name": "Austria",
+        "longitude": 14.550072,
+        "urlName": "austria",
+        "zoom": 7,
+        "regions": [
+            {
+                "code": "4",
+                "name": "Oberösterreich"
+            },
+            {
+                "code": "6",
+                "name": "Steiermark"
+            },
+            {
+                "code": "9",
+                "name": "Wien"
+            },
+            {
+                "code": "2",
+                "name": "Kärnten"
+            },
+            {
+                "code": "3",
+                "name": "Niederösterreich"
+            },
+            {
+                "code": "5",
+                "name": "Salzburg"
+            },
+            {
+                "code": "7",
+                "name": "Tirol"
+            },
+            {
+                "code": "8",
+                "name": "Vorarlberg"
+            },
+            {
+                "code": "1",
+                "name": "Burgenland"
+            }
+        ]
+    },
+    {
+        "isoCode": "BE",
+        "currency": "EUR",
+        "urlName": "belgium",
+        "longitude": 4.469936,
+        "nativeName": "Belgie",
+        "name": "Belgium",
+        "latitude": 50.503887,
+        "zoom": 8,
+        "regions": [
+            {
+                "code": "VLG",
+                "name": "Région Flamande"
+            },
+            {
+                "code": "BRU",
+                "name": "Bruxelles"
+            },
+            {
+                "code": "WAL",
+                "name": "Waals Gewest"
+            }
+        ]
+    },
+    {
+        "isoCode": "BR",
+        "currency": "BRL",
+        "latitude": -14.235004,
+        "nativeName": "Brasil",
+        "urlName": "brazil",
+        "longitude": -51.92528,
+        "name": "Brazil",
+        "zoom": 5,
+        "regions": [
+            {
+                "code": "SC",
+                "name": "Santa Catarina"
+            },
+            {
+                "code": "ES",
+                "name": "Espirito Santo"
+            },
+            {
+                "code": "RJ",
+                "name": "Rio de Janeiro"
+            },
+            {
+                "code": "MT",
+                "name": "State of Mato Grosso"
+            },
+            {
+                "code": "PB",
+                "name": "State of Paraíba"
+            },
+            {
+                "code": "SP",
+                "name": "State of São Paulo"
+            },
+            {
+                "code": "BA",
+                "name": "Bahia"
+            },
+            {
+                "code": "RS",
+                "name": "Rio Grande do Sul"
+            }
+        ]
+    },
+    {
+        "currency": "BGN",
+        "latitude": 42.733883,
+        "urlName": "bulgaria",
+        "name": "Bulgaria",
+        "nativeName": "Bulgaria",
+        "longitude": 25.48583,
+        "isoCode": "BG",
+        "zoom": 8,
+        "regions": [
+            {
+                "code": "3",
+                "name": "Varna"
+            },
+            {
+                "code": "8",
+                "name": "Dobrich Province"
+            },
+            {
+                "code": "23",
+                "name": "Sofia City Province"
+            },
+            {
+                "code": "2",
+                "name": "Burgas"
+            },
+            {
+                "code": "22",
+                "name": "Sofia"
+            },
+            {
+                "code": "5",
+                "name": "Widin"
+            },
+            {
+                "code": "11",
+                "name": "Lowetsch"
+            },
+            {
+                "code": "6",
+                "name": "Wraza"
+            },
+            {
+                "code": "4",
+                "name": "Weliko Tarnowo"
+            },
+            {
+                "code": "12",
+                "name": "Montana"
+            },
+            {
+                "code": "7",
+                "name": "Gabrovo"
+            },
+            {
+                "code": "24",
+                "name": "Stara Sagora"
+            },
+            {
+                "code": "14",
+                "name": "Pernik"
+            },
+            {
+                "code": "16",
+                "name": "Plowdiw"
+            },
+            {
+                "code": "10",
+                "name": "Kjustendil"
+            },
+            {
+                "code": "26",
+                "name": "Chaskowo"
+            },
+            {
+                "code": "13",
+                "name": "Pasardschik"
+            },
+            {
+                "code": "1",
+                "name": "Blagoewgrad"
+            },
+            {
+                "code": "9",
+                "name": "Kardschali"
+            },
+            {
+                "code": "21",
+                "name": "Smoljan"
+            },
+            {
+                "code": "28",
+                "name": "Jambol"
+            }
+        ]
+    },
+    {
+        "longitude": -106.346771,
+        "nativeName": "Canada",
+        "currency": "CAD",
+        "urlName": "canada",
+        "name": "Canada",
+        "isoCode": "CA",
+        "latitude": 56.130366,
+        "zoom": 4,
+        "regions": [
+            {
+                "code": "BC",
+                "name": "British Columbia"
+            },
+            {
+                "code": "QC",
+                "name": "Quebec"
+            },
+            {
+                "code": "ON",
+                "name": "Ontario"
+            },
+            {
+                "code": "MB",
+                "name": "Manitoba"
+            },
+            {
+                "code": "PE",
+                "name": "Prince Edward Island"
+            },
+            {
+                "code": "NS",
+                "name": "Nova Scotia"
+            },
+            {
+                "code": "AB",
+                "name": "Alberta"
+            },
+            {
+                "code": "NB",
+                "name": "New Brunswick"
+            },
+            {
+                "code": "NL",
+                "name": "Neufundland und Labrador"
+            },
+            {
+                "code": "SK",
+                "name": "Saskatchewan"
+            },
+            {
+                "code": "YT",
+                "name": "Yukon"
+            },
+            {
+                "code": "NT",
+                "name": "Northwest Territories"
+            },
+            {
+                "code": "NU",
+                "name": "Nunavut"
+            }
+        ]
+    },
+    {
+        "isoCode": "CV",
+        "latitude": 15.916667,
+        "currency": "CVE",
+        "nativeName": "Cabo Verde",
+        "longitude": -24.083333,
+        "urlName": "cape-verde",
+        "name": "Cape Verde",
+        "zoom": 8,
+        "regions": [
+            {
+                "code": null,
+                "name": "Tarrafal de Sao Nicolau"
+            }
+        ]
+    },
+    {
+        "name": "Cayman Islands",
+        "nativeName": "Cayman Islands",
+        "currency": "KYD",
+        "latitude": 19.513469,
+        "isoCode": "KY",
+        "longitude": -80.566956,
+        "urlName": "cayman-islands",
+        "zoom": 8,
+        "regions": [
+            {
+                "code": null,
+                "name": "Grand Cayman"
+            },
+            {
+                "code": null,
+                "name": "West Bay"
+            }
+        ]
+    },
+    {
+        "urlName": "chile",
+        "isoCode": "CL",
+        "currency": "CLP",
+        "longitude": -71.542969,
+        "nativeName": "Chile",
+        "name": "Chile",
+        "latitude": -35.675147,
+        "zoom": 5,
+        "regions": [
+            {
+                "code": "AP",
+                "name": "Región de Arica y Parinacota"
+            },
+            {
+                "code": "TA",
+                "name": "Región de Tarapacá"
+            },
+            {
+                "code": "AN",
+                "name": "Región de Antofagasta"
+            },
+            {
+                "code": "AT",
+                "name": "Región de Atacama"
+            },
+            {
+                "code": "VS",
+                "name": "Región de Valparaíso"
+            },
+            {
+                "code": "CO",
+                "name": "Región de Coquimbo"
+            },
+            {
+                "code": "LI",
+                "name": "Región del Libertador General Bernardo O’Higgins"
+            },
+            {
+                "code": "ML",
+                "name": "Región del Maule"
+            },
+            {
+                "code": "LR",
+                "name": "Región de Los Ríos"
+            },
+            {
+                "code": "LL",
+                "name": "Región de los Lagos"
+            },
+            {
+                "code": "AI",
+                "name": "Región de Aysén"
+            },
+            {
+                "code": "MA",
+                "name": "Región de Magallanes y de la Antártica Chilena"
+            },
+            {
+                "code": "BI",
+                "name": "Región del Bío-Bío"
+            },
+            {
+                "code": "RM",
+                "name": "Región Metropolitana"
+            },
+            {
+                "code": "AR",
+                "name": "Región de la Araucanía"
+            }
+        ]
+    },
+    {
+        "latitude": 35.86166,
+        "longitude": 104.195397,
+        "urlName": "china",
+        "name": "China",
+        "nativeName": "Zhong Guo",
+        "isoCode": "CN",
+        "currency": "CNY",
+        "zoom": 5,
+        "regions": [
+            {
+                "code": null,
+                "name": "Hainan"
+            },
+            {
+                "code": null,
+                "name": "Guangdong"
+            },
+            {
+                "code": null,
+                "name": "Chongqing"
+            },
+            {
+                "code": null,
+                "name": "Shandong"
+            }
+        ]
+    },
+    {
+        "longitude": -74.29733299999998,
+        "urlName": "colombia",
+        "latitude": 4.570868,
+        "name": "Colombia",
+        "nativeName": "Colombia",
+        "isoCode": "CO",
+        "currency": "COP",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": "MAG",
+                "name": "Magdalena"
+            },
+            {
+                "code": "LAG",
+                "name": "La Guajira"
+            },
+            {
+                "code": "ATL",
+                "name": "Atlantico"
+            },
+            {
+                "code": "BOL",
+                "name": "Bolivar"
+            },
+            {
+                "code": "CES",
+                "name": "Cesar"
+            },
+            {
+                "code": "QUI",
+                "name": "Quindío"
+            },
+            {
+                "code": "SUC",
+                "name": "Sucre"
+            },
+            {
+                "code": "COR",
+                "name": "Cordoba"
+            },
+            {
+                "code": "ANT",
+                "name": "Antioquia"
+            },
+            {
+                "code": "CHO",
+                "name": "Choco"
+            },
+            {
+                "code": "NSA",
+                "name": "Norte de Santander"
+            },
+            {
+                "code": "ARA",
+                "name": "Arauca"
+            },
+            {
+                "code": "BOY",
+                "name": "Boyaca"
+            },
+            {
+                "code": "TOL",
+                "name": "Tolima"
+            },
+            {
+                "code": "CUN",
+                "name": "Cundinamarca"
+            },
+            {
+                "code": "CAL",
+                "name": "Caldas"
+            },
+            {
+                "code": "RIS",
+                "name": "Risaralda"
+            },
+            {
+                "code": "VID",
+                "name": "Vichada"
+            },
+            {
+                "code": "DC",
+                "name": "Bogota"
+            },
+            {
+                "code": "VAC",
+                "name": "Valle del Cauca"
+            },
+            {
+                "code": "QUI",
+                "name": "Quindio"
+            },
+            {
+                "code": "MET",
+                "name": "Meta"
+            },
+            {
+                "code": "GUA",
+                "name": "Guainia"
+            },
+            {
+                "code": "HUI",
+                "name": "Huila"
+            },
+            {
+                "code": "CAU",
+                "name": "Cauca"
+            },
+            {
+                "code": "CAS",
+                "name": "Casanare"
+            },
+            {
+                "code": "NAR",
+                "name": "Nariño"
+            },
+            {
+                "code": "CAQ",
+                "name": "Caquetá"
+            },
+            {
+                "code": "GUV",
+                "name": "Guaviare"
+            },
+            {
+                "code": "PUT",
+                "name": "Putumayo"
+            }
+        ]
+    },
+    {
+        "longitude": -83.75342799999999,
+        "isoCode": "CR",
+        "name": "Costa Rica",
+        "urlName": "costa-rica",
+        "nativeName": "Costa Rica",
+        "latitude": 9.748916999999999,
+        "currency": "CRC",
+        "zoom": 8,
+        "regions": [
+            {
+                "code": "P",
+                "name": "Provincia de Puntarenas"
+            }
+        ]
+    },
+    {
+        "currency": "HRK",
+        "urlName": "croatia",
+        "latitude": 45.1,
+        "nativeName": "Hrvatska",
+        "isoCode": "HR",
+        "name": "Croatia",
+        "longitude": 15.2,
+        "zoom": 8,
+        "regions": [
+            {
+                "code": null,
+                "name": "Split-Dalmatia"
+            },
+            {
+                "code": null,
+                "name": "Dubrovnik-Neretva"
+            },
+            {
+                "code": null,
+                "name": "Istarska"
+            },
+            {
+                "code": null,
+                "name": "Primorje-Gorski kotar"
+            },
+            {
+                "code": "15",
+                "name": "Sibenik-Knin"
+            },
+            {
+                "code": "21",
+                "name": "City of Zagreb"
+            },
+            {
+                "code": null,
+                "name": "Istria County"
+            },
+            {
+                "code": null,
+                "name": "Šibenik-Knin County"
+            },
+            {
+                "code": "9",
+                "name": "Lika-Senj County"
+            },
+            {
+                "code": null,
+                "name": "Primorsko-goranska županija"
+            },
+            {
+                "code": null,
+                "name": "Splitsko-dalmatinska županija"
+            },
+            {
+                "code": "4",
+                "name": "Karlovac"
+            },
+            {
+                "code": "14",
+                "name": "Osijek-Baranja"
+            },
+            {
+                "code": "16",
+                "name": "Vukovar-Sirmium"
+            },
+            {
+                "code": "6",
+                "name": "Koprivnica-Krizevci"
+            },
+            {
+                "code": "2",
+                "name": "Krapina-Zagorje"
+            },
+            {
+                "code": "20",
+                "name": "Medimurje"
+            },
+            {
+                "code": "3",
+                "name": "Sisak-Moslavina"
+            },
+            {
+                "code": "12",
+                "name": "Slavonski Brod-Posavina"
+            },
+            {
+                "code": "5",
+                "name": "Varazdin"
+            },
+            {
+                "code": "10",
+                "name": "Virovitica-Podravina"
+            },
+            {
+                "code": "1",
+                "name": "Gespannschaft Zagreb"
+            },
+            {
+                "code": "17",
+                "name": "Split-Dalmatia County"
+            },
+            {
+                "code": "8",
+                "name": "Primorje-Gorski Kotar County"
+            },
+            {
+                "code": "19",
+                "name": "Dubrovnik-Neretva County"
+            },
+            {
+                "code": "18",
+                "name": "Istria"
+            },
+            {
+                "code": "13",
+                "name": "Zadar County"
+            }
+        ]
+    },
+    {
+        "nativeName": "Cuba",
+        "urlName": "cuba",
+        "longitude": -78.68,
+        "latitude": 21.94,
+        "currency": "CUP",
+        "name": "Cuba",
+        "isoCode": "CU",
+        "zoom": 7,
+        "regions": [
+            {
+                "code": null,
+                "name": "Provincia de La Habana"
+            },
+            {
+                "code": null,
+                "name": "Provincia de Sancti Spíritus"
+            },
+            {
+                "code": null,
+                "name": "Isla de la Juventud"
+            }
+        ]
+    },
+    {
+        "latitude": 12.186111,
+        "name": "Curaçao",
+        "isoCode": "CW",
+        "currency": "ANG",
+        "longitude": -68.989444,
+        "nativeName": "null",
+        "urlName": "curacao",
+        "zoom": 11,
+        "regions": [
+            {
+                "code": null,
+                "name": "Curaçao"
+            }
+        ]
+    },
+    {
+        "isoCode": "CY",
+        "longitude": 33.429858999999965,
+        "currency": "EUR",
+        "nativeName": "Cyprus",
+        "latitude": 35.126413,
+        "name": "Cyprus",
+        "urlName": "cyprus",
+        "zoom": 9,
+        "regions": [
+            {
+                "code": null,
+                "name": "Bezirk Limassol"
+            },
+            {
+                "code": null,
+                "name": "Bezirk Famagusta"
+            }
+        ]
+    },
+    {
+        "isoCode": "CZ",
+        "urlName": "czech-republic",
+        "longitude": 15.472962,
+        "latitude": 49.817492,
+        "currency": "CZK",
+        "name": "Czech Republic",
+        "nativeName": "Ceska Republika",
+        "zoom": 8,
+        "regions": [
+            {
+                "code": null,
+                "name": "Hradec Kralove"
+            },
+            {
+                "code": "51",
+                "name": "Liberec"
+            },
+            {
+                "code": null,
+                "name": "Ústí nad Labem Region"
+            },
+            {
+                "code": null,
+                "name": "Hradec Králové Region"
+            },
+            {
+                "code": "20",
+                "name": "Central Bohemian Region"
+            },
+            {
+                "code": null,
+                "name": "South Bohemian Region"
+            },
+            {
+                "code": "64",
+                "name": "South Moravian Region"
+            },
+            {
+                "code": "31",
+                "name": "Jihočeský kraj"
+            },
+            {
+                "code": "52",
+                "name": "Královéhradecký kraj"
+            },
+            {
+                "code": "80",
+                "name": "Moravian-Silesian Region"
+            },
+            {
+                "code": "71",
+                "name": "Olomoucký kraj"
+            },
+            {
+                "code": "41",
+                "name": "Karlovarský kraj"
+            },
+            {
+                "code": "10",
+                "name": "Hlavní město Praha"
+            },
+            {
+                "code": "53",
+                "name": "Pardubický kraj"
+            },
+            {
+                "code": "32",
+                "name": "Plzeňský kraj"
+            },
+            {
+                "code": "63",
+                "name": "Kraj Vysočina"
+            },
+            {
+                "code": "72",
+                "name": "Zlínský kraj"
+            }
+        ]
+    },
+    {
+        "currency": "DKK",
+        "name": "Denmark",
+        "isoCode": "DK",
+        "urlName": "denmark",
+        "latitude": 56.26392,
+        "longitude": 9.501785,
+        "nativeName": "Danmark",
+        "zoom": 7,
+        "regions": [
+            {
+                "code": "82",
+                "name": "Midtjylland"
+            },
+            {
+                "code": "81",
+                "name": "Nordjylland"
+            },
+            {
+                "code": "83",
+                "name": "Syddanmark"
+            },
+            {
+                "code": "85",
+                "name": "Sjælland"
+            },
+            {
+                "code": "84",
+                "name": "Hovedstaden"
+            }
+        ]
+    },
+    {
+        "urlName": "dominican-republic",
+        "nativeName": "Republica Dominicana",
+        "latitude": 18.735693,
+        "isoCode": "DO",
+        "name": "Dominican Republic",
+        "longitude": -70.162651,
+        "currency": "DOP",
+        "zoom": 7,
+        "regions": [
+            {
+                "code": null,
+                "name": "María Trinidad Sánchez"
+            },
+            {
+                "code": null,
+                "name": "La Altagracia"
+            },
+            {
+                "code": null,
+                "name": "Espaillat"
+            },
+            {
+                "code": null,
+                "name": "Samaná"
+            },
+            {
+                "code": null,
+                "name": "San Cristóbal"
+            },
+            {
+                "code": null,
+                "name": "Peravia"
+            }
+        ]
+    },
+    {
+        "longitude": 30.802,
+        "isoCode": "EG",
+        "nativeName": "Misr",
+        "latitude": 26.820553,
+        "urlName": "egypt",
+        "currency": "EGP",
+        "name": "Egypt",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": null,
+                "name": "Red Sea Governorate"
+            }
+        ]
+    },
+    {
+        "nativeName": "Eesti",
+        "currency": "EUR",
+        "urlName": "estonia",
+        "name": "Estonia",
+        "isoCode": "EE",
+        "longitude": 25.013607,
+        "latitude": 58.595272,
+        "zoom": 8,
+        "regions": [
+            {
+                "code": "44",
+                "name": "Ida-Viru County"
+            },
+            {
+                "code": "67",
+                "name": "Pärnu County"
+            },
+            {
+                "code": "37",
+                "name": "Harju County"
+            },
+            {
+                "code": "57",
+                "name": "Lääne County"
+            },
+            {
+                "code": "51",
+                "name": "Järva County"
+            },
+            {
+                "code": "70",
+                "name": "Rapla County"
+            },
+            {
+                "code": "39",
+                "name": "Hiiu County"
+            },
+            {
+                "code": "49",
+                "name": "Jõgeva County"
+            },
+            {
+                "code": "78",
+                "name": "Tartu County"
+            },
+            {
+                "code": "84",
+                "name": "Viljandi County"
+            },
+            {
+                "code": "65",
+                "name": "Põlva County"
+            },
+            {
+                "code": "82",
+                "name": "Valga County"
+            },
+            {
+                "code": "86",
+                "name": "Võru County"
+            },
+            {
+                "code": "74",
+                "name": "Saare County"
+            },
+            {
+                "code": "59",
+                "name": "Lääne-Viru County"
+            }
+        ]
+    },
+    {
+        "nativeName": "Fiji",
+        "name": "Fiji",
+        "latitude": -17.669351,
+        "currency": "FJD",
+        "longitude": 177.942692,
+        "isoCode": "FJ",
+        "urlName": "fiji",
+        "zoom": 7,
+        "regions": []
+    },
+    {
+        "currency": "EUR",
+        "urlName": "finland",
+        "longitude": 25.748151,
+        "isoCode": "FI",
+        "nativeName": "Suomi",
+        "name": "Finland",
+        "latitude": 61.92411,
+        "zoom": 5,
+        "regions": [
+            {
+                "code": null,
+                "name": "Satakunta"
+            },
+            {
+                "code": null,
+                "name": "Uusimaa"
+            },
+            {
+                "code": "9",
+                "name": "Kymenlaakso"
+            },
+            {
+                "code": "10",
+                "name": "Lapland"
+            },
+            {
+                "code": "14",
+                "name": "Northern Ostrobothnia"
+            },
+            {
+                "code": "5",
+                "name": "Kainuu"
+            },
+            {
+                "code": "7",
+                "name": "Central Ostrobothnia"
+            },
+            {
+                "code": "12",
+                "name": "Ostrobothnia"
+            },
+            {
+                "code": "15",
+                "name": "Northern Savonia"
+            },
+            {
+                "code": "13",
+                "name": "North Karelia"
+            },
+            {
+                "code": "8",
+                "name": "Central Finland"
+            },
+            {
+                "code": "3",
+                "name": "Southern Ostrobothnia"
+            },
+            {
+                "code": "4",
+                "name": "Southern Savonia"
+            },
+            {
+                "code": "11",
+                "name": "Pirkanmaa"
+            },
+            {
+                "code": "2",
+                "name": "South Karelia"
+            },
+            {
+                "code": "16",
+                "name": "Päijänne Tavastia"
+            },
+            {
+                "code": "6",
+                "name": "Tavastia Proper"
+            },
+            {
+                "code": "19",
+                "name": "Southwest Finland"
+            }
+        ]
+    },
+    {
+        "longitude": 2.213749,
+        "latitude": 46.227638,
+        "isoCode": "FR",
+        "name": "France",
+        "currency": "EUR",
+        "nativeName": "France",
+        "urlName": "france",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": "IDF",
+                "name": "Ile-de-France"
+            },
+            {
+                "code": "B",
+                "name": "Aquitaine"
+            },
+            {
+                "code": "A",
+                "name": "Alsace"
+            },
+            {
+                "code": "E",
+                "name": "Bretagne"
+            },
+            {
+                "code": "K",
+                "name": "Languedoc-Roussillon"
+            },
+            {
+                "code": "O",
+                "name": "Nord-Pas-de-Calais"
+            },
+            {
+                "code": "R",
+                "name": "Pays de la Loire"
+            },
+            {
+                "code": "U",
+                "name": "Provence-Alpes-Côte d'Azur"
+            },
+            {
+                "code": "T",
+                "name": "Poitou-Charentes"
+            },
+            {
+                "code": "V",
+                "name": "Rhône-Alpes"
+            },
+            {
+                "code": "C",
+                "name": "Auvergne"
+            },
+            {
+                "code": "D",
+                "name": "Bourgogne"
+            },
+            {
+                "code": "F",
+                "name": "Centre"
+            },
+            {
+                "code": "I",
+                "name": "Franche-Comté"
+            },
+            {
+                "code": "J",
+                "name": "Île-de-France"
+            },
+            {
+                "code": "L",
+                "name": "Limousin"
+            },
+            {
+                "code": "M",
+                "name": "Lorraine"
+            },
+            {
+                "code": "H",
+                "name": "Corse"
+            },
+            {
+                "code": "N",
+                "name": "Midi-Pyrénées"
+            },
+            {
+                "code": "P",
+                "name": "Basse-Normandie"
+            },
+            {
+                "code": null,
+                "name": "Languedoc-Roussillon Midi-Pyrénées"
+            },
+            {
+                "code": null,
+                "name": "Centre-Val de Loire"
+            },
+            {
+                "code": null,
+                "name": "Auvergne Rhône-Alpes"
+            },
+            {
+                "code": null,
+                "name": "Auvergne-Rhône-Alpes"
+            },
+            {
+                "code": null,
+                "name": "Aquitaine-Limousin-Poitou-Charentes"
+            },
+            {
+                "code": null,
+                "name": "Nord-Pas-de-Calais Picardie"
+            },
+            {
+                "code": "GES",
+                "name": "Grand Est"
+            },
+            {
+                "code": "NAQ",
+                "name": "Nouvelle-Aquitaine"
+            },
+            {
+                "code": "Q",
+                "name": "Upper Normandy"
+            },
+            {
+                "code": null,
+                "name": "Occitanie"
+            },
+            {
+                "code": "S",
+                "name": "Picardy"
+            },
+            {
+                "code": "G",
+                "name": "Champagne-Ardenne"
+            },
+            {
+                "code": "HDF",
+                "name": "Hauts-de-France"
+            },
+            {
+                "code": null,
+                "name": "Normandie"
+            },
+            {
+                "code": null,
+                "name": "Bourgogne-Franche-Comté"
+            }
+        ]
+    },
+    {
+        "latitude": -15,
+        "currency": "XPF",
+        "longitude": -140,
+        "name": "French Polynesia",
+        "isoCode": "PF",
+        "nativeName": "Polynesie Francaise",
+        "urlName": "french-polynesia",
+        "zoom": 5,
+        "regions": [
+            {
+                "code": null,
+                "name": "Îles Tuamotu-Gambier"
+            }
+        ]
+    },
+    {
+        "longitude": 10.451526,
+        "nativeName": "Deutschland",
+        "urlName": "germany",
+        "isoCode": "DE",
+        "latitude": 51.165691,
+        "currency": "EUR",
+        "name": "Germany",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": "BY",
+                "name": "Bayern"
+            },
+            {
+                "code": "BW",
+                "name": "Baden-Württemberg"
+            },
+            {
+                "code": "SH",
+                "name": "Schleswig-Holstein"
+            },
+            {
+                "code": "HE",
+                "name": "Hessen"
+            },
+            {
+                "code": "HH",
+                "name": "Hamburg"
+            },
+            {
+                "code": "SN",
+                "name": "Sachsen"
+            },
+            {
+                "code": "HB",
+                "name": "Bremen"
+            },
+            {
+                "code": "TH",
+                "name": "Thüringen"
+            },
+            {
+                "code": "MV",
+                "name": "Mecklenburg-Vorpommern"
+            },
+            {
+                "code": "RP",
+                "name": "Rheinland-Pfalz"
+            },
+            {
+                "code": "BE",
+                "name": "Berlin"
+            },
+            {
+                "code": "BB",
+                "name": "Brandenburg"
+            },
+            {
+                "code": "SL",
+                "name": "Saarland"
+            },
+            {
+                "code": "ST",
+                "name": "Sachsen-Anhalt"
+            },
+            {
+                "code": "NI",
+                "name": "Niedersachsen"
+            },
+            {
+                "code": "NW",
+                "name": "Nordrhein-Westfalen"
+            }
+        ]
+    },
+    {
+        "longitude": 21.824312,
+        "currency": "EUR",
+        "urlName": "greece",
+        "latitude": 39.074208,
+        "isoCode": "GR",
+        "nativeName": "Ellas",
+        "name": "Greece",
+        "zoom": 7,
+        "regions": [
+            {
+                "code": null,
+                "name": "South Aegean"
+            },
+            {
+                "code": null,
+                "name": "Central Greece"
+            },
+            {
+                "code": "33",
+                "name": "Ionian Islands"
+            },
+            {
+                "code": null,
+                "name": "Thessalia"
+            },
+            {
+                "code": null,
+                "name": "North Aegean Islands"
+            },
+            {
+                "code": null,
+                "name": "Kriti"
+            },
+            {
+                "code": null,
+                "name": "Peloponnesia"
+            },
+            {
+                "code": null,
+                "name": "Sterea Ellada"
+            },
+            {
+                "code": null,
+                "name": "Central Macedonia"
+            },
+            {
+                "code": null,
+                "name": "East Macedonia and Thrace"
+            },
+            {
+                "code": null,
+                "name": "West Greece"
+            },
+            {
+                "code": null,
+                "name": "Peloponnisos Dytiki Ellada ke Ionio"
+            },
+            {
+                "code": "A1",
+                "name": "Attica"
+            },
+            {
+                "code": null,
+                "name": "Attiki"
+            },
+            {
+                "code": null,
+                "name": "Makedonia Thraki"
+            },
+            {
+                "code": null,
+                "name": "Thessalia Sterea Ellada"
+            },
+            {
+                "code": null,
+                "name": "Egeo"
+            },
+            {
+                "code": null,
+                "name": "Ipiros Ditiki Makedonia"
+            },
+            {
+                "code": null,
+                "name": "Crete"
+            },
+            {
+                "code": null,
+                "name": "Crete Region"
+            },
+            {
+                "code": "I",
+                "name": "Attica region"
+            },
+            {
+                "code": "A",
+                "name": "Decentralized Administration of Macedonia and Thrace"
+            },
+            {
+                "code": "4",
+                "name": "Euboea"
+            },
+            {
+                "code": "11",
+                "name": "Argolis"
+            },
+            {
+                "code": "16",
+                "name": "Laconia"
+            },
+            {
+                "code": "15",
+                "name": "Corinth"
+            },
+            {
+                "code": "xx",
+                "name": "East Attica"
+            },
+            {
+                "code": "71",
+                "name": "Evros"
+            },
+            {
+                "code": "24",
+                "name": "Lefkas"
+            },
+            {
+                "code": "64",
+                "name": "Chalcidice"
+            },
+            {
+                "code": "44",
+                "name": "Trikala"
+            },
+            {
+                "code": "63",
+                "name": "Florina"
+            },
+            {
+                "code": "61",
+                "name": "Pieria"
+            },
+            {
+                "code": "92",
+                "name": "Lasithi"
+            },
+            {
+                "code": "82",
+                "name": "Cyclades"
+            },
+            {
+                "code": "32",
+                "name": "Thesprotia"
+            },
+            {
+                "code": "52",
+                "name": "Drama"
+            },
+            {
+                "code": "93",
+                "name": "Rethymno"
+            },
+            {
+                "code": "14",
+                "name": "Elis"
+            },
+            {
+                "code": "54",
+                "name": "Thessalonika"
+            },
+            {
+                "code": "55",
+                "name": "Kavala"
+            },
+            {
+                "code": "22",
+                "name": "Corfu"
+            },
+            {
+                "code": "41",
+                "name": "Karditsa"
+            },
+            {
+                "code": "73",
+                "name": "Rhodope"
+            },
+            {
+                "code": "83",
+                "name": "Lesbos"
+            },
+            {
+                "code": "7",
+                "name": "Phocis"
+            },
+            {
+                "code": "81",
+                "name": "Dodecanese Islands"
+            },
+            {
+                "code": "12",
+                "name": "Arcadia"
+            },
+            {
+                "code": "57",
+                "name": "Kilkis"
+            },
+            {
+                "code": "17",
+                "name": "Messenia"
+            },
+            {
+                "code": "23",
+                "name": "Cephalonia"
+            },
+            {
+                "code": "21",
+                "name": "Zakynthos"
+            },
+            {
+                "code": "43",
+                "name": "Magnesia"
+            },
+            {
+                "code": "34",
+                "name": "Preveza"
+            },
+            {
+                "code": "62",
+                "name": "Serres"
+            },
+            {
+                "code": "13",
+                "name": "Achaea"
+            },
+            {
+                "code": "94",
+                "name": "Chania"
+            },
+            {
+                "code": "xx",
+                "name": "Dojran"
+            },
+            {
+                "code": "91",
+                "name": "Heraklion"
+            },
+            {
+                "code": "1",
+                "name": "Aetolia-Acarnania"
+            },
+            {
+                "code": "59",
+                "name": "Pella"
+            },
+            {
+                "code": "5",
+                "name": "Evrytania"
+            },
+            {
+                "code": "xx",
+                "name": "Phthiotis"
+            },
+            {
+                "code": "42",
+                "name": "Larissa"
+            },
+            {
+                "code": "51",
+                "name": "Grevena"
+            },
+            {
+                "code": "85",
+                "name": "Chios"
+            },
+            {
+                "code": "56",
+                "name": "Kastoria"
+            },
+            {
+                "code": "53",
+                "name": "Imathia"
+            },
+            {
+                "code": "31",
+                "name": "Arta"
+            },
+            {
+                "code": null,
+                "name": "Decentralized Administration of Peloponnese, Western Greece and the Ionian"
+            },
+            {
+                "code": null,
+                "name": "Decentralized Administration of the Aegean"
+            },
+            {
+                "code": null,
+                "name": "Decentralized Administration of Thessaly and Central Greece"
+            },
+            {
+                "code": null,
+                "name": "Dezentralisierte Verwaltung von Epirus und Westmakedonien"
+            }
+        ]
+    },
+    {
+        "isoCode": "GP",
+        "urlName": "guadeloupe",
+        "latitude": 16.194,
+        "currency": "EUR",
+        "longitude": -61.688,
+        "name": "Guadeloupe",
+        "nativeName": "Guadeloupe",
+        "zoom": 10,
+        "regions": [
+            {
+                "code": null,
+                "name": "Pointe-à-Pitre"
+            },
+            {
+                "code": null,
+                "name": "Basse-Terre"
+            }
+        ]
+    },
+    {
+        "currency": "HUF",
+        "isoCode": "HU",
+        "name": "Hungary",
+        "urlName": "hungary",
+        "nativeName": "Magyarorszag",
+        "latitude": 47.162494,
+        "longitude": 19.503304100000037,
+        "zoom": 8,
+        "regions": [
+            {
+                "code": null,
+                "name": "Csongrád"
+            },
+            {
+                "code": "PE",
+                "name": "Pest"
+            },
+            {
+                "code": null,
+                "name": "Baranya"
+            },
+            {
+                "code": null,
+                "name": "Budapest"
+            },
+            {
+                "code": "FE",
+                "name": "Fejér"
+            },
+            {
+                "code": "VE",
+                "name": "Veszprém"
+            },
+            {
+                "code": null,
+                "name": "Somogy County"
+            },
+            {
+                "code": "ZA",
+                "name": "Zala"
+            },
+            {
+                "code": "VA",
+                "name": "Vas"
+            },
+            {
+                "code": "BK",
+                "name": "Bács-Kiskun"
+            },
+            {
+                "code": "BE",
+                "name": "Békés"
+            },
+            {
+                "code": "GS",
+                "name": "Győr-Moson-Sopron"
+            },
+            {
+                "code": "JN",
+                "name": "Jász-Nagykun-Szolnok"
+            },
+            {
+                "code": "KE",
+                "name": "Komárom-Esztergom"
+            },
+            {
+                "code": "HE",
+                "name": "Heves"
+            },
+            {
+                "code": "HB",
+                "name": "Hajdú-Bihar"
+            },
+            {
+                "code": "NO",
+                "name": "Nógrád"
+            },
+            {
+                "code": "SZ",
+                "name": "Szabolcs-Szatmár-Bereg"
+            },
+            {
+                "code": "BZ",
+                "name": "Borsod-Abaúj-Zemplén"
+            },
+            {
+                "code": "TO",
+                "name": "Tolna"
+            }
+        ]
+    },
+    {
+        "nativeName": "Island",
+        "longitude": -19.020835,
+        "currency": "ISK",
+        "isoCode": "IS",
+        "urlName": "iceland",
+        "name": "Iceland",
+        "latitude": 64.963051,
+        "zoom": 7,
+        "regions": [
+            {
+                "code": "6",
+                "name": "Norðurland eystra"
+            },
+            {
+                "code": "1",
+                "name": "Höfuðborgarsvæðið"
+            },
+            {
+                "code": "5",
+                "name": "Norðurland vestra"
+            },
+            {
+                "code": "7",
+                "name": "Austurland"
+            },
+            {
+                "code": "8",
+                "name": "Suðurland"
+            },
+            {
+                "code": "2",
+                "name": "Suðurnes"
+            },
+            {
+                "code": "3",
+                "name": "Vesturland"
+            },
+            {
+                "code": "4",
+                "name": "Vestfirðir"
+            }
+        ]
+    },
+    {
+        "isoCode": "IN",
+        "latitude": 20.593684,
+        "nativeName": "India",
+        "longitude": "78.96288000000004",
+        "name": "India",
+        "urlName": "india",
+        "currency": "INR",
+        "zoom": 5,
+        "regions": [
+            {
+                "code": "GA",
+                "name": "Goa"
+            }
+        ]
+    },
+    {
+        "isoCode": "ID",
+        "latitude": -0.789275,
+        "nativeName": "Indonesia",
+        "longitude": 113.921327,
+        "currency": "IDR",
+        "name": "Indonesia",
+        "urlName": "indonesia",
+        "zoom": 5,
+        "regions": [
+            {
+                "code": null,
+                "name": "Bali"
+            },
+            {
+                "code": null,
+                "name": "Bangka-Belitung"
+            }
+        ]
+    },
+    {
+        "isoCode": "IE",
+        "nativeName": "Ireland",
+        "longitude": -8.24389,
+        "name": "Ireland",
+        "urlName": "ireland",
+        "currency": "EUR",
+        "latitude": 53.41291,
+        "zoom": 7,
+        "regions": [
+            {
+                "code": "WH",
+                "name": "Westmeath"
+            },
+            {
+                "code": "LH",
+                "name": "Louth"
+            },
+            {
+                "code": null,
+                "name": "Sligo"
+            },
+            {
+                "code": "CO",
+                "name": "Cork"
+            },
+            {
+                "code": "KY",
+                "name": "Kerry"
+            },
+            {
+                "code": null,
+                "name": "County Dublin"
+            },
+            {
+                "code": null,
+                "name": "County Galway"
+            },
+            {
+                "code": null,
+                "name": "County Cavan"
+            },
+            {
+                "code": "RN",
+                "name": "Roscommon"
+            },
+            {
+                "code": "MO",
+                "name": "Mayo"
+            },
+            {
+                "code": "WX",
+                "name": "Wexford"
+            },
+            {
+                "code": "WD",
+                "name": "Waterford"
+            },
+            {
+                "code": "CE",
+                "name": "Clare"
+            },
+            {
+                "code": "TA",
+                "name": "Tipperary"
+            },
+            {
+                "code": "WW",
+                "name": "Wicklow"
+            },
+            {
+                "code": "KE",
+                "name": "Kildare"
+            },
+            {
+                "code": "MH",
+                "name": "Meath"
+            },
+            {
+                "code": "LM",
+                "name": "Leitrim"
+            },
+            {
+                "code": "DL",
+                "name": "Donegal"
+            },
+            {
+                "code": "LK",
+                "name": "Limerick"
+            },
+            {
+                "code": "CW",
+                "name": "Carlow"
+            },
+            {
+                "code": "KK",
+                "name": "Kilkenny"
+            },
+            {
+                "code": "LS",
+                "name": "Laois"
+            }
+        ]
+    },
+    {
+        "latitude": 31.046051,
+        "currency": "ILS",
+        "longitude": 34.851612,
+        "urlName": "israel",
+        "isoCode": "IL",
+        "name": "Israel",
+        "nativeName": "Yisra'el",
+        "zoom": 8,
+        "regions": [
+            {
+                "code": null,
+                "name": "HaMerkaz"
+            },
+            {
+                "code": null,
+                "name": "Zentralbezirk"
+            },
+            {
+                "code": null,
+                "name": "Nordbezirk"
+            }
+        ]
+    },
+    {
+        "longitude": 12.180883,
+        "urlName": "italy",
+        "latitude": 42.771449,
+        "nativeName": "Italia",
+        "currency": "EUR",
+        "name": "Italy",
+        "isoCode": "IT",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": "82",
+                "name": "Sicilia"
+            },
+            {
+                "code": "25",
+                "name": "Lombardia"
+            },
+            {
+                "code": "52",
+                "name": "Toscana"
+            },
+            {
+                "code": "21",
+                "name": "Piemonte"
+            },
+            {
+                "code": "23",
+                "name": "Aosta"
+            },
+            {
+                "code": "45",
+                "name": "Emilia-Romagna"
+            },
+            {
+                "code": "62",
+                "name": "Lazio"
+            },
+            {
+                "code": "88",
+                "name": "Sardegna"
+            },
+            {
+                "code": "34",
+                "name": "Veneto"
+            },
+            {
+                "code": "42",
+                "name": "Liguria"
+            },
+            {
+                "code": "78",
+                "name": "Calabria"
+            },
+            {
+                "code": "72",
+                "name": "Campania"
+            },
+            {
+                "code": "65",
+                "name": "Abruzzen"
+            },
+            {
+                "code": "77",
+                "name": "Lukanien"
+            },
+            {
+                "code": "55",
+                "name": "Umbrien"
+            },
+            {
+                "code": "67",
+                "name": "Molise"
+            },
+            {
+                "code": "36",
+                "name": "Friaul-Julisch Venetien"
+            },
+            {
+                "code": "32",
+                "name": "Trentino-Alto Adige/Südtirol"
+            },
+            {
+                "code": "75",
+                "name": "Apulia"
+            },
+            {
+                "code": null,
+                "name": "Latium"
+            },
+            {
+                "code": "57",
+                "name": "Marche"
+            }
+        ]
+    },
+    {
+        "urlName": "jamaica",
+        "isoCode": "JM",
+        "nativeName": "Jamaica",
+        "name": "Jamaica",
+        "latitude": 18.109581,
+        "currency": "JMD",
+        "longitude": -77.297508,
+        "zoom": 9,
+        "regions": [
+            {
+                "code": null,
+                "name": "Hanover Parish"
+            },
+            {
+                "code": null,
+                "name": "Trelawny Parish"
+            },
+            {
+                "code": null,
+                "name": "Portland Parish"
+            },
+            {
+                "code": null,
+                "name": "Saint James Parish"
+            },
+            {
+                "code": null,
+                "name": "Manchester Parish"
+            }
+        ]
+    },
+    {
+        "urlName": "japan",
+        "longitude": 138.252924,
+        "currency": "JPY",
+        "name": "Japan",
+        "latitude": 36.204824,
+        "isoCode": "JP",
+        "nativeName": "Japan",
+        "zoom": 5,
+        "regions": [
+            {
+                "code": null,
+                "name": "Ibaraki Prefecture"
+            },
+            {
+                "code": null,
+                "name": "Shiga Prefecture"
+            },
+            {
+                "code": null,
+                "name": "Kyoto Prefecture"
+            },
+            {
+                "code": null,
+                "name": "Chiba"
+            },
+            {
+                "code": null,
+                "name": "Kanagawa Prefecture"
+            },
+            {
+                "code": null,
+                "name": "Chiba Prefecture"
+            },
+            {
+                "code": null,
+                "name": "Kanagawa"
+            },
+            {
+                "code": null,
+                "name": "Aichi Prefecture"
+            },
+            {
+                "code": null,
+                "name": "Tochigi Prefecture"
+            },
+            {
+                "code": null,
+                "name": "Hokkaidō"
+            },
+            {
+                "code": null,
+                "name": "Präfektur Okayama"
+            },
+            {
+                "code": "13",
+                "name": "Tokyo"
+            },
+            {
+                "code": null,
+                "name": "Präfektur Ōsaka"
+            }
+        ]
+    },
+    {
+        "name": "Latvia",
+        "urlName": "latvia",
+        "longitude": 22.36,
+        "isoCode": "LV",
+        "latitude": 56.86,
+        "nativeName": "Latvija",
+        "currency": "EUR",
+        "zoom": 7,
+        "regions": [
+            {
+                "code": "20",
+                "name": "Carnikava Municipality"
+            },
+            {
+                "code": "89",
+                "name": "Saulkrasti Municipality"
+            },
+            {
+                "code": "LPX",
+                "name": "City of Liepāja"
+            },
+            {
+                "code": "7",
+                "name": "Alūksne Municipality"
+            },
+            {
+                "code": "60",
+                "name": "Mazsalaca Municipality"
+            },
+            {
+                "code": "5",
+                "name": "Aloja Municipality"
+            },
+            {
+                "code": "86",
+                "name": "Salacgrīva Municipality"
+            },
+            {
+                "code": "19",
+                "name": "Burtnieki Municipality"
+            },
+            {
+                "code": "101",
+                "name": "Valka Municipality"
+            },
+            {
+                "code": "79",
+                "name": "Roja Municipality"
+            },
+            {
+                "code": "17",
+                "name": "Beverīna Municipality"
+            },
+            {
+                "code": "106",
+                "name": "Ventspils Municipality"
+            },
+            {
+                "code": "9",
+                "name": "Ape Municipality"
+            },
+            {
+                "code": "45",
+                "name": "Kocēni Municipality"
+            },
+            {
+                "code": "54",
+                "name": "Limbaži Municipality"
+            },
+            {
+                "code": "94",
+                "name": "Smiltene Municipality"
+            },
+            {
+                "code": "70",
+                "name": "Pārgauja Municipality"
+            },
+            {
+                "code": "75",
+                "name": "Priekuļi Municipality"
+            },
+            {
+                "code": "63",
+                "name": "Mērsrags Municipality"
+            },
+            {
+                "code": "22",
+                "name": "Cēsis Municipality"
+            },
+            {
+                "code": "8",
+                "name": "Amata Municipality"
+            },
+            {
+                "code": "48",
+                "name": "Krimulda Municipality"
+            },
+            {
+                "code": "108",
+                "name": "Viļaka Municipality"
+            },
+            {
+                "code": "33",
+                "name": "Gulbene Municipality"
+            },
+            {
+                "code": "55",
+                "name": "Līgatne Municipality"
+            },
+            {
+                "code": "104",
+                "name": "Vecpiebalga Municipality"
+            },
+            {
+                "code": "76",
+                "name": "Rauna Municipality"
+            },
+            {
+                "code": "91",
+                "name": "Sigulda Municipality"
+            },
+            {
+                "code": "29",
+                "name": "Engure Municipality"
+            },
+            {
+                "code": "37",
+                "name": "Inčukalns Municipality"
+            },
+            {
+                "code": "50",
+                "name": "Kuldīga Municipality"
+            },
+            {
+                "code": "11",
+                "name": "Ādaži Municipality"
+            },
+            {
+                "code": "RIX",
+                "name": "Riga"
+            },
+            {
+                "code": "97",
+                "name": "Talsi Municipality"
+            },
+            {
+                "code": "43",
+                "name": "Kandava Municipality"
+            },
+            {
+                "code": "99",
+                "name": "Tukums Municipality"
+            },
+            {
+                "code": "JUR",
+                "name": "Jūrmala"
+            },
+            {
+                "code": "12",
+                "name": "Babīte Municipality"
+            },
+            {
+                "code": "71",
+                "name": "Pāvilosta Municipality"
+            },
+            {
+                "code": "35",
+                "name": "Ikšķile Municipality"
+            },
+            {
+                "code": "27",
+                "name": "Dundaga Municipality"
+            },
+            {
+                "code": "52",
+                "name": "Ķekava Municipality"
+            },
+            {
+                "code": "57",
+                "name": "Lubāna Municipality"
+            },
+            {
+                "code": "51",
+                "name": "Ķegums Municipality"
+            },
+            {
+                "code": "77",
+                "name": "Rēzekne Municipality"
+            },
+            {
+                "code": "59",
+                "name": "Madona Municipality"
+            },
+            {
+                "code": "18",
+                "name": "Brocēni Municipality"
+            },
+            {
+                "code": "26",
+                "name": "Dobele Municipality"
+            },
+            {
+                "code": "46",
+                "name": "Koknese Municipality"
+            },
+            {
+                "code": "32",
+                "name": "Grobiņa Municipality"
+            },
+            {
+                "code": "72",
+                "name": "Pļaviņas Municipality"
+            },
+            {
+                "code": "34",
+                "name": "Iecava Municipality"
+            },
+            {
+                "code": "58",
+                "name": "Ludza Municipality"
+            },
+            {
+                "code": "100",
+                "name": "Vaiņode Municipality"
+            },
+            {
+                "code": "98",
+                "name": "Tērvete Municipality"
+            },
+            {
+                "code": "65",
+                "name": "Nereta Municipality"
+            },
+            {
+                "code": "66",
+                "name": "Nīca Municipality"
+            },
+            {
+                "code": "83",
+                "name": "Rundāle Municipality"
+            },
+            {
+                "code": "41",
+                "name": "Jelgava Municipality"
+            },
+            {
+                "code": "42",
+                "name": "Jēkabpils Municipality"
+            },
+            {
+                "code": "56",
+                "name": "Līvāni Municipality"
+            },
+            {
+                "code": "16",
+                "name": "Bauska Municipality"
+            },
+            {
+                "code": "107",
+                "name": "Viesīte Municipality"
+            },
+            {
+                "code": "78",
+                "name": "Riebiņi Municipality"
+            },
+            {
+                "code": "24",
+                "name": "Dagda Municipality"
+            },
+            {
+                "code": "81",
+                "name": "Rucava Municipality"
+            },
+            {
+                "code": "4",
+                "name": "Aknīste Municipality"
+            },
+            {
+                "code": "1",
+                "name": "Aglona Municipality"
+            },
+            {
+                "code": "47",
+                "name": "Krāslava Municipality"
+            },
+            {
+                "code": "25",
+                "name": "Daugavpils Municipality"
+            },
+            {
+                "code": "VEN",
+                "name": "Ventspils"
+            },
+            {
+                "code": "40",
+                "name": "Jaunpils Municipality"
+            },
+            {
+                "code": null,
+                "name": "Bezirk Balvi"
+            },
+            {
+                "code": "88",
+                "name": "Bezirk Saldus"
+            }
+        ]
+    },
+    {
+        "latitude": 47.166,
+        "longitude": 9.555373000000031,
+        "isoCode": "LI",
+        "nativeName": "Liechtenstein",
+        "name": "Liechtenstein",
+        "urlName": "liechtenstein",
+        "currency": "CHF",
+        "zoom": 11,
+        "regions": [
+            {
+                "code": null,
+                "name": "Schellenberg"
+            },
+            {
+                "code": null,
+                "name": "Triesen"
+            }
+        ]
+    },
+    {
+        "latitude": 55.169438,
+        "currency": "EUR",
+        "nativeName": "Lietuva",
+        "urlName": "lithuania",
+        "name": "Lithuania",
+        "isoCode": "LT",
+        "longitude": 23.881275,
+        "zoom": 7,
+        "regions": [
+            {
+                "code": "VL",
+                "name": "Vilnius County"
+            },
+            {
+                "code": "KL",
+                "name": "Klaipėda County"
+            },
+            {
+                "code": "KU",
+                "name": "Kaunas County"
+            },
+            {
+                "code": "UT",
+                "name": "Utena County"
+            },
+            {
+                "code": "PN",
+                "name": "Panevėžys County"
+            },
+            {
+                "code": "TE",
+                "name": "Telšiai County"
+            },
+            {
+                "code": "AL",
+                "name": "Bezirk Alytus"
+            },
+            {
+                "code": "MR",
+                "name": "Marijampolė County"
+            },
+            {
+                "code": "TA",
+                "name": "Tauragė County"
+            },
+            {
+                "code": "SA",
+                "name": "Šiauliai County"
+            }
+        ]
+    },
+    {
+        "longitude": 6.129583,
+        "latitude": 49.815273,
+        "isoCode": "LU",
+        "nativeName": "Luxembourg",
+        "urlName": "luxembourg",
+        "currency": "EUR",
+        "name": "Luxembourg",
+        "zoom": 10,
+        "regions": [
+            {
+                "code": "G",
+                "name": "Grevenmacher"
+            },
+            {
+                "code": "D",
+                "name": "Diekirch"
+            },
+            {
+                "code": "L",
+                "name": "Luxemburg"
+            }
+        ]
+    },
+    {
+        "isoCode": "MT",
+        "nativeName": "Malta",
+        "name": "Malta",
+        "longitude": 14.432,
+        "currency": "EUR",
+        "latitude": 35.8941,
+        "urlName": "malta",
+        "zoom": 10,
+        "regions": []
+    },
+    {
+        "longitude": -61.011199951111,
+        "latitude": 14.640724985,
+        "name": "Martinique",
+        "nativeName": "Martinique",
+        "urlName": "martinique",
+        "currency": "EUR",
+        "isoCode": "MQ",
+        "zoom": 10,
+        "regions": []
+    },
+    {
+        "longitude": -102.552784,
+        "isoCode": "MX",
+        "name": "Mexico",
+        "latitude": 23.634501,
+        "currency": "MXN",
+        "nativeName": "Mexico",
+        "urlName": "mexico",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": "JAL",
+                "name": "Jalisco"
+            },
+            {
+                "code": "ROO",
+                "name": "Quintana Roo"
+            },
+            {
+                "code": "NAY",
+                "name": "Nayarit"
+            },
+            {
+                "code": "OAX",
+                "name": "Oaxaca"
+            },
+            {
+                "code": "BCN",
+                "name": "Baja California"
+            },
+            {
+                "code": "BCS",
+                "name": "Baja California Sur"
+            },
+            {
+                "code": "SIN",
+                "name": "Sinaloa"
+            },
+            {
+                "code": null,
+                "name": "Hauptstadtdistrikt"
+            }
+        ]
+    },
+    {
+        "currency": "EUR",
+        "urlName": "montenegro",
+        "name": "Montenegro",
+        "nativeName": "null",
+        "latitude": 42.708678,
+        "isoCode": "ME",
+        "longitude": 19.37439,
+        "zoom": 8,
+        "regions": [
+            {
+                "code": "20",
+                "name": "Opština Ulcinj"
+            },
+            {
+                "code": "15",
+                "name": "Plužine Municipality"
+            },
+            {
+                "code": "14",
+                "name": "Pljevlja Municipality"
+            },
+            {
+                "code": "21",
+                "name": "Žabljak Municipality"
+            },
+            {
+                "code": "18",
+                "name": "Šavnik Municipality"
+            },
+            {
+                "code": "11",
+                "name": "Mojkovac Municipality"
+            },
+            {
+                "code": "9",
+                "name": "Kolašin Municipality"
+            },
+            {
+                "code": "3",
+                "name": "Berane Municipality"
+            },
+            {
+                "code": "12",
+                "name": "Nikšić Municipality"
+            },
+            {
+                "code": "1",
+                "name": "Andrijevica Municipality"
+            },
+            {
+                "code": "13",
+                "name": "Plav Municipality"
+            },
+            {
+                "code": "7",
+                "name": "Danilovgrad Municipality"
+            },
+            {
+                "code": "16",
+                "name": "Podgorica Municipality"
+            },
+            {
+                "code": "8",
+                "name": "Herceg Novi Municipality"
+            },
+            {
+                "code": "10",
+                "name": "Kotor Municipality"
+            },
+            {
+                "code": "19",
+                "name": "Tivat Municipality"
+            },
+            {
+                "code": "5",
+                "name": "Budva"
+            },
+            {
+                "code": "2",
+                "name": "Bar Municipality"
+            },
+            {
+                "code": "6",
+                "name": "Cetinje Municipality"
+            }
+        ]
+    },
+    {
+        "longitude": 5.291266,
+        "nativeName": "Nederland",
+        "name": "Netherlands",
+        "latitude": 52.132633,
+        "isoCode": "NL",
+        "urlName": "netherlands",
+        "currency": "EUR",
+        "zoom": 8,
+        "regions": [
+            {
+                "code": null,
+                "name": "South Holland"
+            },
+            {
+                "code": "ZH",
+                "name": "Zuid-Holland"
+            },
+            {
+                "code": "NH",
+                "name": "Noord-Holland"
+            },
+            {
+                "code": "FL",
+                "name": "Flevoland"
+            },
+            {
+                "code": "NB",
+                "name": "Noord-Brabant"
+            },
+            {
+                "code": "UT",
+                "name": "Utrecht"
+            },
+            {
+                "code": "OV",
+                "name": "Overijssel"
+            },
+            {
+                "code": "ZE",
+                "name": "Zeeland"
+            },
+            {
+                "code": "GE",
+                "name": "Gelderland"
+            },
+            {
+                "code": "LI",
+                "name": "Limburg"
+            },
+            {
+                "code": "DR",
+                "name": "Drenthe"
+            },
+            {
+                "code": "FR",
+                "name": "Friesland"
+            },
+            {
+                "code": "GR",
+                "name": "Groningen"
+            }
+        ]
+    },
+    {
+        "urlName": "new-zealand",
+        "isoCode": "NZ",
+        "latitude": -40.900557,
+        "longitude": 174.885971,
+        "currency": "NZD",
+        "name": "New Zealand",
+        "nativeName": "New Zealand",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": null,
+                "name": "Wellington"
+            },
+            {
+                "code": null,
+                "name": "Auckland"
+            },
+            {
+                "code": null,
+                "name": "Tasman"
+            },
+            {
+                "code": null,
+                "name": "Hawke's Bay"
+            },
+            {
+                "code": null,
+                "name": "Southland"
+            },
+            {
+                "code": null,
+                "name": "Bay of Plenty"
+            },
+            {
+                "code": null,
+                "name": "Northland"
+            },
+            {
+                "code": null,
+                "name": "Waikato"
+            },
+            {
+                "code": "OTA",
+                "name": "Otago"
+            },
+            {
+                "code": null,
+                "name": "Canterbury"
+            },
+            {
+                "code": null,
+                "name": "Marlborough"
+            },
+            {
+                "code": null,
+                "name": "West Coast"
+            }
+        ]
+    },
+    {
+        "isoCode": "NO",
+        "nativeName": "Norge",
+        "longitude": 8.468946,
+        "currency": "NOK",
+        "latitude": 60.472024,
+        "name": "Norway",
+        "urlName": "norway",
+        "zoom": 5,
+        "regions": [
+            {
+                "code": "2",
+                "name": "Akershus"
+            },
+            {
+                "code": "3",
+                "name": "Oslo"
+            },
+            {
+                "code": "8",
+                "name": "Telemark"
+            },
+            {
+                "code": "12",
+                "name": "Hordaland"
+            },
+            {
+                "code": "18",
+                "name": "Nordland"
+            },
+            {
+                "code": "5",
+                "name": "Oppland"
+            },
+            {
+                "code": "6",
+                "name": "Buskerud"
+            },
+            {
+                "code": "7",
+                "name": "Vestfold"
+            },
+            {
+                "code": "9",
+                "name": "Aust-Agder"
+            },
+            {
+                "code": "10",
+                "name": "Vest-Agder"
+            },
+            {
+                "code": "15",
+                "name": "Møre og Romsdal"
+            },
+            {
+                "code": "17",
+                "name": "Nord-Trondelag"
+            },
+            {
+                "code": "16",
+                "name": "Sor-Trondelag"
+            },
+            {
+                "code": "1",
+                "name": "Ostfold"
+            },
+            {
+                "code": "11",
+                "name": "Rogaland"
+            },
+            {
+                "code": "4",
+                "name": "Hedmark"
+            },
+            {
+                "code": "14",
+                "name": "Sogn og Fjordane"
+            },
+            {
+                "code": "19",
+                "name": "Troms"
+            },
+            {
+                "code": "20",
+                "name": "Finnmark"
+            },
+            {
+                "code": "21",
+                "name": "Svalbard"
+            },
+            {
+                "code": "22",
+                "name": "Jan Mayen"
+            },
+            {
+                "code": null,
+                "name": "Tröndelag"
+            },
+            {
+                "code": null,
+                "name": "Troms og Finnmark"
+            }
+        ]
+    },
+    {
+        "latitude": 8.537981,
+        "isoCode": "PA",
+        "longitude": -80.782127,
+        "urlName": "panama",
+        "name": "Panama",
+        "nativeName": "Panama",
+        "currency": "PAB",
+        "zoom": 8,
+        "regions": [
+            {
+                "code": null,
+                "name": "Panama"
+            },
+            {
+                "code": null,
+                "name": "Panamá"
+            }
+        ]
+    },
+    {
+        "isoCode": "PE",
+        "latitude": -9.189967,
+        "urlName": "peru",
+        "name": "Peru",
+        "longitude": -75.015152,
+        "nativeName": "Peru",
+        "currency": "PEN",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": "JUN",
+                "name": "Junin"
+            },
+            {
+                "code": "ICA",
+                "name": "Ica"
+            },
+            {
+                "code": "APU",
+                "name": "Apurimac"
+            },
+            {
+                "code": "MDD",
+                "name": "Madre de Dios"
+            },
+            {
+                "code": "AMA",
+                "name": "Amazonas"
+            },
+            {
+                "code": "CUS",
+                "name": "Cusco"
+            },
+            {
+                "code": "ANC",
+                "name": "Ancash"
+            },
+            {
+                "code": "LAL",
+                "name": "La Libertad"
+            },
+            {
+                "code": "PUN",
+                "name": "Puno"
+            },
+            {
+                "code": "LOR",
+                "name": "Loreto"
+            },
+            {
+                "code": "PIU",
+                "name": "Piura"
+            },
+            {
+                "code": "LAM",
+                "name": "Lambayeque"
+            },
+            {
+                "code": "CAJ",
+                "name": "Cajamarca"
+            },
+            {
+                "code": "SAM",
+                "name": "San Martin"
+            },
+            {
+                "code": "HUC",
+                "name": "Huanuco"
+            },
+            {
+                "code": "UCA",
+                "name": "Ucayali"
+            },
+            {
+                "code": "PAS",
+                "name": "Pasco"
+            },
+            {
+                "code": "LIM",
+                "name": "Lima Region"
+            },
+            {
+                "code": "LMA",
+                "name": "Metropolitan Municipality of Lima"
+            },
+            {
+                "code": "CAL",
+                "name": "Callao Region"
+            },
+            {
+                "code": "AYA",
+                "name": "Ayacucho"
+            },
+            {
+                "code": "HUV",
+                "name": "Huancavelica"
+            },
+            {
+                "code": "ARE",
+                "name": "Arequipa"
+            },
+            {
+                "code": "MOQ",
+                "name": "Moquegua"
+            },
+            {
+                "code": "TAC",
+                "name": "Tacna"
+            },
+            {
+                "code": "TUM",
+                "name": "Tumbes"
+            }
+        ]
+    },
+    {
+        "urlName": "philippines",
+        "latitude": 14.6032,
+        "name": "Philippines",
+        "longitude": 120.9784,
+        "isoCode": "PH",
+        "currency": "PHP",
+        "nativeName": "Pilipinas",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": null,
+                "name": "Central Visayas"
+            },
+            {
+                "code": null,
+                "name": "MIMAROPA"
+            },
+            {
+                "code": null,
+                "name": "Zamboanga Peninsula"
+            }
+        ]
+    },
+    {
+        "urlName": "poland",
+        "isoCode": "PL",
+        "latitude": 51.919438,
+        "nativeName": "Polska",
+        "currency": "PLN",
+        "name": "Poland",
+        "longitude": 19.145136,
+        "zoom": 6,
+        "regions": [
+            {
+                "code": "8",
+                "name": "Lubelskie"
+            },
+            {
+                "code": null,
+                "name": "Kuyavian-Pomeranian Voivodeship"
+            },
+            {
+                "code": null,
+                "name": "Lublin Voivodeship"
+            },
+            {
+                "code": null,
+                "name": "Masovian Voivodeship"
+            },
+            {
+                "code": null,
+                "name": "Greater Poland Voivodeship"
+            },
+            {
+                "code": null,
+                "name": "pomorskie"
+            },
+            {
+                "code": "PM",
+                "name": "Pomeranian Voivodeship"
+            },
+            {
+                "code": null,
+                "name": "West Pomeranian Voivodeship"
+            },
+            {
+                "code": "LD",
+                "name": "Łódź Voivodeship"
+            },
+            {
+                "code": "SL",
+                "name": "Silesian Voivodeship"
+            },
+            {
+                "code": "DS",
+                "name": "Lower Silesian Voivodeship"
+            },
+            {
+                "code": "PK",
+                "name": "Podkarpackie"
+            },
+            {
+                "code": "OP",
+                "name": "Opolskie"
+            },
+            {
+                "code": "PD",
+                "name": "Podlaskie"
+            },
+            {
+                "code": "SK",
+                "name": "Swietokrzyskie"
+            },
+            {
+                "code": null,
+                "name": "Województwo zachodniopomorskie"
+            },
+            {
+                "code": "WN",
+                "name": "Warmińsko-Mazurskie"
+            },
+            {
+                "code": null,
+                "name": "Lesser Poland Voivodeship"
+            }
+        ]
+    },
+    {
+        "nativeName": "Portugal",
+        "urlName": "portugal",
+        "longitude": -8.224454,
+        "isoCode": "PT",
+        "currency": "EUR",
+        "latitude": 39.399872,
+        "name": "Portugal",
+        "zoom": 7,
+        "regions": [
+            {
+                "code": "10",
+                "name": "Leiria"
+            },
+            {
+                "code": "13",
+                "name": "Porto"
+            },
+            {
+                "code": "16",
+                "name": "Viana do Castelo District"
+            },
+            {
+                "code": "11",
+                "name": "Lisbon"
+            },
+            {
+                "code": "15",
+                "name": "Setúbal"
+            },
+            {
+                "code": "2",
+                "name": "Beja District"
+            },
+            {
+                "code": "1",
+                "name": "Aveiro District"
+            },
+            {
+                "code": "7",
+                "name": "Évora"
+            },
+            {
+                "code": "4",
+                "name": "Bragança"
+            },
+            {
+                "code": "14",
+                "name": "Santarem"
+            },
+            {
+                "code": "30",
+                "name": "Madeira"
+            },
+            {
+                "code": "12",
+                "name": "Portalegre"
+            },
+            {
+                "code": "20",
+                "name": "Açores"
+            },
+            {
+                "code": "5",
+                "name": "Castelo Branco"
+            },
+            {
+                "code": "9",
+                "name": "Guarda"
+            },
+            {
+                "code": "17",
+                "name": "Vila Real"
+            },
+            {
+                "code": "18",
+                "name": "Viseu"
+            },
+            {
+                "code": "6",
+                "name": "Coimbra"
+            },
+            {
+                "code": "3",
+                "name": "Braga"
+            },
+            {
+                "code": "8",
+                "name": "Faro"
+            },
+            {
+                "code": null,
+                "name": "Distrikt Évora"
+            }
+        ]
+    },
+    {
+        "isoCode": "PR",
+        "name": "Puerto Rico",
+        "latitude": 18.220833,
+        "longitude": -66.590149,
+        "urlName": "puerto-rico",
+        "currency": "USD",
+        "nativeName": "Puerto Rico",
+        "zoom": 9,
+        "regions": [
+            {
+                "code": "PR",
+                "name": "PR"
+            },
+            {
+                "code": null,
+                "name": "Manatí"
+            },
+            {
+                "code": null,
+                "name": "Culebra"
+            },
+            {
+                "code": null,
+                "name": "Fajardo"
+            },
+            {
+                "code": null,
+                "name": "San Juan"
+            }
+        ]
+    },
+    {
+        "latitude": 45.943161,
+        "name": "Romania",
+        "longitude": 24.96676,
+        "urlName": "romania",
+        "isoCode": "RO",
+        "currency": "RON",
+        "nativeName": "Romania",
+        "zoom": 7,
+        "regions": [
+            {
+                "code": "TL",
+                "name": "Tulcea"
+            },
+            {
+                "code": "CT",
+                "name": "Județul Constanța"
+            },
+            {
+                "code": "BH",
+                "name": "Bihor"
+            },
+            {
+                "code": "SM",
+                "name": "Satu Mare"
+            },
+            {
+                "code": "MS",
+                "name": "Mureș"
+            },
+            {
+                "code": "HR",
+                "name": "Harghita"
+            },
+            {
+                "code": "VN",
+                "name": "Vrancea"
+            },
+            {
+                "code": "AR",
+                "name": "Arad"
+            },
+            {
+                "code": "MM",
+                "name": "Maramureș"
+            },
+            {
+                "code": "SV",
+                "name": "Suceava"
+            },
+            {
+                "code": "BN",
+                "name": "Bistrița-Năsăud"
+            },
+            {
+                "code": "IS",
+                "name": "Iași"
+            },
+            {
+                "code": "NT",
+                "name": "Neamț"
+            },
+            {
+                "code": "SJ",
+                "name": "Sălaj"
+            },
+            {
+                "code": "CJ",
+                "name": "Cluj"
+            },
+            {
+                "code": "BC",
+                "name": "Bacău"
+            },
+            {
+                "code": "AB",
+                "name": "Alba"
+            },
+            {
+                "code": "SB",
+                "name": "Sibiu"
+            },
+            {
+                "code": "TM",
+                "name": "Timiș"
+            },
+            {
+                "code": "BV",
+                "name": "Brașov"
+            },
+            {
+                "code": "PH",
+                "name": "Prahova"
+            },
+            {
+                "code": "MH",
+                "name": "Mehedinți"
+            },
+            {
+                "code": "CV",
+                "name": "Covasna"
+            },
+            {
+                "code": "HD",
+                "name": "Hunedoara"
+            },
+            {
+                "code": "AG",
+                "name": "Argeș"
+            },
+            {
+                "code": "GL",
+                "name": "Galați"
+            },
+            {
+                "code": "BZ",
+                "name": "Buzău"
+            },
+            {
+                "code": "VL",
+                "name": "Vâlcea"
+            },
+            {
+                "code": "CS",
+                "name": "Caraș-Severin"
+            },
+            {
+                "code": "DB",
+                "name": "Dâmbovița"
+            },
+            {
+                "code": "BR",
+                "name": "Brăila"
+            },
+            {
+                "code": "GJ",
+                "name": "Gorj"
+            },
+            {
+                "code": "B",
+                "name": "Bucharest"
+            },
+            {
+                "code": "CL",
+                "name": "Călărași"
+            },
+            {
+                "code": "DJ",
+                "name": "Dolj"
+            },
+            {
+                "code": "TR",
+                "name": "Teleorman"
+            }
+        ]
+    },
+    {
+        "nativeName": "Rossiya",
+        "urlName": "russian-federation",
+        "currency": "RUB",
+        "latitude": 61.52401,
+        "name": "Russian Federation",
+        "longitude": 105.318756,
+        "isoCode": "RU",
+        "zoom": 3,
+        "regions": [
+            {
+                "code": null,
+                "name": "Moscow"
+            },
+            {
+                "code": null,
+                "name": "Sankt-Petersburg"
+            },
+            {
+                "code": null,
+                "name": "Region Krasnodar"
+            },
+            {
+                "code": "SAM",
+                "name": "Oblast Samara"
+            },
+            {
+                "code": null,
+                "name": "Oblast Wolgograd"
+            }
+        ]
+    },
+    {
+        "nativeName": "null",
+        "latitude": 17.9,
+        "name": "Saint-Barthélemy",
+        "currency": "EUR",
+        "urlName": "saint-barthelemy",
+        "isoCode": "BL",
+        "longitude": -62.83333300000004,
+        "zoom": 13,
+        "regions": []
+    },
+    {
+        "urlName": "serbia",
+        "longitude": 20.92,
+        "isoCode": "RS",
+        "latitude": 43.87,
+        "currency": "RSD",
+        "nativeName": "null",
+        "name": "Serbia",
+        "zoom": 7,
+        "regions": [
+            {
+                "code": "VO",
+                "name": "Vojvodina"
+            }
+        ]
+    },
+    {
+        "isoCode": "SK",
+        "latitude": 48.7667082,
+        "longitude": 18.6413705,
+        "nativeName": "Slovensko",
+        "name": "Slovakia",
+        "urlName": "slovakia",
+        "currency": "EUR",
+        "zoom": 8,
+        "regions": [
+            {
+                "code": "NI",
+                "name": "Nitra Region"
+            },
+            {
+                "code": "PV",
+                "name": "Prešov Region"
+            },
+            {
+                "code": "TA",
+                "name": "Tyrnau"
+            },
+            {
+                "code": "TC",
+                "name": "Trentschin"
+            },
+            {
+                "code": "BC",
+                "name": "Neusohl"
+            },
+            {
+                "code": "KI",
+                "name": "Košice Region"
+            },
+            {
+                "code": "ZI",
+                "name": "Sillein"
+            },
+            {
+                "code": "BL",
+                "name": "Bratislava Region"
+            }
+        ]
+    },
+    {
+        "urlName": "slovenia",
+        "longitude": 14.995463,
+        "latitude": 46.151241,
+        "currency": "EUR",
+        "isoCode": "SI",
+        "name": "Slovenia",
+        "nativeName": "Slovenija",
+        "zoom": 9,
+        "regions": [
+            {
+                "code": null,
+                "name": "Medvode"
+            },
+            {
+                "code": null,
+                "name": "Radovljica"
+            },
+            {
+                "code": null,
+                "name": "Ljutomer"
+            },
+            {
+                "code": null,
+                "name": "Piran"
+            },
+            {
+                "code": null,
+                "name": "Šmarje pri Jelšah"
+            },
+            {
+                "code": null,
+                "name": "Izola"
+            },
+            {
+                "code": null,
+                "name": "Koper"
+            },
+            {
+                "code": null,
+                "name": "Stadtgemeinde von Novo Mesto"
+            },
+            {
+                "code": null,
+                "name": "Tolmin"
+            },
+            {
+                "code": "59",
+                "name": "Lendava"
+            },
+            {
+                "code": null,
+                "name": "Ajdovščina"
+            },
+            {
+                "code": null,
+                "name": "Ljubljana"
+            },
+            {
+                "code": null,
+                "name": "Sežana"
+            }
+        ]
+    },
+    {
+        "longitude": 22.937506,
+        "currency": "ZAR",
+        "name": "South Africa",
+        "latitude": -30.559482,
+        "isoCode": "ZA",
+        "urlName": "south-africa",
+        "nativeName": "South Africa",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": null,
+                "name": "Western Cape"
+            },
+            {
+                "code": "WC",
+                "name": "Western Cape"
+            },
+            {
+                "code": "EC",
+                "name": "Eastern Cape"
+            },
+            {
+                "code": "NW",
+                "name": "North West"
+            },
+            {
+                "code": "KZN",
+                "name": "KwaZulu-Natal"
+            },
+            {
+                "code": "GP",
+                "name": "Gauteng"
+            }
+        ]
+    },
+    {
+        "urlName": "spain",
+        "latitude": 40.463667,
+        "isoCode": "ES",
+        "currency": "EUR",
+        "longitude": -3.74922,
+        "nativeName": "Espana",
+        "name": "Spain",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": "CN",
+                "name": "Islas Canarias"
+            },
+            {
+                "code": "CT",
+                "name": "Cataluña"
+            },
+            {
+                "code": "PV",
+                "name": "País Vasco"
+            },
+            {
+                "code": "VC",
+                "name": "Comunidad Valenciana"
+            },
+            {
+                "code": "IB",
+                "name": "Islas Baleares"
+            },
+            {
+                "code": "GA",
+                "name": "Galicia"
+            },
+            {
+                "code": "MD",
+                "name": "Comunidad de Madrid"
+            },
+            {
+                "code": "CB",
+                "name": "Cantabria"
+            },
+            {
+                "code": "CL",
+                "name": "Castilla y León"
+            },
+            {
+                "code": "CM",
+                "name": "Castilla-La Mancha"
+            },
+            {
+                "code": "AS",
+                "name": "Principado de Asturias"
+            },
+            {
+                "code": "MC",
+                "name": "Región de Murcia"
+            },
+            {
+                "code": "NC",
+                "name": "Navarre"
+            },
+            {
+                "code": "EX",
+                "name": "Extremadura"
+            },
+            {
+                "code": "RI",
+                "name": "Rioja"
+            },
+            {
+                "code": "AR",
+                "name": "Aragon"
+            },
+            {
+                "code": "AN",
+                "name": "Andalucía"
+            },
+            {
+                "code": null,
+                "name": "Murcia"
+            },
+            {
+                "code": null,
+                "name": "Land Valencia"
+            }
+        ]
+    },
+    {
+        "nativeName": "null",
+        "urlName": "st-martin",
+        "longitude": -63.05008090000001,
+        "name": "St. Martin",
+        "latitude": 18.0708298,
+        "currency": "EUR",
+        "isoCode": "MF",
+        "zoom": 13,
+        "regions": [
+            {
+                "code": null,
+                "name": "Collectivité de Saint-Martin"
+            }
+        ]
+    },
+    {
+        "urlName": "suriname",
+        "longitude": -56.027783,
+        "name": "Suriname",
+        "nativeName": "Suriname",
+        "latitude": 3.919305,
+        "isoCode": "SR",
+        "currency": "SRD",
+        "zoom": 8,
+        "regions": [
+            {
+                "code": null,
+                "name": "Para"
+            }
+        ]
+    },
+    {
+        "longitude": 14.888922,
+        "isoCode": "SE",
+        "name": "Sweden",
+        "nativeName": "Sverige",
+        "urlName": "sweden",
+        "latitude": 59.467438,
+        "currency": "SEK",
+        "zoom": 5,
+        "regions": [
+            {
+                "code": "U",
+                "name": "Västmanland County"
+            },
+            {
+                "code": "N",
+                "name": "Halland County"
+            },
+            {
+                "code": "AB",
+                "name": "Stockholm County"
+            },
+            {
+                "code": "O",
+                "name": "Västra Götaland County"
+            },
+            {
+                "code": "C",
+                "name": "Uppsala County"
+            },
+            {
+                "code": "T",
+                "name": "Örebro County"
+            },
+            {
+                "code": "I",
+                "name": "Gotland"
+            },
+            {
+                "code": "F",
+                "name": "Jönköping County"
+            },
+            {
+                "code": "Y",
+                "name": "Västernorrland County"
+            },
+            {
+                "code": "E",
+                "name": "Östergötland County"
+            },
+            {
+                "code": "X",
+                "name": "Gävleborg County"
+            },
+            {
+                "code": "G",
+                "name": "Kronoberg County"
+            },
+            {
+                "code": "S",
+                "name": "Varmland County"
+            },
+            {
+                "code": "M",
+                "name": "Skane County"
+            },
+            {
+                "code": "W",
+                "name": "Dalarna County"
+            },
+            {
+                "code": "K",
+                "name": "Blekinge County"
+            },
+            {
+                "code": "Z",
+                "name": "Jämtlands län"
+            },
+            {
+                "code": "H",
+                "name": "Kalmar County"
+            },
+            {
+                "code": "BD",
+                "name": "Norrbotten County"
+            },
+            {
+                "code": "AC",
+                "name": "Västerbotten County"
+            },
+            {
+                "code": "D",
+                "name": "Södermanland County"
+            }
+        ]
+    },
+    {
+        "urlName": "switzerland",
+        "latitude": 46.818188,
+        "name": "Switzerland",
+        "currency": "CHF",
+        "longitude": 8.227512,
+        "isoCode": "CH",
+        "nativeName": "Schweiz",
+        "zoom": 8,
+        "regions": [
+            {
+                "code": "ZH",
+                "name": "Zürich"
+            },
+            {
+                "code": "LU",
+                "name": "Luzern"
+            },
+            {
+                "code": "AG",
+                "name": "Aargau"
+            },
+            {
+                "code": "ZG",
+                "name": "Zug"
+            },
+            {
+                "code": "NE",
+                "name": "Neuenburg"
+            },
+            {
+                "code": "BE",
+                "name": "Bern"
+            },
+            {
+                "code": "TG",
+                "name": "Thurgau"
+            },
+            {
+                "code": "TI",
+                "name": "Tessin"
+            },
+            {
+                "code": "SZ",
+                "name": "Schwyz"
+            },
+            {
+                "code": "FR",
+                "name": "Freiburg"
+            },
+            {
+                "code": "SG",
+                "name": "Sankt Gallen"
+            },
+            {
+                "code": "SO",
+                "name": "Solothurn"
+            },
+            {
+                "code": "NW",
+                "name": "Nidwalden"
+            },
+            {
+                "code": "OW",
+                "name": "Obwalden"
+            },
+            {
+                "code": "VD",
+                "name": "Waadt"
+            },
+            {
+                "code": "GR",
+                "name": "Graubünden"
+            },
+            {
+                "code": "JU",
+                "name": "Jura"
+            },
+            {
+                "code": "BL",
+                "name": "Basel-Landschaft"
+            },
+            {
+                "code": "AR",
+                "name": "Appenzell Ausserrhoden"
+            },
+            {
+                "code": "BS",
+                "name": "Basel-Stadt"
+            },
+            {
+                "code": "AI",
+                "name": "Appenzell Innerrhoden"
+            },
+            {
+                "code": "GE",
+                "name": "Genf"
+            },
+            {
+                "code": "GL",
+                "name": "Glarus"
+            },
+            {
+                "code": "SH",
+                "name": "Schaffhausen"
+            },
+            {
+                "code": "UR",
+                "name": "Uri"
+            },
+            {
+                "code": "VS",
+                "name": "Wallis"
+            }
+        ]
+    },
+    {
+        "name": "Tanzania",
+        "longitude": 34.888822,
+        "isoCode": "TZ",
+        "urlName": "tanzania",
+        "latitude": -6.369028,
+        "nativeName": "Tanzania, United Republic of",
+        "currency": "TZS",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": null,
+                "name": "Ruvuma"
+            }
+        ]
+    },
+    {
+        "longitude": 100.992541,
+        "latitude": 15.870032,
+        "urlName": "thailand",
+        "currency": "THB",
+        "nativeName": "Thailand",
+        "name": "Thailand",
+        "isoCode": "TH",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": null,
+                "name": "Chon Buri"
+            },
+            {
+                "code": null,
+                "name": "Songkhla"
+            },
+            {
+                "code": null,
+                "name": "Prachuap Khiri Khan"
+            },
+            {
+                "code": null,
+                "name": "Surat Thani"
+            },
+            {
+                "code": null,
+                "name": "Krabi"
+            },
+            {
+                "code": null,
+                "name": "Chiang Mai"
+            },
+            {
+                "code": null,
+                "name": "Phuket"
+            },
+            {
+                "code": "82",
+                "name": "Phang-nga"
+            },
+            {
+                "code": null,
+                "name": "Ranong"
+            },
+            {
+                "code": null,
+                "name": "Phetchaburi"
+            },
+            {
+                "code": null,
+                "name": "Bangkok"
+            }
+        ]
+    },
+    {
+        "isoCode": "TR",
+        "urlName": "turkey",
+        "currency": "TRY",
+        "name": "Turkey",
+        "longitude": 35.243322,
+        "latitude": 38.963745,
+        "nativeName": "Turkiye",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": null,
+                "name": "Antalya"
+            },
+            {
+                "code": null,
+                "name": "Ankara"
+            },
+            {
+                "code": null,
+                "name": "Izmir"
+            },
+            {
+                "code": null,
+                "name": "Sakarya"
+            },
+            {
+                "code": null,
+                "name": "Sakarya Province"
+            },
+            {
+                "code": null,
+                "name": "İstanbul"
+            },
+            {
+                "code": null,
+                "name": "Balıkesir Province"
+            },
+            {
+                "code": "48",
+                "name": "Muğla Province"
+            },
+            {
+                "code": "9",
+                "name": "Aydın Province"
+            }
+        ]
+    },
+    {
+        "nativeName": "Ukraine",
+        "longitude": 31.16558,
+        "urlName": "ukraine",
+        "latitude": 48.379433,
+        "currency": "UAH",
+        "name": "Ukraine",
+        "isoCode": "UA",
+        "zoom": 6,
+        "regions": [
+            {
+                "code": null,
+                "name": "Crimea"
+            },
+            {
+                "code": null,
+                "name": "Dnipropetrovs'ka oblast"
+            },
+            {
+                "code": null,
+                "name": "Odessa Oblast"
+            },
+            {
+                "code": null,
+                "name": "Kyiv city"
+            },
+            {
+                "code": null,
+                "name": "Saporischschja"
+            }
+        ]
+    },
+    {
+        "isoCode": "GB",
+        "urlName": "united-kingdom",
+        "latitude": 55.378051,
+        "nativeName": "United Kingdom",
+        "currency": "GBP",
+        "name": "United Kingdom",
+        "longitude": -3.435973,
+        "zoom": 6,
+        "regions": [
+            {
+                "code": null,
+                "name": "England"
+            },
+            {
+                "code": null,
+                "name": "Wales"
+            },
+            {
+                "code": null,
+                "name": "Scotland"
+            },
+            {
+                "code": null,
+                "name": "Northern Ireland"
+            }
+        ]
+    },
+    {
+        "isoCode": "US",
+        "latitude": 37.09024,
+        "longitude": -95.712891,
+        "urlName": "united-states",
+        "name": "United States",
+        "currency": "USD",
+        "nativeName": "United States",
+        "zoom": 5,
+        "regions": [
+            {
+                "code": "TX",
+                "name": "Texas"
+            },
+            {
+                "code": "HI",
+                "name": "Hawaii"
+            },
+            {
+                "code": "CA",
+                "name": "California"
+            },
+            {
+                "code": "FL",
+                "name": "Florida"
+            },
+            {
+                "code": "NJ",
+                "name": "New Jersey"
+            },
+            {
+                "code": "WI",
+                "name": "Wisconsin"
+            },
+            {
+                "code": "OR",
+                "name": "Oregon"
+            },
+            {
+                "code": "GA",
+                "name": "Georgia"
+            },
+            {
+                "code": "WA",
+                "name": "Washington"
+            },
+            {
+                "code": "MD",
+                "name": "Maryland"
+            },
+            {
+                "code": "VA",
+                "name": "Virginia"
+            },
+            {
+                "code": "SC",
+                "name": "South Carolina"
+            },
+            {
+                "code": "MO",
+                "name": "Missouri"
+            },
+            {
+                "code": "NY",
+                "name": "New York"
+            },
+            {
+                "code": "CO",
+                "name": "Colorado"
+            },
+            {
+                "code": "IN",
+                "name": "Indiana"
+            },
+            {
+                "code": "KY",
+                "name": "Kentucky"
+            },
+            {
+                "code": "IL",
+                "name": "Illinois"
+            },
+            {
+                "code": "NV",
+                "name": "Nevada"
+            },
+            {
+                "code": "MA",
+                "name": "Massachusetts"
+            },
+            {
+                "code": "ME",
+                "name": "Maine"
+            },
+            {
+                "code": "NC",
+                "name": "North Carolina"
+            },
+            {
+                "code": "PA",
+                "name": "Pennsylvania"
+            },
+            {
+                "code": "AL",
+                "name": "Alabama"
+            },
+            {
+                "code": "VT",
+                "name": "Vermont"
+            },
+            {
+                "code": "AR",
+                "name": "Arkansas"
+            },
+            {
+                "code": "TN",
+                "name": "Tennessee"
+            },
+            {
+                "code": "AZ",
+                "name": "Arizona"
+            },
+            {
+                "code": "KS",
+                "name": "Kansas"
+            },
+            {
+                "code": "MI",
+                "name": "Michigan"
+            },
+            {
+                "code": "OH",
+                "name": "Ohio"
+            },
+            {
+                "code": "MN",
+                "name": "Minnesota"
+            },
+            {
+                "code": "NM",
+                "name": "New Mexico"
+            },
+            {
+                "code": "WV",
+                "name": "West Virginia"
+            },
+            {
+                "code": "RI",
+                "name": "Rhode Island"
+            },
+            {
+                "code": "LA",
+                "name": "Louisiana"
+            },
+            {
+                "code": "UT",
+                "name": "Utah"
+            },
+            {
+                "code": "IA",
+                "name": "Iowa"
+            },
+            {
+                "code": "OK",
+                "name": "Oklahoma"
+            },
+            {
+                "code": "NH",
+                "name": "New Hampshire"
+            },
+            {
+                "code": "MS",
+                "name": "Mississippi"
+            },
+            {
+                "code": "CT",
+                "name": "Connecticut"
+            },
+            {
+                "code": "ID",
+                "name": "Idaho"
+            },
+            {
+                "code": "DC",
+                "name": "District of Columbia"
+            },
+            {
+                "code": "SD",
+                "name": "South Dakota"
+            },
+            {
+                "code": "MT",
+                "name": "Montana"
+            },
+            {
+                "code": "AK",
+                "name": "Alaska"
+            },
+            {
+                "code": "WY",
+                "name": "Wyoming"
+            },
+            {
+                "code": "NE",
+                "name": "Nebraska"
+            },
+            {
+                "code": "ND",
+                "name": "North Dakota"
+            },
+            {
+                "code": "DE",
+                "name": "Delaware"
+            }
+        ]
+    },
+    {
+        "latitude": 0,
+        "isoCode": "XX",
+        "longitude": 0,
+        "urlName": "unknown",
+        "currency": "XXX",
+        "name": "Unknown",
+        "nativeName": "Unknown",
+        "regions": []
+    },
+    {
+        "name": "Uruguay",
+        "urlName": "uruguay",
+        "isoCode": "UY",
+        "latitude": -32.522779,
+        "currency": "UYU",
+        "longitude": -55.765835,
+        "nativeName": "Uruguay",
+        "zoom": 7,
+        "regions": [
+            {
+                "code": "MA",
+                "name": "Departamento de Maldonado"
+            },
+            {
+                "code": "AR",
+                "name": "Artigas Department"
+            },
+            {
+                "code": "SA",
+                "name": "Salto Department"
+            },
+            {
+                "code": "RV",
+                "name": "Rivera Department"
+            },
+            {
+                "code": "PA",
+                "name": "Paysandú Department"
+            },
+            {
+                "code": "TA",
+                "name": "Tacuarembó Department"
+            },
+            {
+                "code": "TT",
+                "name": "Treinta y Tres Department"
+            },
+            {
+                "code": "DU",
+                "name": "Durazno Department"
+            },
+            {
+                "code": "SO",
+                "name": "Soriano Department"
+            },
+            {
+                "code": "RN",
+                "name": "Río Negro Department"
+            },
+            {
+                "code": "FD",
+                "name": "Florida Department"
+            },
+            {
+                "code": "CO",
+                "name": "Colonia Department"
+            },
+            {
+                "code": "LA",
+                "name": "Lavalleja Department"
+            },
+            {
+                "code": "CA",
+                "name": "Canelones Department"
+            },
+            {
+                "code": "SJ",
+                "name": "San José Department"
+            },
+            {
+                "code": "MO",
+                "name": "Montevideo Department"
+            },
+            {
+                "code": "RO",
+                "name": "Departamento de Rocha"
+            }
+        ]
+    },
+    {
+        "urlName": "venezuela",
+        "nativeName": "Venezuela",
+        "latitude": 8.58,
+        "currency": "VEF",
+        "name": "Venezuela",
+        "longitude": -65.63,
+        "isoCode": "VE",
+        "zoom": 7,
+        "regions": []
+    },
+    {
+        "currency": "VND",
+        "name": "Vietnam",
+        "nativeName": "Viet Nam",
+        "latitude": 11.907235,
+        "urlName": "vietnam",
+        "isoCode": "VN",
+        "longitude": 107.949621,
+        "zoom": 6,
+        "regions": [
+            {
+                "code": null,
+                "name": "Ba Ria - Vung Tau"
+            },
+            {
+                "code": null,
+                "name": "Binh Thuan"
+            },
+            {
+                "code": null,
+                "name": "Thua Thien Hue"
+            },
+            {
+                "code": null,
+                "name": "Da Nang"
+            },
+            {
+                "code": null,
+                "name": "Haiphong"
+            },
+            {
+                "code": null,
+                "name": "Bắc Kạn Province"
+            },
+            {
+                "code": "47",
+                "name": "Kien Giang"
+            },
+            {
+                "code": "HN",
+                "name": "Hanoi"
+            },
+            {
+                "code": null,
+                "name": "Bình Định"
+            },
+            {
+                "code": null,
+                "name": "Vĩnh Phúc"
+            },
+            {
+                "code": null,
+                "name": "Thái Nguyên"
+            }
+        ]
+    },
+    {
+        "isoCode": "VI",
+        "currency": "USD",
+        "nativeName": "Virgin Islands (U.S.)",
+        "name": "Virgin Islands (U.S.)",
+        "latitude": 18.336,
+        "longitude": -64.889,
+        "urlName": "virgin-islands-us",
+        "zoom": 12,
+        "regions": [
+            {
+                "code": null,
+                "name": "St. Thomas"
+            },
+            {
+                "code": null,
+                "name": "St. Croix"
+            }
+        ]
     }
-  ]
+]

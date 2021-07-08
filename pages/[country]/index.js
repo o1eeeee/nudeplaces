@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import LinkList from '../../components/LinkList';
 import initFirebase from '../../lib/firebase';
-import { getCountries } from '../../lib/countries';
+import { getCountries, getRegionsForCountry } from '../../lib/countries';
 import { config } from '../../lib/config';
 import Layout from '../../components/Layout';
 import FilterBar from '../../components/FilterBar';
@@ -14,7 +14,7 @@ export default function Country({ country, locations }) {
     const [filteredLocations, setFilteredLocations] = useState(locations);
     const [locationTypeFilter, setLocationTypeFilter] = useState([]);
     const [isMapLimited, setIsMapLimited] = useState(false);
-    let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations);
+    let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations, country);
 
     useEffect(() => {
         setMapPosition({
@@ -189,13 +189,15 @@ function getLocationListItems(locations, country) {
 }
 
 
-function getLocationsByRegion(locations) {
+function getLocationsByRegion(locations, country) {
     // Distribute locations to region arrays
+    const allRegions = getRegionsForCountry(country);
     const regions = [];
     const locationsByRegion = {};
-    let assignToRegion = 'unassigned';
     locations.map((location) => {
-        assignToRegion = location.region ?? 'unassigned';
+        const regionFromList = location.region && allRegions.filter(region => location.region === region.code)[0];
+        const fullRegionName = regionFromList ? regionFromList.name : location.region;
+        const assignToRegion = fullRegionName ?? 'Other regions';
         if (!locationsByRegion[assignToRegion]) {
             regions.push(assignToRegion);
             locationsByRegion[assignToRegion] = [];
