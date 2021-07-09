@@ -142,7 +142,7 @@ export async function getStaticPaths() {
 function getTitleString(location, country) {
     const titleString = [];
     titleString.push(location.title);
-    titleString.push(buildLocationInfo(location) + ", " + buildLocationRegionAndCountry(location))
+    titleString.push(buildLocationInfo(location) + ", " + buildLocationRegionAndCountry(location, country))
     titleString.push(`Nudist, Naturist, Clothing Optional Places and Beaches in ${country.name}`);
     titleString.push("nudeplaces");
     return titleString.join(" – ")
