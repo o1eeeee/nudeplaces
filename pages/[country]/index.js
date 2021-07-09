@@ -35,9 +35,8 @@ export default function Country({ country, locations }) {
         setFilteredLocations(typeFilteredLocations);
 
         const markerPositions = buildCountryLocationsMarkerPositions(typeFilteredLocations, country);
-        const isSmallDevice = document.documentElement.clientWidth < config.BREAKPOINT_MD_IN_PX;
-        if (markerPositions.length > config.MAP_MARKER_LIMIT_MOBILE && isSmallDevice) {
-            setMarkerPositions(markerPositions.slice(0, config.MAP_MARKER_LIMIT_MOBILE));
+        if (markerPositions.length > config.MAP_MARKER_LIMIT) {
+            setMarkerPositions(markerPositions.slice(0, config.MAP_MARKER_LIMIT));
             setIsMapLimited(true);
         } else {
             setMarkerPositions(markerPositions);
@@ -58,7 +57,7 @@ export default function Country({ country, locations }) {
                     {country.name}
                 </h1>
                 {filteredLocations.length > 0 
-                    ? <p>Showing {filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {country.name}. {isMapLimited && <><br />Please use filters or zoom into the map to see more.</>}</p>
+                    ? <p>Showing {filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {country.name}.{isMapLimited && <> Please use filters or zoom into the map to see more.</>}</p>
                     : <p>No nude places found in this area. Zoom out of the map or remove filters to see more.</p>
                 }
                 
