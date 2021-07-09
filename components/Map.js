@@ -47,7 +47,7 @@ export default function Map() {
                     const markerPositionText = markerPosition.text;
                     const popupText = markerPositionText ? markerPositionText.length > 200 ? `${markerPositionText.substring(0, 200)}...` : markerPositionText : null;
                     return (
-                        <Marker key={index} position={[markerPosition.latitude, markerPosition.longitude]}>
+                        <Marker key={markerPosition.id} position={[markerPosition.latitude, markerPosition.longitude]}>
                             {markerPosition.title && (
                                 <Popup>
                                     <h3>{markerPosition.title}</h3>

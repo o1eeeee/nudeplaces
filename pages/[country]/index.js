@@ -56,11 +56,11 @@ export default function Country({ country, locations }) {
                 <h1>
                     {country.name}
                 </h1>
-                {filteredLocations.length > 0 
+                {filteredLocations.length > 0
                     ? <p>Showing {filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {country.name}.{isMapLimited && <> Please use filters or zoom into the map to see more.</>}</p>
                     : <p>No nude places found in this area. Zoom out of the map or remove filters to see more.</p>
                 }
-                
+
                 <ul className={styles.regionsList}>
                     {regions.map((region) => (
                         <li key={region}>
@@ -108,7 +108,12 @@ export async function getStaticProps({ params }) {
         .orderBy('seoName')
         .limit(config.FETCH_LOCATIONS_LIMIT)
         .get().then((snapshot) => {
-            return snapshot.docs.map(doc => doc.data())
+            return snapshot.docs.map(doc => {
+                return ({
+                    "id": doc.id,
+                    ...doc.data()
+                })
+            })
         })
         .catch((error) => {
             console.log("Error getting location data: ", error);
@@ -156,6 +161,7 @@ function buildCountryLocationsMarkerPositions(locations, country) {
 
     locations.map((location) => {
         markerPositions.push({
+            id: location.id,
             latitude: location.latitude,
             longitude: location.longitude,
             title: location.title,
