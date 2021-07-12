@@ -3,8 +3,10 @@ import { useMapContext } from '../context/MapProvider';
 import getLocationTypes from '../lib/locationTypes';
 import initFirebase from '../lib/firebase';
 import styles from '../styles/components/AddLocationForm.module.css'
+import { useLanguageContext } from '../context/LanguageProvider';
 
 export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSubmitted }) {
+    const { dictionary } = useLanguageContext();
     const { draggableMarkerPosition } = useMapContext();
     const [values, setValues] = useState({
         title: "",
@@ -39,31 +41,31 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
 
         // Position
         if (!lat || !lng || (lat.toFixed(6) == "51.165691" && lng.toFixed(6) == "10.451526")) {
-            errors.position = "Please drag the marker to the position of the nude place.";
+            errors.position = dictionary("addLocationFormValidatePosition");
         }
 
         // Title
         if (!values.title) {
-            errors.title = "Title required";
+            errors.title = dictionary("addLocationFormValidateTitleRequired");
         }
         if (values.title.length > 100) {
-            errors.title = "Title should be 100 characters or less.";
+            errors.title = dictionary("addLocationFormValidateTitleLength");
         }
 
         // Type
         if (!values.type) {
-            errors.type = "Type required";
+            errors.type = dictionary("addLocationFormValidateTypeRequired");
         }
 
         // Text
         if (values.description && values.description.length > 1000) {
-            errors.description = "Description should be 1000 characters or less."
+            errors.description = dictionary("addLocationFormValidateDescriptionLength");
         }
 
         // URL
         const urlRegex = new RegExp(regexPatterns.url);
         if (values.url && !urlRegex.test(values.url)) {
-            errors.url = "The website url is invalid."
+            errors.url = dictionary("addLocationFormValidateUrlInvalid");
         }
 
         return errors;
@@ -149,25 +151,25 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
         <form className={styles.form} onSubmit={handleSubmit}>            
             <p className={styles.dragMarkerOnMapInfo}>
                 <span className="icon-info"></span>
-                <span>Drag the marker to the nude place on the map. Please try to find the exact position.</span>
+                <span>{dictionary("addLocationFormPositionInfo")}</span>
             </p>
             <div className={styles.formGroup}>
                 <label>
-                    <span>Position</span>
+                    <span>{dictionary("addLocationFormPositionLabel")}</span>
                     <p>{`${draggableMarkerPosition.latitude.toFixed(6)}, ${draggableMarkerPosition.longitude.toFixed(6)}`}</p>
                 </label>
                 {errors.position && <p>{errors.position}</p>}
             </div>            
             <div className={styles.formGroup}>
                 <label className={styles.required}>
-                    <span>Title</span>
-                    <input type="text" name="title" placeholder="Name of the lake, beach section, ..." value={values.title} onChange={handleChange} maxLength="100" required />
+                    <span>{dictionary("addLocationFormTitleLabel")}</span>
+                    <input type="text" name="title" placeholder={dictionary("addLocationFormTitlePlaceholder")} value={values.title} onChange={handleChange} maxLength="100" required />
                 </label>
                 {errors.title && <p>{errors.title}</p>}
             </div>
             <div className={styles.formGroup}>
                 <label className={styles.required}>
-                    <span>Type</span>
+                    <span>{dictionary("addLocationFormTypeLabel")}</span>
                     <select name="type" value={values.type} onChange={handleChange} required>
                         <option key={locationTypes.length} value=""></option>
                         {locationTypes.map((locationType, index) => (
@@ -179,22 +181,22 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
             </div>
             <div className={styles.formGroup}>
                 <label>
-                    <span>Description
+                    <span>{dictionary("addLocationFormDescriptionLabel")}
                         <span className={styles.charCounter}>({values.description ? values.description.length : 0}/1000)</span>
                     </span>
-                    <textarea name="description" placeholder="Directions, opening hours, entrance fees, ..." value={values.description} onChange={handleChange} rows="7" maxLength="1000" />
+                    <textarea name="description" placeholder={dictionary("addLocationFormDescriptionPlaceholder")} value={values.description} onChange={handleChange} rows="7" maxLength="1000" />
                 </label>
                 {errors.text && <p>{errors.text}</p>}
             </div>
             <div className={styles.formGroup}>
                 <label>
-                    <span>Website</span>
-                    <input type="text" name="url" placeholder="https://..." value={values.url} onChange={handleChange} pattern={regexPatterns.url} maxLength="2048" />
+                    <span>{dictionary("addLocationFormUrlLabel")}</span>
+                    <input type="text" name="url" placeholder={dictionary("addLocationFormUrlPlaceholder")} value={values.url} onChange={handleChange} pattern={regexPatterns.url} maxLength="2048" />
                 </label>
                 {errors.url && <p>{errors.url}</p>}
             </div>
-            {Object.keys(errors).length > 0 && <p className={styles.errorsWarning}>An error occurred when submitting the form. Please check your input and try again.</p>}
-            <input type="submit" value="Submit Nude Place" />
+            {Object.keys(errors).length > 0 && <p className={styles.errorsWarning}>{dictionary("addLocationFormErrorsWarning")}</p>}
+            <input type="submit" value={dictionary("addLocationFormSubmit")} />
         </form>
     )
 }

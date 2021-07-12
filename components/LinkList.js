@@ -1,15 +1,16 @@
 import Link from 'next/link';
+import { useLanguageContext } from '../context/LanguageProvider';
 import styles from '../styles/components/LinkList.module.css';
 
 export default function LinkList({ listItems }) {
-    const externalLinkWarningText = "You are about to leave this website. We are not responsible for the content of any linked external website. Please note that these websites' privacy policies and security practices may differ from this website's standards. Do you wish to continue?"
+    const { dictionary } = useLanguageContext();
 
     function handleClickExternalLink(e, href) {
         let el = e.currentTarget;
         let currentHref = el.getAttribute('href');
         if (!currentHref || currentHref != href) {
             e.preventDefault()
-            let confirm = window.confirm(externalLinkWarningText);
+            let confirm = window.confirm(dictionary("externalLinkWarningText"));
             if (!confirm) {
                 return;
             }

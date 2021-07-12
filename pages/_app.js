@@ -6,6 +6,7 @@ import LoaderContainer from '../components/LoaderContainer';
 import '../styles/globals.css'
 import '../styles/fonts/nudeplaces/style.css'
 import NProgress from 'nprogress';
+import { LanguageProvider } from '../context/LanguageProvider';
 
 NProgress.configure({ showSpinner: false });
 
@@ -44,7 +45,7 @@ export default function MyApp({ Component, pageProps }) {
         <meta name="theme-color" content="#1de9b6" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <link rel="manifest" href="manifest.json" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" href="/icons/icon-72x72.png" type="image/png" sizes="72x72" />
@@ -64,12 +65,14 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="apple-touch-startup-image" href="/icons/launch-1668x2224.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)" />
         <link rel="apple-touch-startup-image" href="/icons/launch-2048x2732.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)" />
       </Head>
-      <MapProvider>
-        <div className={"appWrapper"}>
-          <Component {...pageProps} />
-          {showMap && <Map />}
-        </div>
-      </MapProvider>
+      <LanguageProvider>
+        <MapProvider>
+          <div className={"appWrapper"}>
+            <Component {...pageProps} />
+            {showMap && <Map />}
+          </div>
+        </MapProvider>
+      </LanguageProvider>
     </>
   )
 }

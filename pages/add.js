@@ -5,8 +5,10 @@ import Loader from '../components/Loader';
 import styles from '../styles/AddLocation.module.css';
 import { useMapContext } from '../context/MapProvider';
 import AddLocationForm from '../components/AddLocationForm';
+import { useLanguageContext } from '../context/LanguageProvider';
 
 export default function AddLocation() {
+    const { dictionary } = useLanguageContext();
     const { mapPosition, setDraggableMarkerPosition, setMarkerPositions } = useMapContext();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -22,8 +24,8 @@ export default function AddLocation() {
 
     const SuccessContainer = () => (
         <div className={styles.successContainer}>
-            <p>Thank you for submitting a nude place! Your submission will be checked by our moderators before getting published. Please allow 1-2 days for it to show up on the website.</p>
-            <button type="button" onClick={() => setIsSubmitted(false)}>Add Another Nude Place</button>
+            <p>{dictionary("addLocationSuccessText")}</p>
+            <button type="button" onClick={() => setIsSubmitted(false)}>{dictionary("addLocationSuccessButton")}</button>
         </div>
     );
 
@@ -35,7 +37,7 @@ export default function AddLocation() {
             {isSubmitting && <div className={styles.loaderContainer}><Loader /></div>}
             <Layout>
                 <h1>
-                    Add Nude Place
+                    {dictionary("addLocationTitle")}
                 </h1>
                 {isSubmitted ? <SuccessContainer /> : <AddLocationForm isSubmitting={isSubmitting} setIsSubmitting={setIsSubmitting} setIsSubmitted={setIsSubmitted} />}
             </Layout>

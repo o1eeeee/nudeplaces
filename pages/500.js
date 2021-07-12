@@ -1,13 +1,13 @@
 import Layout from "../components/Layout"
+import { useLanguageContext } from "../context/LanguageProvider"
 
 export default function Custom500() {
+    const { dictionary } = useLanguageContext();
 
     return (
         <Layout>
-            <h1>
-                500 - Internal Server Error
-            </h1>
-            <p>An error occurred when processing your request. Please try again later.</p>
+            <h1>{dictionary("500pageTitle")}</h1>
+            <p>{dictionary("500pageText")}</p>
         </Layout>
     )
 }

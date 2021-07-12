@@ -1,12 +1,14 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useLanguageContext } from '../context/LanguageProvider';
 import styles from '../styles/About.module.css';
 
 export default function About() {
+    const { dictionary } = useLanguageContext();
 
     const BackToHomepageLink = () => (
         <Link href={'/'}>
-            <a className={styles.backToHomepageLink}>&larr; back to homepage</a>
+            <a className={styles.backToHomepageLink}>&larr; {dictionary("aboutBackToHomepage")}</a>
         </Link>
     );
 

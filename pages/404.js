@@ -1,13 +1,13 @@
 import Layout from "../components/Layout"
+import { useLanguageContext } from "../context/LanguageProvider";
 
 export default function Custom404() {
+    const { dictionary } = useLanguageContext();
 
     return (
         <Layout>
-            <h1>
-                404 - Page Not Found
-            </h1>
-            <p>The page you requested does not exist. Please go back to the start page.</p>
+            <h1>{dictionary("404pageTitle")}</h1>
+            <p>{dictionary("404pageText")}</p>
         </Layout>
     )
 }

@@ -2,8 +2,10 @@ import { config } from '../lib/config';
 import { buildLocationInfo, buildLocationStreetAndHouseNr, buildLocationPostcodeAndMunicipality, buildLocationRegionAndCountry, buildLocationLastUpdatedDate } from '../lib/locations';
 import LinkList from '../components/LinkList';
 import styles from '../styles/components/LocationInfoList.module.css';
+import { useLanguageContext } from '../context/LanguageProvider';
 
 export default function LocationInfoList({ location, country }) {
+    const { dictionary } = useLanguageContext();
     const locationInfo = buildLocationInfo(location);
     const locationStreetAndHouseNr = buildLocationStreetAndHouseNr(location);
     const locationPostcodeAndMunicipality = buildLocationPostcodeAndMunicipality(location);
@@ -39,7 +41,7 @@ export default function LocationInfoList({ location, country }) {
 
     return (
         <dl className={styles.locationInfoList}>
-            <dt>Location Info</dt>
+            <dt>{dictionary("locationInfoListLabel")}</dt>
             <dd>
                 <div>
                     {locationInfo && <p>{locationInfo}</p>}
@@ -48,17 +50,17 @@ export default function LocationInfoList({ location, country }) {
                     <p>{locationRegionAndCountry}</p>
                 </div>
             </dd>
-            <dt>Show on Map</dt>
+            <dt>{dictionary("locationInfoListShowOnMap")}</dt>
             <dd>
                 <LinkList listItems={mapLinks} />
             </dd>
             {(websiteLinks.length > 0) && (
                 <>
-                    <dt>Website</dt>
+                    <dt>{dictionary("locationInfoListWebsite")}</dt>
                     <dd><LinkList listItems={websiteLinks} /></dd>
                 </>
             )}
-            <dt>Last updated</dt>
+            <dt>{dictionary("locationInfoListLastUpdated")}</dt>
             <dd><p>{buildLocationLastUpdatedDate(location)}</p></dd>
         </dl>
     )

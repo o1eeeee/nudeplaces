@@ -5,8 +5,9 @@ import Loader from '../components/Loader';
 import { getCountries, detectCountryFromLanguage } from '../lib/countries';
 import styles from '../styles/Home.module.css';
 import AboutLink from '../components/AboutLink';
+import { config } from '../lib/config';
 
-export default function Home() {
+export default function Home() {  
   const router = useRouter();
   const countries = getCountries();
 

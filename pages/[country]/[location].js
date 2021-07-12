@@ -10,8 +10,10 @@ import LocationInfoList from '../../components/LocationInfoList';
 import CopyToClipboardButton from '../../components/CopyToClipboardButton';
 import ReportLocationButton from '../../components/ReportLocationButton';
 import styles from '../../styles/Location.module.css';
+import { useLanguageContext } from '../../context/LanguageProvider';
 
 export default function Location({ location, country }) {
+    const { dictionary } = useLanguageContext();
     const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
 
     useEffect(() => {
@@ -40,9 +42,7 @@ export default function Location({ location, country }) {
                 <p className={styles.locationDescription}>{location.text}</p>
                 <p className={styles.disclaimer}>
                     <span className="icon-info"></span>
-                    <span className={styles.disclaimerText}>Please note that we cannot guarantee the information to be correct and up-to-date.
-                        Make sure to confirm it before planning your trip.
-                        You can help us by reporting any incorrect or outdated information.</span>
+                    <span className={styles.disclaimerText}>{dictionary("locationInfoDisclaimer")}</span>
                 </p>                
                 <LocationInfoList location={location} country={country} />
                 <div className={styles.buttonsContainer}>

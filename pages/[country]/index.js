@@ -8,8 +8,10 @@ import Layout from '../../components/Layout';
 import FilterBar from '../../components/FilterBar';
 import { useMapContext } from '../../context/MapProvider';
 import styles from '../../styles/Country.module.css';
+import { useLanguageContext } from '../../context/LanguageProvider';
 
 export default function Country({ country, locations }) {
+    const { dictionary } = useLanguageContext();
     const { bounds, setMapPosition, setMarkerPositions, setZoom } = useMapContext();
     const [filteredLocations, setFilteredLocations] = useState(locations);
     const [locationTypeFilter, setLocationTypeFilter] = useState([]);
@@ -57,8 +59,8 @@ export default function Country({ country, locations }) {
                     {country.name}
                 </h1>
                 {filteredLocations.length > 0
-                    ? <p>Showing {filteredLocations.length} nude place{filteredLocations.length != 1 && <>s</>} in {country.name}.{isMapLimited && <> Please use filters or zoom into the map to see more.</>}</p>
-                    : <p>No nude places found in this area. Zoom out of the map or remove filters to see more.</p>
+                    ? <p>{dictionary("countryShowingLocationsCount")} {filteredLocations.length} {filteredLocations.length > 1 ? <>{dictionary("countryNudePlaces")}</> : <>{dictionary("countryNudePlace")}</>} in {country.name}.{isMapLimited && <> {dictionary("countrySeeMoreLocations")}</>}</p>
+                    : <p>{dictionary("countryNoLocationsFound")}</p>
                 }
 
                 <ul className={styles.regionsList}>
