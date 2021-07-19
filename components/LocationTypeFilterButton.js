@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useLanguageContext } from '../context/LanguageProvider';
 import styles from '../styles/components/LocationTypeFilterButton.module.css';
 
 export default function LocationTypeFilterButton({ type, filter, setFilter }) {
+    const { dictionary } = useLanguageContext();
     const [isActive, setIsActive] = useState(false)
 
     useEffect(() => {
@@ -22,8 +24,8 @@ export default function LocationTypeFilterButton({ type, filter, setFilter }) {
 
     return (
         <button className={styles.locationTypeFilterButton} type="button" onClick={handleClick}>
-            <span className={`icon-${type.value}`}></span>
-            {type.label}
+            <span className={`icon-${type}`}></span>
+            {dictionary(`locationTypeFilter_${type}`)}
             <span className="icon-check-circle" style={{color: `${isActive ? '#2979ff' : '#ddd'}` }}></span>
         </button>
     )

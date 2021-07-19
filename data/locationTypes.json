@@ -1,70 +1,17 @@
 [
-    {
-        "label": "Beach",
-        "value": "beach"
-    },
-    {
-        "label": "Swimming",
-        "value": "swimming"
-    },
-    {
-        "label": "Sauna",
-        "value": "sauna"
-    },
-    {
-        "label": "Resort",
-        "value": "resort"
-    },
-    {
-        "label": "Camp Site",
-        "value": "camp_site"
-    },
-    {
-        "label": "Club",
-        "value": "club"
-    },
-    {
-        "label": "Accommodation",
-        "value": "accommodation"
-    },
-    {
-        "label": "Hot Spring",
-        "value": "hot_spring"
-    },
-    {
-        "label": "Pool",
-        "value": "pool"
-    },
-    {
-        "label": "Swim Time",
-        "value": "swim_time"
-    },
-    {
-        "label": "Thermal Bath",
-        "value": "thermal_bath"
-    },
-    {
-        "label": "Walking",
-        "value": "walking"
-    },
-    {
-        "label": "Tan Only",
-        "value": "tan_only"
-    },
-    {
-        "label": "Parking",
-        "value": "parking"
-    },
-    {
-        "label": "No Nudism Anymore",
-        "value": "no_nudism_anymore"
-    },
-    {
-        "label": "Legacy",
-        "value": "legacy"
-    },
-    {
-        "label": "Undefined",
-        "value": "_undefined_"
-    }
+    "beach",
+    "swimming",
+    "sauna",
+    "resort",
+    "camp_site",
+    "club",
+    "accommodation",
+    "hot_spring",
+    "pool",
+    "thermal_bath",
+    "walking",
+    "tan_only",
+    "no_nudism_anymore",
+    "legacy",
+    "_undefined_"
 ]
