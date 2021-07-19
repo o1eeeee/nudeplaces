@@ -172,8 +172,8 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
                     <span>{dictionary("addLocationFormTypeLabel")}</span>
                     <select name="type" value={values.type} onChange={handleChange} required>
                         <option key={locationTypes.length} value=""></option>
-                        {locationTypes.map((locationType, index) => (
-                            <option key={index} value={locationType.value}>{locationType.label}</option>
+                        {locationTypes.map((locationType) => (
+                            <option key={locationType} value={locationType}>{dictionary(`locationTypeFilter_${locationType}`)}</option>
                         ))}
                     </select>
                 </label>
