@@ -12,12 +12,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
     height: 48px;
     padding: 1rem;
     margin: 0 0 35px 1rem;
-    border-radius: 50%;    
-    font-size: 1.2rem;
+    border-radius: 24px;   
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; 
+    font-size: 1rem;
     font-weight: 500;
     text-align: center;
     color: black!important;
@@ -27,4 +27,19 @@
 
 .addButton:hover, .addButton:focus {
     background-color: #4aedc4;
+}
+
+.addButton > span[class^="icon-"] {
+    font-size: 1.2rem;
+}
+
+.addButtonText {
+    display: none;
+    margin-left: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .addButtonText {
+        display: inline;
+    }
 }
