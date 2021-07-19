@@ -8,12 +8,12 @@ export default function LocationTypeFilterButton({ type, filter, setFilter }) {
 
     useEffect(() => {
         const newFilter = [...filter];
-        const index = newFilter.indexOf(type.value);
+        const index = newFilter.indexOf(type);
         if ((index > -1) && !isActive) {
             newFilter.splice(index, 1);
         }
         if ((index === -1) && isActive) {
-            newFilter.push(type.value);
+            newFilter.push(type);
         }
         setFilter(newFilter)
     }, [isActive])
