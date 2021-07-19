@@ -9,11 +9,15 @@ export default function FilterBar({ locationTypeFilter, setLocationTypeFilter })
     return (
         <div className={styles.filterBar}>
             <Swiper slidesPerView="auto" spaceBetween={18}>
-                {locationTypes.map((type, index) => (
-                    <SwiperSlide key={index}>
+                {locationTypes.map((type, index) => {
+                    if (type == "_undefined_") {
+                        return <></>
+                    }
+                    return (
+                    <SwiperSlide key={type}>
                         <LocationTypeFilterButton filter={locationTypeFilter} setFilter={setLocationTypeFilter} type={type} />
                     </SwiperSlide>
-                ))}
+                )})}
             </Swiper>
         </div>
     )
