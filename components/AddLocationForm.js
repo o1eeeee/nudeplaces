@@ -14,7 +14,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
         type: "",
         url: "",
     });
-    const [errors, setErrors] = useState({});    
+    const [errors, setErrors] = useState({});
     const locationTypes = getLocationTypes();
     const regexPatterns = {
         url: "https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}"
@@ -148,7 +148,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
     }, [errors])
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>            
+        <form className={styles.form} onSubmit={handleSubmit}>
             <p className={styles.dragMarkerOnMapInfo}>
                 <span className="icon-info"></span>
                 <span>{dictionary("addLocationFormPositionInfo")}</span>
@@ -159,7 +159,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
                     <p>{`${draggableMarkerPosition.latitude.toFixed(6)}, ${draggableMarkerPosition.longitude.toFixed(6)}`}</p>
                 </label>
                 {errors.position && <p>{errors.position}</p>}
-            </div>            
+            </div>
             <div className={styles.formGroup}>
                 <label className={styles.required}>
                     <span>{dictionary("addLocationFormTitleLabel")}</span>
@@ -172,9 +172,13 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
                     <span>{dictionary("addLocationFormTypeLabel")}</span>
                     <select name="type" value={values.type} onChange={handleChange} required>
                         <option key={locationTypes.length} value=""></option>
-                        {locationTypes.map((locationType) => (
-                            <option key={locationType} value={locationType}>{dictionary(`locationTypeFilter_${locationType}`)}</option>
-                        ))}
+                        {locationTypes.map((locationType) => {
+                            if (!["legacy", "no_nudism_anymore", "_undefined_"].includes(locationType)) {
+                                return (
+                                    <option key={locationType} value={locationType}>{dictionary(`locationTypeFilter_${locationType}`)}</option>
+                                )
+                            }
+                        })}
                     </select>
                 </label>
                 {errors.type && <p>{errors.type}</p>}
