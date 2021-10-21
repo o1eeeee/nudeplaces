@@ -15,6 +15,8 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
         url: "",
     });
     const [errors, setErrors] = useState({});
+    const [isInitialized, setIsInitialized] = useState(false);
+    const [allowSubmit, setAllowSubmit] = useState(false);
     const locationTypes = getLocationTypes();
     const regexPatterns = {
         url: "https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}"
@@ -40,7 +42,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
         const lng = draggableMarkerPosition.longitude;
 
         // Position
-        if (!lat || !lng || (lat.toFixed(6) == "51.165691" && lng.toFixed(6) == "10.451526")) {
+        if (!lat || !lng || !allowSubmit) {
             errors.position = dictionary("addLocationFormValidatePosition");
         }
 
@@ -72,6 +74,11 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
     }
 
     useEffect(() => {
+        isInitialized && setAllowSubmit(true);
+        setIsInitialized(true);
+    }, [draggableMarkerPosition])
+
+    useEffect(() => {
         async function performCreate() {
             const dateNow = new Date().toISOString();
             const latitude = draggableMarkerPosition.latitude;
@@ -90,7 +97,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
             }
 
             const uuid = null;
-            const title = !!values.title ? values.title : null;
+            const title = !!values.title ? values.title : "";
             const text = !!values.description ? values.description : null;
             const type = !!values.type ? values.type : null;
             const url = !!values.url ? values.url : null;
@@ -98,7 +105,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
             const postcode = data.address.postcode ?? null;
             const region = data.address.state ?? null;
             const subregion = data.address.county ?? data.address.borough ?? data.address.state_district ?? null;
-            const municipality = data.address.city ?? data.address.town ?? data.address.municipality ?? data.address.village ?? data.address.city_district ?? subregion;
+            const municipality = data.address.city ?? data.address.town ?? data.address.municipality ?? data.address.village ?? data.address.city_district ?? subregion ?? region ?? country;
             const neighbourhood = data.address.suburb ?? null;
             const street = data.address.road ?? null;
             const housenumber = data.address.house_number ?? null;
