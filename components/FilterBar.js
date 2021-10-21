@@ -7,7 +7,6 @@ import React from 'react';
 
 function FilterBar({ locationTypeFilter, setLocationTypeFilter }) {
     const locationTypes = getLocationTypes();
-    console.log("Filter Bar rendered")
     return (
         <div className={styles.filterBar}>
             <Swiper slidesPerView="auto" spaceBetween={18}>
