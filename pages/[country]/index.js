@@ -10,41 +10,43 @@ import { useMapContext } from '../../context/MapProvider';
 import styles from '../../styles/Country.module.css';
 import { useLanguageContext } from '../../context/LanguageProvider';
 
-export default function Country({ country, locations }) {
-    const { dictionary } = useLanguageContext();
-    const { bounds, setMapPosition, setMarkerPositions, setZoom } = useMapContext();
+const useCountry = (locations) => {
+    const { bounds, setMarkerPositions } = useMapContext();
     const [filteredLocations, setFilteredLocations] = useState(locations);
     const [locationTypeFilter, setLocationTypeFilter] = useState([]);
-    const [isMapLimited, setIsMapLimited] = useState(false);
-    let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations, country);
-
-    useEffect(() => {
-        setMapPosition({
-            latitude: country.latitude,
-            longitude: country.longitude
-        });
-
-        // zoom out one level on small devices
-        const initZoom = country.zoom;
-        const isSmallDevice = document.documentElement.clientWidth < config.BREAKPOINT_MD_IN_PX;
-        const zoom = initZoom ? (isSmallDevice ? (initZoom - 1) : initZoom) : config.MAP_DEFAULT_ZOOM_COUNTRY;
-        setZoom(zoom);
-    }, [country])
 
     useEffect(() => {
         const locationsInBounds = bounds ? getLocationsInBounds(locations, bounds) : locations;
         const typeFilteredLocations = (locationTypeFilter.length > 0) ? locationsInBounds.filter((location) => locationTypeFilter.includes(location.type)) : locationsInBounds;
         setFilteredLocations(typeFilteredLocations);
 
-        const markerPositions = buildCountryLocationsMarkerPositions(typeFilteredLocations, country);
-        if (markerPositions.length > config.MAP_MARKER_LIMIT) {
-            setMarkerPositions(markerPositions.slice(0, config.MAP_MARKER_LIMIT));
-            setIsMapLimited(true);
-        } else {
-            setMarkerPositions(markerPositions);
-            setIsMapLimited(false);
+        const markerPositions = buildCountryLocationsMarkerPositions(typeFilteredLocations);
+        setMarkerPositions(markerPositions);
+    }, [bounds, locations, JSON.stringify(locationTypeFilter)])
+
+    return { filteredLocations, locationTypeFilter, setLocationTypeFilter }
+}
+
+export default function Country({ country, locations }) {
+    const { dictionary } = useLanguageContext();
+    const { filteredLocations, locationTypeFilter, setLocationTypeFilter } = useCountry(locations);
+    let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations, country);
+    const { setMapPosition, setZoom } = useMapContext();
+
+    useEffect(() => {
+        if (country) {
+            setMapPosition({
+                latitude: country.latitude,
+                longitude: country.longitude
+            });
+
+            // zoom out one level on small devices
+            const initZoom = country.zoom;
+            const isSmallDevice = document.documentElement.clientWidth < config.BREAKPOINT_MD_IN_PX;
+            const zoom = initZoom ? (isSmallDevice ? (initZoom - 1) : initZoom) : config.MAP_DEFAULT_ZOOM_COUNTRY;
+            setZoom(zoom);
         }
-    }, [bounds, country, locations, JSON.stringify(locationTypeFilter)])
+    }, [country])
 
     return (
         <>
@@ -59,7 +61,7 @@ export default function Country({ country, locations }) {
                     {country.name}
                 </h1>
                 {filteredLocations.length > 0
-                    ? <p>{dictionary("countryShowingLocationsCount")} {filteredLocations.length} {filteredLocations.length > 1 ? <>{dictionary("countryNudePlaces")}</> : <>{dictionary("countryNudePlace")}</>} in {country.name}.{isMapLimited && <> {dictionary("countrySeeMoreLocations")}</>}</p>
+                    ? <p>{dictionary("countryShowingLocationsCount")} {filteredLocations.length} {filteredLocations.length > 1 ? <>{dictionary("countryNudePlaces")}</> : <>{dictionary("countryNudePlace")}</>} in {country.name}.</p>
                     : <p>{dictionary("countryNoLocationsFound")}</p>
                 }
 
@@ -79,7 +81,7 @@ export default function Country({ country, locations }) {
 export async function getStaticProps({ params }) {
     if (process.env.NODE_ENV === 'development') {
         if (config.ENABLE_DEV_MODE) {
-            const props = require('../../dev/countries/staticProps.json');
+            const props = require(`../../dev/countries/${params.country}/staticProps.json`);
             const countries = getCountries();
             const country = countries.filter(country => country.urlName === params.country);
 
@@ -158,7 +160,7 @@ function getTitleString(country) {
 }
 
 
-function buildCountryLocationsMarkerPositions(locations, country) {
+function buildCountryLocationsMarkerPositions(locations) {
     const markerPositions = [];
 
     locations.map((location) => {
@@ -168,7 +170,7 @@ function buildCountryLocationsMarkerPositions(locations, country) {
             longitude: location.longitude,
             title: location.title,
             text: location.text,
-            url: buildLocationUrl(location, country)
+            seoName: location.seoName,
         })
     })
 
@@ -177,7 +179,7 @@ function buildCountryLocationsMarkerPositions(locations, country) {
 
 
 function buildLocationUrl(location, country) {
-    return `/${encodeURIComponent(country.urlName)}/${encodeURIComponent(location.seoName)}`;
+    return `${encodeURIComponent(country.urlName)}/${encodeURIComponent(location.seoName)}`;
 }
 
 
