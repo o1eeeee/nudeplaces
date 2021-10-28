@@ -42,7 +42,7 @@ export default function Map() {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 <ZoomControl position="bottomright" />
-                <MarkerClusterGroup maxClusterRadius={40}>
+                <MarkerClusterGroup maxClusterRadius={40} showCoverageOnHover={false}>
                 {markerPositions.map((markerPosition, index) => {
                     if (markerPosition.isDraggable === true) {
                         return (
