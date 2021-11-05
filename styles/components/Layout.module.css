@@ -11,6 +11,18 @@
     }
 }
 
+@media (min-width: 1200px) {
+    .main {
+        width: 420px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .main {
+        width: 480px;
+    }
+}
+
 .aboutLinkContainer {
     display: flex;
     justify-content: center;

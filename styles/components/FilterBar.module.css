@@ -15,3 +15,15 @@
         left: 375px;
     }
 }
+
+@media (min-width: 1200px) {
+    .filterBar {
+        left: 420px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .filterBar {
+        left: 480px;
+    }
+}

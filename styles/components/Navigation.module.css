@@ -17,6 +17,18 @@
     }
 }
 
+@media (min-width: 1200px) {
+    .navigation {
+        width: 420px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .navigation {
+        width: 480px;
+    }
+}
+
 .backButton {
     border: 0;
     outline: 0;
