@@ -7,20 +7,8 @@ import '../styles/globals.css'
 import '../styles/fonts/nudeplaces/style.css'
 import NProgress from 'nprogress';
 import { LanguageProvider } from '../context/LanguageProvider';
-
-NProgress.configure({ showSpinner: false });
-
-Router.onRouteChangeStart = () => {
-  NProgress.start()
-};
-
-Router.onRouteChangeComplete = () => {
-  NProgress.done();
-};
-
-Router.onRouteChangeError = () => {
-  NProgress.done();
-};
+import { useState } from 'react';
+import { HistoryProvider } from '../context/HistoryProvider';
 
 const Map = dynamic(
   () => import('../components/Map'),
@@ -34,6 +22,23 @@ const Map = dynamic(
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  const [previousPath, setPreviousPath] = useState(null);
+
+  NProgress.configure({ showSpinner: false });
+
+  Router.onRouteChangeStart = () => {
+    NProgress.start()
+  };
+
+  Router.onRouteChangeComplete = () => {
+    NProgress.done();
+    setPreviousPath(router.pathname)
+  };
+
+  Router.onRouteChangeError = () => {
+    NProgress.done();
+  };
+
   const showMap = !(['/', '/about'].includes(router.pathname));
   return (
     <>
@@ -65,14 +70,16 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="apple-touch-startup-image" href="/icons/launch-1668x2224.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)" />
         <link rel="apple-touch-startup-image" href="/icons/launch-2048x2732.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)" />
       </Head>
-      <LanguageProvider>
-        <MapProvider>
-          <div className={"appWrapper"}>
-            <Component {...pageProps} />
-            {showMap && <Map />}
-          </div>
-        </MapProvider>
-      </LanguageProvider>
+      <HistoryProvider previousPath={previousPath}>
+        <LanguageProvider>
+          <MapProvider>
+            <div className={"appWrapper"}>
+              <Component {...pageProps} />
+              {showMap && <Map />}
+            </div>
+          </MapProvider>
+        </LanguageProvider>
+      </HistoryProvider>
     </>
   )
 }

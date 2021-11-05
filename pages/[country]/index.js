@@ -9,6 +9,7 @@ import FilterBar from '../../components/FilterBar';
 import { useMapContext } from '../../context/MapProvider';
 import styles from '../../styles/Country.module.css';
 import { useLanguageContext } from '../../context/LanguageProvider';
+import { useHistoryContext } from '../../context/HistoryProvider';
 
 const useCountry = (locations) => {
     const { bounds, setMarkerPositions } = useMapContext();
@@ -28,6 +29,7 @@ const useCountry = (locations) => {
 }
 
 export default function Country({ country, locations }) {
+    const { previousPath, previousMapPosition, setPreviousMapPosition, previousZoom, setPreviousZoom } = useHistoryContext();
     const { dictionary } = useLanguageContext();
     const { filteredLocations, locationTypeFilter, setLocationTypeFilter } = useCountry(locations);
     let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations, country);
@@ -35,16 +37,24 @@ export default function Country({ country, locations }) {
 
     useEffect(() => {
         if (country) {
-            setMapPosition({
-                latitude: country.latitude,
-                longitude: country.longitude
-            });
+            if (previousPath === "/[country]/[location]") {
+                setMapPosition(previousMapPosition);
+                setZoom(previousZoom);
+            } else {
+                let mapPosition = {
+                    latitude: country.latitude,
+                    longitude: country.longitude
+                }
+                setMapPosition(mapPosition);
+                setPreviousMapPosition(mapPosition);
 
-            // zoom out one level on small devices
-            const initZoom = country.zoom;
-            const isSmallDevice = document.documentElement.clientWidth < config.BREAKPOINT_MD_IN_PX;
-            const zoom = initZoom ? (isSmallDevice ? (initZoom - 1) : initZoom) : config.MAP_DEFAULT_ZOOM_COUNTRY;
-            setZoom(zoom);
+                // zoom out one level on small devices
+                const initZoom = country.zoom;
+                const isSmallDevice = document.documentElement.clientWidth < config.BREAKPOINT_MD_IN_PX;
+                const zoom = initZoom ? (isSmallDevice ? (initZoom - 1) : initZoom) : config.MAP_DEFAULT_ZOOM_COUNTRY;
+                setZoom(zoom);
+                setPreviousZoom(zoom);
+            }
         }
     }, [country])
 

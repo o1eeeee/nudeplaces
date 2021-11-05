@@ -13,14 +13,23 @@ import { useMapContext } from '../context/MapProvider';
 import styles from '../styles/components/Map.module.css';
 import { useRouter } from 'next/router';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
+import { useHistoryContext } from '../context/HistoryProvider';
 
 export default function Map() {
     const { query } = useRouter();
     const { mapPosition, markerPositions, zoom, setBounds } = useMapContext();
     const [map, setMap] = useState(null);
+    const { previousPath, setPreviousMapPosition, setPreviousZoom } = useHistoryContext();
 
     function MapBounds() {
         const map = useMapEvent('moveend', () => {
+            if (previousPath !== "/[country]/[location]") {
+                setPreviousMapPosition({
+                    latitude: map.getCenter().lat,
+                    longitude: map.getCenter().lng
+                })
+                setPreviousZoom(map.getZoom())
+            }
             setBounds(map.getBounds())
         })
         return null
@@ -43,38 +52,38 @@ export default function Map() {
                 />
                 <ZoomControl position="bottomright" />
                 <MarkerClusterGroup maxClusterRadius={40} showCoverageOnHover={false}>
-                {markerPositions.map((markerPosition, index) => {
-                    if (markerPosition.isDraggable === true) {
+                    {markerPositions.map((markerPosition, index) => {
+                        if (markerPosition.isDraggable === true) {
+                            return (
+                                <DraggableMarker key={index} />
+                            );
+                        }
+                        const markerPositionText = markerPosition.text;
+                        const popupText = markerPositionText ? markerPositionText.length > 200 ? `${markerPositionText.substring(0, 200)}...` : markerPositionText : null;
                         return (
-                            <DraggableMarker key={index} />
-                        );
+                            <Marker key={markerPosition.id} position={[markerPosition.latitude, markerPosition.longitude]}>
+                                {markerPosition.title && (
+                                    <Popup>
+                                        <h3>{markerPosition.title}</h3>
+                                        {popupText && <p>{popupText}</p>}
+                                        {markerPosition.seoName && (
+                                            <Link href={{
+                                                pathname: '/[country]/[location]',
+                                                query: {
+                                                    country: query.country,
+                                                    location: markerPosition.seoName,
+                                                }
+                                            }}>
+                                                <a>Read more...</a>
+                                            </Link>
+                                        )}
+                                    </Popup>
+                                )
+                                }
+                            </Marker>
+                        )
                     }
-                    const markerPositionText = markerPosition.text;
-                    const popupText = markerPositionText ? markerPositionText.length > 200 ? `${markerPositionText.substring(0, 200)}...` : markerPositionText : null;
-                    return (
-                        <Marker key={markerPosition.id} position={[markerPosition.latitude, markerPosition.longitude]}>
-                            {markerPosition.title && (
-                                <Popup>
-                                    <h3>{markerPosition.title}</h3>
-                                    {popupText && <p>{popupText}</p>}
-                                    {markerPosition.seoName && (
-                                        <Link href={{
-                                            pathname: '/[country]/[location]',
-                                            query: {
-                                                country: query.country,
-                                                location: markerPosition.seoName,
-                                            }
-                                        }}>
-                                            <a>Read more...</a>
-                                        </Link>
-                                    )}
-                                </Popup>
-                            )
-                            }
-                        </Marker>
-                    )
-                }
-                )}
+                    )}
                 </MarkerClusterGroup>
                 <AddLocationButton />
             </MapContainer>
