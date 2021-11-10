@@ -8,7 +8,7 @@ export default function CountrySelect() {
     const { dictionary } = useLanguageContext();
     const countries = getCountries();
     const [value, setValue] = useState("");
-    const [filteredCountries, setFilteredCountries] = useState(countries);
+    const [filteredCountries, setFilteredCountries] = useState([]);
     const [showCountriesList, setShowCountriesList] = useState(false);
     const countrySelectRef = useRef(null);
 
@@ -17,7 +17,7 @@ export default function CountrySelect() {
             .filter((country) => (!value || country.name.toLowerCase().includes(value.toLowerCase()) || country.nativeName.toLowerCase().includes(value.toLowerCase())));
 
         setFilteredCountries(nameFilteredCountries);
-    }, [countries, value])
+    }, [value])
 
     useEffect(() => {
         function handleClickOutside(event) {
