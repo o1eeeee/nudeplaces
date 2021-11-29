@@ -94,7 +94,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
     let locations;
     try {
-        const response = await fetch(`${config.FETCH_URL}/locations`, {
+        const response = await fetch(`${config.FETCH_URL}/locations&_limit=5000`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
