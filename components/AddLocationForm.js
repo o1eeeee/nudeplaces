@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useMapContext } from '../context/MapProvider';
 import getLocationTypes from '../lib/locationTypes';
-import initFirebase from '../lib/firebase';
+import { config } from '../lib/config';
 import styles from '../styles/components/AddLocationForm.module.css'
 import { useLanguageContext } from '../context/LanguageProvider';
+import slugify from 'slugify';
 
 export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSubmitted }) {
     const { dictionary } = useLanguageContext();
@@ -80,7 +81,6 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
 
     useEffect(() => {
         async function performCreate() {
-            const dateNow = new Date().toISOString();
             const latitude = draggableMarkerPosition.latitude;
             const longitude = draggableMarkerPosition.longitude;
             let data;
@@ -96,7 +96,6 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
                 return false;
             }
 
-            const uuid = null;
             const title = !!values.title ? values.title : "";
             const text = !!values.description ? values.description : null;
             const type = !!values.type ? values.type : null;
@@ -109,43 +108,40 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
             const neighbourhood = data.address.suburb ?? null;
             const street = data.address.road ?? null;
             const housenumber = data.address.house_number ?? null;
-            const createDate = dateNow;
-            const modifyDate = createDate;
-            const language = null;
-            const locale = null;
-            const seoName = `${title.replace(/\s/g, "-").replace(/[^A-Za-z0-9-]+/g, "")}-${municipality.replace(" ", "-").replace(/[^A-Za-z0-9-]+/g, "")}`.toLowerCase();
+            const seoName = slugify(`${title}-${municipality}`).toLowerCase();
 
-            let db = await initFirebase()
-            db.collection("locations").add({
-                'UUID': uuid,
-                'title': title,
-                'text': text,
-                'type': type,
-                'url': url,
-                'seoName': seoName,
-                'latitude': latitude,
-                'longitude': longitude,
-                'country': country,
-                'postcode': postcode,
-                'region': region,
-                'subregion': subregion,
-                'municipality': municipality,
-                'neighbourhood': neighbourhood,
-                'street': street,
-                'housenumber': housenumber,
-                'createDate': createDate,
-                'modifyDate': modifyDate,
-                'language': language,
-                'locale': locale,
-                'isPublished': false,
-            }).then((docRef) => {
-                /*console.log("Successfully written with ID: ", docRef.id)*/
+            try {
+                const response = await fetch(`${config.FETCH_URL}/locations`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        isPublished: false,
+                        country: country,
+                        housenumber: housenumber,
+                        latitude: latitude,
+                        longitude: longitude,
+                        municipality: municipality,
+                        neighbourhood: neighbourhood,
+                        postcode: postcode,
+                        region: region,
+                        seoName: seoName,
+                        street: street,
+                        subregion: subregion,
+                        text: text,
+                        title: title,
+                        type: type,
+                        url: url,
+                    }),
+                })
+                const data = await response.json()
                 setIsSubmitted(true);
-            }).catch((error) => {
+            } catch (error) {
                 console.log("Error writing document: ", error)
-            }).finally(() => {
+            } finally {
                 setIsSubmitting(false)
-            })
+            }
         }
         if (Object.keys(errors).length === 0 && isSubmitting) {
             performCreate()

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
-import initFirebase from '../../lib/firebase';
-import { getCountries } from '../../lib/countries';
+import { getCountries, getCountry } from '../../lib/countries';
 import { config } from '../../lib/config';
 import { buildLocationUrl, buildLocationInfo, buildLocationRegionAndCountry } from '../../lib/locations';
 import Layout from '../../components/Layout';
@@ -43,12 +42,12 @@ export default function Location({ location, country }) {
                 <p className={styles.disclaimer}>
                     <span className="icon-info"></span>
                     <span className={styles.disclaimerText}>{dictionary("locationInfoDisclaimer")}</span>
-                </p>                
+                </p>
                 <LocationInfoList location={location} country={country} />
                 <div className={styles.buttonsContainer}>
                     <CopyToClipboardButton value={`${process.env.WEBSITE_URL}${buildLocationUrl(location, country)}`} />
                     <ReportLocationButton locationData={getReportLocationData(location, country)} />
-                </div>       
+                </div>
             </Layout>
         </>
     )
@@ -56,34 +55,28 @@ export default function Location({ location, country }) {
 
 
 export async function getStaticProps({ params }) {
-    if (process.env.NODE_ENV === 'development') {
-        if (config.ENABLE_DEV_MODE) {
-            const props = require('../../dev/locations/staticProps.json');
-            return props;
-        }
+    let location;
+    try {
+        const response = await fetch(`${config.FETCH_URL}/locations?seoName=${params.location}&_limit=1`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        const data = await response.json()
+        location = data[0]
+    } catch (error) {
+        console.log("Error getting location data: ", error);
+        return { notFound: true }
     }
 
-    let db = await initFirebase()
-
-    // Location
-    let locationData = db.collection('locations')
-        .where('seoName', '==', params.location)
-        .limit(1)
-        .get().then((snapshot) => {
-            return snapshot.docs.map(doc => doc.data())
-        })
-        .catch((error) => {
-            console.log("Error getting location data: ", error);
-            return { notFound: true }
-        });
-    const location = await locationData
-    if (!location[0] || location[0].isPublished === false) {
+    if (!location || (location.published_at === null && process.env.NODE_ENV !== 'development')) {
         return { notFound: true }
     }
 
     // Country
     const countries = getCountries();
-    const country = countries.filter((country) => (country.urlName === params.country) && (country.isoCode === location[0].country));
+    const country = countries.filter((country) => (country.urlName === params.country) && (country.isoCode === location.country));
     if (!country[0]) {
         return { notFound: true }
     }
@@ -91,7 +84,7 @@ export async function getStaticProps({ params }) {
     return {
         revalidate: 86400,
         props: {
-            location: location[0],
+            location: location,
             country: country[0]
         }
     }
@@ -99,37 +92,38 @@ export async function getStaticProps({ params }) {
 
 
 export async function getStaticPaths() {
-    if (process.env.NODE_ENV === 'development') {
-        if (config.ENABLE_DEV_MODE) {
-            const paths = require('../../dev/locations/staticPaths.json');
-            return paths;
-        }
+    let locations;
+    try {
+        const response = await fetch(`${config.FETCH_URL}/locations`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        locations = await response.json()
+    } catch (error) {
+        console.log("Error getting location data: ", error);
     }
 
-    let db = await initFirebase()
-
-    // Fetch locations for Germany to be statically generated
-    let locationsData = db.collection('locations')
-        .where('country', "==", config.COUNTRY_CODE_GERMANY)
-        .where('seoName', "!=", null)
-        .limit(config.FETCH_LOCATIONS_LIMIT)
-        .get().then((snapshot) => {
-            return snapshot.docs.map(doc => doc.data())
-        })
-        .catch((error) => {
-            console.log("Error getting location data: ", error);
-        });
-
-    const locations = await locationsData
-
-    const publishedLocations = locations.filter((location) => location.isPublished != false);
-
-    const paths = publishedLocations.map((location) => ({
-        params: {
-            country: config.SEO_NAME_GERMANY,
-            location: location.seoName,
+    const publishedLocations = locations.filter((location) => {
+        if (process.env.NODE_ENV === 'development') {
+            return true;
+        } else {
+            return location.published_at != null;
         }
-    }))
+    });
+
+    const paths = publishedLocations.map((location) => {
+        let country = getCountry(location.country)
+        if (country) {
+            return {
+                params: {
+                    country: country.urlName,
+                    location: location.seoName,
+                }
+            }
+        }
+    })
 
     return {
         paths,

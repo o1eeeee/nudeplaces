@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import LinkList from '../../components/LinkList';
-import initFirebase from '../../lib/firebase';
 import { getCountries, getRegionsForCountry } from '../../lib/countries';
 import { config } from '../../lib/config';
 import Layout from '../../components/Layout';
@@ -89,25 +88,6 @@ export default function Country({ country, locations }) {
 }
 
 export async function getStaticProps({ params }) {
-    if (process.env.NODE_ENV === 'development') {
-        if (config.ENABLE_DEV_MODE) {
-            const props = require(`../../dev/countries/${params.country}/staticProps.json`);
-            const countries = getCountries();
-            const country = countries.filter(country => country.urlName === params.country);
-
-            if (!country[0]) {
-                return { notFound: true }
-            }
-
-            props["props"]["countries"] = countries
-            props["props"]["country"] = country[0]
-
-            return props;
-        }
-    }
-
-    let db = await initFirebase()
-
     // Fetch countries
     const countries = getCountries();
     const country = countries.filter(country => country.urlName === params.country);
@@ -115,27 +95,27 @@ export async function getStaticProps({ params }) {
         return { notFound: true }
     }
 
-    // Fetch locations for country
-    let locationsData = db.collection('locations')
-        .where('country', '==', country[0].isoCode)
-        .where('seoName', '>', '')
-        .orderBy('seoName')
-        .limit(config.FETCH_LOCATIONS_LIMIT)
-        .get().then((snapshot) => {
-            return snapshot.docs.map(doc => {
-                return ({
-                    "id": doc.id,
-                    ...doc.data()
-                })
-            })
+    let locations;
+    try {
+        const response = await fetch(`${config.FETCH_URL}/locations?country=${country[0].isoCode}&_sort=seoName&_limit=2000`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
         })
-        .catch((error) => {
-            console.log("Error getting location data: ", error);
-        });
+        locations = await response.json()
+    } catch (error) {
+        console.log("Error getting location data: ", error);
+        return { notFound: true }
+    }
 
-    const locations = await locationsData
-
-    const publishedLocations = locations.filter((location) => location.isPublished != false);
+    const publishedLocations = locations.filter((location) => {
+        if (process.env.NODE_ENV === 'development') {
+            return true;
+        } else {
+            return location.published_at != null;
+        }
+    });
 
     return {
         revalidate: 86400,
