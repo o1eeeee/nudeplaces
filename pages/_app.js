@@ -9,6 +9,7 @@ import NProgress from 'nprogress';
 import { LanguageProvider } from '../context/LanguageProvider';
 import { useState } from 'react';
 import { HistoryProvider } from '../context/HistoryProvider';
+import { ModalProvider } from '../context/ModalProvider';
 
 const Map = dynamic(
   () => import('../components/Map'),
@@ -74,8 +75,10 @@ export default function MyApp({ Component, pageProps }) {
         <LanguageProvider>
           <MapProvider>
             <div className={"appWrapper"}>
-              <Component {...pageProps} />
-              {showMap && <Map />}
+              <ModalProvider>
+                <Component {...pageProps} />
+                {showMap && <Map />}
+              </ModalProvider>
             </div>
           </MapProvider>
         </LanguageProvider>
