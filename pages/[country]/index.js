@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import LinkList from '../../components/LinkList';
 import { getCountries, getRegionsForCountry } from '../../lib/countries';
 import { config } from '../../lib/config';
 import Layout from '../../components/Layout';
@@ -9,6 +8,7 @@ import { useMapContext } from '../../context/MapProvider';
 import styles from '../../styles/Country.module.css';
 import { useLanguageContext } from '../../context/LanguageProvider';
 import { useHistoryContext } from '../../context/HistoryProvider';
+import LocationList from '../../components/LocationList';
 
 const useCountry = (locations) => {
     const { bounds, setMarkerPositions } = useMapContext();
@@ -78,7 +78,7 @@ export default function Country({ country, locations }) {
                     {regions.map((region) => (
                         <li key={region}>
                             <h2>{region}</h2>
-                            <LinkList listItems={getLocationListItems(locationsByRegion[region], country)} />
+                            <LocationList locations={locationsByRegion[region]} country={country} />
                         </li>
                     ))}
                 </ul>
