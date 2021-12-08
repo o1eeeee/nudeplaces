@@ -28,7 +28,7 @@ const useCountry = (locations) => {
 }
 
 export default function Country({ country, locations }) {
-    const { previousPath, previousMapPosition, setPreviousMapPosition, previousZoom, setPreviousZoom } = useHistoryContext();
+    const { previousCountry, setPreviousCountry, previousPath, previousMapPosition, setPreviousMapPosition, previousZoom, setPreviousZoom } = useHistoryContext();
     const { dictionary } = useLanguageContext();
     const { filteredLocations, locationTypeFilter, setLocationTypeFilter } = useCountry(locations);
     let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations, country);
@@ -36,7 +36,7 @@ export default function Country({ country, locations }) {
 
     useEffect(() => {
         if (country) {
-            if (previousPath === "/[country]/[location]") {
+            if (previousPath === "/[country]/[location]" && country.urlName === previousCountry) {
                 setMapPosition(previousMapPosition);
                 setZoom(previousZoom);
             } else {
@@ -45,6 +45,7 @@ export default function Country({ country, locations }) {
                     longitude: country.longitude
                 }
                 setMapPosition(mapPosition);
+                setPreviousCountry(country.urlName);
                 setPreviousMapPosition(mapPosition);
 
                 // zoom out one level on small devices
