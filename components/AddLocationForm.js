@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useMapContext } from '../context/MapProvider';
 import getLocationTypes from '../lib/locationTypes';
 import { config } from '../lib/config';
-import styles from '../styles/components/AddLocationForm.module.css'
+import styles from '../styles/components/Form.module.css'
 import { useLanguageContext } from '../context/LanguageProvider';
 import slugify from 'slugify';
 
@@ -202,7 +202,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
                 </label>
                 {errors.url && <p>{errors.url}</p>}
             </div>
-            {Object.keys(errors).length > 0 && <p className={styles.errorsWarning}>{dictionary("addLocationFormErrorsWarning")}</p>}
+            {Object.keys(errors).length > 0 && <p className={styles.errorsWarning}>{dictionary("formErrorsWarning")}</p>}
             <input type="submit" value={dictionary("addLocationFormSubmit")} />
         </form>
     )
