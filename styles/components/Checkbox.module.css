@@ -1,0 +1,8 @@
+.checkbox {
+    cursor: pointer;
+}
+
+.checkbox input[type="checkbox"] {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    cursor: pointer;
+}
