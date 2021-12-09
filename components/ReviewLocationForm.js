@@ -1,22 +1,22 @@
 import { useEffect, useState } from 'react';
 import { config } from '../lib/config';
-import styles from '../styles/components/AddLocationForm.module.css'
+import styles from '../styles/components/Form.module.css'
 import { useLanguageContext } from '../context/LanguageProvider';
 import { useModalContext } from '../context/ModalProvider';
+import Checkbox from './Checkbox';
 
-export default function ReviewLocationForm({ location, isSubmitting, setIsSubmitting, setIsSubmitted }) {
+export default function ReviewLocationForm({ location, setIsSubmitted }) {
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const { setIsShown } = useModalContext();
     const { dictionary } = useLanguageContext();
-    const [values, setValues] = useState({
-        details: [],
-    });
+    const [values, setValues] = useState({});
     const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, checked } = e.target;
         setValues({
             ...values,
-            [name]: value,
+            [name]: checked,
         });
     };
 
@@ -30,8 +30,9 @@ export default function ReviewLocationForm({ location, isSubmitting, setIsSubmit
         const errors = {}
 
         // Details
-        values.details.map(detail => {
-            if (!reviewDetails.includes(detail)) {
+        const keys = Object.keys(values)
+        keys.map(key => {
+            if (!reviewDetails.includes(key)) {
                 errors.details = dictionary("addLocationFormValidatePosition");
                 return errors;
             }
@@ -41,35 +42,38 @@ export default function ReviewLocationForm({ location, isSubmitting, setIsSubmit
     }
 
     const reviewDetails = [
-        "clean",
         "accessible",
+        "clean",
+        "friendly",
+        "safe",
     ]
 
     useEffect(() => {
         async function performCreate() {
-            const details = values.details;
             try {
-                const response = await fetch(`${config.FETCH_URL}/locationReviews`, {
+                const response = await fetch(`${config.FETCH_URL}/location-reviews`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        idLocation: location.id,
-                        details: details.join(','),
+                        location: location.id,
+                        details: values,
                     }),
                 })
                 const data = await response.json()
+                setIsSubmitting(false)
                 setIsSubmitted(true);
+                setIsShown(false);
             } catch (error) {
                 console.log("Error writing document: ", error)
-            } finally {
+                setErrors({ error: error })
                 setIsSubmitting(false)
             }
         }
+
         if (Object.keys(errors).length === 0 && isSubmitting) {
             performCreate()
-            setIsShown(false)
         } else {
             setIsSubmitting(false)
         }
@@ -77,16 +81,15 @@ export default function ReviewLocationForm({ location, isSubmitting, setIsSubmit
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
-            <h2>Ort bewerten</h2>
-            <p>Was gefällt dir an diesem Ort besonders?</p>
+            <h2>{dictionary("locationReviewTitle")}</h2>
+            <p>{dictionary("locationReviewSubtitle")}</p>
             {reviewDetails.map(detail => (
                 <div className={styles.formGroupInline} key={detail}>
-                    <input type="checkbox" id={detail} name={detail} value="" />
-                    <label htmlFor={detail}>{detail}</label>
+                    <Checkbox name={detail} label={dictionary(`locationReviewLabel_${detail}`)} value={values[detail] || false} onChange={handleChange} />
                 </div>
             ))}
-            {Object.keys(errors).length > 0 && <p className={styles.errorsWarning}>{dictionary("addLocationFormErrorsWarning")}</p>}
-            <input type="submit" value={dictionary("addLocationFormSubmit")} />
+            {Object.keys(errors).length > 0 && <p className={styles.errorsWarning}>{dictionary("formErrorsWarning")}</p>}
+            <input type="submit" value={dictionary("locationReviewSubmit")} disabled={isSubmitting} />
         </form>
     )
 }

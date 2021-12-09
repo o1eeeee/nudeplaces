@@ -10,6 +10,7 @@ import CopyToClipboardButton from '../../components/CopyToClipboardButton';
 import ReportLocationButton from '../../components/ReportLocationButton';
 import styles from '../../styles/Location.module.css';
 import { useLanguageContext } from '../../context/LanguageProvider';
+import LikeButton from '../../components/LikeButton';
 
 export default function Location({ location, country }) {
     const { dictionary } = useLanguageContext();
@@ -35,10 +36,11 @@ export default function Location({ location, country }) {
                 <meta name="og:description" content={`${location.title} – Find nudist, naturist and clothing optional places, beaches, resorts and camps in ${country.name}.`} key="og-description" />
             </Head>
             <Layout>
-                <h1>
-                    {location.title}
-                </h1>
-                <p className={styles.locationDescription}>{location.text}</p>
+                <div className={styles.headlineContainer}>
+                    <h1>{location.title}</h1>
+                    <LikeButton location={location} />
+                </div>
+                {location.text && <p className={styles.locationDescription}>{location.text}</p>}
                 <p className={styles.disclaimer}>
                     <span className="icon-info"></span>
                     <span className={styles.disclaimerText}>{dictionary("locationInfoDisclaimer")}</span>

@@ -1,3 +1,9 @@
+.headlineContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
 .disclaimer {
     display: flex;
     align-items: center;
@@ -22,7 +28,6 @@
 
 .locationDescription {
     padding: 0 1rem;
-    margin: 0;
     line-height: 1.5rem;
 }
 
