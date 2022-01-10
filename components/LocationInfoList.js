@@ -9,7 +9,7 @@ export default function LocationInfoList({ location, country }) {
     const locationInfo = buildLocationInfo(location);
     const locationStreetAndHouseNr = buildLocationStreetAndHouseNr(location);
     const locationPostcodeAndMunicipality = buildLocationPostcodeAndMunicipality(location);
-    const locationRegionAndCountry = buildLocationRegionAndCountry(location, country);
+    const locationRegionAndCountry = buildLocationRegionAndCountry(location?.region, country);
 
     const lat = encodeURIComponent(location.latitude);
     const lng = encodeURIComponent(location.longitude);

@@ -4,6 +4,8 @@
 }
 
 .formGroup {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 1.5rem;
 }
 
@@ -12,12 +14,17 @@
     flex-direction: column;
 }
 
-.formGroup label span {
+.formGroup label > span {
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
 .formGroup label p {
+    margin-bottom: 0;
+}
+
+.formGroup p:last-child {
+    margin-top: 0!important;
     margin-bottom: 0;
 }
 
@@ -84,7 +91,7 @@
     background-color: #4aedc4;
 }
 
-.dragMarkerOnMapInfo, .errorsWarning {
+.dragMarkerOnMapInfo, .errorsWarning, .isAddressCorrect {
     display: flex;
     align-items: center;
     border-radius: 18px;
@@ -98,7 +105,7 @@
     color: #2979ff;
 }
 
-.dragMarkerOnMapInfo span[class^="icon-"] {
+.dragMarkerOnMapInfo span[class^="icon-"], .isAddressCorrect span[class^="icon-"] {
     margin-right: 1rem;
     font-size: 1.25rem;
 }
@@ -106,4 +113,9 @@
 .errorsWarning {
     border: 2px solid #ff7474;
     color: #ff7474;
+}
+
+.isAddressCorrect {
+    border: 2px solid #ff9100;
+    color: #ff9100;
 }

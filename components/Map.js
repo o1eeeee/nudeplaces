@@ -16,10 +16,11 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useHistoryContext } from '../context/HistoryProvider';
 
 export default function Map() {
-    const { query } = useRouter();
+    const { query, pathname } = useRouter();
     const { mapPosition, markerPositions, zoom, setBounds } = useMapContext();
     const [map, setMap] = useState(null);
     const { previousPath, setPreviousMapPosition, setPreviousZoom } = useHistoryContext();
+    const showAddLocationButton = !(['/add'].includes(pathname));
 
     function MapBounds() {
         const map = useMapEvent('moveend', () => {
@@ -85,7 +86,7 @@ export default function Map() {
                     }
                     )}
                 </MarkerClusterGroup>
-                <AddLocationButton />
+                {showAddLocationButton && <AddLocationButton />}
             </MapContainer>
         </div>
     )
