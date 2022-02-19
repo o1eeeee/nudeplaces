@@ -5,10 +5,11 @@ import Loader from '../components/Loader';
 import { getCountries, detectCountryFromLanguage } from '../lib/countries';
 import styles from '../styles/Home.module.css';
 import AboutLink from '../components/AboutLink';
-import { config } from '../lib/config';
+import { useLanguageContext } from '../context/LanguageProvider';
 
-export default function Home() {  
+export default function Home() {
   const router = useRouter();
+  const { dictionary } = useLanguageContext();
   const countries = getCountries();
 
   useEffect(() => {
@@ -32,23 +33,16 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.belowFold}>
-        <h2>Countries</h2>
+        <h2>{dictionary("countries")}</h2>
         <LinkList listItems={getCountryListItems(countries)} />
       </div>
     </div>
   )
 }
 
-
-
-
-
-
 function buildCountryUrl(country) {
   return `/${encodeURIComponent(country.urlName)}`;
 }
-
-
 
 function getCountryListItems(countries) {
   const listItems = [];

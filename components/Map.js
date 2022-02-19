@@ -11,16 +11,40 @@ import DraggableMarker from '../components/DraggableMarker';
 import AddLocationButton from '../components/AddLocationButton';
 import { useMapContext } from '../context/MapProvider';
 import styles from '../styles/components/Map.module.css';
-import { useRouter } from 'next/router';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useHistoryContext } from '../context/HistoryProvider';
+import { useLanguageContext } from '../context/LanguageProvider';
 
-export default function Map() {
-    const { query, pathname } = useRouter();
+const MapMarker = ({ country, markerPosition }) => {
+    const { dictionary } = useLanguageContext();
+    return (
+        <Marker position={[markerPosition.latitude, markerPosition.longitude]}>
+            {markerPosition.title && (
+                <Popup>
+                    <h3>{markerPosition.title}</h3>
+                    {markerPosition.text && <p className={styles.popupText}>{markerPosition.text}</p>}
+                    {markerPosition.seoName && (
+                        <Link href={{
+                            pathname: '/[country]/[location]',
+                            query: {
+                                country: country,
+                                location: markerPosition.seoName,
+                            }
+                        }}>
+                            <a>{dictionary("readMore")}...</a>
+                        </Link>
+                    )}
+                </Popup>
+            )
+            }
+        </Marker>
+    );
+};
+
+export default function Map({ showAddLocationButton, country }) {
     const { mapPosition, markerPositions, zoom, setBounds } = useMapContext();
     const [map, setMap] = useState(null);
     const { previousPath, setPreviousMapPosition, setPreviousZoom } = useHistoryContext();
-    const showAddLocationButton = !(['/add'].includes(pathname));
 
     function MapBounds() {
         const map = useMapEvent('moveend', () => {
@@ -59,29 +83,8 @@ export default function Map() {
                                 <DraggableMarker key={index} />
                             );
                         }
-                        const markerPositionText = markerPosition.text;
-                        const popupText = markerPositionText ? markerPositionText.length > 200 ? `${markerPositionText.substring(0, 200)}...` : markerPositionText : null;
                         return (
-                            <Marker key={markerPosition.id} position={[markerPosition.latitude, markerPosition.longitude]}>
-                                {markerPosition.title && (
-                                    <Popup>
-                                        <h3>{markerPosition.title}</h3>
-                                        {popupText && <p>{popupText}</p>}
-                                        {markerPosition.seoName && (
-                                            <Link href={{
-                                                pathname: '/[country]/[location]',
-                                                query: {
-                                                    country: query.country,
-                                                    location: markerPosition.seoName,
-                                                }
-                                            }}>
-                                                <a>Read more...</a>
-                                            </Link>
-                                        )}
-                                    </Popup>
-                                )
-                                }
-                            </Marker>
+                            <MapMarker key={markerPosition.id} country={country} markerPosition={markerPosition} />
                         )
                     }
                     )}

@@ -22,7 +22,7 @@ const Map = dynamic(
 
 
 export default function MyApp({ Component, pageProps }) {
-  const router = useRouter();
+  const { query, pathname } = useRouter();
   const [previousPath, setPreviousPath] = useState(null);
 
   NProgress.configure({ showSpinner: false });
@@ -33,14 +33,16 @@ export default function MyApp({ Component, pageProps }) {
 
   Router.onRouteChangeComplete = () => {
     NProgress.done();
-    setPreviousPath(router.pathname)
+    setPreviousPath(pathname)
   };
 
   Router.onRouteChangeError = () => {
     NProgress.done();
   };
 
-  const showMap = !(['/', '/about'].includes(router.pathname));
+  const showMap = !(['/', '/about'].includes(pathname));
+  const showAddLocationButton = showMap && !(['/add'].includes(pathname));
+  const country = query.country;
   return (
     <>
       <Head>
@@ -77,7 +79,7 @@ export default function MyApp({ Component, pageProps }) {
             <div className={"appWrapper"}>
               <ModalProvider>
                 <Component {...pageProps} />
-                {showMap && <Map />}
+                {showMap && <Map showAddLocationButton={showAddLocationButton} country={country} />}
               </ModalProvider>
             </div>
           </MapProvider>
