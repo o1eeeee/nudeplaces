@@ -15,61 +15,76 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useHistoryContext } from '../context/HistoryProvider';
 import { useLanguageContext } from '../context/LanguageProvider';
 
-const MapMarker = ({ country, markerPosition }) => {
-    const { dictionary } = useLanguageContext();
+const StaticMarker = ({ country, markerPosition }) => {
     return (
         <Marker position={[markerPosition.latitude, markerPosition.longitude]}>
             {markerPosition.title && (
-                <Popup>
-                    <h3>{markerPosition.title}</h3>
-                    {markerPosition.text && <p className={styles.popupText}>{markerPosition.text}</p>}
-                    {markerPosition.seoName && (
-                        <Link href={{
-                            pathname: '/[country]/[location]',
-                            query: {
-                                country: country,
-                                location: markerPosition.seoName,
-                            }
-                        }}>
-                            <a>{dictionary("readMore")}...</a>
-                        </Link>
-                    )}
-                </Popup>
+                <MarkerPopup country={country} {...markerPosition} />
             )
             }
         </Marker>
     );
 };
 
-export default function Map({ showAddLocationButton, country }) {
-    const { mapPosition, markerPositions, zoom, setBounds } = useMapContext();
-    const [map, setMap] = useState(null);
-    const { previousPath, setPreviousMapPosition, setPreviousZoom } = useHistoryContext();
+const MarkerPopup = ({ country, title, text, seoName }) => {
+    const { dictionary } = useLanguageContext();
+    return (
+        <Popup>
+            <h3>{title}</h3>
+            {text && <p className={styles.popupText}>{text}</p>}
+            {seoName && (
+                <Link href={{
+                    pathname: '/[country]/[location]',
+                    query: {
+                        country: country,
+                        location: seoName,
+                    }
+                }}>
+                    <a>{dictionary("readMore")}...</a>
+                </Link>
+            )}
+        </Popup>
+    );
+}
+
+export default function Map({ country, showAddLocationButton }) {
+    const { map, setMap } = useMapContext();
+    const { mapPosition, markerPositions, zoom } = map;
+    const [mapContainer, setMapContainer] = useState(null);
+    const { previousPath } = useHistoryContext();
 
     function MapBounds() {
-        const map = useMapEvent('moveend', () => {
+        const mapContainer = useMapEvent('moveend', () => {
+            let previousMapPosition
+            let previousZoom
             if (previousPath !== "/[country]/[location]") {
-                setPreviousMapPosition({
-                    latitude: map.getCenter().lat,
-                    longitude: map.getCenter().lng
-                })
-                setPreviousZoom(map.getZoom())
+                previousMapPosition = {
+                    latitude: mapContainer.getCenter().lat,
+                    longitude: mapContainer.getCenter().lng
+                }
+                previousZoom = mapContainer.getZoom();
             }
-            setBounds(map.getBounds())
+            const bounds = mapContainer.getBounds();
+            setMap({
+                ...map,
+                bounds: bounds,
+                previousMapPosition: previousMapPosition ?? map.previousMapPosition,
+                previousZoom: previousZoom ?? map.previousZoom,
+            })
         })
         return null
     }
 
     useEffect(() => {
-        map && map.flyTo([mapPosition.latitude, mapPosition.longitude], zoom, {
+        mapContainer && mapContainer.flyTo([mapPosition.latitude, mapPosition.longitude], zoom, {
             animate: true,
             duration: 1,
         })
-    }, [map, mapPosition, zoom])
+    }, [mapContainer, mapPosition, zoom])
 
     return (
         <div className={styles.mapWrapper}>
-            <MapContainer whenCreated={(map) => setMap(map)} minZoom={config.MAP_MIN_ZOOM} zoomControl={false} center={[mapPosition.latitude, mapPosition.longitude]} zoom={zoom} scrollWheelZoom={true} maxBounds={[[-90, -180], [90, 180]]} style={{ width: "100%", height: "100%" }}>
+            <MapContainer whenCreated={(mapContainer) => setMapContainer(mapContainer)} minZoom={config.MAP_MIN_ZOOM} zoomControl={false} center={[mapPosition.latitude, mapPosition.longitude]} zoom={zoom} scrollWheelZoom={true} maxBounds={[[-90, -180], [90, 180]]} style={{ width: "100%", height: "100%" }}>
                 <MapBounds />
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -83,9 +98,11 @@ export default function Map({ showAddLocationButton, country }) {
                                 <DraggableMarker key={index} />
                             );
                         }
-                        return (
-                            <MapMarker key={markerPosition.id} country={country} markerPosition={markerPosition} />
-                        )
+                        if (mapContainer && isMarkerInBounds(markerPosition, mapContainer.getBounds())) {
+                            return (
+                                <StaticMarker key={markerPosition.id} country={country} markerPosition={markerPosition} />
+                            )
+                        }
                     }
                     )}
                 </MarkerClusterGroup>
@@ -93,5 +110,17 @@ export default function Map({ showAddLocationButton, country }) {
             </MapContainer>
         </div>
     )
+}
+
+
+function isMarkerInBounds(markerPosition, bounds) {
+    if (!bounds) {
+        return true
+    }
+    const { _northEast, _southWest } = bounds;
+    return markerPosition.latitude < _northEast.lat &&
+        markerPosition.longitude < _northEast.lng &&
+        markerPosition.latitude > _southWest.lat &&
+        markerPosition.longitude > _southWest.lng
 }
 

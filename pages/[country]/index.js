@@ -11,52 +11,68 @@ import { useHistoryContext } from '../../context/HistoryProvider';
 import LocationList from '../../components/LocationList';
 
 const useCountry = (locations) => {
-    const { bounds, setMarkerPositions } = useMapContext();
+    const { map, setMap } = useMapContext();
+    const { bounds } = map;
     const [filteredLocations, setFilteredLocations] = useState(locations);
     const [locationTypeFilter, setLocationTypeFilter] = useState([]);
 
     useEffect(() => {
         const locationsInBounds = bounds ? getLocationsInBounds(locations, bounds) : locations;
-        const typeFilteredLocations = (locationTypeFilter.length > 0) ? locationsInBounds.filter((location) => locationTypeFilter.includes(location.type)) : locationsInBounds;
+        const typeFilteredLocations = getLocationsFilteredByType(locationsInBounds, locationTypeFilter);
         setFilteredLocations(typeFilteredLocations);
-
-        const markerPositions = buildCountryLocationsMarkerPositions(typeFilteredLocations);
-        setMarkerPositions(markerPositions);
     }, [bounds, locations, JSON.stringify(locationTypeFilter)])
+
+    useEffect(() => {
+        const typeFilteredLocations = getLocationsFilteredByType(locations, locationTypeFilter);
+        const markerPositions = buildCountryLocationsMarkerPositions(typeFilteredLocations);
+        setMap({
+            ...map,
+            markerPositions: markerPositions,
+        });
+    }, [locations, JSON.stringify(locationTypeFilter)])
 
     return { filteredLocations, locationTypeFilter, setLocationTypeFilter }
 }
 
 export default function Country({ country, locations }) {
-    const { previousCountry, setPreviousCountry, previousPath, previousMapPosition, setPreviousMapPosition, previousZoom, setPreviousZoom } = useHistoryContext();
+    const { previousCountry, setPreviousCountry, previousPath } = useHistoryContext();
     const { dictionary } = useLanguageContext();
     const { filteredLocations, locationTypeFilter, setLocationTypeFilter } = useCountry(locations);
     let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations, country);
-    const { setMapPosition, setZoom } = useMapContext();
+    const { map, setMap } = useMapContext();
+    const { previousMapPosition, previousZoom } = map;
 
     useEffect(() => {
         if (country) {
             if (previousPath === "/[country]/[location]" && country.urlName === previousCountry) {
-                setMapPosition(previousMapPosition);
-                setZoom(previousZoom);
+                setMap({
+                    ...map,
+                    mapPosition: previousMapPosition,
+                    markerPositions: buildCountryLocationsMarkerPositions(locations),
+                    zoom: previousZoom,
+                })
             } else {
                 let mapPosition = {
                     latitude: country.latitude,
                     longitude: country.longitude
                 }
-                setMapPosition(mapPosition);
                 setPreviousCountry(country.urlName);
-                setPreviousMapPosition(mapPosition);
 
                 // zoom out one level on small devices
                 const initZoom = country.zoom;
                 const isSmallDevice = document.documentElement.clientWidth < config.BREAKPOINT_MD_IN_PX;
                 const zoom = initZoom ? (isSmallDevice ? (initZoom - 1) : initZoom) : config.MAP_DEFAULT_ZOOM_COUNTRY;
-                setZoom(zoom);
-                setPreviousZoom(zoom);
+                setMap({
+                    ...map,
+                    mapPosition: mapPosition,
+                    markerPositions: buildCountryLocationsMarkerPositions(locations),
+                    previousMapPosition: mapPosition,
+                    zoom: zoom,
+                    previousZoom: zoom,
+                })
             }
         }
-    }, [country])
+    }, [country, locations])
 
     return (
         <>
@@ -165,27 +181,9 @@ function buildCountryLocationsMarkerPositions(locations) {
         })
     })
 
+    markerPositions.sort((a, b) => a.id - b.id);
+
     return markerPositions;
-}
-
-
-function buildLocationUrl(location, country) {
-    return `${encodeURIComponent(country.urlName)}/${encodeURIComponent(location.seoName)}`;
-}
-
-
-function getLocationListItems(locations, country) {
-    const listItems = [];
-
-    locations.map((location) => {
-        listItems.push({
-            href: buildLocationUrl(location, country),
-            text: location.title,
-            icon: location.type
-        })
-    })
-
-    return listItems;
 }
 
 
@@ -223,4 +221,10 @@ function getLocationsInBounds(locations, bounds) {
             location.longitude > _southWest.lng
     })
     return locationsInBounds;
+}
+
+
+function getLocationsFilteredByType(locations, filters) {
+    const filteredLocations = (filters.length > 0) ? locations.filter((location) => filters.includes(location.type)) : locations;
+    return filteredLocations;
 }

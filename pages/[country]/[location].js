@@ -14,18 +14,22 @@ import LikeButton from '../../components/LikeButton';
 
 export default function Location({ location, country }) {
     const { dictionary } = useLanguageContext();
-    const { setMapPosition, setMarkerPositions, setZoom } = useMapContext();
+    const { map, setMap } = useMapContext();
 
     useEffect(() => {
-        setMapPosition({
-            latitude: location.latitude,
-            longitude: location.longitude
-        });
-        setMarkerPositions([{
-            latitude: location.latitude,
-            longitude: location.longitude
-        }]);
-        setZoom(config.MAP_DEFAULT_ZOOM_LOCATION);
+        setMap({
+            ...map,
+            mapPosition: {
+                latitude: location.latitude,
+                longitude: location.longitude
+            },
+            markerPositions: [{
+                id: location.id,
+                latitude: location.latitude,
+                longitude: location.longitude
+            }],
+            zoom: config.MAP_DEFAULT_ZOOM_LOCATION,
+        })
     }, [location]);
 
     return (

@@ -11,7 +11,8 @@ import FetchAddressButton from './FetchAddressButton';
 
 export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSubmitted }) {
     const { dictionary } = useLanguageContext();
-    const { bounds, draggableMarkerPosition, setDraggableMarkerPosition } = useMapContext();
+    const { map, setMap } = useMapContext();
+    const { bounds, draggableMarkerPosition } = map;
     const [values, setValues] = useState({
         title: "",
         description: "",
@@ -60,18 +61,19 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
         if (!latitude || !longitude) {
             return false;
         }
-        setDraggableMarkerPosition({ latitude, longitude });
+        setMap({
+            ...map,
+            draggableMarkerPosition: { latitude, longitude }
+        });
         let data;
         try {
             const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}&accept-language=en`)
             if (!response.ok) {
-                console.log("An error has occured: ", response.status);
-                return false;
+                throw response.status;
             }
             data = await response.json();
             if (!data.address) {
-                console.log("Invalid address");
-                return false;
+                throw "Invalid address";
             }
             setValues({
                 ...values,

@@ -9,17 +9,21 @@ import { useLanguageContext } from '../context/LanguageProvider';
 
 export default function AddLocation() {
     const { dictionary } = useLanguageContext();
-    const { mapPosition, setDraggableMarkerPosition, setMarkerPositions } = useMapContext();
+    const { map, setMap } = useMapContext();
+    const { mapPosition } = map;
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     useEffect(() => {
-        setMarkerPositions([{
-            latitude: 0,
-            longitude: 0,
-            isDraggable: true
-        }])
-        setDraggableMarkerPosition(mapPosition)
+        setMap({
+            ...map,
+            markerPositions: [{
+                latitude: 0,
+                longitude: 0,
+                isDraggable: true
+            }],
+            draggableMarkerPosition: mapPosition,
+        })
     }, [mapPosition])
 
     const SuccessContainer = () => (
