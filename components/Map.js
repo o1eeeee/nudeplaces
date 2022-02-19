@@ -1,5 +1,5 @@
 /** https://stackoverflow.com/questions/57704196/leaflet-with-next-js */
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MapContainer, Marker, Popup, TileLayer, useMapEvent, ZoomControl } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
