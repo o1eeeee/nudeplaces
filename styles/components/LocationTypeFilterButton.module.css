@@ -12,6 +12,7 @@
     padding: 0 1rem;
     min-width: 100px;
     box-shadow: 0 1px 6px rgba(60, 64, 67, .28);
+    color: #000000;
 }
 
 .locationTypeFilterButton:hover {

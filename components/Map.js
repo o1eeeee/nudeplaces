@@ -14,6 +14,8 @@ import styles from '../styles/components/Map.module.css';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useHistoryContext } from '../context/HistoryProvider';
 import { useLanguageContext } from '../context/LanguageProvider';
+import GetGeolocationButton from './GetGeolocationButton';
+import { useGeolocationContext } from '../context/GeolocationProvider';
 
 const StaticMarker = ({ country, markerPosition }) => {
     return (
@@ -52,6 +54,7 @@ export default function Map({ country, showAddLocationButton }) {
     const { mapPosition, markerPositions, zoom } = map;
     const [mapContainer, setMapContainer] = useState(null);
     const { previousPath } = useHistoryContext();
+    const { currentPosition, setCurrentPosition } = useGeolocationContext();
 
     function MapBounds() {
         const mapContainer = useMapEvent('moveend', () => {
@@ -82,6 +85,16 @@ export default function Map({ country, showAddLocationButton }) {
         })
     }, [mapContainer, mapPosition, zoom])
 
+    useEffect(() => {
+        if (currentPosition) {
+            setMap({
+                ...map,
+                mapPosition: currentPosition,
+                zoom: config.MAP_DEFAULT_ZOOM_GEOLOCATION,
+            })
+        }
+    }, [currentPosition]);
+
     return (
         <div className={styles.mapWrapper}>
             <MapContainer whenCreated={(mapContainer) => setMapContainer(mapContainer)} minZoom={config.MAP_MIN_ZOOM} zoomControl={false} center={[mapPosition.latitude, mapPosition.longitude]} zoom={zoom} scrollWheelZoom={true} maxBounds={[[-90, -180], [90, 180]]} style={{ width: "100%", height: "100%" }}>
@@ -106,7 +119,10 @@ export default function Map({ country, showAddLocationButton }) {
                     }
                     )}
                 </MarkerClusterGroup>
-                {showAddLocationButton && <AddLocationButton />}
+                <div className={styles.buttonContainer}>
+                    <GetGeolocationButton />
+                    {showAddLocationButton && <AddLocationButton />}
+                </div>
             </MapContainer>
         </div>
     )

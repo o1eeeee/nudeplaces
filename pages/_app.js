@@ -10,6 +10,7 @@ import { LanguageProvider } from '../context/LanguageProvider';
 import { useState } from 'react';
 import { HistoryProvider } from '../context/HistoryProvider';
 import { ModalProvider } from '../context/ModalProvider';
+import { GeolocationProvider } from '../context/GeolocationProvider';
 
 const Map = dynamic(
   () => import('../components/Map'),
@@ -75,14 +76,16 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <HistoryProvider previousPath={previousPath}>
         <LanguageProvider>
-          <MapProvider>
-            <div className={"appWrapper"}>
-              <ModalProvider>
-                <Component {...pageProps} />
-                {showMap && <Map showAddLocationButton={showAddLocationButton} country={country} />}
-              </ModalProvider>
-            </div>
-          </MapProvider>
+          <GeolocationProvider>
+            <MapProvider>
+              <div className={"appWrapper"}>
+                <ModalProvider>
+                  <Component {...pageProps} />
+                  {showMap && <Map showAddLocationButton={showAddLocationButton} country={country} />}
+                </ModalProvider>
+              </div>
+            </MapProvider>
+          </GeolocationProvider>
         </LanguageProvider>
       </HistoryProvider>
     </>

@@ -10,8 +10,16 @@
 }
 
 .popupText {
-    display: -webkit-box;    
+    display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    max-height: 3rem;
+}
+
+.buttonContainer {
+    position: absolute;
+    bottom: 35px;
+    left: 1rem;
+    z-index: 1000;
 }
