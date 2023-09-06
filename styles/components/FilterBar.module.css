@@ -6,7 +6,12 @@
     margin-top: env(safe-area-inset-top, 0);
     overflow: hidden;
     z-index: 1002;
-    display: flex;
+    /*display: flex;*/
+    display: none;
+}
+
+.filterBar swiper-slide {
+    width: fit-content;
 }
 
 @media (min-width: 768px) {

@@ -6,7 +6,7 @@ export default function AddLocationButton() {
     const { dictionary } = useLanguageContext();
     return (
         <Link href={'/add'}>
-            <a className={styles.addButton}><span className="icon-location"></span><span className={styles.addButtonText}>{dictionary("addLocationButtonText")}</span></a>
+            <span className={styles.addButton}><span className="icon-location"></span><span className={styles.addButtonText}>{dictionary("addLocationButtonText")}</span></span>
         </Link>
     )
 }

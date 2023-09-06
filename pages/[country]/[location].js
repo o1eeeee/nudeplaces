@@ -20,13 +20,13 @@ export default function Location({ location, country }) {
         setMap({
             ...map,
             mapPosition: {
-                latitude: location.latitude,
-                longitude: location.longitude
+                latitude: location.attributes.latitude,
+                longitude: location.attributes.longitude
             },
             markerPositions: [{
                 id: location.id,
-                latitude: location.latitude,
-                longitude: location.longitude
+                latitude: location.attributes.latitude,
+                longitude: location.attributes.longitude
             }],
             zoom: config.MAP_DEFAULT_ZOOM_LOCATION,
         })
@@ -41,10 +41,10 @@ export default function Location({ location, country }) {
             </Head>
             <Layout>
                 <div className={styles.headlineContainer}>
-                    <h1>{location.title}</h1>
+                    <h1>{location.attributes.title}</h1>
                     <LikeButton location={location} />
                 </div>
-                {location.text && <p className={styles.locationDescription}>{location.text}</p>}
+                {location.attributes.text && <p className={styles.locationDescription}>{location.attributes.text}</p>}
                 <p className={styles.disclaimer}>
                     <span className="icon-info"></span>
                     <span className={styles.disclaimerText}>{dictionary("locationInfoDisclaimer")}</span>
@@ -62,27 +62,24 @@ export default function Location({ location, country }) {
 
 export async function getStaticProps({ params }) {
     let location;
+    const publicationState = process.env.NODE_ENV === 'development' ? "preview" : "live";
     try {
-        const response = await fetch(`${config.FETCH_URL}/locations?seoName=${params.location}&_limit=1`, {
+        const response = await fetch(`${config.FETCH_URL}/locations?filters[seo_name][$eq]=${params.location}&publicationState=${publicationState}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
         })
-        const data = await response.json()
+        const {data} = await response.json()
         location = data[0]
     } catch (error) {
         console.log("Error getting location data: ", error);
         return { notFound: true }
     }
 
-    if (!location || (location.published_at === null && process.env.NODE_ENV !== 'development')) {
-        return { notFound: true }
-    }
-
     // Country
     const countries = getCountries();
-    const country = countries.filter((country) => (country.urlName === params.country) && (country.isoCode === location.country));
+    const country = countries.filter((country) => (country.urlName === params.country) && (country.isoCode === location.attributes.country));
     if (!country[0]) {
         return { notFound: true }
     }
@@ -100,7 +97,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
     let locations;
     try {
-        const response = await fetch(`${config.FETCH_URL}/locations?_limit=5000`, {
+        const response = await fetch(`${config.FETCH_URL}/locations`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -111,7 +108,7 @@ export async function getStaticPaths() {
         console.log("Error getting location data: ", error);
     }
 
-    const publishedLocations = locations.filter((location) => {
+    const publishedLocations = locations.data.filter((location) => {
         if (process.env.NODE_ENV === 'development') {
             return true;
         } else {
@@ -119,13 +116,13 @@ export async function getStaticPaths() {
         }
     });
 
-    const paths = publishedLocations.map((location) => {
-        let country = getCountry(location.country)
+    const paths = publishedLocations.map(({attributes}) => {
+        let country = getCountry(attributes.country)
         if (country) {
             return {
                 params: {
                     country: country.urlName,
-                    location: location.seoName,
+                    location: attributes.seo_name,
                 }
             }
         }
@@ -141,17 +138,17 @@ export async function getStaticPaths() {
 
 function getTitleString(location, country) {
     const titleString = [];
-    titleString.push(location.title);
-    titleString.push(buildLocationInfo(location) + ", " + buildLocationRegionAndCountry(location?.region, country))
+    titleString.push(location.attributes.title);
+    titleString.push(buildLocationInfo(location.attributes) + ", " + buildLocationRegionAndCountry(location.attributes?.region, country))
     titleString.push(`Nudist, Naturist, Clothing Optional Places and Beaches in ${country.name}`);
     titleString.push("nudeplaces");
     return titleString.join(" – ")
 }
 
 function getReportLocationData(location, country) {
-    const url = `${process.env.WEBSITE_URL}/${encodeURIComponent(country.urlName)}/${encodeURIComponent(location.seoName)}`
+    const url = `${process.env.WEBSITE_URL}/${encodeURIComponent(country.urlName)}/${encodeURIComponent(location.attributes.seo_name)}`
     return {
-        title: location.title,
+        title: location.attributes.title,
         country: country.name,
         url: url
     }

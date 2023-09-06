@@ -43,6 +43,7 @@ export default function Country({ country, locations }) {
     const { previousMapPosition, previousZoom } = map;
 
     useEffect(() => {
+        console.log(country)
         if (country) {
             if (previousPath === "/[country]/[location]" && country.urlName === previousCountry) {
                 setMap({
@@ -113,8 +114,9 @@ export async function getStaticProps({ params }) {
     }
 
     let locations;
+    const publicationState = process.env.NODE_ENV === 'development' ? "preview" : "live";
     try {
-        const response = await fetch(`${config.FETCH_URL}/locations?country=${country[0].isoCode}&_sort=seoName&_limit=2000`, {
+        const response = await fetch(`${config.FETCH_URL}/locations?filters[country][$eq]=${country[0].isoCode}&sort=seo_name&publicationState=${publicationState}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -126,19 +128,11 @@ export async function getStaticProps({ params }) {
         return { notFound: true }
     }
 
-    const publishedLocations = locations.filter((location) => {
-        if (process.env.NODE_ENV === 'development') {
-            return true;
-        } else {
-            return location.published_at != null;
-        }
-    });
-
     return {
         revalidate: 86400,
         props: {
             country: country[0],
-            locations: publishedLocations ?? {}
+            locations: locations.data ?? []
         }
     }
 }
@@ -173,11 +167,11 @@ function buildCountryLocationsMarkerPositions(locations) {
     locations.map((location) => {
         markerPositions.push({
             id: location.id,
-            latitude: location.latitude,
-            longitude: location.longitude,
-            title: location.title,
-            text: location.text,
-            seoName: location.seoName,
+            latitude: location.attributes.latitude,
+            longitude: location.attributes.longitude,
+            title: location.attributes.title,
+            text: location.attributes.text,
+            seo_name: location.attributes.seo_name,
         })
     })
 
@@ -193,8 +187,9 @@ function getLocationsByRegion(locations, country) {
     const regions = [];
     const locationsByRegion = {};
     locations.map((location) => {
-        const regionFromList = location.region && allRegions.filter(region => location.region === region.code)[0];
-        const fullRegionName = regionFromList ? regionFromList.name : location.region;
+        const attributes = location.attributes;
+        const regionFromList = attributes.region && allRegions.filter(region => attributes.region === region.code)[0];
+        const fullRegionName = regionFromList ? regionFromList.name : attributes.region;
         const assignToRegion = fullRegionName ?? 'Other regions';
         if (!locationsByRegion[assignToRegion]) {
             regions.push(assignToRegion);
@@ -214,17 +209,17 @@ function getLocationsInBounds(locations, bounds) {
         return locations
     }
     const { _northEast, _southWest } = bounds;
-    const locationsInBounds = locations.filter(location => {
-        return location.latitude < _northEast.lat &&
-            location.longitude < _northEast.lng &&
-            location.latitude > _southWest.lat &&
-            location.longitude > _southWest.lng
+    const locationsInBounds = locations.filter(({ attributes }) => {
+        return attributes.latitude < _northEast.lat &&
+            attributes.longitude < _northEast.lng &&
+            attributes.latitude > _southWest.lat &&
+            attributes.longitude > _southWest.lng
     })
     return locationsInBounds;
 }
 
 
 function getLocationsFilteredByType(locations, filters) {
-    const filteredLocations = (filters.length > 0) ? locations.filter((location) => filters.includes(location.type)) : locations;
+    const filteredLocations = (filters.length > 0) ? locations.filter(({attributes}) => filters.includes(attributes.type)) : locations;
     return filteredLocations;
 }

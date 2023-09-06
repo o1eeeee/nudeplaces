@@ -7,7 +7,7 @@ export default function AboutLink() {
 
     return (
         <Link href={'/about'}>
-            <a className={styles.aboutLink}>{dictionary("about")}</a>
+            <span className={styles.aboutLink}>{dictionary("about")}</span>
         </Link>
     )
 }

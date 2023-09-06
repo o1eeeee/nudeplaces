@@ -6,13 +6,13 @@ import { useLanguageContext } from '../context/LanguageProvider';
 
 export default function LocationInfoList({ location, country }) {
     const { dictionary } = useLanguageContext();
-    const locationInfo = buildLocationInfo(location);
-    const locationStreetAndHouseNr = buildLocationStreetAndHouseNr(location);
-    const locationPostcodeAndMunicipality = buildLocationPostcodeAndMunicipality(location);
-    const locationRegionAndCountry = buildLocationRegionAndCountry(location?.region, country);
+    const locationInfo = buildLocationInfo(location.attributes);
+    const locationStreetAndHouseNr = buildLocationStreetAndHouseNr(location.attributes);
+    const locationPostcodeAndMunicipality = buildLocationPostcodeAndMunicipality(location.attributes);
+    const locationRegionAndCountry = buildLocationRegionAndCountry(location.attributes?.region, country);
 
-    const lat = encodeURIComponent(location.latitude);
-    const lng = encodeURIComponent(location.longitude);
+    const lat = encodeURIComponent(location.attributes.latitude);
+    const lng = encodeURIComponent(location.attributes.longitude);
     const mapLinks = [
         {
             href: `https://maps.google.com?q=${lat},${lng}`,
@@ -34,7 +34,7 @@ export default function LocationInfoList({ location, country }) {
     const websiteLinks = [];
     if (location.url) {
         websiteLinks.push({
-            href: location.url,
+            href: location.attributes.url,
             external: true,
         })
     }
@@ -45,8 +45,8 @@ export default function LocationInfoList({ location, country }) {
             <dd>
                 <div>
                     {locationInfo && <p>{locationInfo}</p>}
-                    {location.street && <p>{locationStreetAndHouseNr}</p>}
-                    {location.postcode && <p>{locationPostcodeAndMunicipality}</p>}
+                    {location.attributes.street && <p>{locationStreetAndHouseNr}</p>}
+                    {location.attributes.postcode && <p>{locationPostcodeAndMunicipality}</p>}
                     <p>{locationRegionAndCountry}</p>
                 </div>
             </dd>
@@ -61,7 +61,7 @@ export default function LocationInfoList({ location, country }) {
                 </>
             )}
             <dt>{dictionary("locationInfoListLastUpdated")}</dt>
-            <dd><p>{buildLocationLastUpdatedDate(location)}</p></dd>
+            <dd><p>{buildLocationLastUpdatedDate(location.attributes)}</p></dd>
         </dl>
     )
 }

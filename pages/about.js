@@ -8,7 +8,7 @@ export default function About() {
 
     const BackToHomepageLink = () => (
         <Link href={'/'}>
-            <a className={styles.backToHomepageLink}>&larr; {dictionary("aboutBackToHomepage")}</a>
+            <span className={styles.backToHomepageLink}>&larr; {dictionary("aboutBackToHomepage")}</span>
         </Link>
     );
 

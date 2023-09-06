@@ -8,7 +8,7 @@ export default function LikeButton({ location }) {
     const { setIsShown, setModalContent } = useModalContext();
     const { dictionary } = useLanguageContext();
     const [wasClicked, setWasClicked] = useState(false);
-    const [likeCount, setLikeCount] = useState(location.location_reviews.length);
+    const [likeCount, setLikeCount] = useState(location.attributes.location_reviews?.length);
 
     useEffect(() => {
         if (wasClicked) {

@@ -142,7 +142,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
             const text = !!values.description ? values.description : null;
             const type = !!values.type ? values.type : null;
             const url = !!values.url ? values.url : null;
-            const seoName = slugify(`${title}-${values.municipality}`).toLowerCase();
+            const seo_name = slugify(`${title}-${values.municipality}`).toLowerCase();
 
             try {
                 const response = await fetch(`${config.FETCH_URL}/locations`, {
@@ -151,7 +151,6 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        isPublished: false,
                         country: values.country,
                         housenumber: values.housenumber,
                         latitude: latitude,
@@ -160,7 +159,7 @@ export default function AddLocationForm({ isSubmitting, setIsSubmitting, setIsSu
                         neighbourhood: values.neighbourhood,
                         postcode: values.postcode,
                         region: values.region,
-                        seoName: seoName,
+                        seo_name: seo_name,
                         street: values.street,
                         subregion: values.subregion,
                         text: text,
