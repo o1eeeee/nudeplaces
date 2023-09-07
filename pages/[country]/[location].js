@@ -51,7 +51,7 @@ export default function Location({ location, country }) {
                 </p>
                 <LocationInfoList location={location} country={country} />
                 <div className={styles.buttonsContainer}>
-                    <CopyToClipboardButton value={`${process.env.WEBSITE_URL}${buildLocationUrl(location, country)}`} />
+                    <CopyToClipboardButton value={`${config.WEBSITE_URL}${buildLocationUrl(location, country)}`} />
                     <ReportLocationButton locationData={getReportLocationData(location, country)} />
                 </div>
             </Layout>
