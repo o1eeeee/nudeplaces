@@ -43,7 +43,6 @@ export default function Country({ country, locations }) {
     const { previousMapPosition, previousZoom } = map;
 
     useEffect(() => {
-        console.log(country)
         if (country) {
             if (previousPath === "/[country]/[location]" && country.urlName === previousCountry) {
                 setMap({
