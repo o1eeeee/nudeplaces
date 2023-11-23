@@ -1,34 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [nudeplaces.de](https://nudeplaces.de)
 
-## Getting Started
+nudeplaces.de provides a map of more than 4,000 nudist-friendly beaches, saunas, resorts and similar locations worldwide.
 
-First, run the development server:
+Everybody is welcome to add new locations or contribute updates to existing locations.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+The database of nude places is 100% community-driven. Contributions are moderated by a small team of volunteers.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+nudeplaces.de is a leisure project intended to support local nudist communities. It is ad-free and does not require any registration or subscription to experience all features.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Features
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- find more than 4,000 locations in 78 countries
+- filter locations by country and type (beach, sauna, resort...)
+- add new location
+- available in English and German
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## How to contribute
 
-## Learn More
+You can contribute to nudeplaces.de by...
 
-To learn more about Next.js, take a look at the following resources:
+- [adding new locations](https://nudeplaces.de/add)
+- updating existing locations
+- moderating user contributions
+- reviewing code and providing feedback
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- React
+- Next.js
+- leaflet.js
+- Strapi v4
+- PostgreSQL
