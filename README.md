@@ -26,6 +26,8 @@ You can contribute to nudeplaces.de by...
 - moderating user contributions
 - reviewing code and providing feedback
 
+Please contact [webmaster@nudeplaces.de](mailto:webmaster@nudeplaces.de) if you would like to learn more about the project.
+
 ## Tech stack
 
 - React
