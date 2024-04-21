@@ -2750,7 +2750,7 @@
         "urlName": "malta",
         "zoom": 10,
         "regions": [],
-        "isActive": true
+        "isActive": false
     },
     {
         "longitude": -61.011199951111,
