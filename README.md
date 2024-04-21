@@ -2,6 +2,8 @@
 
 nudeplaces.de provides a map of more than 4,000 nudist-friendly beaches, saunas, resorts and similar locations worldwide.
 
+![Mobile preview of nudeplaces.de](/public/img/mobile.jpg)
+
 Everybody is welcome to add new locations or contribute updates to existing locations.
 
 The database of nude places is 100% community-driven. Contributions are moderated by a small team of volunteers.
@@ -24,6 +26,8 @@ You can contribute to nudeplaces.de by...
 - moderating user contributions
 - reviewing code and providing feedback
 
+Please contact [webmaster@nudeplaces.de](mailto:webmaster@nudeplaces.de) if you would like to learn more about the project.
+
 ## Tech stack
 
 - React
@@ -31,3 +35,7 @@ You can contribute to nudeplaces.de by...
 - leaflet.js
 - Strapi v4
 - PostgreSQL
+
+## Assets
+
+![Desktop preview of nudeplaces.de](/public/img/desktop.jpg)
