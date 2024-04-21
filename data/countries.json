@@ -8,7 +8,8 @@
         "longitude": -61.796428,
         "isoCode": "AG",
         "zoom": 9,
-        "regions": []
+        "regions": [],
+        "isActive": false
     },
     {
         "nativeName": "Argentina",
@@ -116,7 +117,8 @@
                 "code": "V",
                 "name": "Tierra del Fuego Province"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "currency": "AUD",
@@ -160,7 +162,8 @@
                 "code": "ACT",
                 "name": "Australian Capital Territory"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "currency": "EUR",
@@ -208,7 +211,8 @@
                 "code": "1",
                 "name": "Burgenland"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "BE",
@@ -232,7 +236,8 @@
                 "code": "WAL",
                 "name": "Waals Gewest"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "BR",
@@ -276,7 +281,8 @@
                 "code": "RS",
                 "name": "Rio Grande do Sul"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "currency": "BGN",
@@ -372,7 +378,8 @@
                 "code": "28",
                 "name": "Jambol"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "longitude": -106.346771,
@@ -436,7 +443,8 @@
                 "code": "NU",
                 "name": "Nunavut"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "CV",
@@ -452,7 +460,8 @@
                 "code": null,
                 "name": "Tarrafal de Sao Nicolau"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "name": "Cayman Islands",
@@ -472,7 +481,8 @@
                 "code": null,
                 "name": "West Bay"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "urlName": "chile",
@@ -544,7 +554,8 @@
                 "code": "AR",
                 "name": "Región de la Araucanía"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "latitude": 35.86166,
@@ -572,7 +583,8 @@
                 "code": null,
                 "name": "Shandong"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "longitude": -74.29733299999998,
@@ -704,7 +716,8 @@
                 "code": "PUT",
                 "name": "Putumayo"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "longitude": -83.75342799999999,
@@ -720,7 +733,8 @@
                 "code": "P",
                 "name": "Provincia de Puntarenas"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "currency": "HRK",
@@ -840,7 +854,8 @@
                 "code": "13",
                 "name": "Zadar County"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "nativeName": "Cuba",
@@ -864,7 +879,8 @@
                 "code": null,
                 "name": "Isla de la Juventud"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "latitude": 12.186111,
@@ -880,7 +896,8 @@
                 "code": null,
                 "name": "Curaçao"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "isoCode": "CY",
@@ -900,7 +917,8 @@
                 "code": null,
                 "name": "Bezirk Famagusta"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "CZ",
@@ -980,7 +998,8 @@
                 "code": "72",
                 "name": "Zlínský kraj"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "currency": "DKK",
@@ -1012,7 +1031,8 @@
                 "code": "84",
                 "name": "Hovedstaden"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "urlName": "dominican-republic",
@@ -1048,7 +1068,8 @@
                 "code": null,
                 "name": "Peravia"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "longitude": 30.802,
@@ -1064,7 +1085,8 @@
                 "code": null,
                 "name": "Red Sea Governorate"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "nativeName": "Eesti",
@@ -1136,7 +1158,8 @@
                 "code": "59",
                 "name": "Lääne-Viru County"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "nativeName": "Fiji",
@@ -1147,7 +1170,8 @@
         "isoCode": "FJ",
         "urlName": "fiji",
         "zoom": 7,
-        "regions": []
+        "regions": [],
+        "isActive": false
     },
     {
         "currency": "EUR",
@@ -1231,7 +1255,8 @@
                 "code": "19",
                 "name": "Southwest Finland"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "longitude": 2.213749,
@@ -1383,7 +1408,8 @@
                 "code": null,
                 "name": "Bourgogne-Franche-Comté"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "latitude": -15,
@@ -1399,7 +1425,8 @@
                 "code": null,
                 "name": "Îles Tuamotu-Gambier"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "longitude": 10.451526,
@@ -1475,7 +1502,8 @@
                 "code": "NW",
                 "name": "Nordrhein-Westfalen"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "longitude": 21.824312,
@@ -1779,7 +1807,8 @@
                 "code": null,
                 "name": "Dezentralisierte Verwaltung von Epirus und Westmakedonien"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "GP",
@@ -1799,7 +1828,8 @@
                 "code": null,
                 "name": "Basse-Terre"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "currency": "HUF",
@@ -1891,7 +1921,8 @@
                 "code": "TO",
                 "name": "Tolna"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "nativeName": "Island",
@@ -1935,7 +1966,8 @@
                 "code": "4",
                 "name": "Vestfirðir"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "IN",
@@ -1951,7 +1983,8 @@
                 "code": "GA",
                 "name": "Goa"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "isoCode": "ID",
@@ -1971,7 +2004,8 @@
                 "code": null,
                 "name": "Bangka-Belitung"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "IE",
@@ -2075,7 +2109,8 @@
                 "code": "LS",
                 "name": "Laois"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "latitude": 31.046051,
@@ -2099,7 +2134,8 @@
                 "code": null,
                 "name": "Nordbezirk"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "longitude": 12.180883,
@@ -2195,7 +2231,8 @@
                 "code": "57",
                 "name": "Marche"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "urlName": "jamaica",
@@ -2227,7 +2264,8 @@
                 "code": null,
                 "name": "Manchester Parish"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "urlName": "japan",
@@ -2291,7 +2329,8 @@
                 "code": null,
                 "name": "Präfektur Ōsaka"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "name": "Latvia",
@@ -2599,7 +2638,8 @@
                 "code": "88",
                 "name": "Bezirk Saldus"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "latitude": 47.166,
@@ -2619,7 +2659,8 @@
                 "code": null,
                 "name": "Triesen"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "latitude": 55.169438,
@@ -2671,7 +2712,8 @@
                 "code": "SA",
                 "name": "Šiauliai County"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "longitude": 6.129583,
@@ -2695,7 +2737,8 @@
                 "code": "L",
                 "name": "Luxemburg"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "MT",
@@ -2706,7 +2749,8 @@
         "latitude": 35.8941,
         "urlName": "malta",
         "zoom": 10,
-        "regions": []
+        "regions": [],
+        "isActive": true
     },
     {
         "longitude": -61.011199951111,
@@ -2717,7 +2761,8 @@
         "currency": "EUR",
         "isoCode": "MQ",
         "zoom": 10,
-        "regions": []
+        "regions": [],
+        "isActive": false
     },
     {
         "longitude": -102.552784,
@@ -2761,7 +2806,8 @@
                 "code": null,
                 "name": "Hauptstadtdistrikt"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "currency": "EUR",
@@ -2849,7 +2895,8 @@
                 "code": "6",
                 "name": "Cetinje Municipality"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "longitude": 5.291266,
@@ -2913,7 +2960,8 @@
                 "code": "GR",
                 "name": "Groningen"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "urlName": "new-zealand",
@@ -2973,7 +3021,8 @@
                 "code": null,
                 "name": "West Coast"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "NO",
@@ -3077,7 +3126,8 @@
                 "code": null,
                 "name": "Troms og Finnmark"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "latitude": 8.537981,
@@ -3097,7 +3147,8 @@
                 "code": null,
                 "name": "Panamá"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "isoCode": "PE",
@@ -3213,7 +3264,8 @@
                 "code": "TUM",
                 "name": "Tumbes"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "urlName": "philippines",
@@ -3237,7 +3289,8 @@
                 "code": null,
                 "name": "Zamboanga Peninsula"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "urlName": "poland",
@@ -3321,7 +3374,8 @@
                 "code": null,
                 "name": "Lesser Poland Voivodeship"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "nativeName": "Portugal",
@@ -3417,7 +3471,8 @@
                 "code": null,
                 "name": "Distrikt Évora"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "PR",
@@ -3449,7 +3504,8 @@
                 "code": null,
                 "name": "San Juan"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "latitude": 45.943161,
@@ -3605,7 +3661,8 @@
                 "code": "TR",
                 "name": "Teleorman"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "nativeName": "Rossiya",
@@ -3637,7 +3694,8 @@
                 "code": null,
                 "name": "Oblast Wolgograd"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "nativeName": "null",
@@ -3648,7 +3706,8 @@
         "isoCode": "BL",
         "longitude": -62.83333300000004,
         "zoom": 13,
-        "regions": []
+        "regions": [],
+        "isActive": false
     },
     {
         "urlName": "serbia",
@@ -3664,7 +3723,8 @@
                 "code": "VO",
                 "name": "Vojvodina"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "SK",
@@ -3708,7 +3768,8 @@
                 "code": "BL",
                 "name": "Bratislava Region"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "urlName": "slovenia",
@@ -3772,7 +3833,8 @@
                 "code": null,
                 "name": "Sežana"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "longitude": 22.937506,
@@ -3808,7 +3870,8 @@
                 "code": "GP",
                 "name": "Gauteng"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "urlName": "spain",
@@ -3896,7 +3959,8 @@
                 "code": null,
                 "name": "Land Valencia"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "nativeName": "null",
@@ -3912,7 +3976,8 @@
                 "code": null,
                 "name": "Collectivité de Saint-Martin"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "urlName": "suriname",
@@ -3928,7 +3993,8 @@
                 "code": null,
                 "name": "Para"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "longitude": 14.888922,
@@ -4024,7 +4090,8 @@
                 "code": "D",
                 "name": "Södermanland County"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "urlName": "switzerland",
@@ -4140,7 +4207,8 @@
                 "code": "VS",
                 "name": "Wallis"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "name": "Tanzania",
@@ -4156,7 +4224,8 @@
                 "code": null,
                 "name": "Ruvuma"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "longitude": 100.992541,
@@ -4212,7 +4281,8 @@
                 "code": null,
                 "name": "Bangkok"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "TR",
@@ -4260,7 +4330,8 @@
                 "code": "9",
                 "name": "Aydın Province"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "nativeName": "Ukraine",
@@ -4292,7 +4363,8 @@
                 "code": null,
                 "name": "Saporischschja"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "GB",
@@ -4320,7 +4392,8 @@
                 "code": null,
                 "name": "Northern Ireland"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "US",
@@ -4536,7 +4609,8 @@
                 "code": "DE",
                 "name": "Delaware"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "latitude": 0,
@@ -4546,7 +4620,8 @@
         "currency": "XXX",
         "name": "Unknown",
         "nativeName": "Unknown",
-        "regions": []
+        "regions": [],
+        "isActive": false
     },
     {
         "name": "Uruguay",
@@ -4626,7 +4701,8 @@
                 "code": "RO",
                 "name": "Departamento de Rocha"
             }
-        ]
+        ],
+        "isActive": false
     },
     {
         "urlName": "venezuela",
@@ -4637,7 +4713,8 @@
         "longitude": -65.63,
         "isoCode": "VE",
         "zoom": 7,
-        "regions": []
+        "regions": [],
+        "isActive": false
     },
     {
         "currency": "VND",
@@ -4693,7 +4770,8 @@
                 "code": null,
                 "name": "Thái Nguyên"
             }
-        ]
+        ],
+        "isActive": true
     },
     {
         "isoCode": "VI",
@@ -4713,6 +4791,7 @@
                 "code": null,
                 "name": "St. Croix"
             }
-        ]
+        ],
+        "isActive": false
     }
 ]
