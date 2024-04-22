@@ -47,11 +47,13 @@ export default function CountrySelect() {
 
     function getCountryListItems(countries) {
         const listItems = [];
+        const { dictionary } = useLanguageContext();        
     
         countries.map((country) => {
+            const countryName = dictionary(`countryName_${country.isoCode}`);
             listItems.push({
                 href: buildCountryUrl(country),
-                text: country.name,
+                text: countryName,
                 handleClick: handleClickLink,
             })
         })
