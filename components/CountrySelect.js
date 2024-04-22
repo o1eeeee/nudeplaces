@@ -46,8 +46,7 @@ export default function CountrySelect() {
     }
 
     function getCountryListItems(countries) {
-        const listItems = [];
-        const { dictionary } = useLanguageContext();        
+        const listItems = [];    
     
         countries.map((country) => {
             const countryName = dictionary(`countryName_${country.isoCode}`);
