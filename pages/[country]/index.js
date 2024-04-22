@@ -79,7 +79,7 @@ export default function Country({ country, locations }) {
     return (
         <>
             <Head>
-                <title>{getTitleString(country)}</title>
+                <title>{getTitleString(dictionary(`countryName_${country.isoCode}`))}</title>
                 <meta name="description" content={`Find nudist, naturist and clothing optional places, beaches, resorts and camps in ${country.name}.`} />
                 <meta name="og:description" content={`Find nudist, naturist and clothing optional places, beaches, resorts and camps in ${country.name}.`} key="og-description" />
             </Head>
@@ -153,10 +153,8 @@ export async function getStaticPaths() {
 }
 
 
-function getTitleString(country) {
-    const titleString = [];
-    const { dictionary } = useLanguageContext();
-    const countryName = dictionary(`countryName_${country.isoCode}`);
+function getTitleString(countryName) {
+    const titleString = [];    
     titleString.push(countryName);
     titleString.push(`Nudist, Naturist, Clothing Optional Places and Beaches in ${countryName}`);
     titleString.push("nudeplaces");
