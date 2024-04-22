@@ -9,8 +9,10 @@ import styles from '../../styles/Country.module.css';
 import { useLanguageContext } from '../../context/LanguageProvider';
 import { useHistoryContext } from '../../context/HistoryProvider';
 import LocationList from '../../components/LocationList';
+import { getDistanceBetweenLocationsInKm } from '../../lib/locations';
 
 const useCountry = (locations) => {
+    const isDev = process.env.NODE_ENV === 'development';
     const { map, setMap } = useMapContext();
     const { bounds } = map;
     const [filteredLocations, setFilteredLocations] = useState(locations);
@@ -84,10 +86,10 @@ export default function Country({ country, locations }) {
             <FilterBar locationTypeFilter={locationTypeFilter} setLocationTypeFilter={setLocationTypeFilter} />
             <Layout>
                 <h1>
-                    {country.name}
+                {dictionary(`countryName_${country.isoCode}`)}
                 </h1>
                 {filteredLocations.length > 0
-                    ? <p>{dictionary("countryShowingLocationsCount")} {filteredLocations.length} {filteredLocations.length > 1 ? <>{dictionary("countryNudePlaces")}</> : <>{dictionary("countryNudePlace")}</>} in {country.name}.</p>
+                    ? <p>{dictionary("countryShowingLocationsCount")} {filteredLocations.length} {filteredLocations.length > 1 ? <>{dictionary("countryNudePlaces")}</> : <>{dictionary("countryNudePlace")}</>} in {dictionary(`countryName_${country.isoCode}`)}.</p>
                     : <p>{dictionary("countryNoLocationsFound")}</p>
                 }
 
@@ -153,15 +155,61 @@ export async function getStaticPaths() {
 
 function getTitleString(country) {
     const titleString = [];
-    titleString.push(country.name);
-    titleString.push(`Nudist, Naturist, Clothing Optional Places and Beaches in ${country.name}`);
+    const { dictionary } = useLanguageContext();
+    const countryName = dictionary(`countryName_${country.isoCode}`);
+    titleString.push(countryName);
+    titleString.push(`Nudist, Naturist, Clothing Optional Places and Beaches in ${countryName}`);
     titleString.push("nudeplaces");
     return titleString.join(" – ")
 }
 
+function buildUnpublishedCountryLocationsMarkerPositions(locations) {
+    const markerPositions = [];
+    const unpublishedLocations = [];
+    const publishedLocations = [];
+
+    locations.map((location) => {
+        if (location.attributes.publishedAt == null) {
+            unpublishedLocations.push(location);
+        } else {
+            publishedLocations.push(location);
+        }
+    })
+
+    unpublishedLocations.map(unpublishedLocation => {
+        const locationsInRange = publishedLocations.filter(publishedLocation => {
+            return getDistanceBetweenLocationsInKm(unpublishedLocation, publishedLocation) < 1;
+        })
+        markerPositions.push({
+            id: unpublishedLocation.id,
+            latitude: unpublishedLocation.attributes.latitude,
+            longitude: unpublishedLocation.attributes.longitude,
+            title: unpublishedLocation.attributes.title,
+            text: unpublishedLocation.attributes.text,
+            seo_name: unpublishedLocation.attributes.seo_name,
+            is_published: false,
+        })
+        locationsInRange.map((location) => {
+            markerPositions.push({
+                id: location.id,
+                latitude: location.attributes.latitude,
+                longitude: location.attributes.longitude,
+                title: location.attributes.title,
+                text: location.attributes.text,
+                seo_name: location.attributes.seo_name,
+                is_published: location.attributes.publishedAt != null,
+            })
+        });
+    });    
+
+    markerPositions.sort((a, b) => a.id - b.id);
+
+    return markerPositions;
+}
+
 
 function buildCountryLocationsMarkerPositions(locations) {
-    const markerPositions = [];
+    const markerPositions = [];  
 
     locations.map((location) => {
         markerPositions.push({
@@ -171,6 +219,7 @@ function buildCountryLocationsMarkerPositions(locations) {
             title: location.attributes.title,
             text: location.attributes.text,
             seo_name: location.attributes.seo_name,
+            is_published: location.attributes.publishedAt != null,
         })
     })
 
@@ -219,6 +268,6 @@ function getLocationsInBounds(locations, bounds) {
 
 
 function getLocationsFilteredByType(locations, filters) {
-    const filteredLocations = (filters.length > 0) ? locations.filter(({attributes}) => filters.includes(attributes.type)) : locations;
+    const filteredLocations = (filters.length > 0) ? locations.filter(({ attributes }) => filters.includes(attributes.type)) : locations;
     return filteredLocations;
 }
