@@ -109,24 +109,26 @@ export async function getStaticPaths() {
     }
 
     const publishedLocations = locations.data.filter((location) => {
+        let country = getCountry(location.attributes.country);
+        let dateRegex = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z/;
         if (process.env.NODE_ENV === 'development') {
-            return true;
+            return country != null;
         } else {
-            return location.published_at != null;
+            return country != null && location.attributes.publishedAt.match(dateRegex);
         }
     });
 
     const paths = publishedLocations.map(({attributes}) => {
-        let country = getCountry(attributes.country)
-        if (country) {
-            return {
-                params: {
-                    country: country.urlName,
-                    location: attributes.seo_name,
-                }
+        let country = getCountry(attributes.country);
+        return {
+            params: {
+                country: country.urlName,
+                location: attributes.seo_name,
             }
         }
     })
+
+    console.log(paths);
 
     return {
         paths,
