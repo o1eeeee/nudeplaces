@@ -128,8 +128,6 @@ export async function getStaticPaths() {
         }
     })
 
-    console.log(paths);
-
     return {
         paths,
         // enable SSR for locations that haven't been generated
