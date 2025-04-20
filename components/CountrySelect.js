@@ -50,7 +50,7 @@ export default function CountrySelect() {
         const filteredCountries = countries.filter(country =>
             continent == "EU" ? country.continent == "EU" : country.continent != "EU"
         );
-    
+
         filteredCountries.map((country) => {
             const countryName = dictionary(`countryName_${country.isoCode}`);
             listItems.push({
@@ -59,11 +59,11 @@ export default function CountrySelect() {
                 handleClick: handleClickLink,
             })
         })
-    
+
         return listItems;
     }
-    
-    
+
+
     function buildCountryUrl(country) {
         return `/${encodeURIComponent(country.urlName)}`;
     }
@@ -77,12 +77,22 @@ export default function CountrySelect() {
                     <span className="icon-search"></span>
                 </div>
                 <div className={`${styles.countriesList} ${showCountriesList && styles.countriesListOpen}`}>
-                    <h2>{dictionary("continent_europe")}</h2>
-                    <LinkList listItems={getCountryListItems(filteredCountries, "EU")} />
-                    <h2>{dictionary("continent_other")}</h2>
-                    <LinkList listItems={getCountryListItems(filteredCountries)} />                    
+                    {getCountryListItems(filteredCountries, "EU").length > 0
+                        ?   <>
+                            <h2>{dictionary("continent_europe")}</h2>
+                            <LinkList listItems={getCountryListItems(filteredCountries, "EU")} />
+                            </>
+                        : <></>
+                    }
+                    {getCountryListItems(filteredCountries).length > 0
+                        ?   <>
+                            <h2>{dictionary("continent_other")}</h2>
+                            <LinkList listItems={getCountryListItems(filteredCountries)} />
+                            </>
+                        : <></>
+                    }
                 </div>
-                
+
             </div>
         </div>
 
