@@ -45,10 +45,13 @@ export default function CountrySelect() {
         setShowCountriesList(true);
     }
 
-    function getCountryListItems(countries) {
-        const listItems = [];    
+    function getCountryListItems(countries, continent) {
+        const listItems = [];
+        const filteredCountries = countries.filter(country =>
+            continent == "EU" ? country.continent == "EU" : country.continent != "EU"
+        );
     
-        countries.map((country) => {
+        filteredCountries.map((country) => {
             const countryName = dictionary(`countryName_${country.isoCode}`);
             listItems.push({
                 href: buildCountryUrl(country),
@@ -74,8 +77,12 @@ export default function CountrySelect() {
                     <span className="icon-search"></span>
                 </div>
                 <div className={`${styles.countriesList} ${showCountriesList && styles.countriesListOpen}`}>
-                    <LinkList listItems={getCountryListItems(filteredCountries)} />
+                    <h2>{dictionary("continent_europe")}</h2>
+                    <LinkList listItems={getCountryListItems(filteredCountries, "EU")} />
+                    <h2>{dictionary("continent_other")}</h2>
+                    <LinkList listItems={getCountryListItems(filteredCountries)} />                    
                 </div>
+                
             </div>
         </div>
 

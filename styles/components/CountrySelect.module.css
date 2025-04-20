@@ -76,6 +76,14 @@
     }
 }
 
+.countriesList h2 {
+    padding: 0 1rem;
+}
+
+.countriesList h2:first-of-type {
+    margin-top: 0;
+}
+
 .countriesList ul {
     display: flex;
     flex-wrap: wrap;
@@ -133,4 +141,5 @@
 
 .countriesListOpen {
     display: flex;
+    flex-direction: column;
 }

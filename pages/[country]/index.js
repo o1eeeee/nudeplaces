@@ -41,6 +41,7 @@ export default function Country({ country, locations }) {
     const { dictionary } = useLanguageContext();
     const { filteredLocations, locationTypeFilter, setLocationTypeFilter } = useCountry(locations);
     let { regions, locationsByRegion } = getLocationsByRegion(filteredLocations, country);
+    const hasRegions = getRegionsForCountry(country).length > 0;
     const { map, setMap } = useMapContext();
     const { previousMapPosition, previousZoom } = map;
 
@@ -93,6 +94,8 @@ export default function Country({ country, locations }) {
                     : <p>{dictionary("countryNoLocationsFound")}</p>
                 }
 
+                {hasRegions
+                ? 
                 <ul className={styles.regionsList}>
                     {regions.map((region) => (
                         <li key={region}>
@@ -101,6 +104,8 @@ export default function Country({ country, locations }) {
                         </li>
                     ))}
                 </ul>
+                : <LocationList locations={filteredLocations} country={country} />
+                }
             </Layout>
         </>
     )
