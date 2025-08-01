@@ -29,7 +29,7 @@ export default function LinkList({ listItems }) {
                             <span>{item.text ?? item.href}</span>
                         </a>
                     ) : (
-                        <Link href={item.href}>
+                        <Link href={item.href} prefetch={false}>
                             <span onClick={() => item.handleClick && item.handleClick(false)}>
                                 {item.icon && <span className={`icon-${item.icon}`}></span>}
                                 <span>{item.text ?? item.href}</span>

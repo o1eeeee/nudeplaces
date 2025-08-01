@@ -11,7 +11,7 @@ export default function LocationList({ country, locations }) {
                 locationInfo = buildLocationInfo(location);
                 return (
                     <li key={locationObj.id}>
-                        <Link href={`/${country.urlName}/${location.seo_name}`}>
+                        <Link href={`/${country.urlName}/${location.seo_name}`} prefetch={false}>
                                 <span className={`icon-${location.type}`}></span>
                                 <div>
                                     <span className={styles.locationListTitle}>{location.title}</span>
