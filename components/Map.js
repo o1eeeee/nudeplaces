@@ -2,8 +2,6 @@
 import { useEffect, useState } from 'react';
 import { MapContainer, Marker, Popup, TileLayer, useMap, useMapEvent, ZoomControl } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
-import 'leaflet-defaulticon-compatibility';
 import Link from 'next/link';
 import { config } from '../lib/config';
 import DraggableMarker from '../components/DraggableMarker';

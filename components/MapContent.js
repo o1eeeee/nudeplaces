@@ -7,8 +7,8 @@ import DraggableMarker from '../components/DraggableMarker';
 import AddLocationButton from '../components/AddLocationButton';
 import Link from 'next/link';
 import { useHistoryContext } from '../context/HistoryProvider';
-import MarkerClusterGroup from '@changey/react-leaflet-markercluster';
-import '@changey/react-leaflet-markercluster/src/styles.scss';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
+import 'react-leaflet-markercluster/styles';
 import { useEffect } from 'react';
 
 
