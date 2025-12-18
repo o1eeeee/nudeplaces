@@ -26,7 +26,8 @@ export default function Location({ location, country }) {
             markerPositions: [{
                 id: location.id,
                 latitude: location.attributes.latitude,
-                longitude: location.attributes.longitude
+                longitude: location.attributes.longitude,
+                is_published: location.attributes.publishedAt != null,
             }],
             zoom: config.MAP_DEFAULT_ZOOM_LOCATION,
         })
