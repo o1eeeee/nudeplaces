@@ -1,4 +1,7 @@
 import { Marker, Popup, TileLayer, useMap, useMapEvent, ZoomControl } from 'react-leaflet'
+import { Icon } from 'leaflet';
+import { divIcon } from "leaflet";
+import { renderToStaticMarkup } from "react-dom/server";
 import { useMapContext } from '../context/MapProvider';
 import styles from '../styles/components/Map.module.css';
 import { useLanguageContext } from '../context/LanguageProvider';
@@ -10,15 +13,43 @@ import { useHistoryContext } from '../context/HistoryProvider';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import 'react-leaflet-markercluster/styles';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
+const UnpublishedLocationIcon = Icon.extend({
+    options: {
+        iconUrl: "/icons/icon-location-unpublished.png",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [0, -38],
+        shadowUrl: "/icons/icon-location-shadow.png",
+        shadowSize: [41, 41],
+        shadowAnchor: [12, 41],
+    }
+});
+
+const PublishedLocationIcon = Icon.extend({
+    options: {
+        iconUrl: "/icons/icon-location-published.png",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [0, -38],
+        shadowUrl: "/icons/icon-location-shadow.png",
+        shadowSize: [41, 41],
+        shadowAnchor: [12, 41],
+    }
+});
 
 const StaticMarker = ({ country, markerPosition }) => {
+    const router = useRouter();
     return (
-        <Marker position={[markerPosition.latitude, markerPosition.longitude]}>
+        <Marker
+            position={[markerPosition.latitude, markerPosition.longitude]}
+            icon={markerPosition.is_published ? new PublishedLocationIcon() : new UnpublishedLocationIcon()}
+            //eventHandlers={{ click: (e) => router.push(`/${country}/${markerPosition.seo_name}`) }}
+        >
             {markerPosition.title && (
                 <MarkerPopup country={country} {...markerPosition} />
-            )
-            }
+            )}
         </Marker>
     );
 };

@@ -164,3 +164,8 @@ _::-webkit-full-page-media, _:future, :root .safari_only {
 .swiper-slide {
   width: auto!important;
 }
+
+.leaflet-div-icon {
+  background: transparent!important;
+  border: none!important;
+}
