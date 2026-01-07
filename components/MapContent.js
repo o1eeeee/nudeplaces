@@ -13,6 +13,7 @@ import { useHistoryContext } from '../context/HistoryProvider';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import 'react-leaflet-markercluster/styles';
 import { useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';
 
 const UnpublishedLocationIcon = Icon.extend({
@@ -40,7 +41,7 @@ const PublishedLocationIcon = Icon.extend({
 });
 
 const StaticMarker = ({ country, markerPosition }) => {
-    const router = useRouter();
+    //const router = useRouter();
     return (
         <Marker
             position={[markerPosition.latitude, markerPosition.longitude]}
@@ -119,7 +120,7 @@ export default function MapContent({ country, showAddLocationButton }) {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <ZoomControl position="bottomright" />
-            <MarkerClusterGroup maxClusterRadius={60} showCoverageOnHover={false}>
+            <MarkerClusterGroup key={uuidv4()} maxClusterRadius={60} showCoverageOnHover={false}>
                 {markerPositions.map((markerPosition, index) => {
                     if (markerPosition.isDraggable === true) {
                         return (
